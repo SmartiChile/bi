@@ -1,0 +1,145 @@
+<?php
+/* @var $this yii\web\View */
+use yii\helpers\Html;
+use yii\web\View;
+use kartik\widgets\ActiveForm;
+$this->title = 'Barrio Italia';
+$this->registerCssFile(Yii::$app->request->baseUrl.'/css/shadowbox.css');
+$this->registerCssFile(Yii::$app->request->baseUrl.'/css/barrioitalia_fix.css');
+$this->registerCssFile(Yii::$app->request->baseUrl.'/css/jqcloud.css');
+$this->registerJs('
+Shadowbox.init({}, function() {
+
+});
+');
+
+$this->registerJs(
+    '
+    $.getJSON("'.Yii::$app->request->baseUrl.'/site/tag", function(data) {
+            var word_array = [
+                  
+              ];
+            $.each(data, function(i, val) {
+                word_array.push({text: val.palabra, weight: val.frecuencia, link: "'.Yii::$app->getUrlManager()->createUrl(['site/tiendas', 'b' => '']).'"+val.palabra});
+            });
+            $("#tagCloud").jQCloud(word_array, {
+              height: 350,
+            });
+    });
+'
+);
+?>
+
+<style type="text/css">
+    <?php
+        foreach ($circuitos as $circuito) {
+            echo ".c_".$circuito->pk.":before{ content:url(".Yii::$app->request->baseUrl."/images/circuitos/".$circuito->icono."); margin: 4.5% 0 0 0; }";
+        } 
+    ?>
+
+</style>
+
+<div class="site-index">
+
+    <h3>CIRCUITOS</h3>
+
+    
+    <div class="contenedor-botones">
+        <?php
+                foreach ($circuitos as $circuito) {
+                $ruta = Yii::$app->request->baseUrl."/site/circuito?c=".$circuito->pk;
+                ?>
+                <button type="button" onclick="window.location.href='<?php echo $ruta ?>'" style="background-color:<?php echo $circuito->color; ?>" class="btn-circuito btn-circuito-5 btn-circuito-5b c_<?php echo $circuito->pk; ?>"><span><?php echo $circuito->nombre;; ?></span></button>
+                <?php
+             } 
+        ?>
+    </div>
+
+    <div class="puntos-separadores"></div>
+
+   <h3>BUSCADOR</h3>
+
+   <div class="contenedor-buscador">
+      <div class="buscador-home">
+        <div class="buscador">
+                <?php 
+                    $form = ActiveForm::begin([
+                        'id' => 'login-form-inline', 
+                        'type' => ActiveForm::TYPE_INLINE,
+                        'method' => 'get',
+                        'action' => Yii::$app->getUrlManager()->createUrl(['site/tiendas']),
+                    ]); 
+                ?>
+                    <?= Html::textInput('b','', ['class'=>'form-control', 'placeholder'=>'Palabra Clave']) ?>
+                    <?= Html::submitButton('Buscar', ['class' => '']) ?>
+                <?php ActiveForm::end(); ?>
+            </div>
+        <div id="tagCloud">
+      </div>      
+        </div>
+
+        <div class="proximos-eventos-home">
+            <div class="titulo-proximos-eventos-home">
+                <h2>Proximos Eventos</h2>
+            </div>
+            <div class="eventos-home">
+                <?php
+                  if($eventos == null){
+                    echo '<p>Lo sentimos, no se han publicado eventos aún.</p>';
+                  }
+                ?>
+                <?php foreach ($eventos as $evento): ?>
+                  <div class="cada-evento-home">
+                    <div class="nombre-evento-home">
+                        <h3><?php echo $evento->titulo; ?> <?php echo Yii::$app->formatter->asDatetime($evento->inicio, "php:d-m-Y H:i:s") ; ?></h3>
+                    </div>
+                    <div class="boton-evento-home">
+                      <?php echo Html::a('<p>Ver el Calendario Completo</p>', ['site/eventos']); ?>
+                    </div>
+                </div>
+                <?php endforeach; ?>
+            </div>
+        </div>
+
+   </div>
+
+   <div class="puntos-separadores"></div>
+
+   <h3>MAPA</h3>
+
+   <div class="bg-mapa">
+        <?php echo Html::img(Yii::$app->request->baseUrl.'/images/mapa-acc.svg', $options = ['width'=>'100%']); ?>
+   </div>
+
+   <div class="puntos-separadores"></div>
+
+   <h3>NOTICIAS DESTACADAS</h3>
+
+   <div class="contenedor-noticias-home">
+
+        <?php
+          if($noticias == null){
+            echo 'Lo sentimos, no se han registrado noticias aún.';
+          }
+        ?>
+
+        <?php foreach($noticias as $noticia): ?>
+          <div class="noticia-home">
+            <?php echo Html::img(Yii::$app->request->baseUrl.'/images/noticias/'.$noticia->imagen, $options = ['width'=>'100%']); ?>
+            <div class="mascara">  
+            <h2><?php echo $noticia->titulo; ?></h2>
+            <?php 
+                $descripcion = Yii::$app->funciones->quitarTags($noticia->descripcion);
+            ?>  
+            <p><?php echo substr($descripcion, 0, 120)."..."; ?></p>
+            <?php echo Html::a('Leer más', ['/site/noticia?n='.$noticia->pk] ,$options = ['class'=>'informacion']); ?>
+          </div> 
+          </div>
+        <?php endforeach; ?>
+   </div>
+</div>
+
+
+
+
+       

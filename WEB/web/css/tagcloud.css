@@ -1,0 +1,23 @@
+#tagCloud { 
+  text-align: justify;
+  font-size: 18px;
+  font-family:arial;
+}
+
+#tagList { 
+	margin:0; 
+	padding:0; 
+}
+#tagList li {
+  list-style-type:none; 
+  float:left; 
+  margin: 15px; 
+  height:35px;
+}
+#tagList li a { 
+	text-decoration:none;
+	color:#ffffff; 
+}
+#tagList li a:hover { 
+	text-decoration:underline; 
+}

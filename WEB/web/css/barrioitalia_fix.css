@@ -1,0 +1,24 @@
+.img_banner{
+	display: inherit!important;
+}
+
+#videoInicio{
+	display: inherit!important;
+}
+
+
+.img_banner2{
+	display: none!important;
+}
+
+#play-top{
+	display: inherit!important;
+}
+
+#frase-top{
+	display: inherit!important;
+}
+
+#videoInicio{
+	display: inherit;
+}
