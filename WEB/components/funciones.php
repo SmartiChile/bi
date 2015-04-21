@@ -161,7 +161,8 @@ class funciones extends Component
                     [
                         'url' => ['site/cambiarpass'],
                         'label' => 'Cambiar contraseña',
-                        'icon' => 'lock'
+                        'icon' => 'lock',
+                        'visible' => $_SESSION['face'] == 0 ? true : false,
                     ],
                 ],
             ]);

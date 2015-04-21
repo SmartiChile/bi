@@ -99,6 +99,7 @@ class SiteController extends Controller
             if(isset($user)){
                 if(Yii::$app->security->validatePassword($model->password, $user->password)){
                     Yii::$app->user->login($user,0);
+                    $_SESSION["face"] = 0;
                     return $this->goBack();
                 }else{
                     return $this->render('login', [
@@ -424,7 +425,29 @@ class SiteController extends Controller
     }
 
     public function actionCambiarpass(){
-        return $this->render('cambiarpass');
+        $model = Usuario::findOne(Yii::$app->user->identity->pk);
+        $antigua = $model->password;
+
+        if ($model->load(Yii::$app->request->post())) {
+            
+            if($model->password == $antigua){
+                if($_POST['password1'] == $_POST['password2']){
+
+                    $model->password = $_POST['password1'];
+
+                    if($model->save()){
+                        Yii::$app->getSession()->setFlash('correcto', 'Se ha realizado el cambio de contraseña correctamente.');
+                    }
+
+                }else{
+                    Yii::$app->getSession()->setFlash('error', 'Las contraseñas no son iguales.');
+                }
+            }else{
+                Yii::$app->getSession()->setFlash('error', 'Contraseña actual erronea.');
+            }
+        }
+        
+        return $this->render('cambiarpass', ['model' => $model,]);
     }
 
     public function actionRecuperar()
@@ -515,6 +538,7 @@ class SiteController extends Controller
     {
         $attributes = $client->getUserAttributes();
         //$_SESSION['facebook'] = $attributes;
+        $_SESSION["face"] = 1;
         $user = User::findByUsername($attributes['email']);
         if(isset($user)){
             Yii::$app->user->login($user,0);
