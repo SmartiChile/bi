@@ -1987,6 +1987,20 @@ a .boton-comenzar-ruta2:hover{
 	color: #333;
 }
 
+.contenedor-cambio-pass{
+	width: 50%;
+	display: block;
+	overflow: auto;
+}
+
+.contenedor-cambio-pass .btn{
+	margin: 20px 0 0 15px;
+}
+
+.contenedor-cambio-pass .form-group{
+	overflow: auto;
+}
+
 .formulario-contacto{
 	width: 60%;
 	margin-right: auto;
