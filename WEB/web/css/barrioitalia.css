@@ -1810,7 +1810,7 @@ a:hover .tag-tienda{
 	margin: 2% 3% 0 0;
 }
 
-.alert{
+.alerta{
 	display: none;
 }
 
@@ -1971,4 +1971,82 @@ a .boton-comenzar-ruta2:hover{
 
 .contenedor-cambio-pass .form-group{
 	overflow: auto;
+}
+
+.formulario-contacto{
+	width: 60%;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+.formulario-contacto .form-control:focus{
+	box-shadow: 0 0 10px #dedede;
+    -webkit-box-shadow: 0 0 10px #dedede;
+    -moz-box-shadow: 0 0 10px #dedede;
+    border:1px solid #dedede;
+}
+
+.formulario-contacto .col-sm-12{
+	padding: 0 !important;
+}
+
+.formulario-contacto .col-sm-12 input{
+	width: 100% !important;
+}
+
+.cada-input-contacto{
+	width: 32%;
+	float: left;
+	margin: 0 2% 1% 0;
+}
+
+.formulario-contacto .has-error .help-block{
+	margin: 0 !important;
+	color: #333;
+}
+
+.formulario-contacto .help-block{
+	display: none !important;
+}
+
+.formulario-contacto .has-error .form-control {
+	border-color: #ff4141 !important;
+}
+
+.formulario-contacto .has-success .form-control{
+	border-color: #52b54b !important;
+}
+
+.input-contacto{
+	border-radius: 0 !important;
+}
+
+#input-contacto2{
+	margin: 0 !important;
+}
+
+.textarea-contacto{
+	margin: 0 0 0 0 !important;
+	height: 250px !important;
+	border-radius: 0 !important;
+}
+
+.boton-enviar-contacto{
+	width: 10% !important;
+	padding: 1% 2% !important;
+	border: 0 !important;
+	background-color: #333 !important;
+	float: right !important;
+	margin: 1% 0 0 0;
+	color: #fff;
+}
+
+.boton-enviar-contacto:hover{
+	background-color: #5a5a5a !important;
+}
+
+.mensaje-exito-contacto{
+	width: 60%;
+	margin-left: auto;
+	margin-right: auto;
 }
