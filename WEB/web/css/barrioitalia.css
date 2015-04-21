@@ -504,7 +504,7 @@
 }
 
 .contenido-izquierda-footer-uno{
-	width: 65%;
+	width: 55%;
 	padding: 7% 0 0 0;
 	float: left;
 	margin: 0 0 2% 0;
@@ -546,9 +546,37 @@
 }
 
 .contenido-derecha-footer-uno{
-	width: 35%;
-	padding: 5%;
+	width: 45%;
 	float: left;
+	display: inline-block;
+}
+
+.tabla-footer{
+	width: 100%;
+	margin: 5% 0 0 0;
+	float: left;
+}
+
+.tabla-footer table{
+	float: left;
+	margin: 0 3% 0 0;
+}
+
+
+.tabla-footer table tr td h5{
+	font-weight: bold;
+	font-size: 16px;
+	margin: 0 0 15px 0 !important;
+}
+
+.tabla-footer table tr td a p{
+	color: #333;
+	margin: 0 0 5px 0 !important;
+	font-size: 12px;
+}
+
+.tabla-footer table tr td a p:hover{
+	color: #000;
 }
 
 .footer-dos{
