@@ -30,7 +30,7 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 	          	<?php endif; ?>
 
 	          	<?php if (Yii::$app->session->hasFlash('correcto')): ?>
-		            <div class="alert alert-sucess ">
+		            <div class="alert alert-success">
 						<?php echo Yii::$app->session->getFlash('correcto') ?>
 					</div>
 	          	<?php endif; ?>

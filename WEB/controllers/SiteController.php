@@ -453,7 +453,7 @@ class SiteController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
             
-            if($model->password == $antigua){
+            if(Yii::$app->security->validatePassword($model->password, $antigua)){
                 if($_POST['password1'] == $_POST['password2']){
 
                     $model->password = $_POST['password1'];
@@ -461,7 +461,6 @@ class SiteController extends Controller
                     if($model->save()){
                         Yii::$app->getSession()->setFlash('correcto', 'Se ha realizado el cambio de contraseña correctamente.');
                     }
-
                 }else{
                     Yii::$app->getSession()->setFlash('error', 'Las contraseñas no son iguales.');
                 }
