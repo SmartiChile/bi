@@ -249,6 +249,29 @@ class funciones extends Component
 
     }
 
+    public function getRealIP()
+    {
+        if (isset($_SERVER["HTTP_CLIENT_IP"])){
+            return $_SERVER["HTTP_CLIENT_IP"];
+        }
+        elseif (isset($_SERVER["HTTP_X_FORWARDED_FOR"])){
+            return $_SERVER["HTTP_X_FORWARDED_FOR"];
+        }
+        elseif (isset($_SERVER["HTTP_X_FORWARDED"])){
+            return $_SERVER["HTTP_X_FORWARDED"];
+        }
+        elseif (isset($_SERVER["HTTP_FORWARDED_FOR"])){
+            return $_SERVER["HTTP_FORWARDED_FOR"];
+        }
+        elseif (isset($_SERVER["HTTP_FORWARDED"])){
+            return $_SERVER["HTTP_FORWARDED"];
+        }
+        else{
+            return $_SERVER["REMOTE_ADDR"];
+        }
+    }
+   
+
     public function servicioTienda($servicio, $tienda){
         $model = Tiendaxservicio::find()->where(['servicio_fk' => $servicio, 'tienda_fk' => $tienda])->one();
         if(isset($model)){

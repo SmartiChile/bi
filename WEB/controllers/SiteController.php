@@ -11,6 +11,7 @@ use app\models\ContactForm;
 use app\models\User;
 use app\models\Usuario;
 use app\models\Circuito;
+use app\models\Contacto;
 use app\models\Evento;
 use app\models\Tag;
 use app\models\Arriendo;
@@ -384,8 +385,30 @@ class SiteController extends Controller
 
     public function actionContacto()
     {
-        return $this->render('contacto');
+        $model = new Contacto;
+        if ($model->load(Yii::$app->request->post())) {
+            $model->ip = Yii::$app->funciones->getRealIP();
+            $model->tipo = "0";
+            if($model->save()){
+                $mensaje = 'Se ha enviado un mensaje desde la sección Contacto con la siguiente información <br /><br /> Nombre: '.$model->nombre.' <br /> Email: '.$model->email.' <br /> Teléfono: '.$model->telefono.' <br /><br /> Mensaje:'.$model->mensaje.'';
+
+                Yii::$app->mailer->compose()
+                    ->setFrom('noreply@barrioitalia.cl')
+                    ->setTo('dreck01@gmail.com')
+                    ->setSubject('Mensaje desde Contacto Barrio Italia')
+                    ->setHtmlBody($mensaje)
+                    ->send();
+
+                $model->nombre = NULL;
+                $model->telefono = NULL;
+                $model->email = NULL;
+                $model->mensaje = NULL;
+                Yii::$app->getSession()->setFlash('mensaje', 'Muchas gracias! Nuestros administradores se pondrán en contacto contigo a la brevedad.');
+            }
+        }
+        return $this->render('contacto', ['model' => $model]);
     }
+
 
     public function actionMipanel(){
 

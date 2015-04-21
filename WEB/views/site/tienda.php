@@ -186,7 +186,7 @@ $this->title = 'Tienda - '.$model->nombre;
                     </div>
 				</div>
 
-				<div class="alert alert-success alert-dismissible fade in" role="alert" id="alert">
+				<div class="alert alert-success alert-dismissible fade in alerta" role="alert" id="alert">
 			      <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
 			      <strong>Excelente!</strong> Tienda agregada a tú ruta. Para revisar tu ruta da clic <?php echo Html::a("aquí", ['site/mipanel'], ['class'=>'alert-link']);?>
 			    </div>
