@@ -97,31 +97,23 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 <?php if($tiendas != null): ?>
 <script  type="text/javascript">
     function initialize() {
-        map = new google.maps.Map(document.getElementById('mapa-rutas'), mapOptions);
-        directionsService = new google.maps.DirectionsService();
-        var ruta = [
+    	var ruta = [
 		  <?php foreach($tiendas as $tienda): ?>
 		 		new google.maps.LatLng(<?= Yii::$app->funciones->coordenadasOK($tienda->tiendaFk->localFk->coordenadas) ?>), 
 		  <?php endforeach; ?>
 		];
-
-        var location1 = new google.maps.LatLng(-33.445351, -70.621175);
-        var location2 = new google.maps.LatLng(-33.443990, -70.625746);
-        var location3 = new google.maps.LatLng(-33.447804, -70.624630);
-        var location4 = new google.maps.LatLng(-33.447526, -70.619877);
-
-        //var centro = new google.maps.LatLng(-33.445351, -70.621175);
-
-        var mapOptions = {
-          zoom:7,
-          center: location1,
+    	var mapOptions = {
+          center: ruta[0],
+          zoom: 16,
         };
-
+        map = new google.maps.Map(document.getElementById('mapa-rutas'), mapOptions);
+        directionsService = new google.maps.DirectionsService();
+        
         <?php 
         	$c = count($tiendas) - 1;
         	foreach($tiendas as $t=>$tienda):
         ?>
-        directionsDisplay<?= $t ?> = new google.maps.DirectionsRenderer();
+        directionsDisplay<?= $t ?> = new google.maps.DirectionsRenderer({preserveViewport: true});
         calcularRuta(directionsDisplay<?= $t ?>, ruta[<?= ($t) ?>], ruta[<?= $c == 0 ? $t : $t+1 ?>]);
         <?php endforeach; ?>
     }
@@ -131,7 +123,8 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
           var request = {
             origin: start, 
             destination: end,
-            travelMode: google.maps.DirectionsTravelMode.WALKING
+            optimizeWaypoints: true,
+            travelMode: google.maps.DirectionsTravelMode.WALKING,
           };
           directionsService.route(request, function(response, status) {
             if (status == google.maps.DirectionsStatus.OK) {
