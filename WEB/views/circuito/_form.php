@@ -44,6 +44,7 @@ $this->registerCssFile(Yii::$app->request->baseUrl.'/css/panel.css');
                     'lang' => 'es',
                     'plugins' => ['clips', 'fontcolor'],
                     'minHeight' => 280,
+                    'placeholder' => 'Ingrese una descripción para el circuito'
 
                 ]
             ])

@@ -34,19 +34,20 @@ $this->registerCssFile(Yii::$app->request->baseUrl.'/css/panel.css');
 
         <?= $form->field($model, 'idioma_fk')->dropDownList(ArrayHelper::map(app\models\Idioma::find()->all(), 'pk', 'nombre'), ['class'=>'w40', 'prompt'=>'Seleccione Idioma ...']) ?>
 
-        <?= $form->field($model, 'titulo', ['addon' => ['prepend' => ['content'=>'<i class="glyphicon glyphicon-pencil"></i>']]])->textInput(['maxlength' => 255, 'class'=>'w50']) ?>
+        <?= $form->field($model, 'titulo', ['addon' => ['prepend' => ['content'=>'<i class="glyphicon glyphicon-pencil"></i>']]])->textInput(['maxlength' => 255, 'class'=>'w50', 'placeholder' => 'Ingrese un título para la noticia']) ?>
 
         <?= $form->field($model, 'descripcion')->widget(\yii\redactor\widgets\Redactor::className(), [
                 'clientOptions' => [
                     'lang' => 'es',
                     'plugins' => ['clips', 'fontcolor'],
                     'minHeight' => 280,
+                    'placeholder' => 'Ingrese una descripción para la noticia'
 
                 ]
             ])
         ?>
 
-        <?= $form->field($model, 'referencia', ['addon' => ['prepend' => ['content'=>'<i class="glyphicon glyphicon-share-alt"></i>']]])->textInput(['maxlength' => 255, 'class'=>'w50']) ?>
+        <?= $form->field($model, 'referencia', ['addon' => ['prepend' => ['content'=>'<i class="glyphicon glyphicon-share-alt"></i>']]])->textInput(['maxlength' => 255, 'class'=>'w50', 'placeholder' => 'Ej: www.google.cl']) ?>
 
         <?= $form->field($model, 'destacada')->widget(SwitchInput::classname(), ['pluginOptions' => ['onText' => 'Sí','offText' => 'No',]]); ?>
 

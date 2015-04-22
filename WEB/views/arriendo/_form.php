@@ -33,25 +33,26 @@ $this->registerCssFile(Yii::$app->request->baseUrl.'/css/panel.css');
 
         <?= $form->field($model, 'idioma_fk')->dropDownList(ArrayHelper::map(app\models\Idioma::find()->all(), 'pk', 'nombre'), ['class'=>'w40', 'prompt'=>'Seleccione Idioma ...']) ?>
 
-        <?= $form->field($model, 'titulo', ['addon' => ['prepend' => ['content'=>'<i class="glyphicon glyphicon-pencil"></i>']]])->textInput(['maxlength' => 255, 'class'=>'w60']) ?>
+        <?= $form->field($model, 'titulo', ['addon' => ['prepend' => ['content'=>'<i class="glyphicon glyphicon-pencil"></i>']]])->textInput(['maxlength' => 255, 'class'=>'w60', 'placeholder' => 'Ingrese un título para el arriendo']) ?>
 
         <?= $form->field($model, 'descripcion')->widget(\yii\redactor\widgets\Redactor::className(), [
                 'clientOptions' => [
                     'lang' => 'es',
                     'plugins' => ['clips', 'fontcolor'],
                     'minHeight' => 280,
+                    'placeholder' => 'Ingrese una descripción para el arriendo',
 
                 ]
             ])
         ?>
 
-        <?= $form->field($model, 'direccion', ['addon' => ['prepend' => ['content'=>'<i class="glyphicon glyphicon-home"></i>']]])->textInput(['maxlength' => 255, 'class'=>'w50']) ?>
+        <?= $form->field($model, 'direccion', ['addon' => ['prepend' => ['content'=>'<i class="glyphicon glyphicon-home"></i>']]])->textInput(['maxlength' => 255, 'class'=>'w50', 'placeholder' => 'Dirección del arriendo']) ?>
 
-        <?= $form->field($model, 'telefono', ['addon' => ['prepend' => ['content'=>'<i class="glyphicon glyphicon-phone"></i>']]])->textInput(['maxlength' => 255, 'class'=>'w50']) ?>
+        <?= $form->field($model, 'telefono', ['addon' => ['prepend' => ['content'=>'<i class="glyphicon glyphicon-phone"></i>']]])->textInput(['maxlength' => 255, 'class'=>'w50', 'placeholder' => 'Teléfono de contacto']) ?>
 
-        <?= $form->field($model, 'email', ['addon' => ['prepend' => ['content'=>'<i class="glyphicon glyphicon-envelope"></i>']]])->textInput(['maxlength' => 255, 'class'=>'w50']) ?>
+        <?= $form->field($model, 'email', ['addon' => ['prepend' => ['content'=>'<i class="glyphicon glyphicon-envelope"></i>']]])->textInput(['maxlength' => 255, 'class'=>'w50', 'placeholder' => 'Email de contacto']) ?>
 
-        <?= $form->field($model, 'nombre_contacto', ['addon' => ['prepend' => ['content'=>'<i class="glyphicon glyphicon-comment"></i>']]])->textInput(['maxlength' => 255, 'class'=>'w50']) ?>
+        <?= $form->field($model, 'nombre_contacto', ['addon' => ['prepend' => ['content'=>'<i class="glyphicon glyphicon-comment"></i>']]])->textInput(['maxlength' => 255, 'class'=>'w50', 'placeholder' => 'Nombre de contacto']) ?>
 
         <div>
             <?= $form->field($model, 'imagen1')->widget(FileInput::classname(), ['options' => ['multiple' => false, 'accept' => 'image/*', 'required'=>$model->isNewRecord ? true : false],'pluginOptions' => ['previewFileType' => 'image', 'showUpload' => false, 'browseLabel' => 'Archivo', 'removeLabel' => '', 'mainClass' => 'input-group-md', 'initialPreview' => (!$model->isNewRecord && $model->imagen1 != null) ? [Html::img(Yii::$app->request->baseUrl.'/images/arriendos/'.$model->imagen1, ['class'=>'file-preview-image'])] : false]]); ?>

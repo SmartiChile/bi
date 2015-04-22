@@ -28,11 +28,11 @@ $rol = Yii::$app->funciones->DecToRol($model->rol);
             ]); 
         ?>
 
-        <?= $form->field($model, 'nombre', ['addon' => ['prepend' => ['content'=>'<i class="glyphicon glyphicon-pencil"></i>']]])->textInput(['maxlength' => 255, 'class'=>'w70']) ?>
+        <?= $form->field($model, 'nombre', ['addon' => ['prepend' => ['content'=>'<i class="glyphicon glyphicon-pencil"></i>']]])->textInput(['maxlength' => 255, 'class'=>'w70', 'placeholder' => 'Ingrese su nombre']) ?>
 
-        <?= $form->field($model, 'username', ['addon' => ['prepend' => ['content'=>'<i class="glyphicon glyphicon-user"></i>']]])->textInput(['maxlength' => 255, 'readonly'=>$model->isNewRecord ? false : true, 'class'=>'w50']) ?>
+        <?= $form->field($model, 'username', ['addon' => ['prepend' => ['content'=>'<i class="glyphicon glyphicon-user"></i>']]])->textInput(['maxlength' => 255, 'readonly'=>$model->isNewRecord ? false : true, 'class'=>'w50', 'placeholder' => 'Ingrese un nombre de usuario']) ?>
 
-        <?= $form->field($model, 'password', ['addon' => ['prepend' => ['content'=>'<i class="glyphicon glyphicon-ruble"></i>']]])->passwordInput(['maxlength' => 255, 'class'=>'w40', 'required'=>$model->isNewRecord ? true : false]) ?>
+        <?= $form->field($model, 'password', ['addon' => ['prepend' => ['content'=>'<i class="glyphicon glyphicon-ruble"></i>']]])->passwordInput(['maxlength' => 255, 'class'=>'w40', 'required'=>$model->isNewRecord ? true : false, 'placeholder' => 'Ingrese una contraseña']) ?>
 
         <div class="form-group field-usuario-roles required">
             <label class="col-sm-3 control-label" for="usuario-nombre">Roles</label>
@@ -51,7 +51,7 @@ $rol = Yii::$app->funciones->DecToRol($model->rol);
                     'options'=>['id'=>'usuario'],
                     'pluginOptions'=>['threeState'=>false, 'size'=>'sm'],
                 ]);?>   
-                <label for="s_2">Usuario</label>
+                <label for="s_2">Usuario (Crear rutas, agregar tiendas a rutas, etc)</label>
             </div>
         </div>        
         

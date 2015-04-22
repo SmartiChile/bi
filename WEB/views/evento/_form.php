@@ -34,13 +34,14 @@ $this->registerCssFile(Yii::$app->request->baseUrl.'/css/panel.css');
 
         <?= $form->field($model, 'idioma_fk')->dropDownList(ArrayHelper::map(app\models\Idioma::find()->all(), 'pk', 'nombre'), ['class'=>'w40', 'prompt'=>'Seleccione Idioma ...', 'required'=>true]) ?>
 
-        <?= $form->field($model, 'titulo', ['addon' => ['prepend' => ['content'=>'<i class="glyphicon glyphicon-pencil"></i>']]])->textInput(['maxlength' => 255, 'class'=>'w60']) ?>
+        <?= $form->field($model, 'titulo', ['addon' => ['prepend' => ['content'=>'<i class="glyphicon glyphicon-pencil"></i>']]])->textInput(['maxlength' => 255, 'class'=>'w60', 'placeholder' => 'Ingrese un título para el evento']) ?>
 
         <?= $form->field($model, 'descripcion')->widget(\yii\redactor\widgets\Redactor::className(), [
                 'clientOptions' => [
                     'lang' => 'es',
                     'plugins' => ['clips', 'fontcolor'],
                     'minHeight' => 280,
+                    'placeholder' => 'Ingrese una descripción para el evento'
 
                 ]
             ])

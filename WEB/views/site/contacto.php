@@ -30,6 +30,7 @@ $this->title = 'Contacto';
     <?php endif; ?>
     </div>
 
+    
     <div class="formulario-contacto">
         <div class="cada-input-contacto">
             <?= $form->field($model, 'nombre')->textInput(['maxlength' => 255, 'class'=>'form-control input-contacto', 'placeholder'=>'Nombre', 'required'=>true])->label(false) ?>

@@ -33,13 +33,14 @@ $this->registerCssFile(Yii::$app->request->baseUrl.'/css/panel.css');
 
         <?= $form->field($model, 'tienda_fk')->dropDownList(ArrayHelper::map(app\models\Tienda::find()->all(), 'pk', 'nombre'), ['class'=>'w40', 'prompt'=>'Seleccione Tienda ...', 'required'=>true]) ?>
 
-        <?= $form->field($model, 'descuento', ['addon' => ['prepend' => ['content'=>'%']]])->textInput(['class'=>'w30']) ?>
+        <?= $form->field($model, 'descuento', ['addon' => ['prepend' => ['content'=>'%']]])->textInput(['class'=>'w30', 'placeholder' => 'Ej: 30']) ?>
 
         <?= $form->field($model, 'descripcion')->widget(\yii\redactor\widgets\Redactor::className(), [
                 'clientOptions' => [
                     'lang' => 'es',
                     'plugins' => ['clips', 'fontcolor'],
                     'minHeight' => 280,
+                    'placeholder' => 'Ingrese una descripción de la oferta. Ej: Todo verano'
 
                 ]
             ])

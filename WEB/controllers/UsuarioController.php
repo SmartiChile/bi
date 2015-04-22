@@ -79,7 +79,7 @@ class UsuarioController extends Controller
                 $rol = 1;
             }
 
-            if($_POST['admin'] == 1x){
+            if($_POST['admin'] == 1){
                 $rol = $rol + 10;
             }
             $model->rol = Yii::$app->funciones->rolesToDec($rol);
