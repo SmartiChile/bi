@@ -40,7 +40,8 @@ class Contacto extends \yii\db\ActiveRecord
             [['fechayhora'], 'safe'],
             [['nombre', 'telefono', 'email', 'adjunto'], 'string', 'max' => 255],
             [['ip'], 'string', 'max' => 15],
-            [['tipo'], 'string', 'max' => 1]
+            [['tipo'], 'string', 'max' => 1],
+            [['adjunto'], 'file', 'extensions'=>'pdf, doc, docx'],
         ];
     }
 

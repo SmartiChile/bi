@@ -2124,14 +2124,6 @@ a .boton-comenzar-ruta2:hover{
 	border-radius: 0 !important;
 }
 
-.formulario-trabaja .has-error .help-block{
-	color: #333;
-}
-
-.formulario-trabaja .help-block{
-	display: none !important;
-}
-
 .formulario-trabaja .has-error .form-control {
 	border-color: #ff4141 !important;
 }
