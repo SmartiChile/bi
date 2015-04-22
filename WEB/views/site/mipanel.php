@@ -16,7 +16,7 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 		<div class='menu-mis-rutas'>
 			<?= Yii::$app->funciones->menu_usuario() ?>
 		</div>
-		<div class="info-mis-rutas">
+		<div class="info-mis-rutas" id="imprimir-mapa">
 			<h3>Ruta actual</h3>
 			<div class="contenedor-info-rutas">
 
@@ -27,6 +27,7 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 					<div class="boton-imprimir-mapa">
 						<?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-print.png', ['width'=>'100%', 'class'=>'tool', 'title'=>'Imprimir ruta']), "javascript:imprSelec('mapa-rutas')"); ?>
 					</div>
+
 					<br /><br />
 					<br /><br />
 				<div class="tiendas-ruta-usuario">
@@ -82,6 +83,7 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 	</div>
 
 </div>
+
 
 <script type="text/javascript">
 	function imprSelec(imprimir){

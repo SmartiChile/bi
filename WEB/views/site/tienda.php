@@ -165,7 +165,7 @@ $this->title = 'Tienda - '.$model->nombre;
 						{
 							?>
 							<div class="oferta-head-tienda">
-								<?php echo Html::img(Yii::$app->request->baseUrl.'/images/ico-sale.png', ['width'=>'100%', 'class'=>'tool', 'title'=> ($oferta->descuento)."%<br>".Yii::$app->funciones->quitarTags($oferta->descripcion)]);?>
+								<?php echo Html::img(Yii::$app->request->baseUrl.'/images/ico-sale.png', ['width'=>'100%', 'class'=>'tool', 'title'=> round($oferta->descuento)."%<br>".Yii::$app->funciones->quitarTags($oferta->descripcion)]);?>
 							</div>
 							<?php
 						}

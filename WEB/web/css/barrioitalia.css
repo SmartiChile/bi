@@ -1,3 +1,7 @@
+@media print{
+    #mapa-rutas {visibility: visible;position:absolute; top: 5px; left: 5px;}
+}
+
 #menu-usuario{
 	width: 100%;
 	position: absolute;
@@ -1582,14 +1586,6 @@ a .boton-comenzar-ruta:hover{
 	position: relative;
 }
 
-.cada-tienda-tiendas .tile-hot-ribbon {
-  position: absolute;
-  top: -40%;
-  right: -4px;
-  display: block;
-  width: 85px;
-}
-
 .cada-tienda-tiendas img{
 	width: 100%;
 	height: 100%;
@@ -1602,6 +1598,15 @@ a .boton-comenzar-ruta:hover{
 	position: absolute;
 	display: inline-block;
 	bottom: 0;
+	z-index: 1000;
+}
+
+.cada-tienda-tiendas .tile-hot-ribbon {
+  position: absolute;
+  top: -40%;
+  right: -4px;
+  display: block;
+  width: 85px;
 }
 
 .textos-tienda-tiendas{

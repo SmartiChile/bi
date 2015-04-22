@@ -12,6 +12,7 @@ use app\models\Tag;
 use app\models\Tiendaxservicio;
 use app\models\Ruta;
 use app\models\RutaContenido;
+use app\models\Oferta;
 
 class funciones extends Component
 {
@@ -230,6 +231,14 @@ class funciones extends Component
     {
         $cadena = explode(' ', $string);
         return $cadena[0];
+    }
+
+    public function enOferta($tienda){
+        $ofertas = Oferta::find()->where(['tienda_fk' => $tienda])->all();
+        if($ofertas == NULL)
+            return 0;
+        else
+            return 1;
     }
 
     public function InsertarTags($tags, $idioma){
