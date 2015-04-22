@@ -20,7 +20,7 @@ use yii\web\UploadedFile;
  */
 class Contacto extends \yii\db\ActiveRecord
 {
-    public $image;
+    public $adj;
     /**
      * @inheritdoc
      */
@@ -66,34 +66,51 @@ class Contacto extends \yii\db\ActiveRecord
      * @return \yii\db\ActiveQuery
      */
 
-    public function getImagenFile() 
+     public function getAdjuntoFile() 
     {
-        return isset($this->imagen) ? 'images/adjunto/' . $this->imagen : null;
+        return isset($this->adjunto) ? 'images/adjunto/' . $this->adjunto : null;
     }
 
-    public function getImagenUrl() 
+    public function getAdjuntoUrl() 
     {
-        $img = isset($this->imagen) ? $this->imagen : 'default.pdf';
-        return '/images/adjunto/' . $img;
+        $ad = isset($this->adjunto) ? $this->adjunto : 'default_pfg.pdf';
+        return '/images/adjunto/' . $ad;
     }
 
-    public function uploadImagen() {
-        $image = UploadedFile::getInstance($this, 'imagen');
+    public function uploadAdjunto() {
+        $adj = UploadedFile::getInstance($this, 'adjunto');
  
-        if (empty($image)) {
+        if (empty($adj)) {
             return false;
         }
  
         // store the source file name
-        $this->imagen = $image->name;
-        $ext = end((explode(".", $image->name)));
+        $this->adjunto = $adj->name;
+        $ext = end((explode(".", $adj->name)));
  
         // generate a unique file name
-        $this->imagen = Yii::$app->security->generateRandomString().".{$ext}";
+        $this->adjunto = Yii::$app->security->generateRandomString().".{$ext}";
  
         // the uploaded image instance
-        return $image;
+        return $adj;
     }
 
+    public function adjuntoIcono() {
+        $file = $this->getAdjuntoFile();
+ 
+        // check if file exists on server
+        if (empty($file) || !file_exists($file)) {
+            return false;
+        }
+ 
+        // check if uploaded file can be deleted on server
+        if (!unlink($file)) {
+            return false;
+        }
+
+        $this->adjunto = null;
+ 
+        return true;
+    }
 
 }

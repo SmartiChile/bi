@@ -409,17 +409,27 @@ class SiteController extends Controller
     {
         $model = new Contacto;
         if ($model->load(Yii::$app->request->post())) {
+
             $model->ip = Yii::$app->funciones->getRealIP();
             $model->tipo = "1";
-            $adjunto = $model->uploadImagen();
+
+            $adjunto = $model->uploadAdjunto();
+
             if($model->save()){
+
                 if ($adjunto !== false) {
-                    $path = $model->getImagenFile();
+                    $path = $model->getAdjuntoFile();
                     $adjunto->saveAs($path);
                 }
+                $model->nombre = '';
+                $model->email = '';
+                $model->telefono = '';
+                $model->adjunto = '';
+                $model->mensaje = '';
                 Yii::$app->getSession()->setFlash('mensaje', 'Muchas gracias! Nuestros administradores se pondrán en contacto contigo a la brevedad.');
             }
         }
+
         return $this->render('trabaja', ['model' => $model]);
     }
 
