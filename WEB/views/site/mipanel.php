@@ -122,7 +122,7 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
         	foreach($tiendas as $t=>$tienda):
         ?>
         directionsDisplay<?= $t ?> = new google.maps.DirectionsRenderer();
-        calcularRuta(directionsDisplay<?= $t ?>, ruta[<?= ($t) ?>], ruta[<?= $t+1 ?>]);
+        calcularRuta(directionsDisplay<?= $t ?>, ruta[<?= ($t) ?>], ruta[<?= $c == 0 ? $t : $t+1 ?>]);
         <?php endforeach; ?>
     }
 
