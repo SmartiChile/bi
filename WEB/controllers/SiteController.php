@@ -481,7 +481,7 @@ class SiteController extends Controller
                 Yii::$app->getSession()->setFlash('error', 'Contraseña actual erronea.');
             }
         }
-        
+        $model->password = "";
         return $this->render('cambiarpass', ['model' => $model,]);
     }
 

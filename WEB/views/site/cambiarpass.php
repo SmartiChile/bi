@@ -46,19 +46,19 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 
 			        <?= $form->field($model, 'username', ['addon' => ['prepend' => ['content'=>'<i class="glyphicon glyphicon-user"></i>']]])->textInput(['maxlength' => 255, 'readonly'=>$model->isNewRecord ? false : true]) ?>
 
-			        <?= $form->field($model, 'password', ['addon' => ['prepend' => ['content'=>'<i class="glyphicon glyphicon-ruble"></i>']]])->passwordInput(['maxlength' => 255, 'class'=>'w40'])->label("Contraseña actual") ?>
+			        <?= $form->field($model, 'password', ['addon' => ['prepend' => ['content'=>'<i class="glyphicon glyphicon-ruble"></i>']], ])->passwordInput(['maxlength' => 255, 'class'=>'w40', 'placeholder'=>'Repetir Contraseña', 'required'=>true, 'pattern'=>'.{6,24}', 'title'=>'El campo es obligatorio y debe contener entre 6 y 24 caracteres'])->label("Contraseña actual") ?>
 
 			        <div class="form-group field-usuario-password2">
 				        <label class="col-sm-3 control-label" for="usuario-password">Contraseña nueva</label>
 				        <div class="col-sm-9">
-				            <?= Html::passwordInput('password1','', ['class'=>'form-control w40']) ?>
+				            <?= Html::passwordInput('password1','', ['class'=>'form-control w40', 'placeholder'=>'Nueva contraseña', 'required'=>true, 'pattern'=>'.{6,24}', 'title'=>'El campo es obligatorio y debe contener entre 6 y 24 caracteres']) ?>
 				            <br />
 				        </div>
 				    </div>
 				    <div class="form-group field-usuario-password2">
 				        <label class="col-sm-3 control-label" for="usuario-password">Repetir contraseña</label>
 				        <div class="col-sm-9">
-				            <?= Html::passwordInput('password2','', ['class'=>'form-control w40']) ?>
+				            <?= Html::passwordInput('password2','', ['class'=>'form-control w40', 'placeholder'=>'Repetir Contraseña', 'required'=>true, 'pattern'=>'.{6,24}', 'title'=>'El campo es obligatorio y debe contener entre 6 y 24 caracteres']) ?>
 				        </div>
 				    </div>
 
