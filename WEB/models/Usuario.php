@@ -33,10 +33,11 @@ class Usuario extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['username', 'nombre', 'rol', 'password'], 'required'],
+            [['username', 'nombre', 'rol'], 'required'],
             [['rol'], 'integer'],
             ['username', 'email', 'message'=>'El Nombre de usuario no es una dirección de correo electrónico válida.'],
             [['username', 'password', 'nombre', 'token'], 'string', 'max' => 255],
+            [['username'], 'unique', 'targetAttribute' => ['username'], 'message' => 'El nombre de usuario ya se encuentra registrado.']
         ];
     }
 

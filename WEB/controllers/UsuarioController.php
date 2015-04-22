@@ -75,11 +75,11 @@ class UsuarioController extends Controller
 
             $rol = 0;
         
-            if(isset($_POST['usuario'])){
+            if($_POST['usuario'] == 1){
                 $rol = 1;
             }
 
-            if(isset($_POST['admin'])){
+            if($_POST['admin'] == 1x){
                 $rol = $rol + 10;
             }
             $model->rol = Yii::$app->funciones->rolesToDec($rol);
@@ -99,14 +99,24 @@ class UsuarioController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        if ($model->load(Yii::$app->request->post())) {
+            $rol = 0;
+        
+            if($_POST['usuario'] == 1){
+                $rol = 1;
+            }
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->pk]);
-        } else {
-            return $this->render('update', [
-                'model' => $model,
-            ]);
+            if($_POST['admin'] == 1){
+                $rol = $rol + 10;
+            }
+            $model->rol = Yii::$app->funciones->rolesToDec($rol);
+
+            if($model->save()){
+                return $this->redirect(['view', 'id' => $model->pk]);
+            }
         }
+        $model->password = '';
+        return $this->render('update', ['model' => $model,]);
     }
 
     /**

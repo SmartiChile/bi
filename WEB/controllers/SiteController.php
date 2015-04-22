@@ -592,7 +592,7 @@ class SiteController extends Controller
     }
 
     public function actionSmarti(){
-
+        echo Yii::$app->funciones->rolesToDec(1);
     }
 
     public function actionPrueba(){

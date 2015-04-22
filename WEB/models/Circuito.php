@@ -47,7 +47,6 @@ class Circuito extends \yii\db\ActiveRecord
             [['nombre', 'icono', 'imagen', 'color'], 'string', 'max' => 255],
             [['imagen', 'icono'], 'safe'],
             [['imagen', 'icono'], 'file', 'extensions'=>'jpg, gif, png'],
-            [['color', 'posicion'], 'unique', 'targetAttribute' => ['color', 'posicion'], 'message' => 'The combination of Color and Posicion has already been taken.']
         ];
     }
 

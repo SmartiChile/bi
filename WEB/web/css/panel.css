@@ -125,3 +125,7 @@ h1{
 .fileinput .file-preview{
 	width: 50%;
 }
+
+#w0 th a{
+	color: #fff;
+}

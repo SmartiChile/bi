@@ -32,14 +32,8 @@ $rol = Yii::$app->funciones->DecToRol($model->rol);
 
         <?= $form->field($model, 'username', ['addon' => ['prepend' => ['content'=>'<i class="glyphicon glyphicon-user"></i>']]])->textInput(['maxlength' => 255, 'readonly'=>$model->isNewRecord ? false : true, 'class'=>'w50']) ?>
 
-        <?= $form->field($model, 'password', ['addon' => ['prepend' => ['content'=>'<i class="glyphicon glyphicon-ruble"></i>']]])->passwordInput(['maxlength' => 255, 'class'=>'w40']) ?>
+        <?= $form->field($model, 'password', ['addon' => ['prepend' => ['content'=>'<i class="glyphicon glyphicon-ruble"></i>']]])->passwordInput(['maxlength' => 255, 'class'=>'w40', 'required'=>$model->isNewRecord ? true : false]) ?>
 
-        <div class="form-group field-usuario-password2">
-        <label class="col-sm-3 control-label" for="usuario-password"></label>
-            <div class="col-sm-9">
-                <?= Html::passwordInput('password2','', ['class'=>'form-control w40']) ?>
-            </div>
-        </div>
         <div class="form-group field-usuario-roles required">
             <label class="col-sm-3 control-label" for="usuario-nombre">Roles</label>
             <div class="col-sm-9">
