@@ -296,7 +296,7 @@ $this->title = 'Tienda - '.$model->nombre;
 						echo "<h4>Tags</h4>";
 						foreach($tags as $tag)
 						{
-							echo Html::a("<div class='tag-tienda'><p>".$tag."</p></div>", ['#']);
+							echo Html::a("<div class='tag-tienda'><p>".$tag."</p></div>", ['site/tiendas', 'b'=> $tag]);
 						}
 					}
 					

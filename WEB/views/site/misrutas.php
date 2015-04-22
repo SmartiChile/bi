@@ -5,6 +5,12 @@ use yii\grid\GridView;
 $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->identity->nombre);
 ?>
 
+<style type="text/css">
+	.wrap{
+	padding: 0 !important;
+}
+</style>
+
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
 
 <div class="contenedor-elbarrio">
@@ -64,7 +70,7 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 				        ]); ?>
 			</div>
 		</div>
-
 	</div>
+	
 </div>
 
