@@ -61,6 +61,7 @@ $this->registerJs('
 
 		<?php foreach($tiendas as $tienda): ?>
 				    <div class="cada-tienda-tiendas">
+				    <?php echo Html::img(Yii::$app->request->baseUrl.'/images/ribbon.svg', ['class'=>'tile-hot-ribbon']);?>
                         <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/tiendas/'.$tienda->imagen1, $options = ['width'=>'100%']),['site/tienda?t='.$tienda->pk]); ?>
                         <div class="informacion-tienda-tiendas">
                         	<div class="textos-tienda-tiendas">

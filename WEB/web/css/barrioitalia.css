@@ -494,7 +494,8 @@
 
 .footer-final{
 	width: 100% !important;
-	position: inherit !important;
+	position: relative !important; 
+	margin-top: -50px !important; 
 }
 
 .footer-uno{
@@ -1581,6 +1582,14 @@ a .boton-comenzar-ruta:hover{
 	position: relative;
 }
 
+.cada-tienda-tiendas .tile-hot-ribbon {
+  position: absolute;
+  top: -40%;
+  right: -4px;
+  display: block;
+  width: 85px;
+}
+
 .cada-tienda-tiendas img{
 	width: 100%;
 	height: 100%;
@@ -1975,7 +1984,7 @@ a .boton-comenzar-ruta2:hover{
 
 .tiendas-ruta-usuario{
 	width: 80%;
-	margin: 0 auto 0 auto;
+	margin: 0 auto 10% auto;
 }
 
 .tiendas-ruta-usuario th{

@@ -32,8 +32,8 @@ $this->registerJs('
 <html lang="<?= Yii::$app->language ?>">
 <head>
     <meta charset="<?= Yii::$app->charset ?>"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=Edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href=<?php echo Yii::$app->request->baseUrl.'/images/favicon.ico' ?>>
     <?= Html::csrfMetaTags() ?>
     <title><?= Html::encode($this->title) ?></title>
@@ -96,6 +96,7 @@ $this->registerJs('
             <?= Html::img(Yii::$app->request->baseUrl.'/images/banner-2.jpg', ['class'=>'img_banner2']); ?>
             <video autoplay class="VideoInicial" id="videoInicio" loop preload="auto">
                     <source src="<?php echo Yii::$app->request->baseUrl.'/images/video-bi.mov'?>" type="video/webm">
+                    <source src="<?php echo Yii::$app->request->baseUrl.'/images/video-bi.mp4'?>" type="video/mp4">
             </video>
             <div class="overVideo"></div>
             <nav id="menu-usuario">
@@ -115,7 +116,11 @@ $this->registerJs('
     </div>
 
 
-    <div class="contenedor-colores-completo">
+
+
+    <footer class="footer-final">
+
+        <div class="contenedor-colores-completo">
             <div class="color1-home"></div>
             <div class="color2-home"></div>
             <div class="color3-home"></div>
@@ -123,9 +128,7 @@ $this->registerJs('
             <div class="color5-home"></div>
             <div class="color6-home"></div>
         </div>
-
-    <footer class="footer-final">
-
+        
         <div class="footer-uno">
             <div class="contenido-izquierda-footer-uno">
                 <div class="info-izquierda-footer">
