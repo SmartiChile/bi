@@ -129,7 +129,7 @@ $this->registerJs('
             <div class="contenido-izquierda-footer-uno">
                 <div class="info-izquierda-footer">
                     <div class="lg-corfo">
-                        <p>Proyecto apoyado por:</p>
+                        <p>Apoya:</p>
                         <?php echo Html::img(Yii::$app->request->baseUrl.'/images/lg-corfo.png', $options = ['width'=>'100%']); ?>
                     </div>
                     <div class="lg-min">
@@ -150,6 +150,125 @@ $this->registerJs('
                 </div>
             </div>
             <div class="contenido-derecha-footer-uno">
+                <div class="tabla-footer">
+                    <table border="0" width="15%">
+                        <tr>
+                          <td><h5>EL BARRIO</h5></td>
+                        </tr>
+                        <tr valign="top">
+                          <td valign="top"><?php echo Html::a('<p>Historia</p>', ['site/elbarrio']); ?></td>
+                        </tr>
+                        <tr valign="top">
+                          <td valign="top"><?php echo Html::a('<p>Como llegar</p>', ['site/comollegar']); ?></td>
+                        </tr>
+                        <tr valign="top">
+                          <td valign="top"><?php echo Html::a('<p>Arriendos</p>', ['site/arriendos']); ?></td>
+                        </tr>
+                        <tr valign="top">
+                          <td valign="top"><?php echo Html::a('<p>Trabaja con nosotros</p>', ['site/trabaja']); ?></td>
+                        </tr>
+                        <tr valign="top">
+                          <td valign="top"><?php echo Html::a('<p>Eventos</p>', ['site/eventos']); ?></td>
+                        </tr>
+                    </table>
+                    <table border="0" width="18%">
+                        <tr>
+                          <td><h5>BARRIO ITALIA</h5></td>
+                        </tr>
+                        <tr valign="top">
+                          <td valign="top"><?php echo Html::a('<p>Vitrina</p>', ['site/vitrina']); ?></td>
+                        </tr>
+                        <tr valign="top">
+                          <td valign="top"><?php echo Html::a('<p>Mapa</p>', ['site/mapa']); ?></td>
+                        </tr>
+                        <tr valign="top">
+                          <td valign="top"><?php echo Html::a('<p>Circuitos</p>', ['site/circuitos']); ?></td>
+                        </tr>
+                        <tr valign="top">
+                          <td valign="top"><?php echo Html::a('<p>Tiendas</p>', ['site/tiendas']); ?></td>
+                        </tr>
+                        <tr valign="top">
+                          <td valign="top"><?php echo Html::a('<p>Contacto</p>', ['site/contacto']); ?></td>
+                        </tr>
+                    </table>
+                    <table border="0" width="12%">
+                        <tr>
+                          <td><h5>NOTICIAS</h5></td>
+                        </tr>
+                        <tr valign="top">
+                          <td valign="top"><?php echo Html::a('<p>Noticias</p>', ['site/noticias']); ?></td>
+                        </tr>
+                        <tr valign="top">
+                          <td valign="top"><?php echo Html::a('<p>Prensa</p>', ['site/prensa']); ?></td>
+                        </tr>
+                        <tr valign="top">
+                          <td valign="top"></td>
+                        </tr>
+                        <tr valign="top">
+                          <td valign="top"></td>
+                        </tr>
+                        <tr valign="top">
+                          <td valign="top"></td>
+                        </tr>
+                    </table>
+                    <table border="0" width="16%">
+                        <tr>
+                          <td><h5>MI BARRIO</h5></td>
+                        </tr>
+                        <tr valign="top">
+                          <td valign="top"><?php echo Html::a('<p>Crea tu ruta</p>', ['site/creaturuta']); ?></td>
+                        </tr>
+                        <tr valign="top">
+                          <td valign="top">
+                          <?php 
+                            if(!Yii::$app->user->isGuest)
+                                echo Html::a('<p>Ruta actual</p>', ['site/mipanel']); 
+                          ?>
+                          </td>
+                        </tr>
+                        <tr valign="top">
+                          <td valign="top">
+                          <?php 
+                            if(!Yii::$app->user->isGuest)
+                                echo Html::a('<p>Historial de rutas</p>', ['site/misrutas']); 
+                            ?>
+                          </td>
+                        </tr>
+                        <tr valign="top">
+                          <td valign="top">
+                          <?php 
+                            if(!Yii::$app->user->isGuest){
+                                if($_SESSION['face'] == 0)
+                                echo Html::a('<p>Cambiar contraseña</p>', ['site/cambiarpass']);
+                            }
+                          ?>
+                          </td>
+                        </tr>
+                        <tr valign="top">
+                          <td valign="top">&nbsp;</td>
+                        </tr>
+                    </table>
+                    <table border="0">
+                        <tr>
+                          <td><h5>REGISTRO</h5></td>
+                        </tr>
+                        <tr valign="top">
+                          <td valign="top"><?php echo Html::a('<p>Ingresar</p>', ['site/login']); ?></td>
+                        </tr>
+                        <tr valign="top">
+                          <td valign="top"><?php echo Html::a('<p>Registrate</p>', ['site/registro']); ?></td>
+                        </tr>
+                        <tr valign="top">
+                          <td valign="top"><?php echo Html::a('<p>¿Olvidaste tu contraseña?</p>', ['site/recuperar']); ?></td>
+                        </tr>
+                        <tr valign="top">
+                          <td valign="top">&nbsp;</td>
+                        </tr>
+                        <tr valign="top">
+                          <td valign="top">&nbsp;</td>
+                        </tr>
+                    </table>
+                </div>
             </div>
         </div>
 

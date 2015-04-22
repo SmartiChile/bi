@@ -83,7 +83,6 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 		</div>
 	</div>
 
-
 </div>
 
 <script type="text/javascript">
