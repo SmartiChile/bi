@@ -11,6 +11,7 @@ $this->title = 'prueba';
 
 <div id="map-canvas"></div>
 
+
 <script type="text/javascript">
       function initialize() {
 
@@ -66,6 +67,5 @@ $this->title = 'prueba';
             }
           });
       }
-
 google.maps.event.addDomListener(window, 'load', initialize);
 </script>
