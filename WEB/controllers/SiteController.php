@@ -180,11 +180,6 @@ class SiteController extends Controller
         return $this->render('arriendos', ['arriendos'=>$arriendos, 'pages'=>$pages]);
     }
 
-    public function actionTrabaja()
-    {
-        return $this->render('trabaja');
-    }
-
     public function actionEventos()
     {
 
@@ -408,6 +403,24 @@ class SiteController extends Controller
             }
         }
         return $this->render('contacto', ['model' => $model]);
+    }
+
+    public function actionTrabaja()
+    {
+        $model = new Contacto;
+        if ($model->load(Yii::$app->request->post())) {
+            $model->ip = Yii::$app->funciones->getRealIP();
+            $model->tipo = "1";
+            $adjunto = $model->uploadAdjunto();
+            if($model->save()){
+                if ($adjunto !== false) {
+                        $path = $model->getAdjuntoFile();
+                        $adjunto->saveAs($path);
+                }
+                Yii::$app->getSession()->setFlash('mensaje', 'Muchas gracias! Nuestros administradores se pondrán en contacto contigo a la brevedad.');
+            }
+        }
+        return $this->render('trabaja', ['model' => $model]);
     }
 
 
