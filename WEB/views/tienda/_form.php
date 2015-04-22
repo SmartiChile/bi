@@ -81,23 +81,7 @@ $this->registerCssFile(Yii::$app->request->baseUrl.'/css/panel.css');
             ])
         ?>
         
-        <div class='panel_timepicker'>
-                <?php 
-                    echo FieldRange::widget([
-                        'form' => $form,
-                        'model' => $model,
-                        'class'=> 'w60',
-                        'label' => 'Horario',
-                        'attribute1' => 'horario_inicio',
-                        'attribute2' => 'horario_fin',
-                        'options'=>[
-                            'class'=>'w50',
-                        ],
-                        'separator' => 'A',
-                        'type' => FieldRange::INPUT_TIME,
-                    ]); 
-                ?>
-        </div>
+        <?= $form->field($model, 'horario')->textInput(['maxlength' => 255, 'class'=>'w50']) ?>
 
         <?= $form->field($model, 'sitio_web')->textInput(['maxlength' => 255, 'class'=>'w60']) ?>      
 
