@@ -2149,6 +2149,10 @@ a .boton-comenzar-ruta2:hover{
 	margin: 15% 0 0 0 !important;
 }
 
+.formulario-trabaja .input-group{
+	margin: 0 0 3% 0;
+}
+
 .boton-enviar-trabaja{
 	width: 15% !important;
 	padding: 1% 2% !important;
@@ -2158,3 +2162,24 @@ a .boton-comenzar-ruta2:hover{
 	margin: 1% 3% 0 0;
 	color: #fff;
 }
+
+.mensaje-exito-trabaja{
+	width: 98%;
+}
+
+.margen-area-trabaja{
+	margin: 19% 0 0 0 !important;
+}
+
+#map-canvas {
+        height: 350px;
+        margin: 0px;
+        padding: 0px
+}
+
+#panel {
+        z-index: 5;
+        background-color: #fff;
+        padding: 5px;
+        border: 1px solid #999;
+      }

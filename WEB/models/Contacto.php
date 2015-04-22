@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use yii\web\UploadedFile;
 
 /**
  * This is the model class for table "contacto".
@@ -19,6 +20,7 @@ use Yii;
  */
 class Contacto extends \yii\db\ActiveRecord
 {
+    public $image;
     /**
      * @inheritdoc
      */
@@ -59,4 +61,39 @@ class Contacto extends \yii\db\ActiveRecord
             'adjunto' => 'Archivo Adjunto',
         ];
     }
+
+    /**
+     * @return \yii\db\ActiveQuery
+     */
+
+    public function getImagenFile() 
+    {
+        return isset($this->imagen) ? 'images/adjunto/' . $this->imagen : null;
+    }
+
+    public function getImagenUrl() 
+    {
+        $img = isset($this->imagen) ? $this->imagen : 'default.pdf';
+        return '/images/adjunto/' . $img;
+    }
+
+    public function uploadImagen() {
+        $image = UploadedFile::getInstance($this, 'imagen');
+ 
+        if (empty($image)) {
+            return false;
+        }
+ 
+        // store the source file name
+        $this->imagen = $image->name;
+        $ext = end((explode(".", $image->name)));
+ 
+        // generate a unique file name
+        $this->imagen = Yii::$app->security->generateRandomString().".{$ext}";
+ 
+        // the uploaded image instance
+        return $image;
+    }
+
+
 }

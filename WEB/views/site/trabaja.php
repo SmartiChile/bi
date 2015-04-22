@@ -23,16 +23,7 @@ $this->title = 'Barrio italia - Trabaja con Nosotros';
         ]); 
     ?>
 
-    <div class="mensaje-exito-contacto">
-    <?php if (Yii::$app->session->hasFlash('mensaje')): ?>
-        <div class="alert alert-success alert-dismissible fade in">
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
-            <?php echo Yii::$app->session->getFlash('mensaje') ?>
-        </div>
-    <?php endif; ?>
-    </div>
-
-    <div class="mensaje-exito-contacto">
+    <div class="mensaje-exito-trabaja">
     <?php if (Yii::$app->session->hasFlash('mensaje')): ?>
         <div class="alert alert-success alert-dismissible fade in">
             <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">×</span></button>
@@ -57,7 +48,9 @@ $this->title = 'Barrio italia - Trabaja con Nosotros';
     		<div>
             	<?= $form->field($model, 'adjunto')->widget(FileInput::classname(), ['options' => ['multiple' => false, 'accept' => 'image/*'], 'pluginOptions' => ['showUpload' => false, 'browseLabel' => 'Archivo', 'removeLabel' => '','mainClass' => 'input-group-md']])->label(false); ?>
         	</div>
-        	 <?= $form->field($model, 'mensaje')->textarea(['class'=>'form-control textarea-trabaja ', 'placeholder'=>'Mensaje, Cargo, Pretención de renta', 'required'=>true])->label(false) ?>
+        	<div class="margen-area-trabaja">
+        	 	<?= $form->field($model, 'mensaje')->textarea(['class'=>'form-control textarea-trabaja ', 'placeholder'=>'Mensaje, Cargo, Pretención de renta', 'required'=>true])->label(false) ?>
+        	 </div>
         	 <?= Html::submitButton('Enviar', ['class' => 'boton-enviar-trabaja']) ?>
     	</div>
     </div>

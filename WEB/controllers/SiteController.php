@@ -411,11 +411,11 @@ class SiteController extends Controller
         if ($model->load(Yii::$app->request->post())) {
             $model->ip = Yii::$app->funciones->getRealIP();
             $model->tipo = "1";
-            $adjunto = $model->uploadAdjunto();
+            $adjunto = $model->uploadImagen();
             if($model->save()){
                 if ($adjunto !== false) {
-                        $path = $model->getAdjuntoFile();
-                        $adjunto->saveAs($path);
+                    $path = $model->getImagenFile();
+                    $adjunto->saveAs($path);
                 }
                 Yii::$app->getSession()->setFlash('mensaje', 'Muchas gracias! Nuestros administradores se pondrán en contacto contigo a la brevedad.');
             }
@@ -593,6 +593,10 @@ class SiteController extends Controller
 
     public function actionSmarti(){
 
+    }
+
+    public function actionPrueba(){
+        return $this->render('prueba');
     }
 
     public function actionRatingtienda(){

@@ -237,8 +237,10 @@ $this->registerJs('
                         <tr valign="top">
                           <td valign="top">
                           <?php 
-                            if(!Yii::$app->user->isGuest)
-                                echo Html::a('<p>Cambiar contraseña</p>', ['site/cambiarpass']); 
+                            if(!Yii::$app->user->isGuest){
+                                if($_SESSION['face'] == 0)
+                                echo Html::a('<p>Cambiar contraseña</p>', ['site/cambiarpass']);
+                            }
                           ?>
                           </td>
                         </tr>
