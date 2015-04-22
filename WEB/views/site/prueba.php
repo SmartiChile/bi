@@ -38,17 +38,17 @@ function initialize() {
     zoom:7,
     center: chicago
   };
+  calcRoute("Santa Isabel 300, Santiago, Chile","Italia 987, Santiago, Chile");
   map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
   directionsDisplay.setMap(map);
 }
 
-function calcRoute() {
-  var start = document.getElementById('start').value;
-  var end = document.getElementById('end').value;
+function calcRoute(start, end) {
   var request = {
       origin:start,
       destination:end,
-      travelMode: google.maps.TravelMode.WALKING
+      travelMode: google.maps.TravelMode.WALKING,
+	  optimizeWaypoints: true,
   };
   directionsService.route(request, function(response, status) {
     if (status == google.maps.DirectionsStatus.OK) {
