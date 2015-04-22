@@ -5,7 +5,7 @@ use yii\grid\GridView;
 $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->identity->nombre);
 ?>
 
-<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
 <div class="contenedor-elbarrio">
 	<br>
@@ -20,9 +20,7 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 			<h3>Ruta actual</h3>
 			<div class="contenedor-info-rutas">
 
-					
-
-				<?php if($ruta != NULL): ?>
+				<?php if($ruta != NULL && $tiendas != null): ?>
 					<div class="mapa-mis-rutas">
 						<div id="mapa-rutas"></div>
 					</div>
@@ -96,72 +94,52 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 }
 </script>
 
-<?php 
-	if($ruta != NULL):
-?>
-<script type="text/javascript">
+<?php if($tiendas != null): ?>
+<script  type="text/javascript">
     function initialize() {
-      	var marcadores = [
-      		<?php 
-      			foreach($tiendas as $tienda){
-      				echo "['".$tienda->tiendaFk->nombre."', ".Yii::$app->funciones->coordenadasOK($tienda->tiendaFk->localFk->coordenadas)."],";
-      			}
-      		?>
-      	];
+        map = new google.maps.Map(document.getElementById('mapa-rutas'), mapOptions);
+        directionsService = new google.maps.DirectionsService();
+        var ruta = [
+		  <?php foreach($tiendas as $tienda): ?>
+		 		new google.maps.LatLng(<?= Yii::$app->funciones->coordenadasOK($tienda->tiendaFk->localFk->coordenadas) ?>), 
+		  <?php endforeach; ?>
+		];
 
-      	var map = new google.maps.Map(document.getElementById('mapa-rutas'), {
-        	zoom: 16,
-        	scrollwheel: false,
-        	center: new google.maps.LatLng(-33.445798, -70.624008),
-        	mapTypeId: google.maps.MapTypeId.ROADMAP
-      	});
+        var location1 = new google.maps.LatLng(-33.445351, -70.621175);
+        var location2 = new google.maps.LatLng(-33.443990, -70.625746);
+        var location3 = new google.maps.LatLng(-33.447804, -70.624630);
+        var location4 = new google.maps.LatLng(-33.447526, -70.619877);
 
-      	var pinColor = "d4d5d5";
-      	var pinImage = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_letter&chld=%E2%80%A2|" + pinColor, 
-	      	new google.maps.Size(21, 34), 
-	      	new google.maps.Point(0,0), 
-	      	new google.maps.Point(10, 34));
-      	var pinShadow = new google.maps.MarkerImage("http://chart.apis.google.com/chart?chst=d_map_pin_shadow", 
-	      	new google.maps.Size(40, 37), 
-	      	new google.maps.Point(0, 0), 
-	      	new google.maps.Point(12, 35));
-      
-      	var infowindow = new google.maps.InfoWindow();
-      	var marker, i;
-      	for (i = 0; i < marcadores.length; i++) {  
-	        marker = new google.maps.Marker({
-	          position: new google.maps.LatLng(marcadores[i][1], marcadores[i][2]),
-	          map: map,
-	          icon: pinImage, 
-          	  shadow: pinShadow
-        });
-        google.maps.event.addListener(marker, 'click', (function(marker, i) {
-          return function() {
-            infowindow.setContent(marcadores[i][0]);
-            infowindow.open(map, marker);
-          }
-        })(marker, i));
+        //var centro = new google.maps.LatLng(-33.445351, -70.621175);
+
+        var mapOptions = {
+          zoom:7,
+          center: location1,
+        };
+
+        <?php 
+        	$c = count($tiendas) - 1;
+        	foreach($tiendas as $t=>$tienda):
+        ?>
+        directionsDisplay<?= $t ?> = new google.maps.DirectionsRenderer();
+        calcularRuta(directionsDisplay<?= $t ?>, ruta[<?= ($t) ?>], ruta[<?= $t+1 ?>]);
+        <?php endforeach; ?>
     }
 
-   	var ruta = [
-   		<?php
-   			foreach($tiendas as $tienda)
-   			{
-				echo "new google.maps.LatLng(".Yii::$app->funciones->coordenadasOK($tienda->tiendaFk->localFk->coordenadas)."),";
-			} 
-   		?>
-    ];
+      function calcularRuta(dirDisplay, start, end){
+          dirDisplay.setMap(map);
+          var request = {
+            origin: start, 
+            destination: end,
+            travelMode: google.maps.DirectionsTravelMode.WALKING
+          };
+          directionsService.route(request, function(response, status) {
+            if (status == google.maps.DirectionsStatus.OK) {
+              dirDisplay.setDirections(response);
+            }
+          });
+      }
 
-   	var lineas = new google.maps.Polyline({        
-    	path: ruta,
-		map: map, 
-		strokeColor: '#F33', 
-		strokeWeight: 4,  
-		strokeOpacity: 0.7, 
-		clickable: false     
-		});       
-    }
-
-    google.maps.event.addDomListener(window, 'load', initialize);   
+	google.maps.event.addDomListener(window, 'load', initialize);
 </script>
-<?php endif ?>
+<?php endif; ?>

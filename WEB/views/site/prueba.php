@@ -9,53 +9,63 @@ $this->title = 'prueba';
 
 <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
+<div id="map-canvas"></div>
 
-    <div id="panel">
-    <b>Start: </b>
-    <select id="start" onchange="calcRoute();">
-      <option value="Santa Isabel 300, Santiago, Chile">Chicago</option>
-      <option value="Italia 987, Santiago, Chile">St Louis</option>
-      <option value="Italia 1301, Santiago, Chile">Joplin, MO</option>
-    </select>
-    <b>End: </b>
-    <select id="end" onchange="calcRoute();">
-      <option value="Santa Isabel 300, Santiago, Chile">Chicago</option>
-      <option value="Italia 987, Santiago, Chile">St Louis</option>
-      <option value="Italia 1301, Santiago, Chile">Joplin, MO</option>
-    </select>
-    </div>
-    <div id="map-canvas"></div>
+<script type="text/javascript">
+      function initialize() {
 
-<script>
-var directionsDisplay;
-var directionsService = new google.maps.DirectionsService();
-var map;
+        map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+        var location1 = new google.maps.LatLng(-33.445351, -70.621175);
+        var location2 = new google.maps.LatLng(-33.443990, -70.625746);
+        var location3 = new google.maps.LatLng(-33.447804, -70.624630);
+        var location4 = new google.maps.LatLng(-33.447526, -70.619877);
 
-function initialize() {
-  directionsDisplay = new google.maps.DirectionsRenderer();
-  var chicago = new google.maps.LatLng(41.850033, -87.6500523);
-  var mapOptions = {
-    zoom:7,
-    center: chicago
-  };
-  map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
-  directionsDisplay.setMap(map);
-}
+        //var centro = new google.maps.LatLng(-33.445351, -70.621175);
 
-function calcRoute() {
-  var start = document.getElementById('start').value;
-  var end = document.getElementById('end').value;
-  var request = {
-      origin:start,
-      destination:end,
-      travelMode: google.maps.TravelMode.WALKING
-  };
-  directionsService.route(request, function(response, status) {
-    if (status == google.maps.DirectionsStatus.OK) {
-      directionsDisplay.setDirections(response);
-    }
-  });
-}
+        var mapOptions = {
+          zoom:7,
+          center: location1,
+        };
+
+        directionsService = new google.maps.DirectionsService();
+
+        directionsDisplay = new google.maps.DirectionsRenderer({
+            suppressMarkers: false,
+            suppressInfoWindows: true
+          });
+
+        directionsDisplay2 = new google.maps.DirectionsRenderer({
+          suppressMarkers: false,
+          suppressInfoWindows: true
+        });
+
+        directionsDisplay3 = new google.maps.DirectionsRenderer({
+          suppressMarkers: false,
+          suppressInfoWindows: true
+        });
+
+        calcularRuta(directionsDisplay, location1, location2);
+
+        calcularRuta(directionsDisplay2, location2, location3);
+
+        calcularRuta(directionsDisplay3, location3, location4);
+      }
+
+      function calcularRuta(dirDisplay, start, end){
+          
+          dirDisplay.setMap(map);
+
+          var request = {
+            origin: start, 
+            destination: end,
+            travelMode: google.maps.DirectionsTravelMode.WALKING
+          };
+          directionsService.route(request, function(response, status) {
+            if (status == google.maps.DirectionsStatus.OK) {
+              dirDisplay.setDirections(response);
+            }
+          });
+      }
 
 google.maps.event.addDomListener(window, 'load', initialize);
 </script>
