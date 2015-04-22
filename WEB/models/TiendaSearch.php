@@ -19,7 +19,7 @@ class TiendaSearch extends Tienda
     {
         return [
             [['pk', 'imagen2', 'imagen3', 'imagen4', 'imagen5', 'logotipo', 'local_fk', 'circuito_fk', 'idioma_fk'], 'integer'],
-            [['nombre', 'descripcion', 'numeracion', 'tags', 'banner', 'imagen1', 'telefono', 'horario_inicio', 'horario_fin', 'sitio_web', 'facebook', 'twitter', 'instagram', 'googleplus', 'pinterest', 'tripadvisor'], 'safe'],
+            [['nombre', 'descripcion', 'numeracion', 'tags', 'banner', 'imagen1', 'telefono', 'horario', 'sitio_web', 'facebook', 'twitter', 'instagram', 'googleplus', 'pinterest', 'tripadvisor'], 'safe'],
             [['rating'], 'number'],
         ];
     }
@@ -64,8 +64,6 @@ class TiendaSearch extends Tienda
             'imagen4' => $this->imagen4,
             'imagen5' => $this->imagen5,
             'logotipo' => $this->logotipo,
-            'horario_inicio' => $this->horario_inicio,
-            'horario_fin' => $this->horario_fin,
             'local_fk' => $this->local_fk,
             'circuito_fk' => $this->circuito_fk,
             'idioma_fk' => $this->idioma_fk,
@@ -78,6 +76,7 @@ class TiendaSearch extends Tienda
             ->andFilterWhere(['like', 'banner', $this->banner])
             ->andFilterWhere(['like', 'imagen1', $this->imagen1])
             ->andFilterWhere(['like', 'telefono', $this->telefono])
+            ->andFilterWhere(['like', 'horario', $this->horario])
             ->andFilterWhere(['like', 'sitio_web', $this->sitio_web])
             ->andFilterWhere(['like', 'facebook', $this->facebook])
             ->andFilterWhere(['like', 'twitter', $this->twitter])

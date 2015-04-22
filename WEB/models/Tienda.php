@@ -21,8 +21,7 @@ use yii\web\UploadedFile;
  * @property string $imagen5
  * @property string $logotipo
  * @property string $telefono
- * @property string $horario_inicio
- * @property string $horario_fin
+ * @property string $horario
  * @property string $sitio_web
  * @property string $facebook
  * @property string $twitter
@@ -58,13 +57,12 @@ class Tienda extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nombre', 'descripcion', 'numeracion', 'telefono', 'horario_inicio', 'horario_fin'], 'required'],
+            [['nombre', 'descripcion', 'numeracion', 'telefono'], 'required'],
             [['descripcion'], 'string'],
             [['rating'], 'number'],
-            [['horario_inicio', 'horario_fin'], 'safe'],
             [['local_fk', 'circuito_fk', 'idioma_fk'], 'integer'],
-            [['imagen2', 'imagen3', 'imagen4', 'imagen5'], 'default', 'value' => NULL],
-            [['nombre', 'tags', 'banner', 'imagen1', 'imagen2', 'imagen3', 'imagen4', 'imagen5', 'logotipo', 'telefono', 'sitio_web', 'facebook', 'twitter', 'instagram', 'googleplus', 'pinterest', 'tripadvisor'], 'string', 'max' => 255],
+            [['imagen2', 'imagen3', 'imagen4', 'imagen5', 'horario'], 'default', 'value' => NULL],
+            [['nombre', 'horario','tags', 'banner', 'imagen1', 'imagen2', 'imagen3', 'imagen4', 'imagen5', 'logotipo', 'telefono', 'sitio_web', 'facebook', 'twitter', 'instagram', 'googleplus', 'pinterest', 'tripadvisor'], 'string', 'max' => 255],
             [['numeracion'], 'string', 'max' => 10]
         ];
     }
@@ -89,8 +87,7 @@ class Tienda extends \yii\db\ActiveRecord
             'imagen5' => 'Imagen 5',
             'logotipo' => 'Logotipo',
             'telefono' => 'Teléfono',
-            'horario_inicio' => 'Horario Inicio',
-            'horario_fin' => 'Horario Fin',
+            'horario' => 'Horario',
             'sitio_web' => 'Sitio Web',
             'facebook' => 'Facebook',
             'twitter' => 'Twitter',
