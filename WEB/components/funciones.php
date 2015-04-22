@@ -208,10 +208,10 @@ class funciones extends Component
 
     public function coordenadasOK($string)
     {
-        $string = str_replace("(", " ", $string);
-        $string = str_replace(")", " ", $string);
+        $string = str_replace("(", "", $string);
+        $string = str_replace(")", "", $string);
         $cadena = explode(',', $string);
-        return $cadena[0]." , ".$cadena[1];
+        return $cadena[0].",".$cadena[1];
     }
 
     public function eliminarColor($cadena)
