@@ -37,7 +37,18 @@ $this->params['breadcrumbs'][] = $this->title;
                         return Yii::$app->formatter->asDatetime($data->fechayhora, "php:d-m-Y H:i:s");;
                     },
                 ],
-                'tipo',
+                [
+                    'header' => 'Desde',
+                    'attribute' => 'tipo',
+                    'value' => function ($data) {
+                        
+                        if($data == 0)
+                            return 'Desde Contacto';
+
+                        if($data == 1)
+                            return 'Desde Trabaja con nosotros';
+                    },
+                ],
                 // 'adjunto',
 
                 ['class' => 'yii\grid\ActionColumn', 'template' => '{view} {delete}','header'=>'Acciones', 'contentOptions' => ['style' => 'width:70px;']],
