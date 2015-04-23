@@ -432,6 +432,16 @@ class SiteController extends Controller
                     $path = $model->getAdjuntoFile();
                     $adjunto->saveAs($path);
                 }
+
+                $mensaje = 'Se ha enviado un mensaje desde la sección Contacto con la siguiente información <br /><br /> Nombre: '.$model->nombre.' <br /> Email: '.$model->email.' <br /> Teléfono: '.$model->telefono.' <br /><br /> Mensaje:'.$model->mensaje.'';
+
+                Yii::$app->mailer->compose()
+                    ->setFrom('noreply@barrioitalia.cl')
+                    ->setTo('dreck01@gmail.com')
+                    ->setSubject('Mensaje desde Trabaja con nosotros Barrio Italia')
+                    ->setHtmlBody($mensaje)
+                    ->send();
+
                 $model->nombre = '';
                 $model->email = '';
                 $model->telefono = '';

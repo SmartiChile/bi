@@ -233,8 +233,15 @@ class funciones extends Component
         return $cadena[0];
     }
 
+    public function adaptarFecha($fecha){
+    $cadena = explode(' ', $fecha);
+    return $cadena[0];
+    }
+
     public function enOferta($tienda){
-        $ofertas = Oferta::find()->where(['tienda_fk' => $tienda])->all();
+        date_default_timezone_set('America/Santiago');
+        $fecha_actual = date('Y-m-d H:i:s');
+        $ofertas = Oferta::find()->where('tienda_fk = '.$tienda.' AND inicio <= "'.$fecha_actual.'" AND termino >= "'.$fecha_actual.'"')->all();
         if($ofertas == NULL)
             return 0;
         else

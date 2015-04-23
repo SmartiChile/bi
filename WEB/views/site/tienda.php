@@ -163,11 +163,12 @@ $this->title = 'Tienda - '.$model->nombre;
 					<?php 
 						foreach($ofertas as $oferta)
 						{
-							?>
-							<div class="oferta-head-tienda">
-								<?php echo Html::img(Yii::$app->request->baseUrl.'/images/ico-sale.png', ['width'=>'100%', 'class'=>'tool', 'title'=> round($oferta->descuento)."%<br>".Yii::$app->funciones->quitarTags($oferta->descripcion)]);?>
-							</div>
-							<?php
+							if (Yii::$app->funciones->enOferta($model->pk) == 1):?>
+								<div class="oferta-head-tienda">
+									<?php echo Html::img(Yii::$app->request->baseUrl.'/images/ico-sale.png', ['width'=>'100%', 'class'=>'tool', 'title'=> round($oferta->descuento)."%<br>".Yii::$app->funciones->quitarTags($oferta->descripcion)]);?>
+								</div>
+							<?php endif ?>
+					<?php
 						}
 					?>
 					<div class="rating-head-tienda">

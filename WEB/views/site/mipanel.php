@@ -25,7 +25,7 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 						<div id="mapa-rutas"></div>
 					</div>
 					<div class="boton-imprimir-mapa">
-						<?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-print.png', ['width'=>'100%', 'class'=>'tool', 'title'=>'Imprimir ruta']), "javascript:imprSelec('mapa-rutas')"); ?>
+						<?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-print.png', ['width'=>'100%', 'class'=>'tool', 'title'=>'Imprimir ruta', 'id'=>'capturar'])); ?>
 					</div>
 
 					<br /><br />
@@ -81,20 +81,10 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 			</div>
 		</div>
 	</div>
-
+	
 </div>
 
 
-<script type="text/javascript">
-	function imprSelec(imprimir){
-		var ficha = document.getElementById(imprimir);
-		var ventimp = window.open(' ','popimpr');
-		ventimp.document.write(ficha.innerHTML);
-		ventimp.document.close();
-		ventimp.print();
-		ventimp.close();
-}
-</script>
 
 <?php if($tiendas != null): ?>
 <script  type="text/javascript">

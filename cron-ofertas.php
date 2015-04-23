@@ -27,10 +27,7 @@ echo "<br>";
 $consulta = mysql_query("SELECT * FROM oferta");
 
 while($info = mysql_fetch_array($consulta)){
-	if($fecha == adaptarFecha($info['inicio'])){
-		echo "iguales";
-	}
-	if($fecha == adaptarFecha($info['termino'])){
+	if($fecha <= adaptarFecha($info['termino'])){
 		echo "ok";
 	}
 }
