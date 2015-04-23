@@ -55,7 +55,7 @@ $this->registerJs('
 
         <?php
 			if($tiendas == null){
-				echo 'Lo sentimos, no se han encontrado coincidencias con los criterios de busqueda.';
+				echo '<p>Lo sentimos, no se han encontrado coincidencias con los criterios de busqueda.</p>';
 			}
 		?>
 
