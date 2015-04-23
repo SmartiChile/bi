@@ -49,11 +49,11 @@ $this->registerCssFile(Yii::$app->request->baseUrl.'/css/panel.css');
             ]); 
         ?>
 
-        <?= $form->field($model, 'nombre')->textInput(['maxlength' => 255, 'class'=>'w60']) ?>
+        <?= $form->field($model, 'nombre')->textInput(['maxlength' => 255, 'class'=>'w60', 'placeholder' => 'Ingrese un nombre para la tienda']) ?>
 
-        <?= $form->field($model, 'numeracion')->textInput(['maxlength' => 10, 'class'=>'w40']) ?>
+        <?= $form->field($model, 'numeracion')->textInput(['maxlength' => 10, 'class'=>'w40', 'placeholder' => 'Ingrese la numeración de la tienda']) ?>
 
-        <?= $form->field($model, 'telefono')->textInput(['maxlength' => 255, 'class'=>'w40']) ?>
+        <?= $form->field($model, 'telefono')->textInput(['maxlength' => 255, 'class'=>'w40', 'placeholder' => 'Ingrese teléfono de la tienda']) ?>
 
         <div class="form-group field-tienda-servicio required">
             <label class="col-sm-1 control-label" for="tienda-telefono">Servicios:</label>
@@ -76,28 +76,29 @@ $this->registerCssFile(Yii::$app->request->baseUrl.'/css/panel.css');
                     'lang' => 'es',
                     'plugins' => ['clips', 'fontcolor'],
                     'minHeight' => 280,
+                    'placeholder' => 'Ingrese una descripción para la tienda'
 
                 ]
             ])
         ?>
         
-        <?= $form->field($model, 'horario')->textInput(['maxlength' => 255, 'class'=>'w50']) ?>
+        <?= $form->field($model, 'horario')->textInput(['maxlength' => 255, 'class'=>'w50', 'placeholder' => 'Ej: Lu a Vi: 12:00 a 23:00 h, Sá: 11:00 a 23:00 h']) ?>
 
-        <?= $form->field($model, 'sitio_web')->textInput(['maxlength' => 255, 'class'=>'w60']) ?>      
+        <?= $form->field($model, 'sitio_web')->textInput(['maxlength' => 255, 'class'=>'w60', 'placeholder' => 'Ingrese sitio web de la tienda. Ej: www.google.cl']) ?>      
 
-        <?= $form->field($model, 'facebook')->textInput(['maxlength' => 255, 'class'=>'w50']) ?>
+        <?= $form->field($model, 'facebook')->textInput(['maxlength' => 255, 'class'=>'w50', 'placeholder' => 'Ingrese Facebook de la tienda (opcional)']) ?>
 
-        <?= $form->field($model, 'twitter')->textInput(['maxlength' => 255, 'class'=>'w50']) ?>
+        <?= $form->field($model, 'twitter')->textInput(['maxlength' => 255, 'class'=>'w50', 'placeholder' => 'Ingrese Twitter de la tienda (opcional)']) ?>
 
-        <?= $form->field($model, 'instagram')->textInput(['maxlength' => 255, 'class'=>'w50']) ?>
+        <?= $form->field($model, 'instagram')->textInput(['maxlength' => 255, 'class'=>'w50', 'placeholder' => 'Ingrese Instagram de la tienda (opcional)']) ?>
 
-        <?= $form->field($model, 'googleplus')->textInput(['maxlength' => 255, 'class'=>'w50']) ?>
+        <?= $form->field($model, 'googleplus')->textInput(['maxlength' => 255, 'class'=>'w50', 'placeholder' => 'Ingrese Googleplus de la tienda (opcional)']) ?>
 
-        <?= $form->field($model, 'pinterest')->textInput(['maxlength' => 255, 'class'=>'w50']) ?>
+        <?= $form->field($model, 'pinterest')->textInput(['maxlength' => 255, 'class'=>'w50', 'placeholder' => 'Ingrese Pinterest de la tienda (opcional)']) ?>
 
-        <?= $form->field($model, 'tripadvisor')->textInput(['maxlength' => 255, 'class'=>'w50']) ?>
+        <?= $form->field($model, 'tripadvisor')->textInput(['maxlength' => 255, 'class'=>'w50', 'placeholder' => 'Ingrese tripadvisor de la tienda (opcional)']) ?>
 
-        <?= $form->field($model, 'tags')->textInput(['maxlength' => 255, 'class'=>'w50']) ?>  
+        <?= $form->field($model, 'tags')->textInput(['maxlength' => 255, 'class'=>'w50', 'placeholder' => 'Ej: cafe te capuccino (separados por espacio)']) ?>  
 
         <div class='fileinput'>
             <?= $form->field($model, 'banner')->widget(FileInput::classname(), ['options' => ['multiple' => false, 'accept' => 'image/*', 'required'=>$model->isNewRecord ? true : false],'pluginOptions' => ['previewFileType' => 'image', 'showUpload' => false, 'browseLabel' => '','removeLabel' => '','mainClass' => 'input-group-md', 'initialPreview' => (!$model->isNewRecord && $model->banner != null) ? [Html::img(Yii::$app->request->baseUrl.'/images/tiendas/'.$model->banner, ['class'=>'file-preview-image'])] : false]]); ?>

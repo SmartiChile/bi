@@ -1526,6 +1526,7 @@ a {
 
 .contenido-marker-mapa p{
 	margin:2% 0 0 5% !important;
+	font-size: 12px;
 }
 
 .contenido-crea-tu-ruta{
@@ -2172,16 +2173,3 @@ a .boton-comenzar-ruta2:hover{
 .margen-area-trabaja{
 	margin: 19% 0 0 0 !important;
 }
-
-#map-rutas {
-        height: 350px;
-        margin: 0px;
-        padding: 0px
-}
-
-#panel {
-        z-index: 5;
-        background-color: #fff;
-        padding: 5px;
-        border: 1px solid #999;
-      }

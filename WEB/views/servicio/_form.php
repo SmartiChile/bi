@@ -32,7 +32,7 @@ $this->registerCssFile(Yii::$app->request->baseUrl.'/css/panel.css');
 
         <?= $form->field($model, 'idioma_fk')->dropDownList(ArrayHelper::map(app\models\Idioma::find()->all(), 'pk', 'nombre'), ['class'=>'w40', 'prompt'=>'Seleccione Idioma ...']) ?>
 
-	    <?= $form->field($model, 'nombre')->textInput(['maxlength' => 255, 'class'=>'w60']) ?>
+	    <?= $form->field($model, 'nombre')->textInput(['maxlength' => 255, 'class'=>'w60', 'placeholder' => 'Ingrese un nombre de servicio. Ej: Redcompra']) ?>
 
 	    <?= $form->field($model, 'icono')->widget(FileInput::classname(), ['options' => ['multiple' => false, 'accept' => 'image/*', 'required'=>$model->isNewRecord ? true : false],'pluginOptions' => ['previewFileType' => 'image', 'showUpload' => false,'browseLabel' => '','removeLabel' => '','mainClass' => 'input-group-md', 'initialPreview' => (!$model->isNewRecord && $model->icono != null) ? [Html::img(Yii::$app->request->baseUrl.'/images/servicios/'.$model->icono, ['class'=>'file-preview-image'])] : false]]); ?>
 

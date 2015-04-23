@@ -72,13 +72,14 @@ function setMarcador(lat,lng) {
         <?= $form->field($model, 'circuito_fk')->dropDownList(ArrayHelper::map(app\models\Circuito::find()->all(), 'pk', 'nombre'), ['class'=>'w40', 'prompt'=>'Seleccione Circuito ...']) ?>
 
 
-        <?= $form->field($model, 'nombre')->textInput(['maxlength' => 255, 'class'=>'w50']) ?>
+        <?= $form->field($model, 'nombre')->textInput(['maxlength' => 255, 'class'=>'w50', 'placeholder' => 'Ingrese el nombre del patrimonio']) ?>
 
         <?= $form->field($model, 'descripcion')->widget(\yii\redactor\widgets\Redactor::className(), [
                 'clientOptions' => [
                     'lang' => 'es',
                     'plugins' => ['clips', 'fontcolor'],
                     'minHeight' => 280,
+                    'placeholder' => 'Ingrese una descripción para el patrimonio'
 
                 ]
             ])

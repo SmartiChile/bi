@@ -204,9 +204,20 @@ class SiteController extends Controller
 
     public function actionVitrina()
     {
-        $vitrinas = Vitrina::find()->orderBy(["pk"=>SORT_DESC])->all();
+        $query = Vitrina::find()->orderBy(["pk"=>SORT_DESC]);
+        $countQuery = clone $query;
+        $pages = new Pagination([
+            'totalCount' => $countQuery->count(),
+            'defaultPageSize' => 12,
+        ]);
+
+        $vitrinas = $query->offset($pages->offset)
+                ->limit($pages->limit)
+                ->all();
+
         return $this->render('vitrina', [
                 'vitrinas'=>$vitrinas,
+                'pages' => $pages
             ]);
     }
 
@@ -395,10 +406,10 @@ class SiteController extends Controller
                     ->setHtmlBody($mensaje)
                     ->send();
 
-                $model->nombre = NULL;
-                $model->telefono = NULL;
-                $model->email = NULL;
-                $model->mensaje = NULL;
+                $model->nombre = '';
+                $model->telefono = '';
+                $model->email = '';
+                $model->mensaje = '';
                 Yii::$app->getSession()->setFlash('mensaje', 'Muchas gracias! Nuestros administradores se pondrán en contacto contigo a la brevedad.');
             }
         }

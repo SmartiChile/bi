@@ -29,11 +29,11 @@ $this->registerCssFile(Yii::$app->request->baseUrl.'/css/panel.css');
             ]); 
         ?>
 
-        <?= $form->field($model, 'nombre')->textInput(['maxlength' => 255, 'class'=>'w60']) ?>
+        <?= $form->field($model, 'nombre')->textInput(['maxlength' => 255, 'class'=>'w60', 'placeholder' => 'Ingrese un nombre para el idioma']) ?>
 
-	    <?= $form->field($model, 'abreviacion')->textInput(['maxlength' => 5, 'class'=>'w20']) ?>
+	    <?= $form->field($model, 'abreviacion')->textInput(['maxlength' => 5, 'class'=>'w20', 'placeholder' => 'Ej: ES']) ?>
 
-	    <?= $form->field($model, 'posicion')->textInput(['maxlength' => 1, 'class'=>'w20']) ?>
+	    <?= $form->field($model, 'posicion')->textInput(['maxlength' => 1, 'class'=>'w20', 'placeholder' => 'Ej: 3']) ?>
 
 	    <?= $form->field($model, 'activo')->widget(SwitchInput::classname(), ['pluginOptions' => ['onText' => 'Sí','offText' => 'No',]]); ?>
 

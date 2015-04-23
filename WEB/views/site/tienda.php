@@ -210,7 +210,7 @@ $this->title = 'Tienda - '.$model->nombre;
 						<?php } ?>
 						<p><i class="glyphicon glyphicon-earphone"></i> <?php echo $model->telefono; ?></p>
 						<p><i class="glyphicon glyphicon-map-marker"></i> <?php echo $model->localFk->direccion.", ".$model->numeracion; ?></p>
-						<p><i class="glyphicon glyphicon-calendar"></i> <?php echo $model->horario_inicio." - ".$model->horario_fin; ?></p>
+						<p><i class="glyphicon glyphicon-calendar"></i> <?php echo $model->horario; ?></p>
 					</div>
 					<div class="sub-redes-tienda">
 						<div class="contenedor-red-tienda">

@@ -1,5 +1,6 @@
 <?php
 use yii\helpers\Html;
+use yii\widgets\LinkPager;
 
 $this->registerCssFile(Yii::$app->request->baseUrl.'/css/justifiedGallery.css');
 $this->registerCssFile(Yii::$app->request->baseUrl.'/css/swipebox.css');
@@ -46,6 +47,17 @@ $this->title = 'Vitrina';
 				</div>
 			<?php endforeach; ?>
 		</div>
+
+<?php
+
+	echo LinkPager::widget([
+	   'pagination' => $pages,
+	   'options' => [
+	   		'class'=> 'paginacion-noticias'
+	   		]
+	 ]);
+?>
+
 </div>
 
 <script type="text/javascript" async defer src="//assets.pinterest.com/js/pinit.js"></script>

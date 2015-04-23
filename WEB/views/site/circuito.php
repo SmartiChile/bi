@@ -85,7 +85,7 @@ $this->registerJs('
                 foreach($local->tiendas as $tienda)
                 {
                   if($tienda->circuito_fk == $model->pk){
-                    echo "['".$tienda->pk."', '".$tienda->nombre."', '".Yii::$app->request->baseUrl.'/images/tiendas/'.$tienda->imagen1."', '".$tienda->rating."', '".$local->direccion."', '".$tienda->numeracion."', '".$tienda->horario_inicio."', '".$tienda->horario_fin."', '".$tienda->telefono."',], ";
+                    echo "['".$tienda->pk."', '".$tienda->nombre."', '".Yii::$app->request->baseUrl.'/images/tiendas/'.$tienda->imagen1."', '".$tienda->rating."', '".$local->direccion."', '".$tienda->numeracion."', '".$tienda->horario."', '', '".$tienda->telefono."',], ";
                   }
                 }
                 echo "],".Yii::$app->funciones->coordenadasOK($local->coordenadas)."],";
@@ -136,7 +136,7 @@ $this->registerJs('
                 }
                 else
                 {
-                    contenido = contenido + "<div class=cada-marker><div class=imagen-marker-mapa><a href='<?= Url::toRoute('site/tienda') ?>?t="+ marcadores[i][0][k][0] +"'><img src='" + marcadores[i][0][k][2] + "' width='100%' /></a></div><div class=contenido-marker-mapa><a id=cambiar_color_tienda href='<?= Url::toRoute('site/tienda') ?>?t="+ marcadores[i][0][k][0] +"'><h4>" + marcadores[i][0][k][1] + "</h4></a><h6>"+ marcadores[i][0][k][4] + ", "+ marcadores[i][0][k][5]+"</h6><p><i class='glyphicon glyphicon-calendar'></i> "+ marcadores[i][0][k][6] +" - "+ marcadores[i][0][k][7] +"</p><p><i class='glyphicon glyphicon-earphone'></i> "+ marcadores[i][0][k][8] +"</p></div></div>";
+                    contenido = contenido + "<div class=cada-marker><div class=imagen-marker-mapa><a href='<?= Url::toRoute('site/tienda') ?>?t="+ marcadores[i][0][k][0] +"'><img src='" + marcadores[i][0][k][2] + "' width='100%' /></a></div><div class=contenido-marker-mapa><a id=cambiar_color_tienda href='<?= Url::toRoute('site/tienda') ?>?t="+ marcadores[i][0][k][0] +"'><h4>" + marcadores[i][0][k][1] + "</h4></a><h6>"+ marcadores[i][0][k][4] + ", "+ marcadores[i][0][k][5]+"</h6><p><i class='glyphicon glyphicon-calendar'></i> "+ marcadores[i][0][k][6] + "</p><p><i class='glyphicon glyphicon-earphone'></i> "+ marcadores[i][0][k][8] +"</p></div></div>";
                 }
             }
             contenido = contenido + "</div>";
