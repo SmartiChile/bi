@@ -21,11 +21,11 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 			<div class="contenedor-info-rutas">
 
 				<?php if($ruta != NULL && $tiendas != null): ?>
-					<div class="mapa-mis-rutas">
+					<div id="imprimir" class="mapa-mis-rutas">
 						<div id="mapa-rutas"></div>
 					</div>
 					<div class="boton-imprimir-mapa">
-						<?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-print.png', ['width'=>'100%', 'class'=>'tool', 'title'=>'Imprimir ruta', 'id'=>'capturar'])); ?>
+						<?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-print.png', ['width'=>'100%', 'class'=>'tool', 'title'=>'Imprimir ruta', 'onclick' => 'return imprimir();'])); ?>
 					</div>
 
 					<br /><br />
@@ -84,7 +84,11 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 	
 </div>
 
-
+<script>
+	function imprimir(){
+		window.print();
+	}
+</script>
 
 <?php if($tiendas != null): ?>
 <script  type="text/javascript">
@@ -127,4 +131,5 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 
 	google.maps.event.addDomListener(window, 'load', initialize);
 </script>
+
 <?php endif; ?>

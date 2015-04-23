@@ -31,6 +31,7 @@ class AppAsset extends AssetBundle
         'js/alert.js',
         'js/dropdown.js',
         'js/modernizr.custom.js',
+        'js/html2canvas.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',

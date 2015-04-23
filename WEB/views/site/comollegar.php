@@ -29,5 +29,5 @@ $this->title = 'Barrio italia - Como llegar';
 		ventimp.document.close();
 		ventimp.print();
 		ventimp.close();
-}
+	}
 </script>
