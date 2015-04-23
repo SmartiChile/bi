@@ -42,10 +42,10 @@ $this->params['breadcrumbs'][] = $this->title;
                     'attribute' => 'tipo',
                     'value' => function ($data) {
 
-                        if($data == "0")
+                        if($data->tipo == '0')
                             return 'Desde Contacto';
 
-                        if($data == "1")
+                        if($data->tipo == '1')
                             return 'Desde Trabaja con nosotros';
                     },
                 ],
