@@ -41,11 +41,11 @@ $this->params['breadcrumbs'][] = $this->title;
                     'header' => 'Desde',
                     'attribute' => 'tipo',
                     'value' => function ($data) {
-                        
-                        if($data == 0)
+
+                        if($data == "0")
                             return 'Desde Contacto';
 
-                        if($data == 1)
+                        if($data == "1")
                             return 'Desde Trabaja con nosotros';
                     },
                 ],
