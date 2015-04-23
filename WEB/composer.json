@@ -27,7 +27,8 @@
         "kartik-v/yii2-field-range": "*",
         "kolyunya/yii2-map-input-widget": "dev-master",
         "kartik-v/yii2-widget-rating": "*",
-        "nirvana-msu/yii2-infinite-scroll": "1.0.*@dev"
+        "nirvana-msu/yii2-infinite-scroll": "1.0.*@dev",
+        "miloschuman/yii2-highcharts-widget": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
