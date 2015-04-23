@@ -1843,6 +1843,7 @@ a:hover .tag-tienda{
 	width: 2%;
 	float: right;
 	margin: 2% 1% 0 0;
+	cursor: pointer;
 }
 
 #boton-imprimir{

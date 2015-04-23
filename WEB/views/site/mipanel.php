@@ -5,11 +5,28 @@ use yii\grid\GridView;
 $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->identity->nombre);
 ?>
 
+<style type="text/css">
+@media print{
+  #mapa-rutas{
+  	width: 100% !important;
+  	display: block !important; 
+  }
+
+  .footer-final, .menu-mis-rutas, #banner, .tiendas-ruta-usuario, .no-imprimir{
+  	display: none;
+  }
+
+  @page { 
+  	size: landscape; 
+  }
+}
+</style>
+
 <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
 <div class="contenedor-elbarrio">
 	<br>
-	<h3>Bienvenido(a) <?php echo Yii::$app->funciones->nombreUser(Yii::$app->user->identity->nombre);?> - Ruta actual</h3>
+	<h3 class="no-imprimir">Bienvenido(a) <?php echo Yii::$app->funciones->nombreUser(Yii::$app->user->identity->nombre);?> - Ruta actual</h3>
 	<div class="puntos-separadores"></div>
 
 	<div class="contenido-mis-rutas">
@@ -24,7 +41,7 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 					<div id="imprimir" class="mapa-mis-rutas">
 						<div id="mapa-rutas"></div>
 					</div>
-					<div class="boton-imprimir-mapa">
+					<div class="boton-imprimir-mapa no-imprimir">
 						<?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-print.png', ['width'=>'100%', 'class'=>'tool', 'title'=>'Imprimir ruta', 'onclick' => 'return imprimir();'])); ?>
 					</div>
 

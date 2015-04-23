@@ -3,6 +3,7 @@ use yii\helpers\Html;
 
 $this->title = 'Barrio italia - Como llegar';
 ?>
+
 <div id="contenedor-elbarrio">
 	<h3>COMO LLEGAR</h3>
 	<div class='puntos-separadores'></div>
