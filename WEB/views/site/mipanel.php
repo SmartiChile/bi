@@ -21,11 +21,11 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 			<div class="contenedor-info-rutas">
 
 				<?php if($ruta != NULL && $tiendas != null): ?>
-					<div class="mapa-mis-rutas">
+					<div id="imprimir" class="mapa-mis-rutas">
 						<div id="mapa-rutas"></div>
 					</div>
 					<div class="boton-imprimir-mapa">
-						<?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-print.png', ['width'=>'100%', 'class'=>'tool', 'title'=>'Imprimir ruta']), "javascript:imprSelec('mapa-rutas')"); ?>
+						<?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-print.png', ['width'=>'100%', 'class'=>'tool', 'title'=>'Imprimir ruta', 'onclick' => 'return imprimir();'])); ?>
 					</div>
 
 					<br /><br />
@@ -84,16 +84,16 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 
 </div>
 
-
-<script type="text/javascript">
-	function imprSelec(imprimir){
-		var ficha = document.getElementById(imprimir);
+<script>
+	function imprimir(){
+		/*var ficha = document.getElementById("mapa-rutas");
 		var ventimp = window.open(' ','popimpr');
 		ventimp.document.write(ficha.innerHTML);
 		ventimp.document.close();
 		ventimp.print();
-		ventimp.close();
-}
+		ventimp.close();*/
+		window.print();
+	}
 </script>
 
 <?php if($tiendas != null): ?>
@@ -137,4 +137,7 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 
 	google.maps.event.addDomListener(window, 'load', initialize);
 </script>
+
+
 <?php endif; ?>
+gmnoprint
