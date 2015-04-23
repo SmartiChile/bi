@@ -433,12 +433,13 @@ class SiteController extends Controller
                     $adjunto->saveAs($path);
                 }
 
-                $mensaje = 'Se ha enviado un mensaje desde la sección Contacto con la siguiente información <br /><br /> Nombre: '.$model->nombre.' <br /> Email: '.$model->email.' <br /> Teléfono: '.$model->telefono.' <br /><br /> Mensaje:'.$model->mensaje.'';
+                $mensaje = 'Se ha enviado un mensaje desde la sección Trabaja con nosotros con la siguiente información <br /><br /> Nombre: '.$model->nombre.' <br /> Email: '.$model->email.' <br /> Teléfono: '.$model->telefono.' <br /><br /> Mensaje:'.$model->mensaje.'';
 
                 Yii::$app->mailer->compose()
                     ->setFrom('noreply@barrioitalia.cl')
                     ->setTo('dreck01@gmail.com')
                     ->setSubject('Mensaje desde Trabaja con nosotros Barrio Italia')
+                    ->attach('../web/images/adjunto/'.$model->adjunto)
                     ->setHtmlBody($mensaje)
                     ->send();
 
@@ -603,16 +604,17 @@ class SiteController extends Controller
     public function successCallback($client)
     {
         $attributes = $client->getUserAttributes();
-        //$_SESSION['facebook'] = $attributes;
+        $_SESSION['facebook'] = $attributes;
         $_SESSION["face"] = 1;
         $user = User::findByUsername($attributes['email']);
         if(isset($user)){
             Yii::$app->user->login($user,0);
+
         }else
         {
             $usuario = New Usuario;
             $usuario->username = $attributes['email'];
-            $usuario->nombre = $attributes['first_name'];
+            $usuario->nombre = $attributes['name'];
             $usuario->rol = 1;
             $usuario->password = "8x:RC_k+:~Y8Z>duccTB";
             if($usuario->save()){
@@ -623,7 +625,7 @@ class SiteController extends Controller
     }
 
     public function actionSmarti(){
-        echo Yii::$app->funciones->rolesToDec(1);
+        return $this->render('smarti');
     }
 
     public function actionPrueba(){

@@ -67,14 +67,19 @@ $this->registerJs('
 
             <div id="social">
                 <div class="idioma"><?= Yii::$app->funciones->Idiomas(); ?><br /></div>
+                <?php if(!Yii::$app->user->isGuest):?>
+                    <div class="flecha-perfil">
+                        <div class="btn-group"><button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button><ul class="dropdown-menu" role="menu">
+                                <li><?php echo Yii::$app->funciones->isUser() ? Html::a('<i class="glyphicon glyphicon-cog"></i> Mi Panel', ['site/mipanel']) : '' ?></li>
+                                <li><?php echo Yii::$app->funciones->isAdmin() ? Html::a('<i class="glyphicon glyphicon-cog"></i> Panel de Administración', ['admin/inicio']) : '' ?></li>
+                                <li class="divider"></li>
+                                <li><?php echo Html::a('<i class="glyphicon glyphicon-off margen-off"></i> Salir', ['site/logout'], ['data-method' => 'post']); ?></li>
+                            </ul>
+                        </div>
+                    </div>
+                <?php endif ?>
                 <div class="perfil"><i class="glyphicon glyphicon-user"></i> <?= Yii::$app->user->isGuest ? Html::a('Ingresar', ['site/login']).' / '.Html::a('Registrate', ['site/registro']) : 
-                'Hola, ' .Yii::$app->funciones->nombreUser(Yii::$app->user->identity->nombre).'<div class="btn-group"><button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button><ul class="dropdown-menu" role="menu">
-                        <li>'.(Yii::$app->funciones->isUser() ? Html::a('<i class="glyphicon glyphicon-cog"></i> Mi Panel', ['site/mipanel']) : '').'</li>
-                        <li>'.(Yii::$app->funciones->isAdmin() ? Html::a('<i class="glyphicon glyphicon-cog"></i> Panel de Administración', ['admin/inicio']) : '').'</li>
-                        <li class="divider"></li>
-                        <li>'.Html::a('<i class="glyphicon glyphicon-off margen-off"></i> Salir', ['site/logout'], ['data-method' => 'post']).'</li>
-                    </ul>
-                </div>' ?></div>
+                'Hola, ' .Yii::$app->funciones->nombreUser(Yii::$app->user->identity->nombre) ?></div>
                 <div class="redes-socials">
                     <div class="red-top">
                          <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-tw.png', $options = ['width'=>'100%']), 'https://twitter.com/somositalia', ['target' =>'_black']); ?>
@@ -114,9 +119,6 @@ $this->registerJs('
             <?= $content ?>
         </div>
     </div>
-
-
-
 
     <footer class="footer-final">
 

@@ -96,16 +96,27 @@
 }
 
 .perfil{
-	width: 10%;
+	width: auto; 
 	float: left;
 	padding: 1% 0 0 0;
 }
 
-.perfil .btn-default{
+.flecha-perfil{
+	float: left;
+	padding: 1% 0 0 0;
+	margin-left: -1% !important;
+}
+
+.flecha-perfil .btn-default{
 	color: #fff !important;
 	background-color: transparent !important;
 	border: 0 !important;
 }
+
+.flecha-perfil .dropdown-menu > li > a{
+	color: #333 !important;
+}
+
 
 .idioma{
 	float: left;
@@ -1852,10 +1863,6 @@ a:hover .tag-tienda{
 
 .alerta{
 	display: none;
-}
-
-.perfil .dropdown-menu > li > a{
-	color: #333 !important;
 }
 
 .contenedor-botones-ruta2{

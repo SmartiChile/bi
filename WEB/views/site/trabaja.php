@@ -46,7 +46,7 @@ $this->title = 'Barrio italia - Trabaja con Nosotros';
     	</div>
     	<div class="cada-formulario-trabaja">
     		<div>
-            	<?= $form->field($model, 'adjunto')->widget(FileInput::classname(), ['options' => ['multiple' => false, 'accept' => 'image/*'], 'pluginOptions' => ['showUpload' => false, 'browseLabel' => 'Archivo', 'removeLabel' => '','mainClass' => 'input-group-md']])->label(false); ?>
+            	<?= $form->field($model, 'adjunto')->widget(FileInput::classname(), ['options' => ['multiple' => false, 'accept' => '.pdf, .doc, .docx'], 'pluginOptions' => ['showUpload' => false, 'browseLabel' => 'Archivo', 'removeLabel' => '','mainClass' => 'input-group-md']])->label(false); ?>
         	</div>
         	<div class="margen-area-trabaja">
         	 	<?= $form->field($model, 'mensaje')->textarea(['class'=>'form-control textarea-trabaja ', 'placeholder'=>'Mensaje, Cargo, Pretención de renta', 'required'=>true])->label(false) ?>

@@ -6,20 +6,20 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 ?>
 
 <style type="text/css">
-@media print{
-  #mapa-rutas{
-  	width: 100% !important;
-  	display: block !important; 
-  }
+	@media print{
+	  #mapa-rutas{
+	  	width: 100% !important;
+	  	display: block !important; 
+	  }
 
-  .footer-final, .menu-mis-rutas, #banner, .tiendas-ruta-usuario, .no-imprimir{
-  	display: none;
-  }
+	  .footer-final, .menu-mis-rutas, #banner, .tiendas-ruta-usuario, .no-imprimir{
+	  	display: none;
+	  }
 
-  @page { 
-  	size: landscape; 
-  }
-}
+	  @page { 
+	  	size: landscape; 
+	  }
+	}
 </style>
 
 <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>

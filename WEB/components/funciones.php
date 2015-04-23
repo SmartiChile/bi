@@ -169,7 +169,7 @@ class funciones extends Component
             ]);
      }
 
-      public function rolesToDec($rolBin) {   //en base a un numero binario, se calcula el rol en numero decimal
+    public function rolesToDec($rolBin) {   //en base a un numero binario, se calcula el rol en numero decimal
         $rol['usuario'] = $rolBin % 10;   //para guardar en base de datos. ej: 1011 = 11.
         $rolBin = $rolBin / 10;
         $rol['administrador'] = $rolBin % 10;
