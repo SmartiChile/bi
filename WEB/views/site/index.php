@@ -23,7 +23,7 @@ $this->registerJs(
                 word_array.push({text: val.palabra, weight: val.frecuencia, link: "'.Yii::$app->getUrlManager()->createUrl(['site/tiendas', 'b' => '']).'"+val.palabra});
             });
             $("#tagCloud").jQCloud(word_array, {
-              height: 350,
+              height: 330,
             });
     });
 '
@@ -74,8 +74,7 @@ $this->registerJs(
                     <?= Html::submitButton('Buscar', ['class' => '']) ?>
                 <?php ActiveForm::end(); ?>
             </div>
-        <div id="tagCloud">
-      </div>      
+        <div id="tagCloud"></div>      
         </div>
 
         <div class="proximos-eventos-home">
