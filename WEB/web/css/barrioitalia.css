@@ -101,6 +101,16 @@
 	padding: 1% 0 0 0;
 }
 
+.imagen-circular {
+	 width: 20% !important;
+	 border-radius: 50%;
+	-moz-border-radius: 50%;
+	-webkit-border-radius: 50%;
+	-khtml-border-radius: 50%;
+	 float: left;
+	 margin: 0 3% 0 0;
+}
+
 .flecha-perfil{
 	float: left;
 	padding: 1% 0 0 0;

@@ -78,7 +78,16 @@ $this->registerJs('
                         </div>
                     </div>
                 <?php endif ?>
-                <div class="perfil"><i class="glyphicon glyphicon-user"></i> <?= Yii::$app->user->isGuest ? Html::a('Ingresar', ['site/login']).' / '.Html::a('Registrate', ['site/registro']) : 
+                <div class="perfil">
+                    <?php
+                    if(!Yii::$app->user->isGuest){
+                        if($_SESSION['face'] == 1)
+                            echo Html::img('//graph.facebook.com/'.$_SESSION['facebook']['id'].'/picture?width=50&height=50', ['class'=> 'imagen-circular']);
+                        else
+                            echo "<i class='glyphicon glyphicon-user'></i> ";
+                    }
+                    ?>
+                <?= Yii::$app->user->isGuest ? Html::a('Ingresar', ['site/login']).' / '.Html::a('Registrate', ['site/registro']) : 
                 'Hola, ' .Yii::$app->funciones->nombreUser(Yii::$app->user->identity->nombre) ?></div>
                 <div class="redes-socials">
                     <div class="red-top">
