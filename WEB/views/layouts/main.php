@@ -84,15 +84,19 @@ $this->registerJs('
             <div id="social">
                 <div class="idioma"><?= Yii::$app->funciones->Idiomas(); ?><br /></div>
                 <?php if(!Yii::$app->user->isGuest):?>
-                    <div class="flecha-perfil">
-                        <div class="btn-group"><button class="btn btn-default btn-xs dropdown-toggle" type="button" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button><ul class="dropdown-menu" role="menu">
-                                <li><?php echo Yii::$app->funciones->isUser() ? Html::a('<i class="glyphicon glyphicon-cog"></i> Mi Panel', ['site/mipanel']) : '' ?></li>
-                                <li><?php echo Yii::$app->funciones->isAdmin() ? Html::a('<i class="glyphicon glyphicon-cog"></i> Panel de Administración', ['admin/inicio']) : '' ?></li>
-                                <li class="divider"></li>
-                                <li><?php echo Html::a('<i class="glyphicon glyphicon-off margen-off"></i> Salir', ['site/logout'], ['data-method' => 'post']); ?></li>
-                            </ul>
-                        </div>
-                    </div>
+                <div class="flecha-perfil">
+                    <ul>
+                      <li>
+                        <button class="btn btn-default btn-xs " type="button" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
+                        <ul>
+                            <li><?php echo Yii::$app->funciones->isUser() ? Html::a('<i class="glyphicon glyphicon-cog"></i> Mi Panel', ['site/mipanel']) : '' ?></li>
+                            <li><?php echo Yii::$app->funciones->isAdmin() ? Html::a('<i class="glyphicon glyphicon-cog"></i> Panel de Administración', ['admin/inicio']) : '' ?></li>
+                            <li><hr /></li>
+                            <li><?php echo Html::a('<i class="glyphicon glyphicon-off margen-off"></i> Salir', ['site/logout'], ['data-method' => 'post']); ?></li>
+                        </ul>
+                      </li>
+                    </ul>
+                </div>
                 <?php endif ?>
                 <div class="perfil">
                     <?php
