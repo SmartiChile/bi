@@ -39,12 +39,20 @@ class SiteController extends Controller
         return [
             'access' => [
                 'class' => AccessControl::className(),
-                'only' => ['logout'],
+                'only' => ['logout', 'misrutas', 'ruta', 'cambiarpass'],
                 'rules' => [
                     [
                         'actions' => ['logout'],
                         'allow' => true,
                         'roles' => ['@'],
+                    ],
+                    [   
+                        'actions' => ['mipanel', 'misrutas', 'ruta'],
+                        'allow' => Yii::$app->funciones->isUser(),
+                    ],
+                    [
+                        'actions' => ['cambiarpass'],
+                        'allow' => Yii::$app->funciones->isUser() && !Yii::$app->funciones->isFacebookUser(),
                     ],
                 ],
             ],
@@ -334,9 +342,15 @@ class SiteController extends Controller
 
     public function actionTiendas()
     {
+        $tag = '';
         if(isset($_GET['b'])){
-            $b = $_GET['b'];
-            $query = Tienda::find()->where('tags LIKE :substr OR nombre LIKE :substr', array(':substr' => '%'.$b.'%'))->orderBy(["pk"=>SORT_DESC]);
+            $tag = $_GET['b'];
+            $query = Tienda::find()->where('tags LIKE :substr OR nombre LIKE :substr', array(':substr' => '%'.$tag.'%'))->orderBy(["pk"=>SORT_DESC]);
+            $model_tag = Tag::find()->where(['palabra'=>$tag])->one();
+            if(isset($model_tag)){
+                $model_tag->frecuencia = $model_tag->frecuencia + 1;
+                $model_tag->save();
+            }
         }else{
             $b = "";
             $query = Tienda::find()->orderBy(["pk"=>SORT_DESC]);
@@ -355,7 +369,7 @@ class SiteController extends Controller
         return $this->render('tiendas', [
              'tiendas' => $tiendas,
              'pages' => $pages,
-             'b' => $b,
+             'b' => $tag,
         ]);
     }
 
