@@ -322,6 +322,14 @@ class funciones extends Component
         }
     }
 
+    public function isFacebookUser(){
+        if($_SESSION['face'] == 1){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
     public function rutaActiva($usuario){
         $ruta = Ruta::find()->where(['usuario_fk' => $usuario, 'terminada' => 0])->one();
         if(isset($ruta)){

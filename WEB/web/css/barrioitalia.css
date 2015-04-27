@@ -2243,3 +2243,69 @@ a .boton-comenzar-ruta2:hover{
 .margen-area-trabaja{
 	margin: 19% 0 0 0 !important;
 }
+
+
+
+.flecha-perfil ul {
+  text-align: left;
+  display: inline;
+  margin: 0;
+  padding: 15px 4px 17px 0;
+  list-style: none;
+}
+.flecha-perfil ul li {
+  display: inline-block;
+  margin-right: -4px;
+  position: relative;
+  cursor: pointer;
+  -webkit-transition: all 0.2s;
+  -moz-transition: all 0.2s;
+  -ms-transition: all 0.2s;
+  -o-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.flecha-perfil ul li:hover {
+  color: #333;
+}
+.flecha-perfil ul li ul {
+  z-index: 1500;	
+  padding: 10px 0 0 0;
+  position: absolute;
+  width: 235px;
+  right: 1px;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+  display: none;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transiton: opacity 0.2s;
+  -moz-transition: opacity 0.2s;
+  -ms-transition: opacity 0.2s;
+  -o-transition: opacity 0.2s;
+  -transition: opacity 0.2s;
+}
+.flecha-perfil ul li ul li { 
+  background: #fff; 
+  display: block; 
+  color: #333!important;
+  padding: 5px 10px 5px 10px;
+}
+
+.flecha-perfil ul li ul li a{
+	color: #333!important;
+}
+
+.flecha-perfil ul li ul li:hover { 
+	background: #eee; 
+}
+
+.flecha-perfil ul li:hover ul {
+  display: block;
+  opacity: 1;
+  visibility: visible;
+}
+
+.flecha-perfil hr{
+	margin: 0!important;
+}
