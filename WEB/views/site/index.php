@@ -55,9 +55,9 @@ $this->registerJs(
         ?>
     </div>
 
-    <div class="puntos-separadores"></div>
+    <div class="puntos-separadores no-mostrar"></div>
 
-   <h3>BUSCADOR</h3>
+   <h3 class="no-mostrar">BUSCADOR</h3>
 
    <div class="contenedor-buscador">
       <div class="buscador-home">
@@ -102,15 +102,15 @@ $this->registerJs(
 
    </div>
 
-   <div class="puntos-separadores"></div>
+   <div class="puntos-separadores no-mostrar"></div>
 
-   <h3>MAPA</h3>
+   <h3 class="no-mostrar">MAPA</h3>
 
    <div class="bg-mapa">
         <?php echo Html::img(Yii::$app->request->baseUrl.'/images/mapa-acc.svg', $options = ['width'=>'100%']); ?>
    </div>
 
-   <div class="puntos-separadores"></div>
+   <div class="puntos-separadores no-mostrar"></div>
 
    <h3>NOTICIAS DESTACADAS</h3>
 

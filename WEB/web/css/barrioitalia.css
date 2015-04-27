@@ -141,6 +141,17 @@
 	z-index: 1;
 }
 
+.franja-menu-movil{
+	width: 100%;
+	display: none;
+}
+
+.logotipo-movil{
+	margin-left: auto;
+	margin-right: auto;
+	display: none;
+}
+
 #frase-top{
 	width: 50%;
 	top: 35%;
@@ -517,6 +528,12 @@
 	width: 100% !important;
 	position: relative !important; 
 	margin-top: -50px !important; 
+}
+
+.footer-movil{
+	width: 100%;
+	height: 100px;
+	background-color: #333;
 }
 
 .footer-uno{

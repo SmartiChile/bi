@@ -23,7 +23,7 @@ $this->title = 'Barrio italia - Arriendos';
 		<?php foreach ($arriendos as $arriendo): ?>
 					<div class="info-cada-arriendo">
 						<div class="img-arriendo" >
-							<?php echo Html::img(Yii::$app->request->baseUrl.'/images/arriendos/'.$arriendo->imagen1, ['width' => '100%']); ?>
+							<?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/arriendos/'.$arriendo->imagen1, ['width' => '100%']), ['arriendo?a='.$arriendo->pk]); ?>
 						</div>
 						<div class="info-arriendo">
 							<div class="contenido-info-arriendo">

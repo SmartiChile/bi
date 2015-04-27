@@ -50,6 +50,22 @@ $this->registerJs('
 
 <?php $this->beginBody() ?>
     <div class="wrap">
+        <div class="franja-menu-movil">
+            <?php
+            NavBar::begin(['brandLabel' => '', 'options' => ['class' => 'navbar-inverse']]);
+                echo Nav::widget([
+                    'items' => [
+                      ['label' => 'Home', 'url' => ['/site/index']],
+                      ['label' => 'About', 'url' => ['/site/about']],
+                  ],
+                ]);
+            NavBar::end();
+            ?>
+        </div>
+        <div class="logotipo-movil">
+            <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/lg-top-movil.png', ['width'=>'100%']), ['site/index']); ?>
+        </div>
+
         <div id="banner">
 
             <div id="frase-top">
@@ -138,6 +154,10 @@ $this->registerJs('
             <div class="color4-home"></div>
             <div class="color5-home"></div>
             <div class="color6-home"></div>
+        </div>
+
+        <div class="footer-movil">
+            
         </div>
         
         <div class="footer-uno">
