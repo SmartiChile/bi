@@ -22,8 +22,8 @@ $this->title = 'Vitrina';
 
 <div class="contenedor-vitrina">
 	<br>
-	<h3>VITRINA</h3>
-	<div class="puntos-separadores"></div>
+	<h3 class="h3-movil">VITRINA</h3>
+	<div class="puntos-separadores no-mostrar"></div>
 
 		<div class="galeria-vitrina" id="swipeboxExample">
 

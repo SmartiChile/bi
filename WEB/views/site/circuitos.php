@@ -9,8 +9,8 @@ $this->title = 'Circuito';
 
 <div class="contenedor-circuitos">
 	<br>
-	<h3>CIRCUITOS</h3>
-	<div class="puntos-separadores"></div>
+	<h3 class="h3-movil">CIRCUITOS</h3>
+	<div class="puntos-separadores no-mostrar"></div>
 
 	<div class="contenedor-completo-circuitos">
 
@@ -20,7 +20,7 @@ $this->title = 'Circuito';
 				?>
 				<a href='<?= Yii::$app->request->baseUrl.'/site/circuito?c='."$circuito->pk" ?>'>
 					<div class="cada-circuito" style="background-color:<?php echo $circuito->color?>;">
-						<?php echo Html::img(Yii::$app->request->baseUrl.'/images/circuitos/'.$circuito->icono, ['width'=>'20%']); ?>
+						<?php echo Html::img(Yii::$app->request->baseUrl.'/images/circuitos/'.$circuito->icono, ['']); ?>
 						<h3><?php echo $circuito->nombre; ?></h3>
 						<?php
 							 $descripcion = Yii::$app->funciones->quitarTags($circuito->descripcion); 

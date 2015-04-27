@@ -85,9 +85,9 @@ $this->title = 'Tienda - '.$model->nombre;
 
 <div class="contenedor-n">
 	<br>
-	<h3>TIENDAS - <?php echo $model->nombre;?></h3>
+	<h3 class="h3-movil margen-container">TIENDAS - <?php echo $model->nombre;?></h3>
 
-	<div class="puntos-separadores"></div>
+	<div class="puntos-separadores no-mostrar"></div>
 
 	<div class="banner-tienda">
 		<div class="logotipo-tienda">

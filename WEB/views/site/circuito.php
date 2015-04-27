@@ -33,8 +33,8 @@ $this->registerJs('
 
 <div class="contenedor-circuitos">
 	<br>
-	<h3>CIRCUITOS - <?php echo $model->nombre; ?></h3>
-	<div class="puntos-separadores"></div>
+	<h3 class="h3-movil">CIRCUITOS - <?php echo $model->nombre; ?></h3>
+	<div class="puntos-separadores no-mostrar"></div>
 
 	<div class="contenedor-botones">
         <?php

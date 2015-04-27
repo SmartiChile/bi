@@ -19,8 +19,8 @@ $this->title = 'Evento - '.$model->titulo;
 
 <div class="contenedor-n">
 	<br>
-	<h3>EVENTOS</h3>
-	<div class="puntos-separadores"></div>
+	<h3 class="h3-movil">EVENTOS</h3>
+	<div class="puntos-separadores no-mostrar"></div>
 	<div class="contenido-n">
 		<div class="imagen-n">
 			<?php echo Html::img(Yii::$app->request->baseUrl.'/images/eventos/'.$model->imagen, $options = ['width' => '100%']); ?>

@@ -5,8 +5,8 @@ $this->title = 'Mapa';
 
 <div class="contenedor-mapa">
 	<br>
-	<h3>MAPA</h3>
-	<div class="puntos-separadores"></div>
+	<h3 class="h3-mapa">MAPA</h3>
+	<div class="puntos-separadores no-mostrar"></div>
 
 	<div class="mapa-map" id="imprimir">
 		<?php echo Html::img(Yii::$app->request->baseUrl.'/images/mapa-acc.svg', $options = ['width'=>'100%']); ?>

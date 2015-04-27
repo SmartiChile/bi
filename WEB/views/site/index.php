@@ -41,7 +41,7 @@ $this->registerJs(
 
 <div class="site-index">
 
-    <h3>CIRCUITOS</h3>
+    <h3 class="h3-movil">CIRCUITOS</h3>
 
     
     <div class="contenedor-botones">
@@ -90,7 +90,7 @@ $this->registerJs(
                 <?php foreach ($eventos as $evento): ?>
                   <div class="cada-evento-home">
                     <div class="nombre-evento-home">
-                        <h3><?php echo $evento->titulo; ?> <?php echo Yii::$app->formatter->asDatetime($evento->inicio, "php:d-m-Y H:i:s") ; ?></h3>
+                        <h3><?php echo $evento->titulo; ?> | <?php echo Yii::$app->formatter->asDatetime($evento->inicio, "php:d-m-Y H:i:s") ; ?></h3>
                     </div>
                     <div class="boton-evento-home">
                       <?php echo Html::a('<p>Ver el Calendario Completo</p>', ['site/eventos']); ?>
@@ -112,7 +112,7 @@ $this->registerJs(
 
    <div class="puntos-separadores no-mostrar"></div>
 
-   <h3>NOTICIAS DESTACADAS</h3>
+   <h3 class="h3-movil">NOTICIAS DESTACADAS</h3>
 
    <div class="contenedor-noticias-home">
 

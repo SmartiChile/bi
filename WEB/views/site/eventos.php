@@ -7,8 +7,25 @@ $this->title = 'Barrio italia - Eventos';
 ?>
 
 <div id="contenedor-elbarrio">
-	<h3>EVENTOS</h3>
-	<div class='puntos-separadores'></div>
+	<div class="botones-barrio-movil">
+		<?php
+			echo Html::a('<div class="cada-boton-barrio-movil"><p>Historia</p></div>', ['site/elbarrio']) 
+		?>
+		<?php
+			echo Html::a('<div class="cada-boton-barrio-movil"><p>Como llegar</p></div>', ['site/comollegar']) 
+		?>
+		<?php
+			echo Html::a('<div class="cada-boton-barrio-movil"><p>Arriendos</p></div>', ['site/arriendos']) 
+		?>
+		<?php
+			echo Html::a('<div class="cada-boton-barrio-movil"><p>Trabaja con nosotros</p></div>', ['site/trabaja']) 
+		?>
+		<?php
+			echo Html::a('<div class="cada-boton-barrio-movil"><p>Eventos</p></div>', ['site/eventos']) 
+		?>
+	</div>
+	<h3 class="h3-movil">EVENTOS</h3>
+	<div class='puntos-separadores no-mostrar'></div>
 	<div class="info-elbarrio">
 
 		<div class="contenedor-eventos">

@@ -146,6 +146,25 @@
 	display: none;
 }
 
+.franja-menu-movil #w0 a, .franja-menu-movil #w0{
+	color: #fff !important;
+}
+
+.franja-menu-movil #w0 a:hover{
+	background-color: #c3c3c3;
+	color: #fff;
+}
+
+.hr-menu{
+	color: #3b3b3b;
+	background-color: #3b3b3b;
+	height: 1px;
+	margin: 0;
+	padding: 0;
+	border:0;
+	width: 100% !important;
+}
+
 .logotipo-movil{
 	margin-left: auto;
 	margin-right: auto;
@@ -532,8 +551,12 @@
 
 .footer-movil{
 	width: 100%;
-	height: 100px;
-	background-color: #333;
+	display: none;
+}
+
+.cada-red-movil{
+	width: 25%;
+	float: left;
 }
 
 .footer-uno{
@@ -700,6 +723,12 @@
 
 .contenedor-historia{
 	width: 100%;
+}
+
+.botones-barrio-movil{
+	width: 100%;
+	display: inline-block;
+	display: none;
 }
 
 .info-historia{
@@ -1296,6 +1325,12 @@ a {
 	width: 97%;
 	display: inline-block;
 	margin: 0 0 3% 2%;
+}
+
+.imagen-arriendo-movil{
+	width: 100%;
+	margin: 0 0 5% 0;
+	display: none;
 }
 
 .imagen-n{

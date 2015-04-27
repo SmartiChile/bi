@@ -10,8 +10,8 @@ $this->title = 'Contacto';
 
 <div class="contenedor-mapa">
 	<br>
-	<h3>CONTACTO</h3>
-	<div class="puntos-separadores"></div>
+	<h3 class="h3-movil">CONTACTO</h3>
+	<div class="puntos-separadores no-mostrar"></div>
 
 	<?php 
         $form = ActiveForm::begin([

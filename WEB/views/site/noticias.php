@@ -6,8 +6,8 @@ $this->title = 'Noticias';
 
 <div class="contenedor-prensa">
 	<br>
-	<h3>NOTICIAS</h3>
-	<div class="puntos-separadores"></div>
+	<h3 class="h3-movil">NOTICIAS</h3>
+	<div class="puntos-separadores no-mostrar"></div>
 
 	<div class="contenido-prensa">
 

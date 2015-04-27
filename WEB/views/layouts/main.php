@@ -54,9 +54,25 @@ $this->registerJs('
             <?php
             NavBar::begin(['brandLabel' => '', 'options' => ['class' => 'navbar-inverse']]);
                 echo Nav::widget([
+                    'encodeLabels' => false,
                     'items' => [
-                      ['label' => 'Home', 'url' => ['/site/index']],
-                      ['label' => 'About', 'url' => ['/site/about']],
+                      ['label' => 'Inicio', 'url' => ['/site/index']],
+                      ['label' => 'El Barrio', 'url' => ['/site/elbarrio']],
+                      ['label' => 'Vitrina', 'url' => ['/site/vitrina']],
+                      ['label' => 'Mapa', 'url' => ['/site/mapa']],
+                      ['label' => 'Circuitos', 'url' => ['/site/circuitos']],
+                      ['label' => 'Tiendas', 'url' => ['/site/tiendas']],
+                      ['label' => 'Prensa', 'url' => ['/site/prensa']],
+                      ['label' => 'Noticias', 'url' => ['/site/noticias']],
+                      ['label' => 'Crea tu ruta', 'url' => ['/site/creaturuta']],
+                      ['label' => 'Contacto', 'url' => ['/site/contacto']],
+                      ['label' => '<hr class="hr-menu">'],
+                      (Yii::$app->user->isGuest ? ['label' => 'Ingresar', 'url' => ['/site/login']] : ['label' => 'Mi Panel', 'url' => ['/site/mipanel']]),
+                      (Yii::$app->funciones->isAdmin() ? ['label' => 'Panel de administración', 'url' => ['/admin/inicio']] : '' ),
+                      (Yii::$app->funciones->isUser() ? ['label' => 'Salir', 'url' => ['/site/logout'], 'linkOptions' => ['data-method' => 'post']] : '' ),
+                      ['label' => '<hr class="hr-menu">'],
+                      ['label' => 'Español', 'url' => ['#']],
+                      ['label' => 'Ingles', 'url' => ['#']],
                   ],
                 ]);
             NavBar::end();
@@ -146,7 +162,6 @@ $this->registerJs('
     </div>
 
     <footer class="footer-final">
-
         <div class="contenedor-colores-completo">
             <div class="color1-home"></div>
             <div class="color2-home"></div>
@@ -157,7 +172,18 @@ $this->registerJs('
         </div>
 
         <div class="footer-movil">
-            
+            <div class="cada-red-movil">
+                 <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-face-movil.png', $options = ['width'=>'100%']), ['#']); ?>
+            </div>
+            <div class="cada-red-movil">
+                <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-you-movil.png', $options = ['width'=>'100%']), ['#']); ?>
+            </div>
+            <div class="cada-red-movil">
+                <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-tw-movil.png', $options = ['width'=>'100%']), ['#']); ?>
+            </div>
+            <div class="cada-red-movil">
+                <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-insta-movil.png', $options = ['width'=>'100%']), ['#']); ?>
+            </div>
         </div>
         
         <div class="footer-uno">

@@ -30,7 +30,7 @@ $items = [
 
 
 <div id="elbarrio_contenedor">
-	<h3>EL BARRIO</h3>
+	<h3 class="h3-movil">EL BARRIO</h3>
 	<div class="puntos-separadores"></div>
 	<br />
 	<?php 
