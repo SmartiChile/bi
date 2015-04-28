@@ -26,8 +26,13 @@ $config = [
             'cookieValidationKey' => 'Mzh_kLzpaM-YmeZj2C0Iqa-UYqryBa-x',
         ],
         'urlManager' => [
-          'showScriptName' => false,
-          'enablePrettyUrl' => true
+            'showScriptName' => false,
+            'enablePrettyUrl' => true,
+            'rules' => array(
+                '<lan:\w+>/<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+                '<lan:\w+>/<controller:\w+>/<action:\w+>/<id:\w+>' => '<controller>/<action>',
+                '<lan:\w+>/<controller:\w+>/<action:\w+>' => '<controller>/<action>',
+            ),
         ],  
         'cache' => [
             'class' => 'yii\caching\FileCache',

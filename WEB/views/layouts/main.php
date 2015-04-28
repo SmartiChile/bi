@@ -10,6 +10,13 @@ use app\assets\AppAsset;
 
 AppAsset::register($this);
 $menu = Yii::$app->funciones->menu_web();
+
+if(isset($_GET['lan'])){
+  $idioma = $_GET['lan'];
+}else{
+  $idioma = 'es';
+}
+
 $this->registerCssFile(Yii::$app->request->baseUrl.'/css/barrioitalia.css');
 $this->registerCssFile(Yii::$app->request->baseUrl.'/css/media1.css'); 
 $this->registerCssFile(Yii::$app->request->baseUrl.'/css/media2.css'); 
@@ -152,7 +159,7 @@ $this->registerJs('
             <nav id="menu-usuario">
                     <ul>
                         <?php foreach($menu as $link): ?>
-                            <li><?= Html::a($link[1], [$link[2]]); ?></li>
+                            <li><?= Html::a($link[1], [$link[2], 'lan' => $idioma]); ?></li>
                         <?php endforeach; ?>
                     </ul>
             </nav>

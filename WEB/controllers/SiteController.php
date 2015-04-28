@@ -15,6 +15,7 @@ use app\models\Contacto;
 use app\models\Evento;
 use app\models\Tag;
 use app\models\Arriendo;
+use app\models\Idioma;
 use app\models\Vitrina;
 use app\models\Noticia;
 use app\models\Local;
@@ -84,11 +85,15 @@ class SiteController extends Controller
         ];
     }
 
-    public function actionIndex()
+    public function actionIndex($lan = '')
     {
-        $noticias = Noticia::find()->where(["prensa"=>0, "destacada"=>1])->limit(3)->orderBy(["pk"=>SORT_DESC])->all();
-        $eventos = Evento::find()->orderBy(["pk"=>SORT_DESC])->limit(4)->all();
-        $circuitos = Circuito::find()->orderBy(["posicion"=>SORT_ASC])->all();
+        if($lan == ''){
+            $lan = 'es';
+        }
+        $idioma = Idioma::find()->where(["abreviacion"=>$lan])->one();
+        $noticias = Noticia::find()->where(["prensa"=>0, "destacada"=>1, 'idioma_fk'=>$idioma->pk])->limit(3)->orderBy(["pk"=>SORT_DESC])->all();
+        $eventos = Evento::find()->where(['idioma_fk'=>$idioma->pk])->orderBy(["pk"=>SORT_DESC])->limit(4)->all();
+        $circuitos = Circuito::find()->where(['idioma_fk'=>$idioma->pk])->orderBy(["posicion"=>SORT_ASC])->all();
         return $this->render('index', [
                 'circuitos'=>$circuitos,
                 'eventos'=>$eventos,
@@ -285,29 +290,33 @@ class SiteController extends Controller
             ]);*/
     }
 
-    public function actionNoticia($n)
+    public function actionNoticia($id)
     {
+        $t = (int) $id;
         return $this->render('noticia', [
             'model' => Noticia::findOne($n),
         ]);
     }
 
-    public function actionInfoprensa($p)
+    public function actionInfoprensa($id)
     {
+        $p = $id;
         return $this->render('infoprensa', [
             'model' => Noticia::findOne($p),
         ]);
     }
 
-    public function actionEvento($e)
+    public function actionEvento($id)
     {
+        $e = $id;
         return $this->render('evento', [
             'model' => Evento::findOne($e),
         ]);
     }
 
-    public function actionCircuito($c)
+    public function actionCircuito($id)
     {
+        $c = $id;
         $circuitos = Circuito::find()->orderBy(["posicion"=>SORT_ASC])->all();
         $locales = Local::find()->joinWith(['tiendas'])->where(['tienda.circuito_fk' => $c])->all();
         $patrimonios = Patrimonio::find()->where(["circuito_fk"=>$c])->all();
@@ -321,15 +330,17 @@ class SiteController extends Controller
             ]);
     }
 
-    public function actionPatrimonio($p)
+    public function actionPatrimonio($id)
     {
+        $p = $id;
         return $this->render('patrimonio', [
                 'model' => Patrimonio::findOne($p),
             ]);
     }
 
-    public function actionArriendo($a)
+    public function actionArriendo($id)
     {
+        $a = $id;
         return $this->render('arriendo', [
             'model' => Arriendo::findOne($a),
         ]);
@@ -373,8 +384,9 @@ class SiteController extends Controller
         ]);
     }
 
-    public function actionTienda($t)
+    public function actionTienda($id)
     {
+        $t = $id;
         if(Yii::$app->user->isGuest){
             $ofertas = Oferta::find()->where(['tienda_fk' => $t])->all();
             $servicios = TiendaxServicio::find()->where(['tienda_fk' => $t])->all();
@@ -563,8 +575,9 @@ class SiteController extends Controller
         return $this->render('recuperar');
     }
 
-    public function actionRestaurar($token)
+    public function actionRestaurar($id)
     {
+        $token = $id;
         $usuario = Usuario::find()->where(['token'=>$token])->one();
 
         if(isset($usuario)){
@@ -607,8 +620,9 @@ class SiteController extends Controller
         return $this->render('registro', ['model'=>$model]);
     }
 
-    public function actionImagen($i)
+    public function actionImagen($id)
     {
+        $i = $id;
         $model = Vitrina::findOne($i);
         
         return $this->render('imagen', ['model'=>$model]);

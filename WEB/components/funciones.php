@@ -4,6 +4,7 @@ namespace app\components;
  
  
 use Yii;
+use yii\helpers\Html;
 use yii\base\Component;
 use yii\base\InvalidConfigException;
 use kartik\widgets\SideNav;
@@ -199,7 +200,7 @@ class funciones extends Component
         $cantidad = count($idiomas);
 
         foreach ($idiomas as $key => $idioma) {
-            echo $idioma->abreviacion;
+            echo Html::a($idioma->abreviacion, ['site/index', 'lan'=>$idioma->abreviacion]);
             if($key < ($cantidad - 1)){
                 echo ' | ';
             }
