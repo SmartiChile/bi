@@ -26,8 +26,8 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 
 <div class="contenedor-elbarrio">
 	<br>
-	<h3 class="no-imprimir">Bienvenido(a) <?php echo Yii::$app->funciones->nombreUser(Yii::$app->user->identity->nombre);?> - Ruta actual</h3>
-	<div class="puntos-separadores"></div>
+	<h3 class="no-imprimir h3-movil">Bienvenido(a) <?php echo Yii::$app->funciones->nombreUser(Yii::$app->user->identity->nombre);?> - Ruta actual</h3>
+	<div class="puntos-separadores no-mostrar"></div>
 
 	<div class="contenido-mis-rutas">
 		<div class='menu-mis-rutas'>

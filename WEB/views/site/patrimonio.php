@@ -19,8 +19,8 @@ $this->title = 'Patrominio - '.$model->nombre;
 
 <div class="contenedor-n">
 	<br>
-	<h3>PATRIMONIOS</h3>
-	<div class="puntos-separadores"></div>
+	<h3 class="h3-movil">PATRIMONIOS</h3>
+	<div class="puntos-separadores no-mostrar"></div>
 	<div class="contenido-n">
 		<div class="imagen-n">
 			<?php echo Html::img(Yii::$app->request->baseUrl.'/images/patrimonio/'.$model->imagen, $options = ['width' => '100%']); ?>

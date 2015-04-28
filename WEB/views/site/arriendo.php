@@ -72,23 +72,6 @@ $this->title = 'Arriendo - '.$model->titulo;
 				echo $model->titulo;
 			?>
 			</h3>
-		<div class="imagen-arriendo-movil">
-			<?php 
-			echo Html::img(Yii::$app->request->baseUrl.'/images/arriendos/'.$model->imagen1,  ['width' => '100%']);
-			?>
-		</div>
-		<?php 
-			if(isset($model->imagen2)): ?>
-				<div class="imagen-arriendo-movil">
-				<?php echo Html::img(Yii::$app->request->baseUrl.'/images/arriendos/'.$model->imagen2, ['width' => '100%']); ?>
-				</div>
-		<?php endif ?>
-		<?php 
-			if(isset($model->imagen3)): ?>
-				<div class="imagen-arriendo-movil">
-				<?php echo Html::img(Yii::$app->request->baseUrl.'/images/arriendos/'.$model->imagen3, ['width' => '100%']); ?>
-				</div>
-		<?php endif ?>
 			<?php echo $model->descripcion; ?>
 			<p><i class="glyphicon glyphicon-map-marker"></i> <strong>Dirección:</strong> <?php echo $model->direccion; ?></p>
 			<p><i class="glyphicon glyphicon-earphone"></i> <strong>Teléfono:</strong> <?php echo $model->telefono; ?></p>

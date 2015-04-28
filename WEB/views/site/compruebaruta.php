@@ -6,8 +6,8 @@ $this->title = 'Comprobar ruta';
 
 <div class="contenedor-vitrina">
 	<br>
-	<h3>COMPROBAR RUTA</h3>
-	<div class="puntos-separadores"></div>
+	<h3 class="h3-movil">COMPROBAR RUTA</h3>
+	<div class="puntos-separadores no-mostrar"></div>
 
 	<div class="contenido-crea-tu-ruta">
 		<h3><?php echo Yii::$app->funciones->nombreUser(Yii::$app->user->identity->nombre) ?> tienes una ruta en curso, ¿Que deseas hacer?</h3>
