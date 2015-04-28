@@ -438,10 +438,16 @@
 	.tiendas-ruta-usuario{
 		width: 100% !important;
 		margin: 0 0 15% 0 !important;
+		overflow-x: scroll;
+		overflow-y: hidden;
 	}
 
 	.contenedor-cambio-pass{
 		width: 100%;
+	}
+
+	.navbar ul li a{
+		color: #fff;
 	}
 
 }

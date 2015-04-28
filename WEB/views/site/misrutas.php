@@ -25,7 +25,7 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 		<div class="info-mis-rutas">
 			<h3>Historia de rutas</h3>
 			<div class="tiendas-ruta-usuario">
-				<?php yii\widgets\Pjax::begin(['id' => 'usuario_ruta']) ?>
+				<?php yii\widgets\Pjax::begin() ?>
 				        <?= GridView::widget([
 				        	'options' => ['id' => 'uno'],
 				            'dataProvider' => $dataProvider,

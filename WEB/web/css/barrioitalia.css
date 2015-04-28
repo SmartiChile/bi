@@ -2060,8 +2060,9 @@ a .boton-comenzar-ruta2:hover{
 
 .tiendas-ruta-usuario{
 	width: 80%;
-	margin: 0 auto 10% auto;
+	margin: 0 auto 10% auto; 
 }
+
 
 .tiendas-ruta-usuario th{
 	background-color: #333;

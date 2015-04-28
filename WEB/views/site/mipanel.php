@@ -49,7 +49,6 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 					<br /><br />
 				<div class="tiendas-ruta-usuario">
 				        <?= GridView::widget([
-				        	'options' => ['id' => 'uno'],
 				            'dataProvider' => $dataProvider,
 				            'columns' => [
 				                ['class' => 'yii\grid\SerialColumn'],

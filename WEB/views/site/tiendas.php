@@ -84,7 +84,6 @@ $this->registerJs('
 	                    	<?php
 								echo StarRating::widget([
 									'name' => 'rating_21',
-									'id' => 'rat',
 									'value' => $tienda->rating,
 									'pluginOptions' => [
 									'size' => 'sm',
