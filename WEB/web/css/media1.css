@@ -1,6 +1,454 @@
 /* Smartphones (portrait and landscape) ----------- */
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px), only screen and (-webkit-min-device-pixel-ratio : 1.5), only screen and (min-device-pixel-ratio : 1.5) {
+	.franja-menu-movil{
+		display: block;
+	}
 
+	.h3-movil{
+		margin: 6% 0 5% 0 !important;
+		font-size: 20px;
+	}
+
+	.logotipo-movil{
+		width: 50%;
+		display: block;
+		margin-top: 10%;
+	}
+
+	.footer-movil{
+		display: block;
+	}
+
+	.noticia-home{
+		width: 100%;
+		height: 200px;
+		float: left;
+		margin: 0 0 2% 0;
+		overflow: hidden;
+	    position: relative;
+	    text-align: center;
+	}
+
+	#banner, .buscador-home, .no-mostrar, .bg-mapa, .contenedor-fotos-historia, .info-arriendo, .rating-tienda,
+	.footer-uno, .footer-dos, .eventos-info2, .logotipo-circuito-tienda, .boton-imprimir-mapa, .mapa-circuitos,
+	.banner-tienda, .ico-ruta{
+		display: none;
+	}
+
+	.btn-circuito{
+		width: 100%;
+		padding: 5% 0 5% 0;
+		background-color: none;
+		float: left;
+		margin: 0 0 2% 0;
+		border: none;
+		outline: none;
+		position: relative;
+		border: none !important;
+		border-radius: 0 !important;
+		cursor: pointer;
+		display: inline-block;
+		outline: none;
+		position: relative;
+		text-transform: uppercase;
+	}
+
+	.proximos-eventos-home{
+		width: 100%;
+		float: left;
+		margin: 5% 1% 0 0;
+		background-color: #c2c2c2;
+	}
+
+	.nombre-evento-home{
+		width: 100%;
+		float: left;
+	}
+
+	.nombre-evento-home h3{
+		font-size: 18px;
+		margin: 0 0 0 2% !important;
+	}
+
+	.boton-evento-home{
+		width: 100%;
+	}
+
+	.boton-evento-home p{
+		padding: 0 3% 0 0;
+	}
+
+	.noticia-home h2 {
+	    color: #fff;
+	    text-align: center;
+	    position: relative;
+	    font-size: 30px;
+	    margin: 5% 0 5% 0;
+	}
+
+	.noticia-home a.informacion {
+	    display: inline-block;
+	    text-decoration: none;
+	    padding: 7px 14px;
+	    background: #fff;
+	    color: #191919;
+	    box-shadow: 0 0 1px #000;
+	    margin: 1% 0 0 0;
+	}
+
+	.info-elbarrio{
+		width: 100%; 
+	}
+
+	.informacion-cada-barrio{
+		width: 100%;
+	}
+
+	.menu-elbarrio{
+		width: 100%;
+		float: right;
+	}
+
+	.info-historia{
+		width: 100%;
+		text-align: justify;
+		margin: 0 0 3% 0;
+	}
+
+	.cada-boton-barrio-movil{
+		width: 100%;
+		float: left;
+		border: 1px solid #e2e2e2;
+		margin: 0 0 1% 0;
+		text-align: center;
+		padding: 3% 0 0 0;
+		color: #333;
+	}
+
+	.info-cada-arriendo{
+		width: 100%;
+		background-color: #f5f6f6;
+		float: left;
+		margin: 0 0 5% 0;
+		-webkit-border-top-right-radius: 5px;
+		-webkit-border-bottom-right-radius: 5px;
+		-moz-border-radius-topright: 5px;
+		-moz-border-radius-bottomright: 5px;
+		border-top-right-radius: 5px;
+		border-bottom-right-radius: 5px;
+		text-align: justify;
+	}
+
+	.imagen-na{
+		width: 100%;
+		float: left;
+		margin: 0 3% 0 0;
+	}
+
+	.imagen-n{
+		width: 100%;
+		float: left;
+		margin: 0 0 5% 0;
+		padding: 1%;
+		border: 1px solid #ddd;
+	}
+
+	.info-n h5{
+		font-size: 10px;
+	}
+
+	.img-arriendo{
+		width: 100%;
+		height: 150px; 
+		float: left;
+	}
+
+	.img-arriendo img{
+		width: 100%;
+		height: 100%;
+	}
+
+	.thumb{
+		width: 85px !important;
+		height: 85px !important;
+		margin-bottom: 5%;
+	}
+
+	.cada-formulario-trabaja{
+		width: 100%;
+		float: left;
+	}
+
+	.boton-enviar-trabaja{
+		width: 30% !important;
+		margin: 1% 5% 0 0;
+	}
+
+	.eventos-info3{
+		width: 50%;
+		float: right;
+	}
+
+	.info-n{
+		width: 100%;
+		float: left;
+		line-height: 1.8em;
+	}
+
+	.cada-circuito{
+		width: 100%;
+		padding: 20% 10%;
+		float: left;
+		margin: 0 0 5% 0;
+		text-align: center;
+		color: #fff;
+	}
+
+	#mapa{ 
+		height: 300px; 
+	}
+
+	.cada-tienda-tiendas{
+		width: 100%;
+		height: 200px;
+		float: left;
+		margin: 0 1% 5% 0;
+		position: relative;
+	}
+
+	.cada-tienda-tiendas .tile-hot-ribbon {
+	  position: absolute;
+	  top: -40%;
+	  right: -4px;
+	  display: block;
+	  width: 65px;
+	}
+
+	.buscador-tienda-tiendas{
+		width: 100% !important;
+	}
+
+	.buscar-tienda{
+		width: 100% !important;
+		margin: 3% 0 0 0!important;
+	}
+
+	.buscador input[type="text"] {
+		width: 100%;
+	}
+
+	.cada-prensa{
+		width: 100%;
+		background-color: #f5f6f6;
+		float: left;
+		margin: 0 1% 5% 0;
+		-webkit-border-radius: 7px;
+		-moz-border-radius: 7px;
+		border-radius: 7px;
+		padding: 3%;
+		text-align: justify;
+	}
+
+	.eventos-info1{
+		width: 100%;
+		padding: 3%;
+	}
+
+	.informacion-circuito{
+		width: 100%;
+	}
+
+	.cada-noticia{
+		margin: 0 0 5% 0;
+
+	}
+
+	.img-noticia{
+		width: 100%;
+		float: left;
+		height: 200px;
+	}
+
+	.info-noticia{
+		width: 100%;
+		float: left;
+	}
+
+	.ver-mas-prensa{
+		width: 40%;
+		float: right;
+	}
+
+	.ver-mas-noticias{
+		width: 80%;
+		float: right !important;
+	}
+
+	.margen-container{
+		margin: 0 2% 0 2% !important;
+	}
+
+	.imagenes-tienda{
+		width: 100%;
+		padding: 0 0 0 0;
+	}
+
+	.thumb2{
+		width: 54px !important;
+		height: 55px !important;
+		margin-bottom: 5%;
+	}
+
+	.info-tienda{
+		width: 100%;
+	}
+
+	.head-tienda h3{
+		float: none;
+	}
+
+	.rating-head-tienda{
+		width: 57%;
+		float: left;
+		margin: 5% 0 0 0;
+	}
+
+	.rating-head-tienda .rating-container{
+		margin:0 !important;
+		float: left;
+	}
+
+	.oferta-head-tienda{
+		width: 10%;
+		margin:3% 3% 0 0;
+	}
+
+	.ruta-head-tienda{
+		width: 10%;
+		margin:2% 3% 0 0;
+	}
+
+	.sub-info-tienda{
+		width: 100%;
+		float: left;
+	}
+
+	.contenedor-red-tienda{
+		margin: 10% 0 0 0;
+	}
+
+	.sub-redes-tienda{
+		width: 100%;
+		float: left;
+	}
+
+	.servicios-cada-tienda{
+		margin: 5% 0 2% 0;
+	}
+
+	.servicio-tienda{
+		width: 25%;
+		float: left;
+		margin: 0 2% 1% 0;
+	}
+
+	.formulario-contacto{
+		width: 100%;
+	}
+
+	.cada-input-contacto{
+		width: 100%;
+		float: left;
+		margin: 0 0 5% 0;
+	}
+
+	.boton-enviar-contacto{
+		width: 30% !important;
+	}
+
+	.mensaje-exito-contacto{
+		width: 100%;
+	}
+
+	.contenido-crea-tu-ruta{
+		width: 100%;
+	}
+
+	.contenido-crea-tu-ruta h3{
+		font-weight: bold;
+		font-size: 18px;
+		margin: 0 0 3% 0 !important;
+	}
+
+	.contenido-crea-tu-ruta h4{
+		margin: 0 0 3% 0;
+		font-size: 16px;
+	}
+
+	.boton-comenzar-ruta2{
+		width: 100%;
+		margin: 0 0 5% 0;
+	}
+
+	.boton-comenzar-ruta2 h5{
+		font-size: 14px;
+		text-align: center;
+	}
+
+	.login{
+		width: 100%;
+	}
+
+	#redes li{
+		width: 100%;
+		font-size: 16px;
+	}
+
+	.login-line{
+		width: 100%;
+	}
+
+	#login-form{
+		width: 100%;
+	}
+
+	#login-form .btn-success{
+		font-size: 16px;
+	}
+
+	.form-recuperar-password{
+		width: 100%;
+	}
+
+	.form-recuperar-password p{
+		width: 100%;
+	}
+
+	.menu-mis-rutas{
+		width: 100%;
+		float: left;
+	}
+
+	.info-mis-rutas{
+		width: 100%;
+		float: left;
+		margin: 0;
+	}
+
+	.tiendas-ruta-usuario{
+		width: 100% !important;
+		margin: 0 0 15% 0 !important;
+		overflow-x: scroll;
+		overflow-y: hidden;
+	}
+
+	.contenedor-cambio-pass{
+		width: 100%;
+	}
+
+	.navbar ul li a{
+		color: #fff;
+	}
 }
 
 /* Smartphones (landscape) ----------- */
