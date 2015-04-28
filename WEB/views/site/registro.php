@@ -8,7 +8,7 @@ $this->title = 'Barrio Italia - Registro';
 
 <div class='form-login'>
 	<div class='registrate-con login'>
-		<?php echo Html::img(Yii::$app->request->baseUrl.'/images/lg-negro.png', $options = ['class'=>'registro-lg-negro']); ?>
+		<?php echo Html::img(Yii::$app->request->baseUrl.'/images/lg-negro.png', $options = ['class'=>'registro-lg-negro no-mostrar']); ?>
             <?php $authAuthChoice = AuthChoice::begin([
                   'id'=>'redes',
                   'baseAuthUrl' => ['site/auth']

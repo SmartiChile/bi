@@ -11,7 +11,7 @@ $this->title = 'Barrio Italia - Ingreso';
 ?>
 <div class="site-login">
     <div class='login'>
-            <?php echo Html::img(Yii::$app->request->baseUrl.'/images/lg-negro.png', $options = ['class'=>'login-lg-negro']); ?>
+            <?php echo Html::img(Yii::$app->request->baseUrl.'/images/lg-negro.png', $options = ['class'=>'login-lg-negro no-mostrar']); ?>
             <?php $authAuthChoice = AuthChoice::begin([
                   'id'=>'redes',
                   'baseAuthUrl' => ['site/auth']

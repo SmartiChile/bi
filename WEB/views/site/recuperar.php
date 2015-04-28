@@ -5,7 +5,7 @@ $this->title = 'Barrio Italia - Recuperar contraseña';
 ?>
 
 <div class='form-recuperar-password'>
-	<?php echo Html::img(Yii::$app->request->baseUrl.'/images/lg-negro.png', $options = ['class'=>'recuperar-lg-negro']); ?>
+	<?php echo Html::img(Yii::$app->request->baseUrl.'/images/lg-negro.png', $options = ['class'=>'recuperar-lg-negro no-mostrar']); ?>
 	<h3>Restablecer Contraseña</h3>
 	<hr />
     <?php if (Yii::$app->session->hasFlash('email_correcto')): ?>

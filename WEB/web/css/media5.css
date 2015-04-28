@@ -29,9 +29,9 @@
 	    text-align: center;
 	}
 
-	#banner, .buscador-home, .no-mostrar, .bg-mapa, .menu-elbarrio, .contenedor-fotos-historia, .info-arriendo, .rating-tienda,
-	.footer-uno, .footer-dos, .eventos-info2, .logotipo-circuito-tienda, .boton-imprimir-mapa, .imagen-na, .mapa-circuitos,
-	.banner-tienda{
+	#banner, .buscador-home, .no-mostrar, .bg-mapa, .contenedor-fotos-historia, .info-arriendo, .rating-tienda,
+	.footer-uno, .footer-dos, .eventos-info2, .logotipo-circuito-tienda, .boton-imprimir-mapa, .mapa-circuitos,
+	.banner-tienda, .ico-ruta{
 		display: none;
 	}
 
@@ -100,15 +100,19 @@
 		width: 100%; 
 	}
 
+	.informacion-cada-barrio{
+		width: 100%;
+	}
+
+	.menu-elbarrio{
+		width: 100%;
+		float: right;
+	}
+
 	.info-historia{
 		width: 100%;
 		text-align: justify;
 		margin: 0 0 3% 0;
-	}
-
-	.botones-barrio-movil{
-		margin: 5% 0 10% 0;
-		display: inline-block;
 	}
 
 	.cada-boton-barrio-movil{
@@ -135,6 +139,12 @@
 		text-align: justify;
 	}
 
+	.imagen-na{
+		width: 100%;
+		float: left;
+		margin: 0 3% 0 0;
+	}
+
 	.imagen-n{
 		width: 100%;
 		float: left;
@@ -158,8 +168,10 @@
 		height: 100%;
 	}
 
-	.imagen-arriendo-movil{
-		display: block;
+	.thumb{
+		width: 85px !important;
+		height: 85px !important;
+		margin-bottom: 5%;
 	}
 
 	.cada-formulario-trabaja{
@@ -354,6 +366,10 @@
 		width: 30% !important;
 	}
 
+	.mensaje-exito-contacto{
+		width: 100%;
+	}
+
 	.contenido-crea-tu-ruta{
 		width: 100%;
 	}
@@ -361,7 +377,71 @@
 	.contenido-crea-tu-ruta h3{
 		font-weight: bold;
 		font-size: 18px;
-		margin: 0 !important;
+		margin: 0 0 3% 0 !important;
+	}
+
+	.contenido-crea-tu-ruta h4{
+		margin: 0 0 3% 0;
+		font-size: 16px;
+	}
+
+	.boton-comenzar-ruta2{
+		width: 100%;
+		margin: 0 0 5% 0;
+	}
+
+	.boton-comenzar-ruta2 h5{
+		font-size: 14px;
+		text-align: center;
+	}
+
+	.login{
+		width: 100%;
+	}
+
+	#redes li{
+		width: 100%;
+		font-size: 16px;
+	}
+
+	.login-line{
+		width: 100%;
+	}
+
+	#login-form{
+		width: 100%;
+	}
+
+	#login-form .btn-success{
+		font-size: 16px;
+	}
+
+	.form-recuperar-password{
+		width: 100%;
+	}
+
+	.form-recuperar-password p{
+		width: 100%;
+	}
+
+	.menu-mis-rutas{
+		width: 100%;
+		float: left;
+	}
+
+	.info-mis-rutas{
+		width: 100%;
+		float: left;
+		margin: 0;
+	}
+
+	.tiendas-ruta-usuario{
+		width: 100% !important;
+		margin: 0 0 15% 0 !important;
+	}
+
+	.contenedor-cambio-pass{
+		width: 100%;
 	}
 
 }
