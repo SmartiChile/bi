@@ -23,7 +23,7 @@ $this->title = 'Barrio italia - Arriendos';
 
 		<?php
 			if($arriendos == null){
-				echo '<br/> Lo sentimos, no hay arriendo publicados aún.';
+				echo '<br/> Lo sentimos, no hay arriendos publicados aún.';
 			}
 		?>
 

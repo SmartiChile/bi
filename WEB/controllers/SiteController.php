@@ -236,7 +236,6 @@ class SiteController extends Controller
 
     public function actionCircuitos()
     {
-
         $circuitos = Circuito::find()->orderBy(["posicion"=>SORT_ASC])->all();
         $locales = Local::find()->joinWith(['tiendas'])->all();
         $patrimonios = Patrimonio::find()->all();

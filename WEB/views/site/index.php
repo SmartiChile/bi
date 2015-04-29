@@ -33,7 +33,7 @@ $this->registerJs(
 <style type="text/css">
     <?php
         foreach ($circuitos as $circuito) {
-            echo ".c_".$circuito->pk.":before{ content:url(".Yii::$app->request->baseUrl."/images/circuitos/".$circuito->icono."); margin: 4.5% 0 0 0; }";
+            echo ".c_".$circuito->pk.":before{ content:url(".Yii::$app->request->baseUrl."/images/circuitos/".$circuito->icono."); margin: 4.5% 0 0 0;}";
         } 
     ?>
 
