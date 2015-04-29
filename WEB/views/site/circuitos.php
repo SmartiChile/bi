@@ -15,22 +15,12 @@ $this->title = 'Circuito';
 	<div class="contenedor-completo-circuitos">
 
 		<?php
-			foreach ($circuitos as $circuito)
-			{
-				?>
-				<a href='<?= Yii::$app->request->baseUrl.'/site/circuito?c='."$circuito->pk" ?>'>
-					<div class="cada-circuito" style="background-color:<?php echo $circuito->color?>;">
-						<?php echo Html::img(Yii::$app->request->baseUrl.'/images/circuitos/'.$circuito->icono, ['']); ?>
-						<h3><?php echo $circuito->nombre; ?></h3>
-						<?php
-							 $descripcion = Yii::$app->funciones->quitarTags($circuito->descripcion); 
-						?>
-						<p><?php echo substr($descripcion, 0, 130)."..."; ?></p>
-					</div>
-				</a>
-			<?php 
-			} 
-		?>
+
+      foreach ($circuitos as $circuito){
+          $link = "<div class='cada-circuito' style='background-color: ".$circuito->color."'>".Html::img(Yii::$app->request->baseUrl.'/images/circuitos/'.$circuito->icono, [''])."<h3>".$circuito->nombre."</h3><p>".substr($circuito->descripcion, 0, 130)."...</p></div>";
+          echo Html::a($link, ['site/circuito', 'lan' => $idioma->abreviacion, 'id' => $circuito->pk]); 
+      }
+    ?>
 	</div>
 
 	<div class="mapa-circuitos">
@@ -48,6 +38,7 @@ $this->title = 'Circuito';
                 echo "[[";
                 foreach($local->tiendas as $tienda)
                 {
+                  if($tienda->idioma_fk == $idioma->pk)
                     echo "['".$tienda->pk."', '".$tienda->nombre."', '".Yii::$app->request->baseUrl.'/images/tiendas/'.$tienda->imagen1."', '".$tienda->rating."', '".$local->direccion."', '".$tienda->numeracion."', '".$tienda->horario."', '', '".$tienda->telefono."', '".$tienda->circuitoFk->color."',], ";
                 }
                 echo "],".Yii::$app->funciones->coordenadasOK($local->coordenadas)."],";
@@ -94,11 +85,11 @@ $this->title = 'Circuito';
             {
               if(marcadores[i][0][k][6] == 'k21+')
                 {
-                  contenido = contenido + "<div class=cada-marker><div class=imagen-marker-mapa><a href='<?= Url::toRoute('site/patrimonio') ?>?p="+ marcadores[i][0][k][0] +"'><img src='" + marcadores[i][0][k][2] + "' width='100%' /></a></div><div class=contenido-marker-mapa><a id=cambiar_color_tienda href='<?= Url::toRoute('site/patrimonio') ?>?p="+ marcadores[i][0][k][0] +"'><h4>" + marcadores[i][0][k][1] + "</h4></a><h6>"+ marcadores[i][0][k][4] + "</h6><p>"+ marcadores[i][0][k][5] +"</p></div></div>";
+                  contenido = contenido + "<div class=cada-marker><div class=imagen-marker-mapa><a href='<?= Url::toRoute(['site/patrimonio', 'lan'=>$idioma->abreviacion]) ?>/"+ marcadores[i][0][k][0] +"'><img src='" + marcadores[i][0][k][2] + "' width='100%' /></a></div><div class=contenido-marker-mapa><a id=cambiar_color_tienda href='<?= Url::toRoute(['site/patrimonio', 'lan'=>$idioma->abreviacion]) ?>/"+ marcadores[i][0][k][0] +"'><h4>" + marcadores[i][0][k][1] + "</h4></a><h6>"+ marcadores[i][0][k][4] + "</h6><p>"+ marcadores[i][0][k][5] +"</p></div></div>";
                 }
                 else
                 {
-                    contenido = contenido + "<div class=cada-marker><div class=imagen-marker-mapa><a href='<?= Url::toRoute('site/tienda') ?>?t="+ marcadores[i][0][k][0] +"'><img src='" + marcadores[i][0][k][2] + "' width='100%' /></a></div><div class=contenido-marker-mapa><a id=cambiar_color_tienda href='<?= Url::toRoute('site/tienda') ?>?t="+ marcadores[i][0][k][0] +"'><h4>" + marcadores[i][0][k][1] + "</h4></a><h6>"+ marcadores[i][0][k][4] + ", "+ marcadores[i][0][k][5]+"</h6><p><i class='glyphicon glyphicon-calendar'></i> "+ marcadores[i][0][k][6] + "</p><p><i class='glyphicon glyphicon-earphone'></i> "+ marcadores[i][0][k][8] +"</p></div></div>";
+                    contenido = contenido + "<div class=cada-marker><div class=imagen-marker-mapa><a href='<?= Url::toRoute(['site/tienda', 'lan'=>$idioma->abreviacion]) ?>/"+ marcadores[i][0][k][0] +"'><img src='" + marcadores[i][0][k][2] + "' width='100%' /></a></div><div class=contenido-marker-mapa><a id=cambiar_color_tienda href='<?= Url::toRoute(['site/tienda', 'lan'=>$idioma->abreviacion]) ?>/"+ marcadores[i][0][k][0] +"'><h4>" + marcadores[i][0][k][1] + "</h4></a><h6>"+ marcadores[i][0][k][4] + ", "+ marcadores[i][0][k][5]+"</h6><p><i class='glyphicon glyphicon-calendar'></i> "+ marcadores[i][0][k][6] + "</p><p><i class='glyphicon glyphicon-earphone'></i> "+ marcadores[i][0][k][8] +"</p></div></div>";
                 }
             }
             contenido = contenido + "</div>";

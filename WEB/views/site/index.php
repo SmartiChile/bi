@@ -15,7 +15,7 @@ Shadowbox.init({}, function() {
 
 $this->registerJs(
     '
-    $.getJSON("'.Yii::$app->request->baseUrl.'/site/tag", function(data) {
+    $.getJSON("'.Yii::$app->request->baseUrl.'/site/tag?id='.$idioma->pk.'", function(data) {
             var word_array = [
                   
               ];
@@ -41,7 +41,7 @@ $this->registerJs(
 
 <div class="site-index">
 
-    <h3 class="h3-movil">CIRCUITOS</h3>
+    <h3 class="h3-movil"><?= ($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en') ? 'CIRCUITS' : 'CIRCUTIOS' ?></h3>
 
     
     <div class="contenedor-botones">
@@ -57,7 +57,7 @@ $this->registerJs(
 
     <div class="puntos-separadores no-mostrar"></div>
 
-   <h3 class="no-mostrar">BUSCADOR</h3>
+   <h3 class="no-mostrar"><?= ($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en') ? 'SEARCH BAR' : 'BUSCADOR' ?></h3>
 
    <div class="contenedor-buscador">
       <div class="buscador-home">
@@ -79,7 +79,7 @@ $this->registerJs(
 
         <div class="proximos-eventos-home">
             <div class="titulo-proximos-eventos-home">
-                <h2>Proximos Eventos</h2>
+                <h2><?= $idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Upcoming Events' : 'Próximos Eventos' ?></h2>
             </div>
             <div class="eventos-home">
                 <?php
@@ -131,7 +131,7 @@ $this->registerJs(
                 $descripcion = Yii::$app->funciones->quitarTags($noticia->descripcion);
             ?>  
             <p><?php echo substr($descripcion, 0, 120)."..."; ?></p>
-            <?php echo Html::a('Leer más', ['/site/noticia?n='.$noticia->pk] ,$options = ['class'=>'informacion']); ?>
+            <?php echo Html::a('Leer más', ['site/noticia', 'id'=>$noticia->pk, 'lan' => $idioma->abreviacion] ,$options = ['class'=>'informacion']); ?>
           </div> 
           </div>
         <?php endforeach; ?>

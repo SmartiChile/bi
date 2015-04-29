@@ -132,11 +132,11 @@ $this->registerJs('
             {
               if(marcadores[i][0][k][6] == 'k21+')
                 {
-                  contenido = contenido + "<div class=cada-marker><div class=imagen-marker-mapa><a href='<?= Url::toRoute('site/patrimonio') ?>?p="+ marcadores[i][0][k][0] +"'><img src='" + marcadores[i][0][k][2] + "' width='100%' /></a></div><div class=contenido-marker-mapa><a id=cambiar_color_tienda href='<?= Url::toRoute('site/patrimonio') ?>?p="+ marcadores[i][0][k][0] +"'><h4>" + marcadores[i][0][k][1] + "</h4></a><h6>"+ marcadores[i][0][k][4] + "</h6><p>"+ marcadores[i][0][k][5] +"</p></div></div>";
+                  contenido = contenido + "<div class=cada-marker><div class=imagen-marker-mapa><a href='<?= Url::toRoute(['site/patrimonio', 'lan' => $idioma->abreviacion]) ?>/"+ marcadores[i][0][k][0] +"'><img src='" + marcadores[i][0][k][2] + "' width='100%' /></a></div><div class=contenido-marker-mapa><a id=cambiar_color_tienda href='<?= Url::toRoute(['site/patrimonio', 'lan' => $idioma->abreviacion]) ?>/"+ marcadores[i][0][k][0] +"'><h4>" + marcadores[i][0][k][1] + "</h4></a><h6>"+ marcadores[i][0][k][4] + "</h6><p>"+ marcadores[i][0][k][5] +"</p></div></div>";
                 }
                 else
                 {
-                    contenido = contenido + "<div class=cada-marker><div class=imagen-marker-mapa><a href='<?= Url::toRoute('site/tienda') ?>?t="+ marcadores[i][0][k][0] +"'><img src='" + marcadores[i][0][k][2] + "' width='100%' /></a></div><div class=contenido-marker-mapa><a id=cambiar_color_tienda href='<?= Url::toRoute('site/tienda') ?>?t="+ marcadores[i][0][k][0] +"'><h4>" + marcadores[i][0][k][1] + "</h4></a><h6>"+ marcadores[i][0][k][4] + ", "+ marcadores[i][0][k][5]+"</h6><p><i class='glyphicon glyphicon-calendar'></i> "+ marcadores[i][0][k][6] + "</p><p><i class='glyphicon glyphicon-earphone'></i> "+ marcadores[i][0][k][8] +"</p></div></div>";
+                    contenido = contenido + "<div class=cada-marker><div class=imagen-marker-mapa><a href='<?= Url::toRoute(['site/tienda', 'lan' => $idioma->abreviacion]) ?>/"+ marcadores[i][0][k][0] +"'><img src='" + marcadores[i][0][k][2] + "' width='100%' /></a></div><div class=contenido-marker-mapa><a id=cambiar_color_tienda href='<?= Url::toRoute(['site/tienda', 'lan' => $idioma->abreviacion]) ?>/"+ marcadores[i][0][k][0] +"'><h4>" + marcadores[i][0][k][1] + "</h4></a><h6>"+ marcadores[i][0][k][4] + ", "+ marcadores[i][0][k][5]+"</h6><p><i class='glyphicon glyphicon-calendar'></i> "+ marcadores[i][0][k][6] + "</p><p><i class='glyphicon glyphicon-earphone'></i> "+ marcadores[i][0][k][8] +"</p></div></div>";
                 }
             }
             contenido = contenido + "</div>";

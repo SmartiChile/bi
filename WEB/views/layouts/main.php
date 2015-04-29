@@ -9,13 +9,15 @@ use app\assets\AppAsset;
 /* @var $content string */
 
 AppAsset::register($this);
-$menu = Yii::$app->funciones->menu_web();
-
 if(isset($_GET['lan'])){
   $idioma = $_GET['lan'];
 }else{
   $idioma = 'es';
 }
+
+$menu = Yii::$app->funciones->menu_web($idioma);
+
+
 
 $this->registerCssFile(Yii::$app->request->baseUrl.'/css/barrioitalia.css');
 $this->registerCssFile(Yii::$app->request->baseUrl.'/css/media1.css'); 
@@ -92,7 +94,7 @@ $this->registerJs('
         <div id="banner">
 
             <div id="frase-top">
-                <h1>Bienvenido a</h1>
+                <h1><?= ($idioma == 'en' || $idioma == 'EN') ? 'Welcome to' : 'Bienvenido a'?></h1>
                 <h1><strong>Barrio Italia</strong></h1>
             </div>
 
@@ -130,8 +132,7 @@ $this->registerJs('
                             echo "<i class='glyphicon glyphicon-user'></i> ";
                     }
                     ?>
-                <?= Yii::$app->user->isGuest ? Html::a('Ingresar', ['site/login']).' / '.Html::a('Registrate', ['site/registro']) : 
-                'Hola, ' .Yii::$app->funciones->nombreUser(Yii::$app->user->identity->nombre) ?></div>
+                <?= Yii::$app->user->isGuest ? Html::a(($idioma == 'EN' || $idioma == 'en') ? 'Enter' : 'Ingresar', ['site/login']).' / '.Html::a(($idioma == 'EN' || $idioma == 'en') ? 'Register' : 'Regístrate', ['site/registro']) : ($idioma == 'EN' || $idioma == 'en' ? 'Hi, ' : 'Hola, ') .Yii::$app->funciones->nombreUser(Yii::$app->user->identity->nombre) ?></div>
                 <div class="redes-socials">
                     <div class="red-top">
                          <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-tw.png', $options = ['width'=>'100%']), 'https://twitter.com/somositalia', ['target' =>'_black']); ?>

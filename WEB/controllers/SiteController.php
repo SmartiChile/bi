@@ -85,11 +85,8 @@ class SiteController extends Controller
         ];
     }
 
-    public function actionIndex($lan = '')
+    public function actionIndex($lan = 'es')
     {
-        if($lan == ''){
-            $lan = 'es';
-        }
         $idioma = Idioma::find()->where(["abreviacion"=>$lan])->one();
         $noticias = Noticia::find()->where(["prensa"=>0, "destacada"=>1, 'idioma_fk'=>$idioma->pk])->limit(3)->orderBy(["pk"=>SORT_DESC])->all();
         $eventos = Evento::find()->where(['idioma_fk'=>$idioma->pk])->orderBy(["pk"=>SORT_DESC])->limit(4)->all();
@@ -98,6 +95,7 @@ class SiteController extends Controller
                 'circuitos'=>$circuitos,
                 'eventos'=>$eventos,
                 'noticias'=>$noticias,
+                'idioma' => $idioma,
             ]);
     }
 
@@ -158,26 +156,28 @@ class SiteController extends Controller
         return $this->render('about');
     }
 
-    public function actionTag()
+    public function actionTag($id)
     {
-        $tag = Tag::find()->orderBy(['frecuencia'=>'RAND()'])->asArray()->limit(35)->all();
+        $tag = Tag::find()->where(['idioma_fk' => $id])->orderBy(['frecuencia'=>'RAND()'])->asArray()->limit(35)->all();
         //echo json_encode($tag);
         echo \yii\helpers\Json::encode($tag);
     }
 
-    public function actionElbarrio()
+    public function actionElbarrio($lan = 'es')
     {
-        return $this->render('historia');
+        $idioma = Idioma::find()->where(["abreviacion"=>$lan])->one();
+        return $this->render('historia', ['idioma' => $idioma]);
     }
 
-    public function actionComollegar()
+    public function actionComollegar($lan = 'es')
     {
-        return $this->render('comollegar');
+        $idioma = Idioma::find()->where(["abreviacion"=>$lan])->one();
+        return $this->render('comollegar', ['idioma' => $idioma]);
     }
 
-    public function actionArriendos()
+    public function actionArriendos($lan = 'es')
     {
-
+        $idioma = Idioma::find()->where(["abreviacion"=>$lan])->one();
         $query = Arriendo::find()->orderBy(["pk"=>SORT_DESC]);
         $countQuery = clone $query;
         $pages = new Pagination([
@@ -190,12 +190,12 @@ class SiteController extends Controller
             ->limit($pages->limit)
             ->all();
 
-        return $this->render('arriendos', ['arriendos'=>$arriendos, 'pages'=>$pages]);
+        return $this->render('arriendos', ['arriendos'=>$arriendos, 'pages'=>$pages, 'idioma' => $idioma]);
     }
 
-    public function actionEventos()
+    public function actionEventos($lan = 'es')
     {
-
+        $idioma = Idioma::find()->where(["abreviacion"=>$lan])->one();
         $query2 = Evento::find()->orderBy(["pk"=>SORT_DESC]);
         $countQuery2 = clone $query2;
         $pages2 = new Pagination([
@@ -207,17 +207,19 @@ class SiteController extends Controller
                 ->limit($pages2->limit)
                 ->all();
 
-        return $this->render('eventos', ['eventos'=>$eventos, 'pages2'=>$pages2]);
+        return $this->render('eventos', ['eventos'=>$eventos, 'pages2'=>$pages2, 'idioma' => $idioma]);
     }
 
-    public function actionMapa()
+    public function actionMapa($lan = 'es')
     {
-        return $this->render('mapa');
+        $idioma = Idioma::find()->where(["abreviacion"=>$lan])->one();
+        return $this->render('mapa', ['idioma' => $idioma]);
     }
 
-    public function actionVitrina()
+    public function actionVitrina($lan = 'es')
     {
-        $query = Vitrina::find()->orderBy(["pk"=>SORT_DESC]);
+        $idioma = Idioma::find()->where(['abreviacion' => $lan])->one();
+        $query = Vitrina::find()->where(['idioma_fk' => $idioma->pk])->orderBy(["pk"=>SORT_DESC]);
         $countQuery = clone $query;
         $pages = new Pagination([
             'totalCount' => $countQuery->count(),
@@ -234,21 +236,24 @@ class SiteController extends Controller
             ]);
     }
 
-    public function actionCircuitos()
+    public function actionCircuitos($lan = 'es')
     {
-        $circuitos = Circuito::find()->orderBy(["posicion"=>SORT_ASC])->all();
+        $idioma = Idioma::find()->where(['abreviacion' => $lan])->one();
+        $circuitos = Circuito::find()->where(['idioma_fk' => $idioma->pk])->orderBy(["posicion"=>SORT_ASC])->all();
         $locales = Local::find()->joinWith(['tiendas'])->all();
         $patrimonios = Patrimonio::find()->all();
         return $this->render('circuitos', [
                 'circuitos'=>$circuitos,
                 'locales'=>$locales,
                 'patrimonios'=>$patrimonios,
+                'idioma' => $idioma,
             ]);
     }
 
-    public function actionPrensa()
+    public function actionPrensa($lan = 'es')
     {
-        $query = Noticia::find()->where(["prensa"=>1])->orderBy(["pk"=>SORT_DESC]);
+        $idioma = Idioma::find()->where(['abreviacion' => $lan])->one();
+        $query = Noticia::find()->where(["prensa"=>1, 'idioma_fk' => $idioma->pk])->orderBy(["pk"=>SORT_DESC]);
         $countQuery = clone $query;
         $pages = new Pagination([
             'totalCount' => $countQuery->count(),
@@ -262,12 +267,14 @@ class SiteController extends Controller
         return $this->render('prensa', [
              'prensa' => $prensa,
              'pages' => $pages,
+             'idioma_fk' => $idioma,
         ]);
     }
 
-    public function actionNoticias()
+    public function actionNoticias($lan = 'es')
     {
-        $query = Noticia::find()->where(["prensa"=>0])->orderBy(["pk"=>SORT_DESC]);
+        $idioma = Idioma::find()->where(['abreviacion' => $lan])->one();
+        $query = Noticia::find()->where(["prensa"=>0, 'idioma_fk' => $idioma->pk])->orderBy(["pk"=>SORT_DESC]);
         $countQuery = clone $query;
         $pages = new Pagination([
             'totalCount' => $countQuery->count(),
@@ -291,7 +298,7 @@ class SiteController extends Controller
 
     public function actionNoticia($id)
     {
-        $t = (int) $id;
+        $n = (int) $id;
         return $this->render('noticia', [
             'model' => Noticia::findOne($n),
         ]);
@@ -313,11 +320,12 @@ class SiteController extends Controller
         ]);
     }
 
-    public function actionCircuito($id)
+    public function actionCircuito($id, $lan = 'es')
     {
         $c = $id;
-        $circuitos = Circuito::find()->orderBy(["posicion"=>SORT_ASC])->all();
-        $locales = Local::find()->joinWith(['tiendas'])->where(['tienda.circuito_fk' => $c])->all();
+        $idioma = Idioma::find()->where(['abreviacion' => $lan])->one();
+        $circuitos = Circuito::find()->where(['idioma_fk' => $idioma->pk])->orderBy(["posicion"=>SORT_ASC])->all();
+        $locales = Local::find()->joinWith(['tiendas'])->where(['tienda.circuito_fk' => $c, 'idioma_fk' => $idioma->pk])->all();
         $patrimonios = Patrimonio::find()->where(["circuito_fk"=>$c])->all();
         $tiendas = Tienda::find()->where(["circuito_fk"=>$c])->all();
         return $this->render('circuito', [
@@ -326,6 +334,7 @@ class SiteController extends Controller
             'locales' => $locales,
             'tiendas' => $tiendas,
             'patrimonios' => $patrimonios,
+            'idioma' => $idioma,
             ]);
     }
 
@@ -350,12 +359,13 @@ class SiteController extends Controller
         return $this->render('creaturuta');
     }
 
-    public function actionTiendas()
+    public function actionTiendas($lan = 'es')
     {
         $tag = '';
+        $idioma = Idioma::find()->where(['abreviacion' => $lan])->one();
         if(isset($_GET['b'])){
             $tag = $_GET['b'];
-            $query = Tienda::find()->where('tags LIKE :substr OR nombre LIKE :substr', array(':substr' => '%'.$tag.'%'))->orderBy(["pk"=>SORT_DESC]);
+            $query = Tienda::find()->where('idioma_fk = '.$idioma->pk.' AND tags LIKE :substr OR nombre LIKE :substr', [':substr' => '%'.$tag.'%'])->orderBy(["pk"=>SORT_DESC]);
             $model_tag = Tag::find()->where(['palabra'=>$tag])->one();
             if(isset($model_tag)){
                 $model_tag->frecuencia = $model_tag->frecuencia + 1;
@@ -363,7 +373,7 @@ class SiteController extends Controller
             }
         }else{
             $b = "";
-            $query = Tienda::find()->orderBy(["pk"=>SORT_DESC]);
+            $query = Tienda::find()->where(['idioma_fk' => $idioma->pk])->orderBy(["pk"=>SORT_DESC]);
         }
 
         $countQuery = clone $query;
@@ -380,6 +390,7 @@ class SiteController extends Controller
              'tiendas' => $tiendas,
              'pages' => $pages,
              'b' => $tag,
+             'idioma' => $idioma,
         ]);
     }
 
@@ -441,8 +452,9 @@ class SiteController extends Controller
         return $this->render('contacto', ['model' => $model]);
     }
 
-    public function actionTrabaja()
+    public function actionTrabaja($lan = 'es')
     {
+        $idioma = Idioma::find()->where(['abreviacion' => $lan])->one();
         $model = new Contacto;
         if ($model->load(Yii::$app->request->post())) {
 
@@ -477,7 +489,7 @@ class SiteController extends Controller
             }
         }
 
-        return $this->render('trabaja', ['model' => $model]);
+        return $this->render('trabaja', ['model' => $model, 'idioma' => $idioma]);
     }
 
 

@@ -14,7 +14,7 @@ $this->title = 'Barrio italia - Arriendos';
 	<div class="informacion-elbarrio">
 
 		<div class='menu-elbarrio'>
-			<?= Yii::$app->funciones->menu_elbarrio() ?>
+			<?= Yii::$app->funciones->menu_elbarrio($idioma->abreviacion) ?>
 		</div>
 
 		<div class="informacion-cada-barrio">

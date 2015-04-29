@@ -97,52 +97,101 @@ class funciones extends Component
             ]);
 	 }
 
-     public function menu_elbarrio()
+     public function menu_elbarrio($lan)
      {
-        return SideNav::widget([
-                'type' => SideNav::TYPE_DEFAULT,
-                'items' => [
-                    [
-                        'url' => ['site/elbarrio'],
-                        'label' => 'Historia',
-                        'icon' => 'book'
+        if($lan == 'en' || $lan == 'EN'){
+            return SideNav::widget([
+                    'type' => SideNav::TYPE_DEFAULT,
+                    'items' => [
+                        [
+                            'url' => ['site/elbarrio', 'lan'=>$lan],
+                            'label' => 'History',
+                            'icon' => 'book'
+                        ],
+                        [
+                            'url' => ['site/comollegar', 'lan'=>$lan],
+                            'label' => 'How to arrive',
+                            'icon' => 'map-marker'
+                        ],
+                        [
+                            'url' => ['site/arriendos', 'lan'=>$lan],
+                            'label' => 'Renting',
+                            'icon' => 'pushpin'
+                        ],
+                        [
+                            'url' => ['site/trabaja', 'lan'=>$lan],
+                            'label' => 'Get a job with us',
+                            'icon' => 'briefcase'
+                        ],
+                        [
+                            'url' => ['site/eventos', 'lan'=>$lan],
+                            'label' => 'Events',
+                            'icon' => 'calendar'
+                        ],
                     ],
-                    [
-                        'url' => ['site/comollegar'],
-                        'label' => 'Como llegar',
-                        'icon' => 'map-marker'
+                ]);
+        }else{
+            return SideNav::widget([
+                    'type' => SideNav::TYPE_DEFAULT,
+                    'items' => [
+                        [
+                            'url' => ['site/elbarrio', 'lan'=>$lan],
+                            'label' => 'Historia',
+                            'icon' => 'book'
+                        ],
+                        [
+                            'url' => ['site/comollegar', 'lan'=>$lan],
+                            'label' => 'Como llegar',
+                            'icon' => 'map-marker'
+                        ],
+                        [
+                            'url' => ['site/arriendos', 'lan'=>$lan],
+                            'label' => 'Arriendos',
+                            'icon' => 'pushpin'
+                        ],
+                        [
+                            'url' => ['site/trabaja', 'lan'=>$lan],
+                            'label' => 'Trabaja con nosotros',
+                            'icon' => 'briefcase'
+                        ],
+                        [
+                            'url' => ['site/eventos', 'lan'=>$lan],
+                            'label' => 'Eventos',
+                            'icon' => 'calendar'
+                        ],
                     ],
-                    [
-                        'url' => ['site/arriendos'],
-                        'label' => 'Arriendos',
-                        'icon' => 'pushpin'
-                    ],
-                    [
-                        'url' => ['site/trabaja'],
-                        'label' => 'Trabaja con nosotros',
-                        'icon' => 'briefcase'
-                    ],
-                    [
-                        'url' => ['site/eventos'],
-                        'label' => 'Eventos',
-                        'icon' => 'calendar'
-                    ],
-                ],
-            ]);
+                ]);
+        }
      }
 
-     public function menu_web(){
-        return [
-            [1=>"Inicio", 2=>'site/index'],
-            [1=>"El Barrio", 2=>'site/elbarrio'],
-            [1=>"Vitrina", 2=>'site/vitrina'],
-            [1=>"Mapa", 2=>'site/mapa'],
-            [1=>"Circuitos", 2=>'site/circuitos'],
-            [1=>"Tiendas", 2=>'site/tiendas'],
-            [1=>"Prensa", 2=>'site/prensa'],
-            [1=>"Noticias", 2=>'site/noticias'],
-            [1=>"Crea tu ruta", 2=>'site/creaturuta'],
-        ];
+     public function menu_web($lan){
+        if($lan == 'en' || $lan == 'EN'){
+            return [
+                [1=>"Home", 2=>'site/index'],
+                [1=>"The Neighborhood", 2=>'site/elbarrio'],
+                [1=>"Gallery", 2=>'site/vitrina'],
+                [1=>"Map", 2=>'site/mapa'],
+                [1=>"Circuits", 2=>'site/circuitos'],
+                [1=>"Stores", 2=>'site/tiendas'],
+                [1=>"Press", 2=>'site/prensa'],
+                [1=>"News", 2=>'site/noticias'],
+                [1=>"Create your route", 2=>'site/creaturuta'],
+            ];
+        }else{
+            return [
+                [1=>"Inicio", 2=>'site/index'],
+                [1=>"El Barrio", 2=>'site/elbarrio'],
+                [1=>"Vitrina", 2=>'site/vitrina'],
+                [1=>"Mapa", 2=>'site/mapa'],
+                [1=>"Circuitos", 2=>'site/circuitos'],
+                [1=>"Tiendas", 2=>'site/tiendas'],
+                [1=>"Prensa", 2=>'site/prensa'],
+                [1=>"Noticias", 2=>'site/noticias'],
+                [1=>"Crea tu ruta", 2=>'site/creaturuta'],
+            ];
+        }
+
+        
      }
 
      public function menu_usuario()
