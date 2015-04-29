@@ -70,8 +70,8 @@ $this->registerJs(
                         'action' => Yii::$app->getUrlManager()->createUrl(['site/tiendas']),
                     ]); 
                 ?>
-                    <?= Html::textInput('b','', ['class'=>'form-control', 'placeholder'=>'Palabra Clave']) ?>
-                    <?= Html::submitButton('Buscar', ['class' => '']) ?>
+                    <?= Html::textInput('b','', ['class'=>'form-control', 'placeholder'=>$idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Keyword' : 'Palabra Clave']) ?>
+                    <?= Html::submitButton($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'SEARCH' : 'BUSCAR', ['class' => '']) ?>
                 <?php ActiveForm::end(); ?>
             </div>
         <div id="tagCloud"></div>      
