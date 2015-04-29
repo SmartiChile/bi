@@ -104,7 +104,7 @@ $this->registerJs(
 
    <div class="puntos-separadores no-mostrar"></div>
 
-   <h3 class="no-mostrar">MAPA</h3>
+   <h3 class="no-mostrar"><?= $idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'MAP' : 'MAPA' ?></h3>
 
    <div class="bg-mapa">
         <?php echo Html::img(Yii::$app->request->baseUrl.'/images/mapa-acc.svg', $options = ['width'=>'100%']); ?>
@@ -112,7 +112,7 @@ $this->registerJs(
 
    <div class="puntos-separadores no-mostrar"></div>
 
-   <h3 class="h3-movil">NOTICIAS DESTACADAS</h3>
+   <h3 class="h3-movil"><?= $idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'TOP NEWS' : 'NOTICIAS DESTACADAS' ?></h3>
 
    <div class="contenedor-noticias-home">
 
