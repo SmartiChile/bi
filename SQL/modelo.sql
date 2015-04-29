@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 28-04-2015 a las 20:41:30
+-- Tiempo de generación: 29-04-2015 a las 20:33:58
 -- Versión del servidor: 5.5.24-log
 -- Versión de PHP: 5.4.3
 
@@ -165,7 +165,14 @@ CREATE TABLE IF NOT EXISTS `local` (
   `direccion` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
   `coordenadas` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
   PRIMARY KEY (`pk`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=2 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=3 ;
+
+--
+-- Volcado de datos para la tabla `local`
+--
+
+INSERT INTO `local` (`pk`, `direccion`, `coordenadas`) VALUES
+(2, 'Italia, Ñuñoa, Chile', '(-33.4505966,-70.62382159999999)');
 
 -- --------------------------------------------------------
 
@@ -185,7 +192,17 @@ CREATE TABLE IF NOT EXISTS `noticia` (
   `prensa` tinyint(1) NOT NULL,
   PRIMARY KEY (`pk`),
   KEY `idioma_fk` (`idioma_fk`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=5 ;
+
+--
+-- Volcado de datos para la tabla `noticia`
+--
+
+INSERT INTO `noticia` (`pk`, `titulo`, `descripcion`, `referencia`, `imagen`, `fecha`, `destacada`, `idioma_fk`, `prensa`) VALUES
+(1, 'PRENSA 1', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae commodo nibh, ac molestie nulla. Maecenas volutpat hendrerit libero, quis dapibus justo vulputate non. Ut vehicula lacus mi. Cras facilisis ligula elementum enim dapibus, a ultrices erat dapibus. Vivamus id commodo nisl. Vestibulum eu rhoncus nisl. Vivamus cursus tellus eu fermentum condimentum. Suspendisse faucibus ullamcorper neque, nec fermentum sapien sagittis eu. Pellentesque ultricies odio neque, id bibendum nisi commodo in. Vestibulum vel diam erat. Maecenas velit justo, tristique et lectus nec, fringilla suscipit massa. Quisque quis mauris ac velit sodales viverra. Aliquam malesuada ut risus a aliquet.</p><p>Quisque id sem quis ante ornare placerat nec luctus magna. Aliquam ut tempor velit. Curabitur sagittis neque ac orci pellentesque, at malesuada elit pellentesque. Donec luctus mattis ultricies. Aliquam iaculis, mi nec porttitor hendrerit, justo arcu vestibulum lectus, vel mollis velit quam ac ipsum. Nam eget blandit metus. Vestibulum viverra tempor pharetra. Vivamus sit amet dictum ligula. Pellentesque laoreet urna non augue molestie placerat. Donec in suscipit ex.</p>', 'PRENSA.COM', 'ZqT_-uJLc1pUi3dqWla1CqoL9xhCXbTB.jpg', '2015-04-29 16:11:01', 1, 1, 1),
+(2, 'PRENSA 1 (Inglés)', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae commodo nibh, ac molestie nulla. Maecenas volutpat hendrerit libero, quis dapibus justo vulputate non. Ut vehicula lacus mi. Cras facilisis ligula elementum enim dapibus, a ultrices erat dapibus. Vivamus id commodo nisl. Vestibulum eu rhoncus nisl. Vivamus cursus tellus eu fermentum condimentum. Suspendisse faucibus ullamcorper neque, nec fermentum sapien sagittis eu. Pellentesque ultricies odio neque, id bibendum nisi commodo in. Vestibulum vel diam erat. Maecenas velit justo, tristique et lectus nec, fringilla suscipit massa. Quisque quis mauris ac velit sodales viverra. Aliquam malesuada ut risus a aliquet.</p><p>Quisque id sem quis ante ornare placerat nec luctus magna. Aliquam ut tempor velit. Curabitur sagittis neque ac orci pellentesque, at malesuada elit pellentesque. Donec luctus mattis ultricies. Aliquam iaculis, mi nec porttitor hendrerit, justo arcu vestibulum lectus, vel mollis velit quam ac ipsum. Nam eget blandit metus. Vestibulum viverra tempor pharetra. Vivamus sit amet dictum ligula. Pellentesque laoreet urna non augue molestie placerat. Donec in suscipit ex.</p>', 'PRENSA.COM/ingles', 'hFgm2JsuWTio96pf4NeVlP9NWnAkxgaW.jpg', '2015-04-29 16:11:29', 1, 2, 1),
+(3, 'NOTICIA', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae commodo nibh, ac molestie nulla. Maecenas volutpat hendrerit libero, quis dapibus justo vulputate non. Ut vehicula lacus mi. Cras facilisis ligula elementum enim dapibus, a ultrices erat dapibus. Vivamus id commodo nisl. Vestibulum eu rhoncus nisl. Vivamus cursus tellus eu fermentum condimentum. Suspendisse faucibus ullamcorper neque, nec fermentum sapien sagittis eu. Pellentesque ultricies odio neque, id bibendum nisi commodo in. Vestibulum vel diam erat. Maecenas velit justo, tristique et lectus nec, fringilla suscipit massa. Quisque quis mauris ac velit sodales viverra. Aliquam malesuada ut risus a aliquet.</p><p>Quisque id sem quis ante ornare placerat nec luctus magna. Aliquam ut tempor velit. Curabitur sagittis neque ac orci pellentesque, at malesuada elit pellentesque. Donec luctus mattis ultricies. Aliquam iaculis, mi nec porttitor hendrerit, justo arcu vestibulum lectus, vel mollis velit quam ac ipsum. Nam eget blandit metus. Vestibulum viverra tempor pharetra. Vivamus sit amet dictum ligula. Pellentesque laoreet urna non augue molestie placerat. Donec in suscipit ex.</p>', 'NOTICIA.COM', 'S12p3pVqr0Fmv_ZFzwGzVr62uacmhSIk.JPG', '2015-04-29 16:12:52', 1, 1, 0),
+(4, 'NOTICIA (Inglés)', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae commodo nibh, ac molestie nulla. Maecenas volutpat hendrerit libero, quis dapibus justo vulputate non. Ut vehicula lacus mi. Cras facilisis ligula elementum enim dapibus, a ultrices erat dapibus. Vivamus id commodo nisl. Vestibulum eu rhoncus nisl. Vivamus cursus tellus eu fermentum condimentum. Suspendisse faucibus ullamcorper neque, nec fermentum sapien sagittis eu. Pellentesque ultricies odio neque, id bibendum nisi commodo in. Vestibulum vel diam erat. Maecenas velit justo, tristique et lectus nec, fringilla suscipit massa. Quisque quis mauris ac velit sodales viverra. Aliquam malesuada ut risus a aliquet.</p><p>Quisque id sem quis ante ornare placerat nec luctus magna. Aliquam ut tempor velit. Curabitur sagittis neque ac orci pellentesque, at malesuada elit pellentesque. Donec luctus mattis ultricies. Aliquam iaculis, mi nec porttitor hendrerit, justo arcu vestibulum lectus, vel mollis velit quam ac ipsum. Nam eget blandit metus. Vestibulum viverra tempor pharetra. Vivamus sit amet dictum ligula. Pellentesque laoreet urna non augue molestie placerat. Donec in suscipit ex.</p>', 'NOTICIA.COM/ingles', '-B48_3prVeZ1aceGjf90YmaY_6115lrW.JPG', '2015-04-29 16:13:21', 1, 2, 0);
 
 -- --------------------------------------------------------
 
@@ -284,7 +301,7 @@ CREATE TABLE IF NOT EXISTS `tag` (
   `idioma_fk` int(11) NOT NULL,
   PRIMARY KEY (`pk`),
   KEY `idioma_fk` (`idioma_fk`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=49 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=53 ;
 
 --
 -- Volcado de datos para la tabla `tag`
@@ -294,7 +311,11 @@ INSERT INTO `tag` (`pk`, `palabra`, `frecuencia`, `idioma_fk`) VALUES
 (45, 'tienda1', 1, 1),
 (46, 'cafe', 4, 1),
 (47, 'decoracion', 2, 1),
-(48, 'prueba', 1, 1);
+(48, 'prueba', 1, 1),
+(49, 'palabra1', 1, 1),
+(50, 'palabra2', 1, 1),
+(51, 'palabra3', 1, 1),
+(52, 'palabra4', 1, 1);
 
 -- --------------------------------------------------------
 
@@ -334,7 +355,15 @@ CREATE TABLE IF NOT EXISTS `tienda` (
   KEY `local_fk_2` (`local_fk`),
   KEY `idioma_fk` (`idioma_fk`),
   KEY `idioma_fk_2` (`idioma_fk`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=3 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=5 ;
+
+--
+-- Volcado de datos para la tabla `tienda`
+--
+
+INSERT INTO `tienda` (`pk`, `nombre`, `descripcion`, `numeracion`, `rating`, `tags`, `banner`, `imagen1`, `imagen2`, `imagen3`, `imagen4`, `imagen5`, `logotipo`, `telefono`, `horario`, `sitio_web`, `facebook`, `twitter`, `instagram`, `googleplus`, `pinterest`, `tripadvisor`, `local_fk`, `circuito_fk`, `idioma_fk`) VALUES
+(3, 'Tienda 1', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae commodo nibh, ac molestie nulla. Maecenas volutpat hendrerit libero, quis dapibus justo vulputate non. Ut vehicula lacus mi. Cras facilisis ligula elementum enim dapibus, a ultrices erat dapibus. Vivamus id commodo nisl. Vestibulum eu rhoncus nisl. Vivamus cursus tellus eu fermentum condimentum. Suspendisse faucibus ullamcorper neque, nec fermentum sapien sagittis eu. Pellentesque ultricies odio neque, id bibendum nisi commodo in. Vestibulum vel diam erat. Maecenas velit justo, tristique et lectus nec, fringilla suscipit massa. Quisque quis mauris ac velit sodales viverra. Aliquam malesuada ut risus a aliquet.</p><p>Quisque id sem quis ante ornare placerat nec luctus magna. Aliquam ut tempor velit. Curabitur sagittis neque ac orci pellentesque, at malesuada elit pellentesque. Donec luctus mattis ultricies. Aliquam iaculis, mi nec porttitor hendrerit, justo arcu vestibulum lectus, vel mollis velit quam ac ipsum. Nam eget blandit metus. Vestibulum viverra tempor pharetra. Vivamus sit amet dictum ligula. Pellentesque laoreet urna non augue molestie placerat. Donec in suscipit ex.</p>', '1', 0.00, 'palabra1 palabra2 palabra3 palabra4', '6VsjSTlzaoeMDsGZ6unjfqPtsKADYJ0U.jpg', '2Vlaf57AMGCthc0KCgLcEVwSBoAW22og.jpg', NULL, NULL, NULL, NULL, '6V0k5VO_j-RIj7pkMrACwcvnvBy7awq_.png', '11111', 'Lu a VI, de 8:00 a 12:00', 'www.tienda1.cl', 'www.facebook.com/tienda1', 'www.twiiter.com/tienda1', 'www.instagram.com/tienda1', 'www.googleplus.com/tienda1', 'www.pinterest.com/tienda1', 'www.tripadvisor.com/tienda1', 2, 2, 1),
+(4, 'Tienda 1 (Inglés)', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae commodo nibh, ac molestie nulla. Maecenas volutpat hendrerit libero, quis dapibus justo vulputate non. Ut vehicula lacus mi. Cras facilisis ligula elementum enim dapibus, a ultrices erat dapibus. Vivamus id commodo nisl. Vestibulum eu rhoncus nisl. Vivamus cursus tellus eu fermentum condimentum. Suspendisse faucibus ullamcorper neque, nec fermentum sapien sagittis eu. Pellentesque ultricies odio neque, id bibendum nisi commodo in. Vestibulum vel diam erat. Maecenas velit justo, tristique et lectus nec, fringilla suscipit massa. Quisque quis mauris ac velit sodales viverra. Aliquam malesuada ut risus a aliquet.</p><p>Quisque id sem quis ante ornare placerat nec luctus magna. Aliquam ut tempor velit. Curabitur sagittis neque ac orci pellentesque, at malesuada elit pellentesque. Donec luctus mattis ultricies. Aliquam iaculis, mi nec porttitor hendrerit, justo arcu vestibulum lectus, vel mollis velit quam ac ipsum. Nam eget blandit metus. Vestibulum viverra tempor pharetra. Vivamus sit amet dictum ligula. Pellentesque laoreet urna non augue molestie placerat. Donec in suscipit ex.</p>', '1', 0.00, 'palabra1 palabra2 palabra3 palabra4', '6VsjSTlzaoeMDsGZ6unjfqPtsKADYJ0U.jpg', '2Vlaf57AMGCthc0KCgLcEVwSBoAW22og.jpg', NULL, NULL, NULL, NULL, '6V0k5VO_j-RIj7pkMrACwcvnvBy7awq_.png', '11111', 'Lu a VI, de 8:00 a 12:00', 'www.tienda1.cl', 'www.facebook.com/tienda1', 'www.twiiter.com/tienda1', 'www.instagram.com/tienda1', 'www.googleplus.com/tienda1', 'www.pinterest.com/tienda1', 'www.tripadvisor.com/tienda1', 2, 3, 2);
 
 -- --------------------------------------------------------
 
@@ -394,7 +423,15 @@ CREATE TABLE IF NOT EXISTS `vitrina` (
   `idioma_fk` int(11) NOT NULL,
   PRIMARY KEY (`pk`),
   KEY `idioma_fk` (`idioma_fk`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=3 ;
+
+--
+-- Volcado de datos para la tabla `vitrina`
+--
+
+INSERT INTO `vitrina` (`pk`, `titulo`, `imagen`, `fecha`, `idioma_fk`) VALUES
+(1, 'Vitrina1', 'HW0pLyQwRKZqzUpwoiPOmeZuxq8aojEs.JPG', '2015-04-29 16:44:05', 1),
+(2, 'Vitrina1 (inglés)', '225b_RnKLHDQPDCIhHKIhP_wbA5u2R2i.JPG', '2015-04-29 16:44:35', 2);
 
 --
 -- Restricciones para tablas volcadas
