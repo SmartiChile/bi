@@ -69,7 +69,7 @@ $this->registerJs('
 
 				<div class="informacion-tienda-tiendas">
 					<div class="textos-tienda-tiendas">
-                        <h3><?php echo Html::a($tienda->nombre, ['site/tienda?t='.$tienda->pk]); ?></h3>
+                        <h3><?php echo Html::a($tienda->nombre, ['site/tienda', 'id'=>$tienda->pk, 'lan' => $idioma->abreviacion]); ?></h3>
                         <h4><?php echo $tienda->circuitoFk->nombre;?></h4>
                     </div>
                     <div class="iconos-tienda-tiendas">
