@@ -394,9 +394,10 @@ class SiteController extends Controller
         ]);
     }
 
-    public function actionTienda($id)
+    public function actionTienda($id, $lan = 'es')
     {
         $t = $id;
+        $idioma = Idioma::find()->where(['abreviacion' => $lan])->one();
         if(Yii::$app->user->isGuest){
             $ofertas = Oferta::find()->where(['tienda_fk' => $t])->all();
             $servicios = TiendaxServicio::find()->where(['tienda_fk' => $t])->all();
@@ -404,6 +405,7 @@ class SiteController extends Controller
             'model' => Tienda::findOne($t),
             'ofertas'=> $ofertas,
             'servicios' => $servicios,
+            'idioma' => $idioma,
             ]);
         }
         else{
@@ -421,7 +423,8 @@ class SiteController extends Controller
             'model' => Tienda::findOne($t),
             'ofertas'=> $ofertas,
             'servicios' => $servicios,
-            'rutas' => $rutas
+            'rutas' => $rutas,
+            'idioma' => $idioma,
             ]);
         }
     }
