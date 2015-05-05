@@ -30,7 +30,7 @@ $this->title = 'Barrio italia - Arriendos';
 		<?php foreach ($arriendos as $arriendo): ?>
 					<div class="info-cada-arriendo">
 						<div class="img-arriendo" >
-							<?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/arriendos/'.$arriendo->imagen1, ['width' => '100%']), ['arriendo?a='.$arriendo->pk]); ?>
+							<?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/arriendos/'.$arriendo->imagen1, ['width' => '100%']), ['/site/arriendo', 'lan' => $idioma->abreviacion, 'id' => $arriendo->pk]); ?>
 						</div>
 						<div class="info-arriendo">
 							<div class="contenido-info-arriendo">
@@ -47,8 +47,8 @@ $this->title = 'Barrio italia - Arriendos';
 								</div>
 							</div>
 							<div class="botones-ver-mas-arriendo">
-								<?php echo Html::a("<p>ver más</p>", ['/site/arriendo?a='.$arriendo->pk]); ?>
-								<?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-more.png', $options = ['width'=>'20%', "id"=>"float-icono-mas-arriendo"]), ['/site/arriendo?a='.$arriendo->pk]); ?>
+								<?php echo Html::a("<p>ver más</p>", ['/site/arriendo', 'lan' => $idioma->abreviacion, 'id' => $arriendo->pk]); ?>
+								<?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-more.png', $options = ['width'=>'20%', "id"=>"float-icono-mas-arriendo"]), ['/site/arriendo', 'lan' => $idioma->abreviacion, 'id' => $arriendo->pk]); ?>
 							</div>
 						</div>
 					</div>

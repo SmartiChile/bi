@@ -267,7 +267,7 @@ class SiteController extends Controller
         return $this->render('prensa', [
              'prensa' => $prensa,
              'pages' => $pages,
-             'idioma_fk' => $idioma,
+             'idioma' => $idioma,
         ]);
     }
 
@@ -366,7 +366,7 @@ class SiteController extends Controller
         $idioma = Idioma::find()->where(['abreviacion' => $lan])->one();
         if(isset($_GET['b'])){
             $tag = $_GET['b'];
-            $query = Tienda::find()->where('idioma_fk = '.$idioma->pk.' AND tags LIKE :substr OR nombre LIKE :substr', [':substr' => '%'.$tag.'%'])->orderBy(["pk"=>SORT_DESC]);
+            $query = Tienda::find()->where('idioma_fk = '.$idioma->pk.' AND (tags LIKE :substr OR nombre LIKE :substr)', [':substr' => '%'.$tag.'%'])->orderBy(["pk"=>SORT_DESC]);
             $model_tag = Tag::find()->where(['palabra'=>$tag])->one();
             if(isset($model_tag)){
                 $model_tag->frecuencia = $model_tag->frecuencia + 1;
