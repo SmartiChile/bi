@@ -21,11 +21,11 @@ $this->title = 'Noticias';
 			<div class="cada-noticia">
 
 				<div class="img-noticia">
-					<?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/noticias/'.$noticia->imagen, $options = ['width' => '100%']), ['/site/noticia?n='.$noticia->pk]); ?>
+					<?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/noticias/'.$noticia->imagen, $options = ['width' => '100%']), ['/site/noticia', 'lan' => $idioma->abreviacion, 'id' => $noticia->pk]); ?>
 				</div>
 
 				<div class="info-noticia">
-					<?php echo Html::a('<h3>'.$noticia->titulo.'</h3>', ['/site/noticia?n='.$noticia->pk]); ?>
+					<?php echo Html::a('<h3>'.$noticia->titulo.'</h3>', ['/site/noticia', 'lan' => $idioma->abreviacion, 'id' => $noticia->pk]); ?>
 					<?php
 						$descripcion = Yii::$app->funciones->quitarTags($noticia->descripcion); 
 					?>
@@ -33,8 +33,8 @@ $this->title = 'Noticias';
 				</div>
 
 				<div class="ver-mas-noticias">
-					<?php echo Html::a("<p>ver más</p>", ['/site/noticia?n='.$noticia->pk]); ?>
-					<?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-more.png', $options = ['width'=>'15%', "id"=>"float-iconos"]), ['/site/noticia?n='.$noticia->pk]); ?>
+					<?php echo Html::a("<p>ver más</p>", ['/site/noticia', 'lan' => $idioma->abreviacion, 'id' => $noticia->pk]); ?>
+					<?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-more.png', $options = ['width'=>'15%', "id"=>"float-iconos"]), ['/site/noticia', 'lan' => $idioma->abreviacion, 'id' => $noticia->pk]); ?>
 				</div>
 
 			</div>

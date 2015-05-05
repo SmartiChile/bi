@@ -288,6 +288,7 @@ class SiteController extends Controller
         return $this->render('noticias', [
              'noticias' => $noticias,
              'pages' => $pages,
+             'idioma' => $idioma,
         ]);
 
         /*$noticias = Noticia::find()->where(["prensa"=>0])->orderBy(["pk"=>SORT_ASC])->all();
