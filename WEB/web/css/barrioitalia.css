@@ -1489,13 +1489,13 @@ a {
 }
 
 .logotipo-circuito-tienda{
-	width: 25%;
+	width: 20%;
 	float: left;
-	margin: 3% 0;
+	margin: 8% 0 0 0;
 }
 
 .informacion-circuito{
-	width: 75%;
+	width: 80%;
 	float: left;
 	color: #FFF;
 }
