@@ -5,7 +5,7 @@ $this->title = 'Barrio italia - Como llegar';
 ?>
 
 <div class="contenedor-elbarrio">
-	<h3 class="h3-movil">COMO LLEGAR</h3>
+	<h3 class="h3-movil"><?= ($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en') ? 'HOW TO ARRIVE' : 'COMO LLEGAR' ?></h3>
 	<div class='puntos-separadores no-mostrar'></div>
 	
 	<div class="informacion-elbarrio">

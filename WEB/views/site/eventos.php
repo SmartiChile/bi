@@ -21,7 +21,7 @@ $this->title = 'Barrio italia - Eventos';
 
 				<?php
 					if($eventos == null){
-						echo '<br/> Lo sentimos, no hay eventos publicados aún.';
+						echo ($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en') ? '<br /><p>Sorry , no events have been published yet</p>' : '<br /><p>Lo sentimos, no se han publicado eventos aún.</p>';
 					}
 				?>
 

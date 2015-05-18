@@ -11,7 +11,7 @@ $this->title = 'Barrio italia - Trabaja con Nosotros';
 
 
 <div class="contenedor-elbarrio">
-	<h3 class="h3-movil">TRABAJA CON NOSOTROS</h3>
+	<h3 class="h3-movil"><?= ($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'GET JOB WITH US' : 'TRABAJA CON NOSOTROS') ?></h3>
 	<div class='puntos-separadores no-mostrar'></div>
 	
     <div class="informacion-elbarrio">
@@ -41,13 +41,13 @@ $this->title = 'Barrio italia - Trabaja con Nosotros';
             <div class="formulario-trabaja">
                 <div class="cada-formulario-trabaja">
                     <div>
-                        <?= $form->field($model, 'nombre')->textInput(['maxlength' => 255, 'class'=>'form-control input-trabaja', 'placeholder'=>'Nombre', 'required'=>true])->label(false) ?>
+                        <?= $form->field($model, 'nombre')->textInput(['maxlength' => 255, 'class'=>'form-control input-trabaja', 'placeholder'=>($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Name' : 'Nombre'), 'required'=>true])->label(false) ?>
                     </div>
                     <div>
                         <?= $form->field($model, 'email')->textInput(['maxlength' => 255, 'class'=>'form-control input-trabaja', 'placeholder'=>'Email', 'required'=>true])->label(false) ?>
                     </div>
                     <div>
-                        <?= $form->field($model, 'telefono')->textInput(['maxlength' => 255, 'class'=>'form-control input-trabaja', 'placeholder'=>'Teléfono', 'required'=>true])->label(false) ?>
+                        <?= $form->field($model, 'telefono')->textInput(['maxlength' => 255, 'class'=>'form-control input-trabaja', 'placeholder'=>($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Phone' : 'Teléfono'), 'required'=>true])->label(false) ?>
                     </div>
                 </div>
                 <div class="cada-formulario-trabaja">
@@ -55,7 +55,7 @@ $this->title = 'Barrio italia - Trabaja con Nosotros';
                         <?= $form->field($model, 'adjunto')->widget(FileInput::classname(), ['options' => ['multiple' => false, 'accept' => '.pdf, .doc, .docx'], 'pluginOptions' => ['showUpload' => false, 'browseLabel' => 'Archivo', 'removeLabel' => '','mainClass' => 'input-group-md']])->label(false); ?>
                     </div>
                     <div class="margen-area-trabaja">
-                        <?= $form->field($model, 'mensaje')->textarea(['class'=>'form-control textarea-trabaja ', 'placeholder'=>'Mensaje, Cargo, Pretención de renta', 'required'=>true])->label(false) ?>
+                        <?= $form->field($model, 'mensaje')->textarea(['class'=>'form-control textarea-trabaja ', 'placeholder'=>($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Message' : 'Mensaje, Cargo, Pretención de renta'), 'required'=>true])->label(false) ?>
                      </div>
                      <?= Html::submitButton('Enviar', ['class' => 'boton-enviar-trabaja']) ?>
                 </div>

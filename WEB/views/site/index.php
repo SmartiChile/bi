@@ -9,9 +9,8 @@ $this->registerCssFile(Yii::$app->request->baseUrl.'/css/shadowbox.css');
 $this->registerCssFile(Yii::$app->request->baseUrl.'/css/barrioitalia_fix.css');
 $this->registerCssFile(Yii::$app->request->baseUrl.'/css/jqcloud.css');
 $this->registerJs('
-Shadowbox.init({}, function() {
-
-});
+  Shadowbox.init({}, function() {
+  });
 ');
 
 $this->registerJs(
@@ -21,7 +20,7 @@ $this->registerJs(
                   
               ];
             $.each(data, function(i, val) {
-                word_array.push({text: val.palabra, weight: val.frecuencia, link: "'.Yii::$app->getUrlManager()->createUrl(['site/tiendas', 'b' => '']).'"+val.palabra});
+                word_array.push({text: val.palabra, weight: val.frecuencia, link: "'.Yii::$app->getUrlManager()->createUrl(['site/tiendas', 'lan'=>$idioma->abreviacion, 'b' => '']).'"+val.palabra});
             });
             $("#tagCloud").jQCloud(word_array, {
               height: 330,
@@ -85,7 +84,7 @@ $this->registerJs(
             <div class="eventos-home">
                 <?php
                   if($eventos == null){
-                    echo '<p>Lo sentimos, no se han publicado eventos aún.</p>';
+                    echo ($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en') ? '<p>Sorry , no events have been published yet</p>' : '<p>Lo sentimos, no se han publicado eventos aún.</p>';
                   }
                 ?>
                 <?php foreach ($eventos as $evento): ?>
@@ -119,7 +118,7 @@ $this->registerJs(
 
         <?php
           if($noticias == null){
-            echo 'Lo sentimos, no se han registrado noticias aún.';
+            echo ($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Sorry , not yet published News' : 'Lo sentimos, no se han registrado noticias aún.');
           }
         ?>
 
@@ -132,7 +131,7 @@ $this->registerJs(
                 $descripcion = Yii::$app->funciones->quitarTags($noticia->descripcion);
             ?>  
             <p><?php echo substr($descripcion, 0, 120)."..."; ?></p>
-            <?php echo Html::a('Leer más', ['site/noticia', 'id'=>$noticia->pk, 'lan' => $idioma->abreviacion] ,$options = ['class'=>'informacion']); ?>
+            <?php echo Html::a(($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Read more' : 'Leer más'), ['site/noticia', 'id'=>$noticia->pk, 'lan' => $idioma->abreviacion] ,$options = ['class'=>'informacion']); ?>
           </div> 
           </div>
         <?php endforeach; ?>

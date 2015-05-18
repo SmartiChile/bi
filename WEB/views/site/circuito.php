@@ -33,7 +33,7 @@ $this->registerJs('
 
 <div class="contenedor-circuitos">
 	<br>
-	<h3 class="h3-movil">CIRCUITOS - <?php echo $model->nombre; ?></h3>
+	<h3 class="h3-movil"><?php echo $model->nombre; ?></h3>
 	<div class="puntos-separadores no-mostrar"></div>
 
 	<div class="contenedor-botones">
@@ -50,7 +50,7 @@ $this->registerJs('
     	<div class="slides-tiendas-circuito">
 	    	<ul class="bxslider">
 			   <?php foreach ($tiendas as $tienda): ?>
-                <li><?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/tiendas/'.$tienda->logotipo), ['site/tienda?t='.$tienda->pk], ['class'=>'tool', 'title'=>$tienda->nombre]); ?></li>
+                <li><?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/tiendas/'.$tienda->logotipo), ['site/tienda', 'id'=>$tienda->pk, 'lan'=>$idioma->abreviacion], ['class'=>'tool', 'title'=>$tienda->nombre]); ?></li>
           <?php endforeach; ?>
           <?php foreach ($patrimonios as $patrimonio): ?>
                 <li><?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/patrimonio/icono-patrimonio.png'), ['site/patrimonio?p='.$patrimonio->pk], ['class'=>'tool', 'title'=>$patrimonio->nombre]); ?></li>

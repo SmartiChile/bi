@@ -22,14 +22,14 @@ $this->title = 'Vitrina';
 
 <div class="contenedor-vitrina">
 	<br>
-	<h3 class="h3-movil">VITRINA</h3>
+	<h3 class="h3-movil"><?= ($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Gallery' : 'Vitrina.') ?></h3>
 	<div class="puntos-separadores no-mostrar"></div>
 
 		<div class="galeria-vitrina" id="swipeboxExample">
 
 			<?php
 				if($vitrinas == null){
-					echo 'Lo sentimos, no se han publicado imagenes en la vitrina aún.';
+					echo ($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Sorry, No images in the gallery' : 'Lo sentiemos, no se han publicado imagenes en la galería aún.');
 				}
 			?>
 

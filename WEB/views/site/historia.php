@@ -5,7 +5,7 @@ $this->title = 'Barrio italia - Historia';
 ?>
 
 <div class="contenedor-elbarrio">
-	<h3 class="h3-movil">HISTORIA</h3>
+	<h3 class="h3-movil"><?= ($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en') ? 'HISTORY' : 'HISTORIA' ?></h3>
 	<div class='puntos-separadores no-mostrar'></div>
 	<div class="informacion-elbarrio">
 
