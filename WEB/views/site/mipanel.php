@@ -5,49 +5,29 @@ use yii\grid\GridView;
 $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->identity->nombre);
 ?>
 
-<style type="text/css">
-	@media print{
-	  #mapa-rutas{
-	  	width: 100% !important;
-	  	display: block !important; 
-	  }
-
-	  .footer-final, .menu-mis-rutas, #banner, .tiendas-ruta-usuario, .no-imprimir{
-	  	display: none;
-	  }
-
-	  @page { 
-	  	size: landscape; 
-	  }
-	}
-</style>
-
 <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 
 <div class="contenedor-elbarrio">
 	<br>
-	<h3 class="no-imprimir h3-movil">Bienvenido(a) <?php echo Yii::$app->funciones->nombreUser(Yii::$app->user->identity->nombre);?> - Ruta actual</h3>
+	<h3 class="h3-movil">Bienvenido(a) <?php echo Yii::$app->funciones->nombreUser(Yii::$app->user->identity->nombre);?> - Ruta actual</h3>
 	<div class="puntos-separadores no-mostrar"></div>
 
 	<div class="contenido-mis-rutas">
 		<div class='menu-mis-rutas'>
 			<?= Yii::$app->funciones->menu_usuario() ?>
 		</div>
-		<div class="info-mis-rutas" id="imprimir-mapa">
+		<div class="info-mis-rutas">
 			<h3>Ruta actual</h3>
 			<div class="contenedor-info-rutas">
 
 				<?php if($ruta != NULL && $tiendas != null): ?>
-					<div id="imprimir" class="mapa-mis-rutas">
+					<div class="mapa-mis-rutas">
 						<div id="mapa-rutas"></div>
-					</div>
-					<div class="boton-imprimir-mapa no-imprimir">
-						<?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-print.png', ['width'=>'100%', 'class'=>'tool', 'title'=>'Imprimir ruta', 'onclick' => 'return imprimir();'])); ?>
 					</div>
 
 					<br /><br />
 					<br /><br />
-				<div class="tiendas-ruta-usuario">
+				<div class="tiendas-ruta-usuario" id="imprimir">
 				        <?= GridView::widget([
 				            'dataProvider' => $dataProvider,
 				            'columns' => [
@@ -95,16 +75,24 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 				<?php else: ?>
 						<p>No tiene ruta actual en este momento.</p>
 				<?php endif; ?>
+				<div class="boton-imprimir-mapa">
+						<?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-print.png', ['width'=>'100%', 'class'=>'tool', 'title'=>'Imprimir mapa']), "javascript:imprSelec('imprimir')"); ?>
+				</div>
 			</div>
 		</div>
 	</div>
 	
 </div>
 
-<script>
-	function imprimir(){
-		window.print();
-	}
+<script type="text/javascript">
+	function imprSelec(imprimir){
+		var ficha = document.getElementById(imprimir);
+		var ventimp = window.open(' ','popimpr');
+		ventimp.document.write(ficha.innerHTML);
+		ventimp.document.close();
+		ventimp.print();
+		ventimp.close();
+}
 </script>
 
 <?php if($tiendas != null): ?>

@@ -217,7 +217,7 @@ $this->registerJs('
                         <?php echo Html::img(Yii::$app->request->baseUrl.'/images/lg-ag.png', $options = ['width' => '100%']); ?>
                     </div>
                     <div class="lg-nuevet">
-                        <p>Desarrolla:</p>
+                        <p>Desarrollo Web:</p>
                         <?php echo Html::img(Yii::$app->request->baseUrl.'/images/lg-nuevet.png', $options = ['width' => '100%']); ?>
                     </div>
                 </div>

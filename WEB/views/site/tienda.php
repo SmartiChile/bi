@@ -214,6 +214,11 @@ $this->title = 'Tienda - '.$model->nombre;
 						<p><i class="glyphicon glyphicon-calendar"></i> <?php echo $model->horario; ?></p>
 					</div>
 					<div class="sub-redes-tienda">
+						<?php
+							$boton = "<div class='contenedor-boton-ruta-tienda'><h4>AGREGAR TIENDA A RUTA</h4></div>";
+							echo Html::a($boton, ['site/creaturuta']);
+						?>
+						
 						<div class="contenedor-red-tienda">
 							<?php 
 							if ($model->tripadvisor != NULL)

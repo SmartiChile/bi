@@ -1866,11 +1866,25 @@ a .boton-comenzar-ruta:hover{
 	float: left;
 }
 
+.contenedor-boton-ruta-tienda{
+	width: 75%;
+	padding: 1% 3%;
+	background-color: #898989;
+	float: right;
+	text-align: center;
+	color: #fff;
+	margin:5% 0 0 0;
+}
+
+a .contenedor-boton-ruta-tienda:hover{
+	background-color: #504f4f;
+}
+
 .contenedor-red-tienda{
 	width: 100%;
 	text-align: right;
 	float: right;
-	margin: 22% 0 0 0;
+	margin: 5% 0 0 0;
 }
 
 .icono-red-tienda{
@@ -1918,7 +1932,7 @@ a:hover .tag-tienda{
 .boton-imprimir-mapa{
 	width: 2%;
 	float: right;
-	margin: 2% 1% 0 0;
+	margin: 0% 10% 0 0;
 	cursor: pointer;
 }
 
@@ -2059,7 +2073,7 @@ a .boton-comenzar-ruta2:hover{
 
 .tiendas-ruta-usuario{
 	width: 80%;
-	margin: 0 auto 10% auto; 
+	margin: 0 auto 5% auto; 
 }
 
 

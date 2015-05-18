@@ -82,4 +82,10 @@
 		float: left;
 		height: 280px;
 	}
+
+		.img-arriendo{
+		width: 30%;
+		height: 200px; 
+		float: left;
+	}
 }

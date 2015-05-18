@@ -39,8 +39,8 @@ $this->title = 'Barrio italia - Eventos';
 							<p><?php echo substr($descripcion, 0, 200)."..."; ?></p>
 						</div>
 						<div class="eventos-info3">
-							<?php echo Html::a("<p>ver más</p>", ['/site/evento?e='.$evento->pk]); ?>
-							<?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-more.png', $options = ['width'=>'20%', "id"=>"margen-ver-mas-info3"]), ['/site/evento?e='.$evento->pk]); ?>
+							<?php echo Html::a("<p>ver más</p>", ['/site/evento', 'lan' => $idioma->abreviacion, 'id' => $evento->pk]); ?>
+							<?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-more.png', $options = ['width'=>'20%', "id"=>"margen-ver-mas-info3"]), ['/site/evento', 'lan' => $idioma->abreviacion, 'id' => $evento->pk]); ?>
 						</div>
 					</div>
 				<?php endforeach; ?>
