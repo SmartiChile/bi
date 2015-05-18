@@ -232,7 +232,8 @@ class SiteController extends Controller
 
         return $this->render('vitrina', [
                 'vitrinas'=>$vitrinas,
-                'pages' => $pages
+                'pages' => $pages,
+                'idioma' => $idioma
             ]);
     }
 
@@ -297,11 +298,13 @@ class SiteController extends Controller
             ]);*/
     }
 
-    public function actionNoticia($id)
+    public function actionNoticia($id, $lan = 'es')
     {
         $n = (int) $id;
+        $idioma = Idioma::find()->where(['abreviacion' => $lan])->one();
         return $this->render('noticia', [
             'model' => Noticia::findOne($n),
+            'idioma' => $idioma,
         ]);
     }
 

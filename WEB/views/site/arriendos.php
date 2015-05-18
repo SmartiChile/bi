@@ -8,7 +8,7 @@ $this->title = 'Barrio italia - Arriendos';
 
 
 <div class="contenedor-elbarrio">
-	<h3 class="h3-movil">ARRIENDOS</h3>
+	<h3 class="h3-movil"><?= ($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en') ? 'RENTING' : 'ARRIENDOS' ?></h3>
 	<div class='puntos-separadores no-mostrar'></div>
 
 	<div class="informacion-elbarrio">
@@ -23,7 +23,7 @@ $this->title = 'Barrio italia - Arriendos';
 
 		<?php
 			if($arriendos == null){
-				echo '<br/> Lo sentimos, no hay arriendos publicados aún.';
+				echo ($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en') ? '<br/> Sorry , no leases found.' : '<br/> Lo sentimos, no hay arriendos publicados aún.';
 			}
 		?>
 
