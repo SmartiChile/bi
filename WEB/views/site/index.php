@@ -4,7 +4,7 @@ use yii\helpers\Html;
 use yii\web\View;
 use kartik\widgets\ActiveForm;
 use yii\helpers\Url;
-$this->title = 'Barrio Italia';
+$this->title = 'Barrio Italia - '.($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Home' : 'Inicio');
 $this->registerCssFile(Yii::$app->request->baseUrl.'/css/shadowbox.css');
 $this->registerCssFile(Yii::$app->request->baseUrl.'/css/barrioitalia_fix.css');
 $this->registerCssFile(Yii::$app->request->baseUrl.'/css/jqcloud.css');
@@ -131,7 +131,7 @@ $this->registerJs(
                 $descripcion = Yii::$app->funciones->quitarTags($noticia->descripcion);
             ?>  
             <p><?php echo substr($descripcion, 0, 120)."..."; ?></p>
-            <?php echo Html::a(($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Read more' : 'Leer más'), ['site/noticia', 'id'=>$noticia->pk, 'lan' => $idioma->abreviacion] ,$options = ['class'=>'informacion']); ?>
+            <?php echo Html::a(($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'More' : 'Leer más'), ['site/noticia', 'id'=>$noticia->pk, 'lan' => $idioma->abreviacion] ,$options = ['class'=>'informacion']); ?>
           </div> 
           </div>
         <?php endforeach; ?>

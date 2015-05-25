@@ -85,7 +85,7 @@ $this->title = 'Tienda - '.$model->nombre;
 
 <div class="contenedor-n">
 	<br>
-	<h3 class="h3-movil margen-container">TIENDAS - <?php echo $model->nombre;?></h3>
+	<h3 class="h3-movil margen-container"><?= $idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'STORES' : 'TIENDAS' ?> - <?php echo $model->nombre;?></h3>
 
 	<div class="puntos-separadores no-mostrar"></div>
 
@@ -215,8 +215,7 @@ $this->title = 'Tienda - '.$model->nombre;
 					</div>
 					<div class="sub-redes-tienda">
 						<?php
-							$boton = "<div class='contenedor-boton-ruta-tienda'><h4>AGREGAR TIENDA A RUTA</h4></div>";
-							echo Html::a($boton, ['site/creaturuta']);
+							echo Html::a("<div class='contenedor-boton-ruta-tienda'><h4>".($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'ADD STORE TO MY ROUTE' : 'AGREGAR TIENDA A RUTA')."</h4></div>", ['site/creaturuta']);
 						?>
 						
 						<div class="contenedor-red-tienda">

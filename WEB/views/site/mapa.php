@@ -1,11 +1,11 @@
 <?php
 use yii\helpers\Html;
-$this->title = 'Mapa';
+$this->title = 'Barrio italia - '.($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Mapa' : 'Mapa');
 ?>
 
 <div class="contenedor-mapa">
 	<br>
-	<h3 class="h3-mapa">MAPA</h3>
+	<h3 class="h3-mapa"><?= ($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'MAP' : 'MAPA') ?></h3>
 	<div class="puntos-separadores no-mostrar"></div>
 
 	<div class="mapa-map" id="imprimir">

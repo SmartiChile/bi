@@ -402,4 +402,25 @@ class funciones extends Component
             return false;
         }
     }
+
+    public function creareturn(){
+        $ruta = Yii::$app->getUser()->getReturnUrl();
+        $r = explode('/', $ruta);
+        $final = '';
+        $lan = 'en';
+        $aux = 0;
+        foreach ($r as $v) {
+            if($v == 'inicioruta')
+                $aux = 1;
+            if($v != 'site')
+                $final = $final . $v . '/';
+            else
+                $final = $final.$lan.'/'.$v . '/';
+        }
+
+        if($aux != 0)
+            return substr($final, 0, -1);
+        else
+            return 'index';
+    }
 }

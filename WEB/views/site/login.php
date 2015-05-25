@@ -7,14 +7,14 @@ use yii\bootstrap\ActiveForm;
 /* @var $form yii\bootstrap\ActiveForm */
 /* @var $model app\models\LoginForm */
 
-$this->title = 'Barrio Italia - Ingreso';
+$this->title = 'Barrio Italia - '.($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Log in' : 'Ingreso');
 ?>
 <div class="site-login">
-    <div class='login'>
+    <div class='<?= ($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'ingresa-con-en' : '') ?> login'>
             <?php echo Html::img(Yii::$app->request->baseUrl.'/images/lg-negro.png', $options = ['class'=>'login-lg-negro no-mostrar']); ?>
             <?php $authAuthChoice = AuthChoice::begin([
                   'id'=>'redes',
-                  'baseAuthUrl' => ['site/auth']
+                  'baseAuthUrl' => [$idioma->abreviacion.'/site/auth', ]
             ]); ?>
           <ul>
             <?php foreach ($authAuthChoice->getClients() as $client): ?>
@@ -38,9 +38,9 @@ $this->title = 'Barrio Italia - Ingreso';
             </div>
           <?php endif; ?>
 
-            <?= $form->field($model, 'username')->textInput(['maxlength' => 255, 'class'=>'form-login-input', 'placeholder'=>'Nombre de usuario (correo electrónico)']) ?>
+            <?= $form->field($model, 'username')->textInput(['maxlength' => 255, 'class'=>'form-login-input', 'placeholder'=>($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Username (E-mail)' : 'Nombre de usuario (correo electrónico)')]) ?>
 
-            <?= $form->field($model, 'password')->passwordInput(['maxlength' => 255, 'class'=>'form-login-input', 'placeholder'=>'Contraseña']) ?>
+            <?= $form->field($model, 'password')->passwordInput(['maxlength' => 255, 'class'=>'form-login-input', 'placeholder'=>($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Password' : 'Contraseña')]) ?>
 
             <?php
 
@@ -50,11 +50,11 @@ $this->title = 'Barrio Italia - Ingreso';
 
             ?>
             <div class="form-group">
-                    <?= Html::submitButton('INICIAR SESIÓN', ['class' => 'btn btn-success', 'name' => 'login-button']) ?>
+                    <?= Html::submitButton(($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'LOG IN' : 'INICIAR SESIÓN'), ['class' => 'btn btn-success', 'name' => 'login-button']) ?>
             </div>
             <div class="login-registro">
-                <p><?= Html::a('¿Olvidaste tu contraseña?', ['site/recuperar']) ?></p>
-                <p>¿No tienes cuenta? <?= Html::a('Regístrate', ['site/registro']) ?></p>
+                <p><?= Html::a(($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Forgot your password?' : '¿Olvidaste tu contraseña?'), ['site/recuperar', 'lan'=>$idioma->abreviacion]) ?></p>
+                <p><?= ($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? "Don't have an account?" : "¿No tienes cuenta?") ?> <?= Html::a(($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Sign up' : 'Regístrate'), ['site/registro', 'lan'=>$idioma->abreviacion]) ?></p>
             </div>
     </div>
 

@@ -1,7 +1,7 @@
 <?php
 use yii\helpers\Html;
 use yii\helpers\Url;
-$this->title = 'Circuito';
+$this->title = 'Barrio italia - '.($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Circuits' : 'Circuitos');
 ?>
 
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
@@ -9,7 +9,7 @@ $this->title = 'Circuito';
 
 <div class="contenedor-circuitos">
 	<br>
-	<h3 class="h3-movil">CIRCUITOS</h3>
+	<h3 class="h3-movil"><?= ($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'CIRCUITS' : 'CIRCUITOS') ?></h3>
 	<div class="puntos-separadores no-mostrar"></div>
 
 	<div class="contenedor-completo-circuitos">

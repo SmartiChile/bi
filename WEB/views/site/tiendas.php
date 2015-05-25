@@ -5,7 +5,7 @@ use kartik\widgets\ActiveForm;
 use kartik\widgets\StarRating;
 use yii\helpers\Url;
 
-$this->title = 'Barrio italia - Tiendas';
+$this->title = 'Barrio italia - '.($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Stores' : 'Tiendas');
 
 $this->registerJs('
 		$(".ruta-like").click(function(){
@@ -32,7 +32,7 @@ $this->registerJs('
 
 <div class="contenedor-prensa">
 	<br>
-	<h3 class="h3-movil">TIENDAS</h3>
+	<h3 class="h3-movil"><?= $idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'STORES' : 'TIENDAS' ?></h3>
 	<div class="puntos-separadores no-mostrar"></div>
 
 	<div class="contenido-prensa">
@@ -46,8 +46,8 @@ $this->registerJs('
 		                        'method' => 'get',
 		                    ]); 
 		                ?>
-		                    <?= Html::textInput('b', $b, ['class'=>'form-control', 'placeholder'=>'Palabra Clave']) ?>
-		                    <?= Html::submitButton('Buscar', ['class' => 'buscar-tienda']) ?>
+		                    <?= Html::textInput('b', $b, ['class'=>'form-control', 'placeholder'=>$idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Keyword' : 'Palabra Clave']) ?>
+		                    <?= Html::submitButton($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Search' : 'Buscar', ['class' => 'buscar-tienda']) ?>
 		                <?php ActiveForm::end(); ?>
 				</div>
 			</div>

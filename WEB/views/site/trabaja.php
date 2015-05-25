@@ -5,7 +5,7 @@ use kartik\widgets\FileInput;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
 
-$this->title = 'Barrio italia - Trabaja con Nosotros';
+$this->title = 'Barrio italia - '.($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Get job with us' : 'Trabaja con nosotros');
 ?>
 
 
@@ -52,12 +52,12 @@ $this->title = 'Barrio italia - Trabaja con Nosotros';
                 </div>
                 <div class="cada-formulario-trabaja">
                     <div>
-                        <?= $form->field($model, 'adjunto')->widget(FileInput::classname(), ['options' => ['multiple' => false, 'accept' => '.pdf, .doc, .docx'], 'pluginOptions' => ['showUpload' => false, 'browseLabel' => 'Archivo', 'removeLabel' => '','mainClass' => 'input-group-md']])->label(false); ?>
+                        <?= $form->field($model, 'adjunto')->widget(FileInput::classname(), ['options' => ['multiple' => false, 'accept' => '.pdf, .doc, .docx'], 'pluginOptions' => ['showUpload' => false, 'browseLabel' =>$idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'File' : 'Archivo', 'removeLabel' => '','mainClass' => 'input-group-md']])->label(false); ?>
                     </div>
                     <div class="margen-area-trabaja">
                         <?= $form->field($model, 'mensaje')->textarea(['class'=>'form-control textarea-trabaja ', 'placeholder'=>($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Message' : 'Mensaje, Cargo, Pretención de renta'), 'required'=>true])->label(false) ?>
                      </div>
-                     <?= Html::submitButton('Enviar', ['class' => 'boton-enviar-trabaja']) ?>
+                     <?= Html::submitButton($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Send' : 'Enviar', ['class' => 'boton-enviar-trabaja']) ?>
                 </div>
             </div>
 

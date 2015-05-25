@@ -81,6 +81,7 @@ class SiteController extends Controller
             'auth' => [
                 'class' => 'yii\authclient\AuthAction',
                 'successCallback' => [$this, 'successCallback'],
+                'successUrl' => Yii::$app->funciones->creareturn(),
             ],
         ];
     }
@@ -99,12 +100,13 @@ class SiteController extends Controller
             ]);
     }
 
-    public function actionLogin()
+    public function actionLogin($lan = 'es')
     {
         if (!\Yii::$app->user->isGuest) {
             return $this->goHome();
         }
 
+        $idioma = Idioma::find()->where(["abreviacion"=>$lan])->one();
         $model = new LoginForm();
         if($model->load(Yii::$app->request->post())){
             $user = User::findByUsername($model->username);
@@ -116,25 +118,29 @@ class SiteController extends Controller
                 }else{
                     return $this->render('login', [
                     'model' => $model,
+                    'idioma' => $idioma,
                 ]);
                 }
             }else{
                 return $this->render('login', [
                     'model' => $model,
+                    'idioma' => $idioma,
                 ]);
             }
         }else{
             return $this->render('login', [
                 'model' => $model,
+                'idioma' => $idioma,
             ]);
         }
     }
 
-    public function actionLogout()
+    public function actionLogout($lan = 'es')
     {
+        $idioma = Idioma::find()->where(["abreviacion"=>$lan])->one();
         Yii::$app->user->logout();
 
-        return $this->goHome();
+        return $this->redirect(['site/index', 'lan'=>$idioma->abreviacion]);
     }
 
     public function actionContact()
@@ -358,9 +364,10 @@ class SiteController extends Controller
         ]);
     }
 
-    public function actionCreaturuta()
+    public function actionCreaturuta($lan = 'es')
     {
-        return $this->render('creaturuta');
+        $idioma = Idioma::find()->where(['abreviacion' => $lan])->one();
+        return $this->render('creaturuta', ['idioma' => $idioma]);
     }
 
     public function actionTiendas($lan = 'es')
@@ -620,22 +627,22 @@ class SiteController extends Controller
         return $this->render('restaurar', ['model'=>$usuario]);
     }
 
-    public function actionRegistro()
+    public function actionRegistro($lan = 'es')
     {
         $model = new Usuario;
-
+        $idioma = Idioma::find()->where(['abreviacion' => $lan])->one();
         if($model->load(Yii::$app->request->post())){
             if($_POST['Usuario']['password'] == $_POST['password2']){
                 $model->rol = 1;
                 if($model->save()){
-                    return $this->redirect(['site/login']);   
+                    return $this->redirect(['site/login', 'lan'=>$idioma->abreviacion]);   
                 }
             }else{
                 Yii::$app->getSession()->setFlash('password', 'Las contraseñas no son iguales.');
             }
         }
         
-        return $this->render('registro', ['model'=>$model]);
+        return $this->render('registro', ['model'=>$model, 'idioma'=>$idioma]);
     }
 
     public function actionImagen($id)
@@ -655,7 +662,6 @@ class SiteController extends Controller
         $user = User::findByUsername($attributes['email']);
         if(isset($user)){
             Yii::$app->user->login($user,0);
-
         }else
         {
             $usuario = New Usuario;
@@ -686,9 +692,10 @@ class SiteController extends Controller
         $model->save();
     }
 
-    public function actionInicioruta(){
+    public function actionInicioruta($lan = 'es'){
+        $idioma = Idioma::find()->where(['abreviacion' => $lan])->one();
         if(Yii::$app->user->isGuest){
-            $this->redirect(['site/login']);
+            $this->redirect(['site/login', 'lan' => $idioma->abreviacion]);
             Yii::$app->user->setReturnUrl(['site/inicioruta']);
         }
         else{

@@ -19,7 +19,7 @@ $this->title = 'Noticia - '.$model->titulo;
 
 <div class="contenedor-n">
 	<br>
-	<h3 class="h3-movil">NOTICIAS</h3>
+	<h3 class="h3-movil"><?= $idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'NEWS' : 'NOTICIAS' ?></h3>
 	<div class="puntos-separadores no-mostrar"></div>
 	<div class="contenido-n">
 		<div class="imagen-n">

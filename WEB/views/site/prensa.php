@@ -1,12 +1,12 @@
 <?php
 use yii\helpers\Html;
 use yii\widgets\LinkPager;
-$this->title = 'Prensa';
+$this->title = 'Barrio italia - '.($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Press' : 'Prensa');
 ?>
 
 <div class="contenedor-prensa">
 	<br>
-	<h3 class="h3-movil">PRENSA</h3>
+	<h3 class="h3-movil"><?= $idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'PRESS' : 'PRENSA' ?></h3>
 	<div class="puntos-separadores no-mostrar"></div>
 
 	<div class="contenido-prensa">
@@ -28,7 +28,7 @@ $this->title = 'Prensa';
 				?>
 				<p><?php echo substr($descripcion, 0, 330)."..."; ?></p>
 				<div class="ver-mas-prensa">
-					<?php echo Html::a("<p>ver más</p>", ['/site/infoprensa', 'lan' => $idioma->abreviacion, 'id' => $p->pk]); ?>
+					<?php echo Html::a("<p>".($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'More' : 'Ver más')."</p>", ['/site/infoprensa', 'lan' => $idioma->abreviacion, 'id' => $p->pk]); ?>
 					<?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-more.png', $options = ['width'=>'30%', "id"=>"float-iconos"]), ['/site/infoprensa', 'lan' => $idioma->abreviacion, 'id' => $p->pk]); ?>
 				</div>
 			</div>

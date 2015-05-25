@@ -1168,6 +1168,14 @@ a .cada-circuito:hover{
 	content: "Regístrate con "!important;
 }
 
+.registrate-con-en .auth-title:before{
+	content: "Sign up with "!important;
+}
+
+.ingresa-con-en .auth-title:before{
+	content: "Log in with "!important;
+}
+
 .login-line{
 	display: block;
   	font-size: .875em;
@@ -2326,4 +2334,8 @@ a .boton-comenzar-ruta2:hover{
 
 .flecha-perfil hr{
 	margin: 0!important;
+}
+
+.usuario-menu li a{
+	display: block;
 }

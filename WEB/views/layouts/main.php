@@ -113,11 +113,11 @@ $this->registerJs('
                     <ul>
                       <li>
                         <button class="btn btn-default btn-xs " type="button" data-toggle="dropdown" aria-expanded="false"><span class="caret"></span></button>
-                        <ul>
-                            <li><?php echo Yii::$app->funciones->isUser() ? Html::a('<i class="glyphicon glyphicon-cog"></i> Mi Panel', ['site/mipanel']) : '' ?></li>
-                            <li><?php echo Yii::$app->funciones->isAdmin() ? Html::a('<i class="glyphicon glyphicon-cog"></i> Panel de Administración', ['admin/inicio']) : '' ?></li>
+                        <ul class='usuario-menu'>
+                            <li><?php echo Yii::$app->funciones->isUser() ? Html::a('<i class="glyphicon glyphicon-cog"></i> '.($idioma == 'en' || $idioma == 'EN' ? 'Account' : 'Mi panel'), ['site/mipanel', 'lan'=>$idioma]) : '' ?></li>
+                            <li><?php echo Yii::$app->funciones->isAdmin() ? Html::a('<i class="glyphicon glyphicon-cog"></i> '.($idioma == 'en' || $idioma == 'EN' ? 'Administration panel' : 'Panel de Administración'), ['admin/inicio', 'lan'=>$idioma]) : '' ?></li>
                             <li><hr /></li>
-                            <li><?php echo Html::a('<i class="glyphicon glyphicon-off margen-off"></i> Salir', ['site/logout'], ['data-method' => 'post']); ?></li>
+                            <li><?php echo Html::a('<i class="glyphicon glyphicon-off margen-off"></i> '.($idioma == 'en' || $idioma == 'EN' ? 'Logout' : 'Salir'), ['site/logout', 'lan'=>$idioma], ['data-method' => 'post']); ?></li>
                         </ul>
                       </li>
                     </ul>
@@ -132,7 +132,7 @@ $this->registerJs('
                             echo "<i class='glyphicon glyphicon-user'></i> ";
                     }
                     ?>
-                <?= Yii::$app->user->isGuest ? Html::a(($idioma == 'EN' || $idioma == 'en') ? 'Enter' : 'Ingresar', ['site/login']).' / '.Html::a(($idioma == 'EN' || $idioma == 'en') ? 'Register' : 'Regístrate', ['site/registro']) : ($idioma == 'EN' || $idioma == 'en' ? 'Hi, ' : 'Hola, ') .Yii::$app->funciones->nombreUser(Yii::$app->user->identity->nombre) ?></div>
+                <?= Yii::$app->user->isGuest ? Html::a(($idioma == 'EN' || $idioma == 'en') ? 'Enter' : 'Ingresar', ['site/login', 'lan'=>$idioma]).' / '.Html::a(($idioma == 'EN' || $idioma == 'en') ? 'Register' : 'Regístrate', ['site/registro', 'lan'=>$idioma]) : ($idioma == 'EN' || $idioma == 'en' ? 'Hi, ' : 'Hola, ') .Yii::$app->funciones->nombreUser(Yii::$app->user->identity->nombre) ?></div>
                 <div class="redes-socials">
                     <div class="red-top">
                          <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-tw.png', $options = ['width'=>'100%']), 'https://twitter.com/somositalia', ['target' =>'_black']); ?>

@@ -7,7 +7,7 @@ $this->title = 'Barrio Italia - Registro';
 ?>
 
 <div class='form-login'>
-	<div class='registrate-con login'>
+	<div class='<?= ($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'registrate-con-en' : 'registrate-con') ?> login'>
 		<?php echo Html::img(Yii::$app->request->baseUrl.'/images/lg-negro.png', $options = ['class'=>'registro-lg-negro no-mostrar']); ?>
             <?php $authAuthChoice = AuthChoice::begin([
                   'id'=>'redes',
@@ -39,19 +39,19 @@ $this->title = 'Barrio Italia - Registro';
             </div>
           <?php endif; ?>
 
-            <?= $form->field($model, 'username')->textInput(['maxlength' => 255, 'class'=>'form-login-input', 'placeholder'=>'Correo electrónico (Nombre de usuario)', 'required'=>true]) ?>
+            <?= $form->field($model, 'username')->textInput(['maxlength' => 255, 'class'=>'form-login-input', 'placeholder'=>($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'E-mail (Username)' : 'Correo electrónico (Nombre de usuario)'), 'required'=>true]) ?>
 
-			     <?= $form->field($model, 'nombre')->textInput(['maxlength' => 255, 'class'=>'form-login-input', 'placeholder'=>'Nombre Completo', 'required'=>true]) ?>
+			     <?= $form->field($model, 'nombre')->textInput(['maxlength' => 255, 'class'=>'form-login-input', 'placeholder'=>($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Name' : 'Nombre Completo'), 'required'=>true]) ?>
 
-			     <?= $form->field($model, 'password')->passwordInput(['maxlength' => 255, 'class'=>'form-login-input', 'placeholder'=>'Contraseña', 'required'=>true, 'pattern'=>'.{6,24}', 'title'=>'El campo es obligatorio y debe contener entre 6 y 24 caracteres']) ?>
+			     <?= $form->field($model, 'password')->passwordInput(['maxlength' => 255, 'class'=>'form-login-input', 'placeholder'=>($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Password' : 'Contraseña'), 'required'=>true, 'pattern'=>'.{6,24}', 'title'=>'El campo es obligatorio y debe contener entre 6 y 24 caracteres']) ?>
 
-			     <?= Html::passwordInput('password2','', ['class'=>'form-login-input separador', 'placeholder'=>'Repetir Contraseña', 'required'=>true, 'pattern'=>'.{6,24}', 'title'=>'El campo es obligatorio y debe contener entre 6 y 24 caracteres']) ?>
+			     <?= Html::passwordInput('password2','', ['class'=>'form-login-input separador', 'placeholder'=>($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Repeat password' : 'Repetir Contraseña'), 'required'=>true, 'pattern'=>'.{6,24}', 'title'=>'El campo es obligatorio y debe contener entre 6 y 24 caracteres']) ?>
             <div class="form-group">
-                    <?= Html::submitButton('REGÍSTRATE', ['class' => 'btn btn-success', 'name' => 'login-button']) ?>
+                    <?= Html::submitButton(($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'SIGN UP' : 'REGÍSTRATE'), ['class' => 'btn btn-success', 'name' => 'login-button']) ?>
             </div>
 
             <div class="login-registro">
-                <p>¿Ya tiene una cuenta? <?= Html::a('Inicia sesión', ['site/login']) ?></p>
+                <p><?= ($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Already have an account?' : '¿Ya tiene una cuenta?') ?> <?= Html::a(($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Log in' : 'Inicia sesión'), ['site/login']) ?></p>
             </div>
 	</div>
 </div>

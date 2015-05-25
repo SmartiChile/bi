@@ -1,7 +1,7 @@
 <?php 
 use yii\helpers\Html;
 
-$this->title = 'Barrio italia - Como llegar';
+$this->title = 'Barrio italia - '.($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'How to arrive' : 'Como llegar');
 ?>
 
 <div class="contenedor-elbarrio">

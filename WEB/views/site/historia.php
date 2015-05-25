@@ -1,7 +1,7 @@
 <?php 
 use yii\helpers\Html;
 
-$this->title = 'Barrio italia - Historia';
+$this->title = 'Barrio italia - '.($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'History' : 'Historia');
 ?>
 
 <div class="contenedor-elbarrio">

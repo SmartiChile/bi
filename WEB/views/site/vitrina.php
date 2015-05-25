@@ -15,7 +15,7 @@ $this->registerJs('
 		});
 ');
 
-$this->title = 'Vitrina';
+$this->title = 'Barrio italia - '.($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Gallery' : 'Vitrina');
 ?>
 
 
