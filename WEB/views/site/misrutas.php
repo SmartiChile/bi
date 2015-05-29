@@ -15,15 +15,15 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 
 <div class="contenedor-elbarrio">
 	<br>
-	<h3 class="h3-movil">Bienvenido(a) <?php echo Yii::$app->funciones->nombreUser(Yii::$app->user->identity->nombre);?> - Mis Rutas</h3>
+	<h3 class="h3-movil"><?= $idioma->abreviacion == 'en' || $idioma->abreviacion == 'EN' ? 'Welcome' : 'Bienvenido(a)' ?> <?php echo Yii::$app->funciones->nombreUser(Yii::$app->user->identity->nombre).' > '.($idioma->abreviacion == 'en' || $idioma->abreviacion == 'EN' ? 'My Routes' : 'Mis Rutas');?></h3>
 	<div class="puntos-separadores no-mostrar"></div>
 
 	<div class="contenido-mis-rutas">
 		<div class='menu-mis-rutas'>
-			<?= Yii::$app->funciones->menu_usuario() ?>
+			<?= Yii::$app->funciones->menu_usuario($idioma->abreviacion) ?>
 		</div>
 		<div class="info-mis-rutas">
-			<h3>Historia de rutas</h3>
+			<h3><?= ($idioma->abreviacion == 'en' || $idioma->abreviacion == 'EN' ? 'My Routes' : 'Mis Rutas') ?></h3>
 			<div class="tiendas-ruta-usuario">
 				<?php yii\widgets\Pjax::begin() ?>
 				        <?= GridView::widget([
@@ -33,7 +33,7 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 				                ['class' => 'yii\grid\SerialColumn'],
 
 				                [
-				                    'header' => 'Identificador',
+				                    'header' => ($idioma->abreviacion == 'en' || $idioma->abreviacion == 'EN' ? 'ID' : 'Identificador'),
 				                    'attribute' => 'pk',
 				                    'value' => function ($data) {
 				                        return "Ruta ID: ".$data->pk.", Propietario: ".$data->usuarioFk->nombre." <".$data->usuarioFk->username.">";
@@ -41,7 +41,7 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 				                ],
 
 				                [
-				                    'header' => 'Terminada',
+				                    'header' => ($idioma->abreviacion == 'en' || $idioma->abreviacion == 'EN' ? 'Finished?' : '¿Terminada?'),
 				                    'attribute' => 'terminada',
 				                    'value' => function ($data) {
 				                        if($data->terminada == 1)
@@ -54,7 +54,7 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 				                [
 				                	'class' => 'yii\grid\ActionColumn', 
 				                	'template' => '{view} {delete}',
-				                	'header'=>'Acciones',
+				                	'header'=> ($idioma->abreviacion == 'en' || $idioma->abreviacion == 'EN' ? 'Actions' : 'Acciones'),
 				                	'contentOptions' => ['style' => 'width:70px;'],
 				                	'buttons' => [
 									    'view' => function ($url, $model) {

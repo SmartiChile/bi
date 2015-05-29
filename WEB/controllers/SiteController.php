@@ -507,8 +507,8 @@ class SiteController extends Controller
     }
 
 
-    public function actionMipanel(){
-
+    public function actionMipanel($lan = 'es'){
+        $idioma = Idioma::find()->where(['abreviacion' => $lan])->one();
         $usuario = Yii::$app->user->identity->pk;
         $ruta_actual = Ruta::find()->where(['usuario_fk' => $usuario, 'terminada' => 0])->one();
 
@@ -527,23 +527,26 @@ class SiteController extends Controller
                 'ruta' => $ruta_actual,
                 'tiendas' => $tiendas,
                 'dataProvider' => $dataProvider,
+                'idioma' => $idioma,
         ]);
         
     }
 
-    public function actionMisrutas(){
+    public function actionMisrutas($lan = 'es'){
         $usuario = Yii::$app->user->identity->pk;
-        
+        $idioma = Idioma::find()->where(['abreviacion' => $lan])->one();
         $searchModel = new RutaSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams, $usuario);
         
         return $this->render('misrutas', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'idioma' => $idioma
             ]);
     }
 
-    public function actionCambiarpass(){
+    public function actionCambiarpass($lan = 'es'){
+        $idioma = Idioma::find()->where(['abreviacion' => $lan])->one();
         $model = Usuario::findOne(Yii::$app->user->identity->pk);
         $antigua = $model->password;
 
@@ -565,7 +568,7 @@ class SiteController extends Controller
             }
         }
         $model->password = "";
-        return $this->render('cambiarpass', ['model' => $model,]);
+        return $this->render('cambiarpass', ['model' => $model, 'idioma' => $idioma]);
     }
 
     public function actionRecuperar()

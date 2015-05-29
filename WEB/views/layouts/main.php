@@ -202,46 +202,46 @@ $this->registerJs('
             <div class="contenido-izquierda-footer-uno">
                 <div class="info-izquierda-footer">
                     <div class="lg-corfo">
-                        <p>Apoya:</p>
+                        <p><?= $idioma == 'en' || $idioma == 'EN' ? 'Supported by:' : 'Apoya:' ?>Supports:</p>
                         <?php echo Html::img(Yii::$app->request->baseUrl.'/images/lg-corfo.png', $options = ['width'=>'100%']); ?>
                     </div>
                     <div class="lg-min">
                         <?php echo Html::img(Yii::$app->request->baseUrl.'/images/lg-min.png', $options = ['width' => '100%']); ?>
                     </div>
                     <div class="lg-apri">
-                        <p>Organiza:</p>
+                        <p><?= $idioma == 'en' || $idioma == 'EN' ? 'Organized by:' : 'Organiza:' ?></p>
                         <?php echo Html::img(Yii::$app->request->baseUrl.'/images/lg-apri.png', $options = ['width' => '100%']); ?>
                     </div>
                     <div class="lg-ag">
-                        <p>Administra:</p>
+                        <p><?= $idioma == 'en' || $idioma == 'EN' ? 'Administered by:' : 'Administra:' ?></p>
                         <?php echo Html::img(Yii::$app->request->baseUrl.'/images/lg-ag.png', $options = ['width' => '100%']); ?>
                     </div>
                     <div class="lg-nuevet">
-                        <p>Desarrollo Web:</p>
+                        <p>Powered by:</p>
                         <?php echo Html::img(Yii::$app->request->baseUrl.'/images/lg-nuevet.png', $options = ['width' => '100%']); ?>
                     </div>
                 </div>
             </div>
             <div class="contenido-derecha-footer-uno">
                 <div class="tabla-footer">
-                    <table border="0" width="15%">
+                    <table border="0" width="20%">
                         <tr>
-                          <td><h5>EL BARRIO</h5></td>
+                          <td><h5><?= $idioma == 'en' || $idioma == 'EN' ? 'THE NEIGHBORHOOD' : 'EL BARRIO' ?></h5></td>
                         </tr>
                         <tr valign="top">
-                          <td valign="top"><?php echo Html::a('<p>Historia</p>', ['site/elbarrio']); ?></td>
+                          <td valign="top"><?php echo Html::a($idioma == 'en' || $idioma == 'EN' ? '<p>History</p>' : '<p>Historia</p>', ['site/elbarrio']); ?></td>
                         </tr>
                         <tr valign="top">
-                          <td valign="top"><?php echo Html::a('<p>Como llegar</p>', ['site/comollegar']); ?></td>
+                          <td valign="top"><?php echo Html::a($idioma == 'en' || $idioma == 'EN' ? '<p>How to arrive</p>' : '<p>Como llegar</p>', ['site/comollegar']); ?></td>
                         </tr>
                         <tr valign="top">
-                          <td valign="top"><?php echo Html::a('<p>Arriendos</p>', ['site/arriendos']); ?></td>
+                          <td valign="top"><?php echo Html::a($idioma == 'en' || $idioma == 'EN' ? '<p>Renting</p>' : '<p>Arriendos</p>', ['site/arriendos']); ?></td>
                         </tr>
                         <tr valign="top">
-                          <td valign="top"><?php echo Html::a('<p>Trabaja con nosotros</p>', ['site/trabaja']); ?></td>
+                          <td valign="top"><?php echo Html::a($idioma == 'en' || $idioma == 'EN' ? '<p>Get a job with us</p>' : '<p>Trabaja con nosotros</p>', ['site/trabaja']); ?></td>
                         </tr>
                         <tr valign="top">
-                          <td valign="top"><?php echo Html::a('<p>Eventos</p>', ['site/eventos']); ?></td>
+                          <td valign="top"><?php echo Html::a($idioma == 'en' || $idioma == 'EN' ? '<p>Events</p>' : '<p>Eventos</p>', ['site/eventos']); ?></td>
                         </tr>
                     </table>
                     <table border="0" width="18%">
@@ -249,30 +249,30 @@ $this->registerJs('
                           <td><h5>BARRIO ITALIA</h5></td>
                         </tr>
                         <tr valign="top">
-                          <td valign="top"><?php echo Html::a('<p>Vitrina</p>', ['site/vitrina']); ?></td>
+                          <td valign="top"><?php echo Html::a($idioma == 'en' || $idioma == 'EN' ? '<p>Gallery</p>' : '<p>Vitrina</p>', ['site/vitrina']); ?></td>
                         </tr>
                         <tr valign="top">
-                          <td valign="top"><?php echo Html::a('<p>Mapa</p>', ['site/mapa']); ?></td>
+                          <td valign="top"><?php echo Html::a($idioma == 'en' || $idioma == 'EN' ? '<p>Map</p>' : '<p>Mapa</p>', ['site/mapa']); ?></td>
                         </tr>
                         <tr valign="top">
-                          <td valign="top"><?php echo Html::a('<p>Circuitos</p>', ['site/circuitos']); ?></td>
+                          <td valign="top"><?php echo Html::a($idioma == 'en' || $idioma == 'EN' ? '<p>Circuits</p>' : '<p>Circuitos</p>', ['site/circuitos']); ?></td>
                         </tr>
                         <tr valign="top">
-                          <td valign="top"><?php echo Html::a('<p>Tiendas</p>', ['site/tiendas']); ?></td>
+                          <td valign="top"><?php echo Html::a($idioma == 'en' || $idioma == 'EN' ? '<p>Stores</p>' : '<p>Tiendas</p>', ['site/tiendas']); ?></td>
                         </tr>
                         <tr valign="top">
-                          <td valign="top"><?php echo Html::a('<p>Contacto</p>', ['site/contacto']); ?></td>
+                          <td valign="top"><?php echo Html::a($idioma == 'en' || $idioma == 'EN' ? '<p>Contact</p>' : '<p>Contacto</p>', ['site/contacto']); ?></td>
                         </tr>
                     </table>
                     <table border="0" width="12%">
                         <tr>
-                          <td><h5>NOTICIAS</h5></td>
+                          <td><h5><?= $idioma == 'en' || $idioma == 'EN' ? 'NEWS:' : 'NOTICIAS:' ?></h5></td>
                         </tr>
                         <tr valign="top">
-                          <td valign="top"><?php echo Html::a('<p>Noticias</p>', ['site/noticias']); ?></td>
+                          <td valign="top"><?php echo Html::a($idioma == 'en' || $idioma == 'EN' ? '<p>News</p>' : '<p>Noticias</p>', ['site/noticias']); ?></td>
                         </tr>
                         <tr valign="top">
-                          <td valign="top"><?php echo Html::a('<p>Prensa</p>', ['site/prensa']); ?></td>
+                          <td valign="top"><?php echo Html::a($idioma == 'en' || $idioma == 'EN' ? '<p>Press</p>' : '<p>Prensa</p>', ['site/prensa']); ?></td>
                         </tr>
                         <tr valign="top">
                           <td valign="top"></td>
@@ -286,16 +286,16 @@ $this->registerJs('
                     </table>
                     <table border="0" width="16%">
                         <tr>
-                          <td><h5>MI BARRIO</h5></td>
+                          <td><h5><?= $idioma == 'en' || $idioma == 'EN' ? '<p>MY NEIGHBORHOOD</p>' : '<p>MI BARRIO</p>' ?></h5></td>
                         </tr>
                         <tr valign="top">
-                          <td valign="top"><?php echo Html::a('<p>Crea tu ruta</p>', ['site/creaturuta']); ?></td>
+                          <td valign="top"><?php echo Html::a($idioma == 'en' || $idioma == 'EN' ? '<p>Create your route</p>' : '<p>Crea tu ruta</p>', ['site/creaturuta']); ?></td>
                         </tr>
                         <tr valign="top">
                           <td valign="top">
                           <?php 
                             if(!Yii::$app->user->isGuest)
-                                echo Html::a('<p>Ruta actual</p>', ['site/mipanel']); 
+                                echo Html::a($idioma == 'en' || $idioma == 'EN' ? '<p>My Panel</p>' : '<p>Mi Panel</p>', ['site/mipanel']); 
                           ?>
                           </td>
                         </tr>
@@ -312,7 +312,7 @@ $this->registerJs('
                           <?php 
                             if(!Yii::$app->user->isGuest){
                                 if($_SESSION['face'] == 0)
-                                echo Html::a('<p>Cambiar contraseña</p>', ['site/cambiarpass']);
+                                echo Html::a($idioma == 'en' || $idioma == 'EN' ? '<p>Change Password</p>' : '<p>Cambiar Contraseña</p>', ['site/cambiarpass']);
                             }
                           ?>
                           </td>
@@ -323,16 +323,16 @@ $this->registerJs('
                     </table>
                     <table border="0">
                         <tr>
-                          <td><h5>REGISTRO</h5></td>
+                          <td><h5><?= $idioma == 'en' || $idioma == 'EN' ? 'REGISTER' : 'REGISTRO' ?></h5></td>
                         </tr>
                         <tr valign="top">
-                          <td valign="top"><?php echo Html::a('<p>Ingresar</p>', ['site/login']); ?></td>
+                          <td valign="top"><?php echo Html::a($idioma == 'en' || $idioma == 'EN' ? '<p>Enter</p>' : '<p>Ingresar</p>', ['site/login']); ?></td>
                         </tr>
                         <tr valign="top">
-                          <td valign="top"><?php echo Html::a('<p>Registrate</p>', ['site/registro']); ?></td>
+                          <td valign="top"><?php echo Html::a($idioma == 'en' || $idioma == 'EN' ? '<p>Register</p>' : '<p>Registro</p>', ['site/registro']); ?></td>
                         </tr>
                         <tr valign="top">
-                          <td valign="top"><?php echo Html::a('<p>¿Olvidaste tu contraseña?</p>', ['site/recuperar']); ?></td>
+                          <td valign="top"><?php echo Html::a($idioma == 'en' || $idioma == 'EN' ? '<p>Forgot your password?</p>' : '<p>¿Olvidaste tu contraseña?</p>', ['site/recuperar']); ?></td>
                         </tr>
                         <tr valign="top">
                           <td valign="top">&nbsp;</td>

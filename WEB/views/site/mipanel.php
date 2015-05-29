@@ -9,15 +9,15 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 
 <div class="contenedor-elbarrio">
 	<br>
-	<h3 class="h3-movil">Bienvenido(a) <?php echo Yii::$app->funciones->nombreUser(Yii::$app->user->identity->nombre);?> - Ruta actual</h3>
+	<h3 class="h3-movil"><?= $idioma->abreviacion == 'en' || $idioma->abreviacion == 'EN' ? 'Welcome' : 'Bienvenido(a)' ?> <?php echo Yii::$app->funciones->nombreUser(Yii::$app->user->identity->nombre).' > '.($idioma->abreviacion == 'en' || $idioma->abreviacion == 'EN' ? 'Current Path' : 'Ruta Actual');?></h3>
 	<div class="puntos-separadores no-mostrar"></div>
 
 	<div class="contenido-mis-rutas">
 		<div class='menu-mis-rutas'>
-			<?= Yii::$app->funciones->menu_usuario() ?>
+			<?= Yii::$app->funciones->menu_usuario($idioma->abreviacion) ?>
 		</div>
 		<div class="info-mis-rutas">
-			<h3>Ruta actual</h3>
+			<h3><?= ($idioma->abreviacion == 'en' || $idioma->abreviacion == 'EN' ? 'Current Path' : 'Ruta Actual') ?></h3>
 			<div class="contenedor-info-rutas">
 
 				<?php if($ruta != NULL && $tiendas != null): ?>
@@ -73,7 +73,7 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 				        ]); ?>
 				</div>
 				<?php else: ?>
-						<p>No tiene ruta actual en este momento.</p>
+						<p><?= ($idioma->abreviacion == 'en' || $idioma->abreviacion == 'EN' ? "Sorry, You don't have current route" : 'Lo sentimos, No tienes rutas actuales.') ?></p>
 				<?php endif; ?>
 				<div class="boton-imprimir-mapa">
 						<?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-print.png', ['width'=>'100%', 'class'=>'tool', 'title'=>'Imprimir mapa']), "javascript:imprSelec('imprimir')"); ?>

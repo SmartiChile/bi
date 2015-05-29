@@ -194,29 +194,53 @@ class funciones extends Component
         
      }
 
-     public function menu_usuario()
+     public function menu_usuario($lan)
      {
-        return SideNav::widget([
+        if($lan == 'en' || $lan == 'EN'){
+            return SideNav::widget([
                 'type' => SideNav::TYPE_DEFAULT,
                 'items' => [
                     [
-                        'url' => ['site/mipanel'],
+                        'url' => ['site/mipanel', 'lan'=>$lan],
+                        'label' => 'Current Route',
+                        'icon' => 'heart'
+                    ],
+                    [
+                        'url' => ['site/misrutas', 'lan'=>$lan],
+                        'label' => 'My Routes',
+                        'icon' => 'map-marker'
+                    ],
+                    [
+                        'url' => ['site/cambiarpass', 'lan'=>$lan],
+                        'label' => 'Change password',
+                        'icon' => 'lock',
+                        'visible' => $_SESSION['face'] == 0 ? true : false,
+                    ],
+                ],
+            ]);
+        }else{
+            return SideNav::widget([
+                'type' => SideNav::TYPE_DEFAULT,
+                'items' => [
+                    [
+                        'url' => ['site/mipanel', 'lan'=>$lan],
                         'label' => 'Ruta actual',
                         'icon' => 'heart'
                     ],
                     [
-                        'url' => ['site/misrutas'],
+                        'url' => ['site/misrutas', 'lan'=>$lan],
                         'label' => 'Mis rutas',
                         'icon' => 'map-marker'
                     ],
                     [
-                        'url' => ['site/cambiarpass'],
+                        'url' => ['site/cambiarpass', 'lan'=>$lan],
                         'label' => 'Cambiar contraseña',
                         'icon' => 'lock',
                         'visible' => $_SESSION['face'] == 0 ? true : false,
                     ],
                 ],
             ]);
+        }
      }
 
     public function rolesToDec($rolBin) {   //en base a un numero binario, se calcula el rol en numero decimal
