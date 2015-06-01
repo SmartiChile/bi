@@ -37,7 +37,7 @@ $this->title = 'Noticia - '.$model->titulo;
 			</h3>
 			<h5><i class="glyphicon glyphicon-calendar"></i> <?php echo Yii::$app->formatter->asDatetime($model->fecha, "php:d-m-Y H:i:s") ?></h5>
 			<?php echo $model->descripcion; ?>
-			<strong><i class="glyphicon glyphicon-share-alt"></i> Referencia: <?php echo Html::a($model->referencia, 'http://'.$model->referencia, $options = ['target'=>'_blank']); ?></strong>
+			<strong><i class="glyphicon glyphicon-share-alt"></i> <?= $idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Reference: ' : 'Referencia: ' ?> <?php echo Html::a($model->referencia, 'http://'.$model->referencia, $options = ['target'=>'_blank']); ?></strong>
 			<div class="contenedor-compartir-noticias">
 				<div class="cada-red-compartir">
 					<div class="fb-share-button" data-href="<?= Yii::$app->params['domainName'].'site/noticia?n='.$model->pk ?>" data-layout="button_count"></div>

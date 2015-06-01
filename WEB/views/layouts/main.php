@@ -347,7 +347,7 @@ $this->registerJs('
 
         <div class="footer-dos">
                 <div class='contacto-footer'>
-                    <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-contacto.png', $options = ['width'=>'100%', 'class'=>'ico-contacto-footer']), ['site/contacto']); ?>                    
+                    <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-contacto.png', $options = ['width'=>'100%', 'class'=>'ico-contacto-footer']), ['site/contacto', 'lan' => $idioma]); ?>                    
                     <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-tw.png', $options = ['width'=>'100%', 'class'=>'ico-red-footer']), '#'); ?>
                     <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-insta.png', $options = ['width'=>'100%', 'class'=>'ico-red-footer']), '#'); ?>
                     <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-youtube.png', $options = ['width'=>'100%', 'class'=>'ico-red-footer']), '#'); ?>

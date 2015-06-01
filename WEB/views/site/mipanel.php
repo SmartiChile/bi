@@ -76,7 +76,7 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 						<p><?= ($idioma->abreviacion == 'en' || $idioma->abreviacion == 'EN' ? "Sorry, You don't have current route" : 'Lo sentimos, No tienes rutas actuales.') ?></p>
 				<?php endif; ?>
 				<div class="boton-imprimir-mapa">
-						<?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-print.png', ['width'=>'100%', 'class'=>'tool', 'title'=>'Imprimir mapa']), "javascript:imprSelec('imprimir')"); ?>
+						<?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-print.png', ['width'=>'100%', 'class'=>'tool', 'title'=>($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en') ? 'Print' : 'Imprmir mapa']), "javascript:imprSelec('imprimir')"); ?>
 				</div>
 			</div>
 		</div>

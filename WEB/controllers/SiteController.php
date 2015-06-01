@@ -314,11 +314,13 @@ class SiteController extends Controller
         ]);
     }
 
-    public function actionInfoprensa($id)
+    public function actionInfoprensa($id, $lan = 'es')
     {
         $p = $id;
+        $idioma = Idioma::find()->where(['abreviacion' => $lan])->one();
         return $this->render('infoprensa', [
             'model' => Noticia::findOne($p),
+            'idioma' => $idioma,
         ]);
     }
 
@@ -442,8 +444,9 @@ class SiteController extends Controller
         }
     }
 
-    public function actionContacto()
+    public function actionContacto($lan = 'es')
     {
+        $idioma = Idioma::find()->where(['abreviacion' => $lan])->one();
         $model = new Contacto;
         if ($model->load(Yii::$app->request->post())) {
             $model->ip = Yii::$app->funciones->getRealIP();
@@ -462,10 +465,13 @@ class SiteController extends Controller
                 $model->telefono = '';
                 $model->email = '';
                 $model->mensaje = '';
-                Yii::$app->getSession()->setFlash('mensaje', 'Muchas gracias! Nuestros administradores se pondrán en contacto contigo a la brevedad.');
+                if($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en')
+                    Yii::$app->getSession()->setFlash('mensaje', 'Thank You! We will get back to you as soon as possible.');
+                else
+                    Yii::$app->getSession()->setFlash('mensaje', 'Muchas gracias! Nuestros administradores se pondrán en contacto contigo a la brevedad.');
             }
         }
-        return $this->render('contacto', ['model' => $model]);
+        return $this->render('contacto', ['model' => $model, 'idioma' => $idioma]);
     }
 
     public function actionTrabaja($lan = 'es')
@@ -706,23 +712,24 @@ class SiteController extends Controller
         else{
             $tiene_ruta = Ruta::find()->where(['usuario_fk' => Yii::$app->user->identity->pk, 'terminada' => 0])->all();
             if($tiene_ruta != NULL){
-                return $this->render('compruebaruta');
+                return $this->render('compruebaruta', ['idioma' => $idioma]);
             }
             else{
                 $model = new Ruta;
                 $model->usuario_fk = Yii::$app->user->identity->pk;
                 $model->terminada = 0;
                 if($model->save()){
-                    $this->redirect(['site/tiendas']);
+                    $this->redirect(['site/tiendas', 'lan' => $idioma->abreviacion]);
                 }
                 else{
-                    $this->redirect(['site/index']);
+                    $this->redirect(['site/index', 'lan' => $idioma->abreviacion]);
                 }
             }
         }
     }
 
-    public function actionEliminaruta(){
+    public function actionEliminaruta($lan = 'es'){
+        $idioma = Idioma::find()->where(['abreviacion' => $lan])->one();
         $rutas = Ruta::find()->where(['usuario_fk' => Yii::$app->user->identity->pk])->all();
             foreach($rutas as $ruta){
                 $ruta->terminada = 1;
@@ -732,7 +739,7 @@ class SiteController extends Controller
         $model->usuario_fk = Yii::$app->user->identity->pk;
         $model->terminada = 0;
         $model->save();
-        $this->redirect(['site/tiendas']);
+        $this->redirect(['site/tiendas', 'lan' => $idioma->abreviacion]);
     }
 
     public function actionAgregaruta(){
