@@ -63,7 +63,7 @@ $this->registerJs('
 			<div class="cada-tienda-tiendas">
 				<?php 
 				    if (Yii::$app->funciones->enOferta($tienda->pk) == 1)
-				    	echo Html::img(Yii::$app->request->baseUrl.'/images/ribbon.svg', ['class'=>'tile-hot-ribbon']);
+				    	echo Html::img(($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en') ? Yii::$app->request->baseUrl.'/images/ribbon-en.svg' : Yii::$app->request->baseUrl.'/images/ribbon.svg', ['class'=>'tile-hot-ribbon']);
 				?>
 				<?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/tiendas/'.$tienda->imagen1, $options = ['width'=>'100%']),['site/tienda', 'id'=>$tienda->pk, 'lan' => $idioma->abreviacion]); ?>
 
@@ -75,7 +75,7 @@ $this->registerJs('
                     <div class="iconos-tienda-tiendas">
                     	<?php if(!Yii::$app->user->isGuest && Yii::$app->funciones->rutaActiva(Yii::$app->user->identity->pk)): ?>
 	                    <?php if(Yii::$app->funciones->perteneceRuta(Yii::$app->user->identity->pk, $tienda->pk)): ?>
-	                    <?= Yii::$app->user->isGuest ? " ": "<div class='icono-ruta-tienda'>".Html::img(Yii::$app->request->baseUrl.'/images/ico-ruta.png', ['class'=>'tool', 'title'=>'En mi ruta', 'data-like' => $tienda->pk, 'id'=>'ruta'])."</div>"; ?>
+	                    <?= Yii::$app->user->isGuest ? " ": "<div class='icono-ruta-tienda'>".Html::img(Yii::$app->request->baseUrl.'/images/ico-ruta.png', ['class'=>'tool', 'title'=>($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en') ? 'On my route' : 'En mi ruta', 'data-like' => $tienda->pk, 'id'=>'ruta'])."</div>"; ?>
 	                    <?php else: ?>
 	                    <?= Yii::$app->user->isGuest ? " ": "<div class='icono-ruta-tienda'>".Html::img(Yii::$app->request->baseUrl.'/images/ico-ruta-no.png', ['class'=>'tool ruta-like idlike'.$tienda->pk, 'title'=>($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en') ? 'Add to my route' : 'Agregar a ruta', 'data-like' => $tienda->pk, 'id'=>'ruta'])."</div>"; ?>
 	                    <?php endif; ?>
