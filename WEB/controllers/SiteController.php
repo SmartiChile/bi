@@ -507,7 +507,11 @@ class SiteController extends Controller
                 $model->telefono = '';
                 $model->adjunto = '';
                 $model->mensaje = '';
-                Yii::$app->getSession()->setFlash('mensaje', 'Muchas gracias! Nuestros administradores se pondrán en contacto contigo a la brevedad.');
+                if($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en')
+                    Yii::$app->getSession()->setFlash('mensaje', 'Muchas gracias! Nuestros administradores se pondrán en contacto contigo a la brevedad.');
+                else
+                    Yii::$app->getSession()->setFlash('mensaje', 'Thank You! We will get back to you as soon as possible.');
+
             }
         }
 
@@ -579,8 +583,9 @@ class SiteController extends Controller
         return $this->render('cambiarpass', ['model' => $model, 'idioma' => $idioma]);
     }
 
-    public function actionRecuperar()
+    public function actionRecuperar($lan = 'es')
     {
+        $idioma = Idioma::find()->where(['abreviacion' => $lan])->one();
         if(isset($_POST['email'])){
             $correo = $_POST['email'];
             $user = Usuario::find()->where(['username'=>$correo])->one();
@@ -608,7 +613,7 @@ class SiteController extends Controller
             } 
         }
 
-        return $this->render('recuperar');
+        return $this->render('recuperar', ['idioma' => $idioma]);
     }
 
     public function actionRestaurar($id)

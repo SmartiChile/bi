@@ -77,7 +77,7 @@ $this->registerJs('
 	                    <?php if(Yii::$app->funciones->perteneceRuta(Yii::$app->user->identity->pk, $tienda->pk)): ?>
 	                    <?= Yii::$app->user->isGuest ? " ": "<div class='icono-ruta-tienda'>".Html::img(Yii::$app->request->baseUrl.'/images/ico-ruta.png', ['class'=>'tool', 'title'=>'En mi ruta', 'data-like' => $tienda->pk, 'id'=>'ruta'])."</div>"; ?>
 	                    <?php else: ?>
-	                    <?= Yii::$app->user->isGuest ? " ": "<div class='icono-ruta-tienda'>".Html::img(Yii::$app->request->baseUrl.'/images/ico-ruta-no.png', ['class'=>'tool ruta-like idlike'.$tienda->pk, 'title'=>'Agregar a ruta', 'data-like' => $tienda->pk, 'id'=>'ruta'])."</div>"; ?>
+	                    <?= Yii::$app->user->isGuest ? " ": "<div class='icono-ruta-tienda'>".Html::img(Yii::$app->request->baseUrl.'/images/ico-ruta-no.png', ['class'=>'tool ruta-like idlike'.$tienda->pk, 'title'=>($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en') ? 'Add to my route' : 'Agregar a ruta', 'data-like' => $tienda->pk, 'id'=>'ruta'])."</div>"; ?>
 	                    <?php endif; ?>
 	                    <?php endif; ?>
 	                    <div class="rating-tienda">

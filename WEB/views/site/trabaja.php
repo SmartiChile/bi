@@ -52,7 +52,7 @@ $this->title = 'Barrio italia - '.($idioma->abreviacion == 'EN' || $idioma->abre
                 </div>
                 <div class="cada-formulario-trabaja">
                     <div>
-                        <?= $form->field($model, 'adjunto')->widget(FileInput::classname(), ['options' => ['multiple' => false, 'accept' => '.pdf, .doc, .docx'], 'pluginOptions' => ['showUpload' => false, 'browseLabel' =>$idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'File' : 'Archivo', 'removeLabel' => '','mainClass' => 'input-group-md']])->label(false); ?>
+                        <?= $form->field($model, 'adjunto')->widget(FileInput::classname(), ['options' => ['multiple' => false, 'accept' => '.pdf, .doc, .docx', 'required'=>'true'], 'pluginOptions' => ['showUpload' => false, 'browseLabel' =>$idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'File' : 'Archivo', 'removeLabel' => '','mainClass' => 'input-group-md']])->label(false); ?>
                     </div>
                     <div class="margen-area-trabaja">
                         <?= $form->field($model, 'mensaje')->textarea(['class'=>'form-control textarea-trabaja ', 'placeholder'=>($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Message' : 'Mensaje, Cargo, Pretención de renta'), 'required'=>true])->label(false) ?>
