@@ -16,7 +16,7 @@ $this->title = 'Barrio italia - '.($idioma->abreviacion == 'EN' || $idioma->abre
 
 		<div class="informacion-cada-barrio">
 			<div class="contenedor-como-llegar" id="imprimir">
-				<?php echo Html::img(Yii::$app->request->baseUrl.'/images/mapa-acc.svg'); ?>
+				<?php echo Html::img($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? Yii::$app->request->baseUrl.'/images/mapa-acc-en.svg' : Yii::$app->request->baseUrl.'/images/mapa-acc.svg', $options = ['width'=>'100%']); ?>
 			</div>
 			<div class="boton-imprimir-mapa" id="boton-imprimir">
 				<?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-print.png', ['width'=>'100%', 'class'=>'tool', 'title'=>'Imprimir mapa']), "javascript:imprSelec('imprimir')"); ?>
