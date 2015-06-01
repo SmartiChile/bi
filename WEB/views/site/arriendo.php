@@ -73,10 +73,10 @@ $this->title = 'Arriendo - '.$model->titulo;
 			?>
 			</h3>
 			<?php echo $model->descripcion; ?>
-			<p><i class="glyphicon glyphicon-map-marker"></i> <strong>Dirección:</strong> <?php echo $model->direccion; ?></p>
-			<p><i class="glyphicon glyphicon-earphone"></i> <strong>Teléfono:</strong> <?php echo $model->telefono; ?></p>
-			<p><i class="glyphicon glyphicon-envelope"></i> <strong>Email:</strong> <?php echo $model->email; ?></p>
-			<p><i class="glyphicon glyphicon-user"></i> <strong>Contacto:</strong> <?php echo $model->nombre_contacto; ?></p>
+			<p><i class="glyphicon glyphicon-map-marker"></i> <strong><?= ($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en') ? 'Address:' : 'Dirección:' ?></strong> <?php echo $model->direccion; ?></p>
+			<p><i class="glyphicon glyphicon-earphone"></i> <strong><?= ($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en') ? 'Phone:' : 'Teléfono:' ?></strong> <?php echo $model->telefono; ?></p>
+			<p><i class="glyphicon glyphicon-envelope"></i> <strong>E-mail:</strong> <?php echo $model->email; ?></p>
+			<p><i class="glyphicon glyphicon-user"></i> <strong><?= ($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en') ? 'Contact:' : 'Contacto:' ?></strong> <?php echo $model->nombre_contacto; ?></p>
 			
 			<div class="contenedor-compartir-noticias">
 				<div class="cada-red-compartir">
