@@ -356,11 +356,13 @@ class SiteController extends Controller
             ]);
     }
 
-    public function actionArriendo($id)
+    public function actionArriendo($id, $lan = 'es')
     {
         $a = $id;
+        $idioma = Idioma::find()->where(['abreviacion' => $lan])->one();
         return $this->render('arriendo', [
             'model' => Arriendo::findOne($a),
+            'idioma' => $idioma
         ]);
     }
 
