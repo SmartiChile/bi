@@ -49,7 +49,7 @@ $this->registerJs(
                 foreach ($circuitos as $circuito) {
                   $ruta = Url::toRoute(['site/circuito', 'id'=>$circuito->pk, 'lan'=>$idioma->abreviacion]);
                 ?>
-                <button type="button" onclick="window.location.href='<?php echo $ruta ?>'" style="background-color:<?php echo $circuito->color; ?>" class="btn-circuito btn-circuito-5 btn-circuito-5b c_<?php echo $circuito->pk; ?>"><span><?php echo $circuito->nombre; ?></span></button>
+                <button type="button" onclick="window.location.href='<?php echo $ruta ?>'" style="background-color:<?php echo $circuito->color; ?>" class="btn-circuito btn-circuito-5 btn-circuito-5b c_<?php echo $circuito->pk; ?>"><span><?php echo "&nbsp;&nbsp;&nbsp;".$circuito->nombre."&nbsp;&nbsp;&nbsp;"; ?></span></button>
                 <?php
                      } 
                 ?>
