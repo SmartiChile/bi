@@ -103,7 +103,7 @@ $this->registerJs('
             </div>
 
             <div id="logotipo-top">
-                    <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/lg-top.png', $options = ['width'=>'100%']), ['site/index']); ?>
+                    <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/lg-top.png', $options = ['width'=>'100%']), ['site/index', 'lan'=>$idioma]); ?>
             </div>
 
             <div id="social">
