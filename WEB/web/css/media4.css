@@ -21,6 +21,10 @@
 		font-size: 20px;
 	}
 
+	#menu-usuario ul li a{
+		font-size: 1vw;
+	}
+
 	.logotipo-circuito-tienda{
 		width: 20%;
 		float: left;
