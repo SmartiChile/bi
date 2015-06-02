@@ -58,12 +58,12 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 				                	'contentOptions' => ['style' => 'width:70px;'],
 				                	'buttons' => [
 									    'view' => function ($url, $model) {
-									        return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', Yii::$app->getUrlManager()->createUrl(['site/ruta', 'id' => $model->pk]), [
+									        	return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', Yii::$app->getUrlManager()->createUrl(['site/ruta', 'id' => $model->pk, 'lan'=>$_GET['lan']]), [
 									                    'title' => Yii::t('app', 'Ver'),
 									        ]);
 									    },
 									    'delete' => function ($url, $model) {
-									        return Html::a('<span class="glyphicon glyphicon-trash"></span>', Yii::$app->getUrlManager()->createUrl(['site/delruta', 'id' => $model->pk]), ['title' => Yii::t('app', 'Delete'), 'data-method'=>'post']);
+									        return Html::a('<span class="glyphicon glyphicon-trash"></span>', Yii::$app->getUrlManager()->createUrl(['site/delruta', 'id' => $model->pk, 'lan' => $_GET['lan']]), ['title' => Yii::t('app', 'Delete'), 'data-method'=>'post']);
 									    }
 									],
 				                ],

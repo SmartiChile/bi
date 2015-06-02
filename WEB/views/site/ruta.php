@@ -9,12 +9,12 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 
 <div class="contenedor-elbarrio">
 	<br>
-	<h3 class="h3-movil">Bienvenido(a) <?php echo Yii::$app->funciones->nombreUser(Yii::$app->user->identity->nombre);?> - Mis Rutas</h3>
+	<h3 class="h3-movil"><?= $idioma->abreviacion == 'en' || $idioma->abreviacion == 'EN' ? 'Welcome' : 'Bienvenido(a)' ?> <?php echo Yii::$app->funciones->nombreUser(Yii::$app->user->identity->nombre).' > '.($idioma->abreviacion == 'en' || $idioma->abreviacion == 'EN' ? 'Route' : 'Ruta');?></h3>
 	<div class="puntos-separadores no-mostrar"></div>
 
 	<div class="contenido-mis-rutas">
 		<div class='menu-mis-rutas'>
-			<?= Yii::$app->funciones->menu_usuario() ?>
+			<?= Yii::$app->funciones->menu_usuario($idioma->abreviacion) ?>
 		</div>
 		<div class="info-mis-rutas">
 			<h3>Rutas ID: <?= $model->pk ?></h3>
@@ -34,21 +34,21 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 				                ['class' => 'yii\grid\SerialColumn'],
 
 				                [
-				                    'header' => 'Tienda',
+				                    'header' => ($idioma->abreviacion == 'en' || $idioma->abreviacion == 'EN' ? 'Store' : 'Tienda'),
 				                    'attribute' => 'tienda_fk',
 				                    'value' => function ($data) {
 				                        return $data->tiendaFk->nombre;
 				                    },
 				                ],
 				                [
-				                    'header' => 'Dirección',
+				                    'header' => ($idioma->abreviacion == 'en' || $idioma->abreviacion == 'EN' ? 'Address' : 'Dirección'),
 				                    'attribute' => 'tienda_fk',
 				                    'value' => function ($data) {
 				                        return $data->tiendaFk->localFk->direccion;
 				                    },
 				                ],
 				                [
-				                    'header' => 'Teléfono',
+				                    'header' => ($idioma->abreviacion == 'en' || $idioma->abreviacion == 'EN' ? 'Phone' : 'Teléfono'),
 				                    'attribute' => 'tienda_fk',
 				                    'value' => function ($data) {
 				                        return $data->tiendaFk->telefono;
@@ -58,14 +58,14 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 				                [
 				                	'class' => 'yii\grid\ActionColumn', 
 				                	'template' => '{view} {delete}',
-				                	'header'=>'Acciones',
+				                	'header'=>($idioma->abreviacion == 'en' || $idioma->abreviacion == 'EN' ? 'Actions' : 'Acciones'),
 				                	'contentOptions' => ['style' => 'width:70px;'],
 				                	'buttons' => [
 									    'view' => function ($url, $model) {
-									        return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', ['site/tienda', 't'=>$model->tienda_fk], ['title' => Yii::t('app', 'Ver'),]);
+									        return Html::a('<span class="glyphicon glyphicon-eye-open"></span>', ['site/tienda', 't'=>$model->tienda_fk, 'lan'=>$_GET['lan']], ['title' => Yii::t('app', 'Ver'),]);
 									    },
 									    'delete' => function ($url, $model) {
-									        return Html::a('<span class="glyphicon glyphicon-trash"></span>', Yii::$app->getUrlManager()->createUrl(['site/delcontenidoruta', 'id' => $model->pk, 'v' => 2]), ['title' => Yii::t('app', 'Delete'), 'data-confirm' => Yii::t('yii', '¿Está seguro que desea eliminar este item?'), 'data-method'=>'post']);
+									        return Html::a('<span class="glyphicon glyphicon-trash"></span>', Yii::$app->getUrlManager()->createUrl(['site/delcontenidoruta', 'id' => $model->pk, 'v' => 2, 'lan' =>$_GET['lan']]), ['title' => Yii::t('app', 'Delete'), 'data-confirm' => Yii::t('yii', '¿Está seguro que desea eliminar este item?'), 'data-method'=>'post']);
 									    }
 									],
 				                ],

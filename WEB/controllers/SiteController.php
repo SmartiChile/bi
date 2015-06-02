@@ -761,29 +761,32 @@ class SiteController extends Controller
         
     }
 
-    public function actionDelcontenidoruta($id, $v){
+    public function actionDelcontenidoruta($id, $v, $lan = 'es'){
+        $idioma = Idioma::find()->where(['abreviacion' => $lan])->one();
         $model = RutaContenido::find()->where(['pk' => $id])->one();
         $model->delete();
         if($v == 1)
-            return $this->redirect(['mipanel']);
+            return $this->redirect(['mipanel', 'lan' => $idioma->abreviacion]);
         else
-            return $this->redirect(['ruta', 'id' => $model->ruta_fk]);
+            return $this->redirect(['ruta', 'id' => $model->ruta_fk, 'lan' => $idioma->abreviacion]);
     }
 
-    public function actionDelruta($id){
+    public function actionDelruta($id, $lan = 'es'){
+        $idioma = Idioma::find()->where(['abreviacion' => $lan])->one();
         $model = Ruta::find()->where(['pk' => $id])->one();
         $model->delete();
 
-        return $this->redirect(['misrutas']);
+        return $this->redirect(['misrutas', 'lan'=>$idioma->abreviacion]);
     }
 
-    public function actionRuta($id){
+    public function actionRuta($id, $lan = 'es'){
+        $idioma = Idioma::find()->where(['abreviacion' => $lan])->one();
         $model = Ruta::find()->where(['pk' => $id, 'usuario_fk' => Yii::$app->user->identity->pk])->one();
 
         $searchModel = new RutacontenidoSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams, $model->pk);
         $tiendas = RutaContenido::find()->where(['ruta_fk' => $model->pk])->all();
             
-        return $this->render('ruta', ['model'=>$model, 'dataProvider'=>$dataProvider, 'tiendas'=>$tiendas]);
+        return $this->render('ruta', ['model'=>$model, 'dataProvider'=>$dataProvider, 'tiendas'=>$tiendas, 'idioma'=>$idioma]);
     }
 }
