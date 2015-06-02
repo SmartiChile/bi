@@ -41,7 +41,7 @@ $this->registerJs(
 
 <div class="site-index">
 
-    <h3 class="h3-movil"><?= ($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en') ? 'CIRCUITS' : 'CIRCUTIOS' ?></h3>
+    <h3 class="h3-movil"><?= ($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en') ? 'CIRCUITS' : 'CIRCUITOS' ?></h3>
 
     
     <div class="contenedor-botones">
