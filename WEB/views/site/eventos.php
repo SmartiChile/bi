@@ -29,8 +29,8 @@ $this->title = 'Barrio italia - '.($idioma->abreviacion == 'EN' || $idioma->abre
 					<div class="contenedor-cada-evento">
 						<div class="eventos-info1">
 							<h3><?php echo $evento->titulo;?> </h3>
-							<h6>Inicio: <?php echo Yii::$app->formatter->asDatetime($evento->inicio, "php:d-m-Y H:i:s")?></h6>
-							<h6>Termino: <?php echo Yii::$app->formatter->asDatetime($evento->fin, "php:d-m-Y H:i:s")?></h6>
+							<h6><?= ($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en') ? 'Start:' : 'Inicio:' ?> <?php echo Yii::$app->formatter->asDatetime($evento->inicio, "php:d-m-Y H:i:s")?></h6>
+							<h6><?= ($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en') ? 'End:' : 'Termino:' ?> <?php echo Yii::$app->formatter->asDatetime($evento->fin, "php:d-m-Y H:i:s")?></h6>
 						</div>
 						<div class="eventos-info2">
 							<?php
@@ -39,7 +39,7 @@ $this->title = 'Barrio italia - '.($idioma->abreviacion == 'EN' || $idioma->abre
 							<p><?php echo substr($descripcion, 0, 200)."..."; ?></p>
 						</div>
 						<div class="eventos-info3">
-							<?php echo Html::a("<p>ver más</p>", ['/site/evento', 'lan' => $idioma->abreviacion, 'id' => $evento->pk]); ?>
+							<?php echo Html::a(($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en') ? '<p>More</p>' : '<p>Ver más</p>', ['/site/evento', 'lan' => $idioma->abreviacion, 'id' => $evento->pk]); ?>
 							<?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-more.png', $options = ['width'=>'20%', "id"=>"margen-ver-mas-info3"]), ['/site/evento', 'lan' => $idioma->abreviacion, 'id' => $evento->pk]); ?>
 						</div>
 					</div>

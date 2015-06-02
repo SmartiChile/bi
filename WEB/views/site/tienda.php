@@ -156,7 +156,7 @@ $this->title = 'Tienda - '.$model->nombre;
 	                    <?php if(Yii::$app->funciones->perteneceRuta(Yii::$app->user->identity->pk, $model->pk)): ?>
 	                        <?= Yii::$app->user->isGuest ? " ": "<div class='ruta-head-tienda'>".Html::img(Yii::$app->request->baseUrl.'/images/ico-ruta2.png', ['width'=>'100%', 'class'=>'tool', 'title'=>'En mi ruta', 'id'=>'enruta'])."</div>"; ?>
 						<?php else: ?>
-	                        <?= Yii::$app->user->isGuest ? " ": "<div class='ruta-head-tienda'>".Html::img(Yii::$app->request->baseUrl.'/images/ico-ruta2-no.png', ['width'=>'100%', 'class'=>'tool ruta-like', 'title'=>'Agregar a mi ruta', 'id'=>'ruta'])."</div>"; ?>
+	                        <?= Yii::$app->user->isGuest ? " ": "<div class='ruta-head-tienda'>".Html::img(Yii::$app->request->baseUrl.'/images/ico-ruta2-no.png', ['width'=>'100%', 'class'=>'tool ruta-like', 'title'=>($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en') ? 'Add to my route' : 'Agregar a ruta', 'id'=>'ruta'])."</div>"; ?>
 						<?php endif; ?>
 	                <?php endif; ?>
 
