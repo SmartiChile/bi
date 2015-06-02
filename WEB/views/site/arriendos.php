@@ -47,7 +47,7 @@ $this->title = 'Barrio italia - '.($idioma->abreviacion == 'EN' || $idioma->abre
 								</div>
 							</div>
 							<div class="botones-ver-mas-arriendo">
-								<?php echo Html::a(($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en') ? 'More ...' : 'Ver más', ['/site/arriendo', 'lan' => $idioma->abreviacion, 'id' => $arriendo->pk]); ?>
+								<?php echo Html::a(($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en') ? '<p>More</p>' : '<p>Ver más</p>', ['/site/arriendo', 'lan' => $idioma->abreviacion, 'id' => $arriendo->pk]); ?>
 								<?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-more.png', $options = ['width'=>'20%', "id"=>"float-icono-mas-arriendo"]), ['/site/arriendo', 'lan' => $idioma->abreviacion, 'id' => $arriendo->pk]); ?>
 							</div>
 						</div>
