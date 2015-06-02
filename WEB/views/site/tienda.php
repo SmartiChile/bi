@@ -171,7 +171,7 @@ $this->title = 'Tienda - '.$model->nombre;
 					<?php
 						}
 					?>
-					<div class="rating-head-tienda">
+					<div class="rating-head-tienda tool" title=<?= ($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en') ? '"Rate the store!"' : '"¡Puntua la tienda!"' ?>>
                         			<?php
 										echo StarRating::widget([
 										    'name' => 'rating_21',

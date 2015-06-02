@@ -217,7 +217,7 @@ $this->registerJs('
                         <?php echo Html::img(Yii::$app->request->baseUrl.'/images/lg-ag.png', $options = ['width' => '100%']); ?>
                     </div>
                     <div class="lg-nuevet">
-                        <p><?= $idioma == 'en' || $idioma == 'EN' ? 'Powered by::' : 'Desarrolla:' ?></p>
+                        <p><?= $idioma == 'en' || $idioma == 'EN' ? 'Powered by:' : 'Desarrolla:' ?></p>
                         <?php echo Html::img(Yii::$app->request->baseUrl.'/images/lg-nuevet.png', $options = ['width' => '100%']); ?>
                     </div>
                 </div>
@@ -266,7 +266,7 @@ $this->registerJs('
                     </table>
                     <table border="0" width="12%">
                         <tr>
-                          <td><h5><?= $idioma == 'en' || $idioma == 'EN' ? 'NEWS:' : 'NOTICIAS:' ?></h5></td>
+                          <td><h5><?= $idioma == 'en' || $idioma == 'EN' ? 'NEWS' : 'NOTICIAS' ?></h5></td>
                         </tr>
                         <tr valign="top">
                           <td valign="top"><?php echo Html::a($idioma == 'en' || $idioma == 'EN' ? '<p>News</p>' : '<p>Noticias</p>', ['site/noticias']); ?></td>
