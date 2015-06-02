@@ -107,7 +107,7 @@ $this->registerJs(
    <h3 class="no-mostrar"><?= $idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'MAP' : 'MAPA' ?></h3>
 
    <div class="bg-mapa">
-        <?php echo Html::img(Yii::$app->request->baseUrl.'/images/mapa-acc.svg', $options = ['width'=>'100%']); ?>
+        <?php echo Html::img($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? Yii::$app->request->baseUrl.'/images/mapa-acc-en.svg' : Yii::$app->request->baseUrl.'/images/mapa-acc.svg', $options = ['width'=>'100%']); ?>
    </div>
 
    <div class="puntos-separadores no-mostrar"></div>

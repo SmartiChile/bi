@@ -9,7 +9,7 @@ $this->title = 'Barrio italia - '.($idioma->abreviacion == 'EN' || $idioma->abre
 	<div class="puntos-separadores no-mostrar"></div>
 
 	<div class="mapa-map" id="imprimir">
-		<?php echo Html::img(Yii::$app->request->baseUrl.'/images/mapa-acc.svg', $options = ['width'=>'100%']); ?>
+		<?php echo Html::img($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? Yii::$app->request->baseUrl.'/images/mapa-acc-en.svg' : Yii::$app->request->baseUrl.'/images/mapa-acc.svg', $options = ['width'=>'100%']); ?>
 	</div>
 	<div class="boton-imprimir-mapa">
 		<?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-print.png', ['width'=>'100%', 'class'=>'tool', 'title'=>'Imprimir mapa']), "javascript:imprSelec('imprimir')"); ?>
