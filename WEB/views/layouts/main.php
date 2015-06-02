@@ -202,7 +202,7 @@ $this->registerJs('
             <div class="contenido-izquierda-footer-uno">
                 <div class="info-izquierda-footer">
                     <div class="lg-corfo">
-                        <p><?= $idioma == 'en' || $idioma == 'EN' ? 'Supported by:' : 'Apoya:' ?>Supports:</p>
+                        <p><?= $idioma == 'en' || $idioma == 'EN' ? 'Supported by:' : 'Apoya:' ?></p>
                         <?php echo Html::img(Yii::$app->request->baseUrl.'/images/lg-corfo.png', $options = ['width'=>'100%']); ?>
                     </div>
                     <div class="lg-min">
@@ -217,7 +217,7 @@ $this->registerJs('
                         <?php echo Html::img(Yii::$app->request->baseUrl.'/images/lg-ag.png', $options = ['width' => '100%']); ?>
                     </div>
                     <div class="lg-nuevet">
-                        <p>Powered by:</p>
+                        <p><?= $idioma == 'en' || $idioma == 'EN' ? 'Powered by::' : 'Desarrolla:' ?></p>
                         <?php echo Html::img(Yii::$app->request->baseUrl.'/images/lg-nuevet.png', $options = ['width' => '100%']); ?>
                     </div>
                 </div>
