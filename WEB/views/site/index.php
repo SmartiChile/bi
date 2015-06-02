@@ -67,7 +67,7 @@ $this->registerJs(
                         'id' => 'login-form-inline', 
                         'type' => ActiveForm::TYPE_INLINE,
                         'method' => 'get',
-                        'action' => Yii::$app->getUrlManager()->createUrl(['site/tiendas']),
+                        'action' => Yii::$app->getUrlManager()->createUrl(['site/tiendas' , 'lan' => $idioma->abreviacion]),
                     ]); 
                 ?>
                     <?= Html::textInput('b','', ['class'=>'form-control', 'placeholder'=>$idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Keyword' : 'Palabra Clave']) ?>
