@@ -550,7 +550,7 @@ class SiteController extends Controller
         $usuario = Yii::$app->user->identity->pk;
         $idioma = Idioma::find()->where(['abreviacion' => $lan])->one();
         $searchModel = new RutaSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams, $usuario);
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams, $usuario, $idioma->pk);
         
         return $this->render('misrutas', [
             'searchModel' => $searchModel,
