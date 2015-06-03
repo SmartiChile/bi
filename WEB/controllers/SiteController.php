@@ -70,6 +70,9 @@ class SiteController extends Controller
 
     public function actions()
     {
+        if(!isset($_GET['lan'])){
+            $_GET['lan'] = 'es';
+        }
         return [
             'error' => [
                 'class' => 'yii\web\ErrorAction',
