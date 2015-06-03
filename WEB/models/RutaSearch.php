@@ -40,7 +40,7 @@ class RutaSearch extends Ruta
      */
     public function search($params, $usuario)
     {
-        $query = Ruta::find()->where(['usuario_fk' => $usuario]);
+        $query = Ruta::find()->where(['usuario_fk' => $usuario])->orderBy(["pk"=>SORT_DESC]);
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,

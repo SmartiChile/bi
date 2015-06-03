@@ -532,9 +532,9 @@ class SiteController extends Controller
             $dataProvider = null;
         }
         else{
-            $tiendas = RutaContenido::find()->joinWith(['tiendaFk'])->where(['ruta_fk' => $ruta_actual->pk, 'tienda.idioma_fk'=>$idioma->pk])->all();
+            $tiendas = RutaContenido::find()->where(['ruta_fk' => $ruta_actual->pk])->all();
             $searchModel = new RutacontenidoSearch();
-            $dataProvider = $searchModel->search(Yii::$app->request->queryParams, $ruta_actual->pk);
+            $dataProvider = $searchModel->search(Yii::$app->request->queryParams, $ruta_actual->pk, $idioma->pk);
         }   
 
         return $this->render('mipanel', [

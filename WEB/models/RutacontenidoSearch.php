@@ -38,9 +38,9 @@ class RutacontenidoSearch extends RutaContenido
      *
      * @return ActiveDataProvider
      */
-    public function search($params, $ruta)
+    public function search($params, $ruta, $lan)
     {
-        $query = RutaContenido::find()->where(['ruta_fk' => $ruta]);
+        $query = RutaContenido::find()->where(['ruta_fk' => $ruta, 'idioma_fk'=>$lan])->joinWith('tiendaFk');
 
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
