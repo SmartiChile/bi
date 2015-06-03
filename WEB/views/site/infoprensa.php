@@ -12,7 +12,7 @@ $this->title = 'Prensa - '.$model->titulo;
   var js, fjs = d.getElementsByTagName(s)[0];
   if (d.getElementById(id)) return;
   js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/<?= ($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en') ? 'en_EN: ' : 'es_LA: ' ?>/sdk.js#xfbml=1&version=v2.3";
+ js.src = "//connect.facebook.net/<?= ($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en') ? 'en_EN' : 'es_LA' ?>/sdk.js#xfbml=1&version=v2.3";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
 
@@ -43,7 +43,7 @@ $this->title = 'Prensa - '.$model->titulo;
 				</div>
 
 				<div class="cada-red-compartir" id="margen-compartir-tw">
-					<a href="https://twitter.com/share" class="twitter-share-button" data-url="<?= Yii::$app->params['domainName'].'site/infoprensa?p='.$model->pk ?>" data-via="somositalia" data-lang="<?= ($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en') ? 'en: ' : 'es: ' ?>" data-hashtags="barrioitalia">Twittear</a>
+					<a href="https://twitter.com/share" class="twitter-share-button" data-url="<?= Yii::$app->params['domainName'].'site/infoprensa?p='.$model->pk ?>" data-via="somositalia"  data-lang="<?= ($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en') ? 'en' : 'es' ?>" data-hashtags="barrioitalia">Twittear</a>
 					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 				</div>
 			</div>
