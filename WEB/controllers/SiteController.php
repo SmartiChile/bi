@@ -324,11 +324,13 @@ class SiteController extends Controller
         ]);
     }
 
-    public function actionEvento($id)
+    public function actionEvento($id, $lan = 'es')
     {
         $e = $id;
+        $idioma = Idioma::find()->where(['abreviacion' => $lan])->one();
         return $this->render('evento', [
             'model' => Evento::findOne($e),
+            'idioma' => $idioma,
         ]);
     }
 
