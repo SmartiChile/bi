@@ -14,7 +14,7 @@ $this->title = 'Barrio Italia - '.($idioma->abreviacion == 'EN' || $idioma->abre
             <?php echo Html::img(Yii::$app->request->baseUrl.'/images/lg-negro.png', $options = ['class'=>'login-lg-negro no-mostrar']); ?>
             <?php $authAuthChoice = AuthChoice::begin([
                   'id'=>'redes',
-                  'baseAuthUrl' => [$idioma->abreviacion.'/site/auth', ]
+                  'baseAuthUrl' => [$idioma->abreviacion.'/site/auth']
             ]); ?>
           <ul>
             <?php foreach ($authAuthChoice->getClients() as $client): ?>

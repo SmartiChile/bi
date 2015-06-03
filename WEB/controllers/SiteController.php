@@ -81,7 +81,7 @@ class SiteController extends Controller
             'auth' => [
                 'class' => 'yii\authclient\AuthAction',
                 'successCallback' => [$this, 'successCallback'],
-                'successUrl' => Yii::$app->funciones->creareturn(),
+                'successUrl' => Yii::$app->funciones->creareturn($_GET['lan']),
             ],
         ];
     }

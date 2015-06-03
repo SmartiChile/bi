@@ -427,11 +427,10 @@ class funciones extends Component
         }
     }
 
-    public function creareturn(){
+    public function creareturn($lan){
         $ruta = Yii::$app->getUser()->getReturnUrl();
         $r = explode('/', $ruta);
         $final = '';
-        $lan = 'en';
         $aux = 0;
         foreach ($r as $v) {
             if($v == 'inicioruta')
