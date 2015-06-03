@@ -786,7 +786,7 @@ class SiteController extends Controller
         $model = Ruta::find()->where(['pk' => $id, 'usuario_fk' => Yii::$app->user->identity->pk])->one();
 
         $searchModel = new RutacontenidoSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams, $model->pk);
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams, $model->pk, $idioma->pk);
         $tiendas = RutaContenido::find()->where(['ruta_fk' => $model->pk])->all();
             
         return $this->render('ruta', ['model'=>$model, 'dataProvider'=>$dataProvider, 'tiendas'=>$tiendas, 'idioma'=>$idioma]);
