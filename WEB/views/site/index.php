@@ -79,7 +79,7 @@ $this->registerJs(
 
         <div class="proximos-eventos-home">
             <div class="titulo-proximos-eventos-home">
-                <h2><?= $idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Upcoming Events' : 'Próximos Eventos' ?></h2>
+                <h2><?= $idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Barrio Italia Events' : 'Eventos Barrio Italia' ?></h2>
             </div>
             <div class="eventos-home">
                 <?php
@@ -93,7 +93,7 @@ $this->registerJs(
                         <h3><?php echo $evento->titulo; ?> | <?php echo Yii::$app->formatter->asDatetime($evento->inicio, "php:d-m-Y H:i:s") ; ?></h3>
                     </div>
                     <div class="boton-evento-home">
-                      <?php echo Html::a('<p>Ver el Calendario Completo</p>', ['site/eventos']); ?>
+                      <?php echo Html::a($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? '<p>See the full schedule</p>' : '<p>Ver el Calendario Completo</p>', ['site/eventos', 'lan' => $idioma->abreviacion]); ?>
                     </div>
                 </div>
                 <?php endforeach; ?>
