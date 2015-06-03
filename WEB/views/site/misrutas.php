@@ -29,6 +29,7 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 				        <?= GridView::widget([
 				        	'options' => ['id' => 'uno'],
 				            'dataProvider' => $dataProvider,
+				            'summary' => ($idioma->abreviacion == 'en' || $idioma->abreviacion == 'EN' ? 'Showing' : 'Mostrando')." <b>{begin}</b>-<b>{end}</b> ".($idioma->abreviacion == 'en' || $idioma->abreviacion == 'EN' ? 'of' : 'de')." <b>{count}</b> ".($idioma->abreviacion == 'en' || $idioma->abreviacion == 'EN' ? 'Records' : 'Registros'),
 				            'columns' => [
 				                ['class' => 'yii\grid\SerialColumn'],
 
@@ -36,7 +37,7 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 				                    'header' => ($idioma->abreviacion == 'en' || $idioma->abreviacion == 'EN' ? 'ID' : 'Identificador'),
 				                    'attribute' => 'pk',
 				                    'value' => function ($data) {
-				                        return "Ruta ID: ".$data->pk.", Propietario: ".$data->usuarioFk->nombre." <".$data->usuarioFk->username.">";
+				                        return ($_GET['lan'] == 'en' || $_GET['lan'] == 'EN' ? 'ID Route: ' : 'Ruta ID: ').$data->pk.", ".($_GET['lan'] == 'en' || $_GET['lan'] == 'EN' ? 'Owner: ' : 'Propietario: ').$data->usuarioFk->nombre." <".$data->usuarioFk->username.">";
 				                    },
 				                ],
 
@@ -45,7 +46,7 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 				                    'attribute' => 'terminada',
 				                    'value' => function ($data) {
 				                        if($data->terminada == 1)
-				                        	return 'Sí';
+				                        	return ($_GET['lan'] == 'en' || $_GET['lan'] == 'EN' ? 'Yes' : 'Sí');
 				                        else
 				                        	return 'No';
 				                    },

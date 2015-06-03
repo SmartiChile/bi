@@ -30,6 +30,7 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 				<div class="tiendas-ruta-usuario">
 				        <?= GridView::widget([
 				            'dataProvider' => $dataProvider,
+				            'summary' => ($idioma->abreviacion == 'en' || $idioma->abreviacion == 'EN' ? 'Showing' : 'Mostrando')." <b>{begin}</b>-<b>{end}</b> ".($idioma->abreviacion == 'en' || $idioma->abreviacion == 'EN' ? 'of' : 'de')." <b>{count}</b> ".($idioma->abreviacion == 'en' || $idioma->abreviacion == 'EN' ? 'Records' : 'Registros'),
 				            'columns' => [
 				                ['class' => 'yii\grid\SerialColumn'],
 

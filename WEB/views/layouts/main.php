@@ -303,7 +303,7 @@ $this->registerJs('
                           <td valign="top">
                           <?php 
                             if(!Yii::$app->user->isGuest)
-                                echo Html::a('<p>Historial de rutas</p>', ['site/misrutas', 'lan' => $idioma]); 
+                                echo Html::a($idioma == 'en' || $idioma == 'EN' ? '<p>Routes History</p>' : '<p>Historial de rutas</p>', ['site/misrutas', 'lan' => $idioma]); 
                             ?>
                           </td>
                         </tr>
