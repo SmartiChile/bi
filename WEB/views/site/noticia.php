@@ -1,6 +1,6 @@
 <?php
 use yii\helpers\Html;
-$this->registerMetaTag(['property' => 'og:url', 'content' => Yii::$app->params['domainName'].'site/noticia?n='.$model->pk]);
+$this->registerMetaTag(['property' => 'og:url', 'content' => Yii::$app->params['domainName'].$idioma->abreviacion.'/site/noticia/'.$model->pk]);
 $this->registerMetaTag(['name' => 'og:tittle', 'content' => 'Barrio Italia']);
 $this->registerMetaTag(['name' => 'og:description', 'content' => Yii::$app->funciones->quitarTags($model->descripcion)]);
 $this->registerMetaTag(['name' => 'og:image', 'content' =>Yii::$app->params['domainName'].'/images/noticias/'.$model->imagen]);
@@ -43,7 +43,7 @@ $this->title = 'Noticia - '.$model->titulo;
 					<div class="fb-share-button" data-href="<?= Yii::$app->params['domainName'].'site/noticia?n='.$model->pk ?>" data-layout="button_count"></div>
 				</div>
 				<div class="cada-red-compartir" id="margen-compartir-tw">
-					<a href="https://twitter.com/share" class="twitter-share-button" data-url="<?= Yii::$app->params['domainName'].'site/noticia?n='.$model->pk ?>" data-via="somositalia"  data-lang="<?= ($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en') ? 'en' : 'es' ?>" data-hashtags="barrioitalia">Twittear</a>
+					<a href="https://twitter.com/share" class="twitter-share-button" data-url="<?= Yii::$app->params['domainName'].$idioma->abreviacion.'/site/noticia/'.$model->pk ?>" data-via="somositalia"  data-lang="<?= ($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en') ? 'en' : 'es' ?>" data-hashtags="barrioitalia">Twittear</a>
 					<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
 				</div>
 			</div>

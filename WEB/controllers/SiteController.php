@@ -666,12 +666,13 @@ class SiteController extends Controller
         return $this->render('registro', ['model'=>$model, 'idioma'=>$idioma]);
     }
 
-    public function actionImagen($id)
+    public function actionImagen($id, $lan = 'es')
     {
+        $idioma = Idioma::find()->where(['abreviacion' => $lan])->one();
         $i = $id;
         $model = Vitrina::findOne($i);
         
-        return $this->render('imagen', ['model'=>$model]);
+        return $this->render('imagen', ['model'=>$model, 'idioma'=>$idioma]);
     }
 
 

@@ -38,7 +38,7 @@ $this->title = 'Barrio italia - '.($idioma->abreviacion == 'EN' || $idioma->abre
 					<?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/vitrina/'.$vitrina->imagen, $options = ['alt'=>$vitrina->titulo, 'title'=>$vitrina->titulo]), ['/images/vitrina/'.$vitrina->imagen], ['class'=>'vitrina-light']); ?>
 					<div class="social-link">
 						<div class="cada-social">
-							<?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-face-vitrina.png', $options = ['width' => '100%']), 'http://www.facebook.com/sharer.php?u='.Yii::$app->params['domainName'].'site/imagen?i='.$vitrina->pk, $options = ["onclick"=>"goclicky(this); return false;", 'target'=>'_blank']); ?>
+							<?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-face-vitrina.png', $options = ['width' => '100%']), 'http://www.facebook.com/sharer.php?u='.Yii::$app->params['domainName'].$idioma->abreviacion.'/site/imagen/'.$vitrina->pk, $options = ["onclick"=>"goclicky(this); return false;", 'target'=>'_blank']); ?>
 						</div>
 						<div class="cada-social">
 							<a href="//es.pinterest.com/pin/create/button/?url=<?php echo Yii::$app->params['domainName'].'site/vitrina' ?>&media=<?php echo Yii::$app->params['domainName'].'images/vitrina/'.$vitrina->imagen ?>&description=<?php echo $vitrina->titulo ?>" data-pin-do="buttonPin" data-pin-shape="round" data-pin-height="32"><img src="//assets.pinterest.com/images/pidgets/pinit_fg_en_round_red_32.png" /></a>
