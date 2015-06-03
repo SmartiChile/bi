@@ -15,7 +15,7 @@ $this->registerJs('
 
 $this->registerJs(
     '
-    $.getJSON("'.Yii::$app->request->baseUrl.'/site/tag?id='.$idioma->pk.'", function(data) {
+    $.getJSON("'.Yii::$app->request->baseUrl.'/'.$idioma->abreviacion.'/site/tag?id='.$idioma->pk.'", function(data) {
             var word_array = [
                   
               ];
