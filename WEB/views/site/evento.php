@@ -1,6 +1,6 @@
 <?php
 use yii\helpers\Html;
-$this->registerMetaTag(['property' => 'og:url', 'content' => Yii::$app->params['domainName'].'site/evento?e='.$model->pk]);
+$this->registerMetaTag(['property' => 'og:url', 'content' => Yii::$app->params['domainName'].'site/evento/'.$model->pk]);
 $this->registerMetaTag(['name' => 'og:tittle', 'content' => 'Barrio Italia']);
 $this->registerMetaTag(['name' => 'og:description', 'content' => Yii::$app->funciones->quitarTags($model->descripcion)]);
 $this->registerMetaTag(['name' => 'og:image', 'content' =>Yii::$app->params['domainName'].'/images/eventos/'.$model->imagen]);
@@ -31,7 +31,7 @@ $this->title = 'Evento - '.$model->titulo;
 			<?php echo $model->descripcion; ?>
 			<div class="contenedor-compartir-noticias">
 				<div class="cada-red-compartir">
-					<div class="fb-share-button" data-href="<?= Yii::$app->params['domainName'].'site/evento?e='.$model->pk ?>" data-layout="button_count"></div>
+					<div class="fb-share-button" data-href="<?= Yii::$app->params['domainName'].'site/evento/'.$model->pk ?>" data-layout="button_count"></div>
 				</div>
 				<div class="cada-red-compartir" id="margen-compartir-tw">
 					<a href="https://twitter.com/share" class="twitter-share-button" data-url="<?= Yii::$app->params['domainName'].'site/evento?e='.$model->pk ?>" data-via="somositalia" data-lang="<?= ($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en') ? 'en' : 'es' ?>" data-hashtags="barrioitalia">Twittear</a>
