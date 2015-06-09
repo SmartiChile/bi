@@ -57,7 +57,7 @@ $this->registerJs(
 
     <div class="puntos-separadores no-mostrar"></div>
 
-   <h3 class="no-mostrar"><?= ($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en') ? 'SEARCH BAR' : 'BUSCADOR' ?></h3>
+   <h3 class="h3-movil"><?= ($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en') ? 'SEARCH BAR' : 'BUSCADOR' ?></h3>
 
    <div class="contenedor-buscador">
       <div class="buscador-home">

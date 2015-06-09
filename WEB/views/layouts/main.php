@@ -80,8 +80,8 @@ $this->registerJs('
                       (Yii::$app->funciones->isAdmin() ? ['label' => ($idioma == 'en' || $idioma == 'EN') ? 'Administration Panel' : 'Panel de administración', 'url' => ['admin/inicio', 'lan' => $idioma]] : '' ),
                       (Yii::$app->funciones->isUser() ? ['label' => ($idioma == 'en' || $idioma == 'EN') ? 'Logout' : 'Salir', 'url' => ['site/logout', 'lan' => $idioma], 'linkOptions' => ['data-method' => 'post']] : '' ),
                       ['label' => '<hr class="hr-menu">'],
-                      ['label' => ($idioma == 'en' || $idioma == 'EN') ? 'Spanish' : 'Español', 'url' => ['#']],
-                      ['label' => ($idioma == 'en' || $idioma == 'EN') ? 'English' : 'Inglés', 'url' => ['#']],
+                      ['label' => ($idioma == 'en' || $idioma == 'EN') ? 'Spanish' : 'Español', 'url' => ['site/index', 'lan' => 'ES']],
+                      ['label' => ($idioma == 'en' || $idioma == 'EN') ? 'English' : 'Inglés', 'url' => ['site/index', 'lan' => 'EN']],
                   ],
                 ]);
             NavBar::end();
@@ -196,6 +196,9 @@ $this->registerJs('
             <div class="cada-red-movil">
                 <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-insta-movil.png', $options = ['width'=>'100%']), ['#']); ?>
             </div>
+            <div class="cada-red-movil">
+                <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-contacto-movil.png', $options = ['width'=>'100%']), ['site/contacto', 'lan' => $idioma]); ?>
+            </div>
         </div>
         
         <div class="footer-uno">
@@ -217,7 +220,7 @@ $this->registerJs('
                         <?php echo Html::img(Yii::$app->request->baseUrl.'/images/lg-ag.png', $options = ['width' => '100%']); ?>
                     </div>
                     <div class="lg-nuevet">
-                        <p><?= $idioma == 'en' || $idioma == 'EN' ? 'Powered by:' : 'Desarrolla:' ?></p>
+                        <p><?= $idioma == 'en' || $idioma == 'EN' ? 'Powered by:' : 'Desarrollo Web:' ?></p>
                         <?php echo Html::img(Yii::$app->request->baseUrl.'/images/lg-nuevet.png', $options = ['width' => '100%']); ?>
                     </div>
                 </div>
@@ -332,7 +335,12 @@ $this->registerJs('
                           <td valign="top"><?php echo Html::a($idioma == 'en' || $idioma == 'EN' ? '<p>Register</p>' : '<p>Registro</p>', ['site/registro', 'lan' => $idioma]); ?></td>
                         </tr>
                         <tr valign="top">
-                          <td valign="top"><?php echo Html::a($idioma == 'en' || $idioma == 'EN' ? '<p>Forgot your password?</p>' : '<p>¿Olvidaste tu contraseña?</p>', ['site/recuperar', 'lan' => $idioma]); ?></td>
+                          <td valign="top">
+                          <?php 
+                          if(Yii::$app->user->isGuest) 
+                                    echo Html::a($idioma == 'en' || $idioma == 'EN' ? '<p>Forgot your password?</p>' : '<p>¿Olvidaste tu contraseña?</p>', ['site/recuperar', 'lan' => $idioma]);
+                            ?>
+                          </td>
                         </tr>
                         <tr valign="top">
                           <td valign="top">&nbsp;</td>

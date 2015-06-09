@@ -22,12 +22,10 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 					<div class="mapa-mis-rutas">
 						<div id="mapa-rutas"></div>
 					</div>
-					<div class="boton-imprimir-mapa">
-						<?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-print.png', ['width'=>'100%', 'class'=>'tool', 'title'=>'Imprimir ruta']), "javascript:imprSelec('mapa-rutas')"); ?>
-					</div>
+					
 					<br /><br />
 					<br /><br />
-				<div class="tiendas-ruta-usuario">
+				<div class="tiendas-ruta-usuario" id="imprimir">
 				        <?= GridView::widget([
 				            'dataProvider' => $dataProvider,
 				            'summary' => ($idioma->abreviacion == 'en' || $idioma->abreviacion == 'EN' ? 'Showing' : 'Mostrando')." <b>{begin}</b>-<b>{end}</b> ".($idioma->abreviacion == 'en' || $idioma->abreviacion == 'EN' ? 'of' : 'de')." <b>{count}</b> ".($idioma->abreviacion == 'en' || $idioma->abreviacion == 'EN' ? 'Records' : 'Registros'),
@@ -75,7 +73,9 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 				</div>
 			</div>
 		</div>
-
+					<div class="boton-imprimir-mapa">
+						<?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-print.png', ['width'=>'100%', 'class'=>'tool', 'title'=>'Imprimir ruta']), "javascript:imprSelec('imprimir')"); ?>
+					</div>
 	</div>
 
 

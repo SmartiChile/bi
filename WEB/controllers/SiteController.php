@@ -355,11 +355,13 @@ class SiteController extends Controller
             ]);
     }
 
-    public function actionPatrimonio($id)
+    public function actionPatrimonio($id, $lan = 'es')
     {
         $p = $id;
+        $idioma = Idioma::find()->where(['abreviacion' => $lan])->one();
         return $this->render('patrimonio', [
                 'model' => Patrimonio::findOne($p),
+                'idioma' => $idioma,
             ]);
     }
 

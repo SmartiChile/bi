@@ -53,7 +53,7 @@ $this->registerJs('
                 <li><?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/tiendas/'.$tienda->logotipo), ['site/tienda', 'id'=>$tienda->pk, 'lan'=>$idioma->abreviacion], ['class'=>'tool', 'title'=>$tienda->nombre]); ?></li>
           <?php endforeach; ?>
           <?php foreach ($patrimonios as $patrimonio): ?>
-                <li><?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/patrimonio/icono-patrimonio.png'), ['site/patrimonio?p='.$patrimonio->pk], ['class'=>'tool', 'title'=>$patrimonio->nombre]); ?></li>
+                <li><?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/patrimonio/icono-patrimonio.png'), ['site/patrimonio', 'id'=>$patrimonio->pk, 'lan' =>$idioma->abreviacion], ['class'=>'tool', 'title'=>$patrimonio->nombre]); ?></li>
           <?php endforeach; ?>
 			</ul>
     	</div>
