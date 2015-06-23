@@ -28,10 +28,6 @@ $this->title = 'Prensa - '.$model->titulo;
 			<h3>
 			<?php 
 				echo $model->titulo;
-				if($model->destacada == 1)
-				{
-					?><i class="glyphicon glyphicon-star destacada"></i><?php
-				}
 			?>
 			</h3>
 			<h5><i class="glyphicon glyphicon-calendar"></i> <?php echo Yii::$app->formatter->asDatetime($model->fecha, "php:d-m-Y H:i:s") ?></h5>

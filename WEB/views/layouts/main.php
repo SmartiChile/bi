@@ -135,6 +135,9 @@ $this->registerJs('
                 <?= Yii::$app->user->isGuest ? Html::a(($idioma == 'EN' || $idioma == 'en') ? 'Enter' : 'Ingresar', ['site/login', 'lan'=>$idioma]).' / '.Html::a(($idioma == 'EN' || $idioma == 'en') ? 'Register' : 'Regístrate', ['site/registro', 'lan'=>$idioma]) : ($idioma == 'EN' || $idioma == 'en' ? 'Hi, ' : 'Hola, ') .Yii::$app->funciones->nombreUser(Yii::$app->user->identity->nombre) ?></div>
                 <div class="redes-socials">
                     <div class="red-top">
+                         <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-pt.png', $options = ['width'=>'100%']), 'http://www.pinterest.com/', ['target'=>'_black']); ?>
+                    </div>
+                    <div class="red-top">
                          <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-tw.png', $options = ['width'=>'100%']), 'https://twitter.com/somositalia', ['target' =>'_black']); ?>
                     </div>
                     <div class="red-top">
@@ -355,7 +358,8 @@ $this->registerJs('
 
         <div class="footer-dos">
                 <div class='contacto-footer'>
-                    <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-contacto.png', $options = ['width'=>'100%', 'class'=>'ico-contacto-footer']), ['site/contacto', 'lan' => $idioma]); ?>                    
+                    <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-contacto.png', $options = ['width'=>'100%', 'class'=>'ico-contacto-footer']), ['site/contacto', 'lan' => $idioma]); ?>
+                    <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-pt.png', $options = ['width'=>'100%', 'class'=>'ico-red-footer']), '#'); ?>                    
                     <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-tw.png', $options = ['width'=>'100%', 'class'=>'ico-red-footer']), '#'); ?>
                     <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-insta.png', $options = ['width'=>'100%', 'class'=>'ico-red-footer']), '#'); ?>
                     <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-youtube.png', $options = ['width'=>'100%', 'class'=>'ico-red-footer']), '#'); ?>
