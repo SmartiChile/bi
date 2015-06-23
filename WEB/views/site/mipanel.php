@@ -14,11 +14,11 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 
 	.table{
 		width: 800px;
-		margin: 0 auto 0 auto;
+		margin: auto!important;
 	}
 
 	#w0 table thead tr th{
-		background-color: #000!important;
+		background-color: #eee!important;
 	}
 
 	#logotipo-top{
@@ -110,18 +110,6 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 	</div>
 	
 </div>
-
-<script type="text/javascript">
-	function imprSelec(imprimir){
-		var ficha = document.getElementById(imprimir);
-		var ventimp = window.open(' ','popimpr');
-		ventimp.document.write(ficha.innerHTML);
-		ventimp.document.write("<link rel='stylesheet' href='/css/jqcloud.css' type='text/css' media='print'/>");
-		ventimp.document.close();
-		ventimp.print();
-		ventimp.close();
-	}
-</script>
 
 <?php if($tiendas != null): ?>
 <script  type="text/javascript">

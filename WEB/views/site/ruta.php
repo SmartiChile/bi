@@ -6,7 +6,33 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 ?>
 
 <script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<style type="text/css">
+@media print{
+	.menu-mis-rutas, footer,  .h3-movil, .info-mis-rutas h3, .mapas-mis-rutas, #social, #mapa-rutas, .gm-style, .gm-style div, .gmnoprint, .boton-imprimir-mapa, #w0 table thead tr th:last-child, #w0 table tbody tr td:last-child{
+		display: none!important;
+	}
 
+	.table{
+		width: 800px;
+		margin: auto!important;
+	}
+
+	#w0 table thead tr th{
+		background-color: #eee!important;
+	}
+
+	#logotipo-top{
+		width: 150px;
+		margin: 0 auto 0 auto;
+		left: 43%!important;
+		top: 10%!important;
+	}
+
+	a:link:after, a:visited:after {
+	    content: "";
+	}
+}
+</style>
 <div class="contenedor-elbarrio">
 	<br>
 	<h3 class="h3-movil"><?= $idioma->abreviacion == 'en' || $idioma->abreviacion == 'EN' ? 'Welcome' : 'Bienvenido(a)' ?> <?php echo Yii::$app->funciones->nombreUser(Yii::$app->user->identity->nombre).' > '.($idioma->abreviacion == 'en' || $idioma->abreviacion == 'EN' ? 'Route' : 'Ruta');?></h3>
@@ -74,7 +100,7 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 			</div>
 		</div>
 					<div class="boton-imprimir-mapa">
-						<?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-print.png', ['width'=>'100%', 'class'=>'tool', 'title'=>'Imprimir ruta']), "javascript:imprSelec('imprimir')"); ?>
+						<?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-print.png', ['width'=>'100%', 'class'=>'tool', 'title'=>'Imprimir ruta']), "javascript:window.print()"); ?>
 					</div>
 	</div>
 
