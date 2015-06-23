@@ -1734,9 +1734,14 @@ a .boton-comenzar-ruta:hover{
 	float: right;
 }
 
+.rating-sm{
+	font-size: 2em !important;
+}
+
 .rating-tienda{
 	width: 50%;
 	float: right;
+	margin: 1.5% 0 0 0;
 }
 
 .rating-tienda .rating-container{
@@ -1840,6 +1845,7 @@ a .boton-comenzar-ruta:hover{
 
 .ruta-head-tienda{
 	width: 5%;
+	margin: -1% 0 0 0;
 	float: right;
 }
 

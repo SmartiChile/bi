@@ -200,7 +200,7 @@ $this->registerJs('
                 <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-insta-movil.png', $options = ['width'=>'100%']), ['#']); ?>
             </div>
             <div class="cada-red-movil">
-                <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-contacto-movil.png', $options = ['width'=>'100%']), ['site/contacto', 'lan' => $idioma]); ?>
+                <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-pt-movil.png', $options = ['width'=>'100%']), ['#']); ?>
             </div>
         </div>
         
