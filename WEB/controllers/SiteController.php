@@ -524,9 +524,9 @@ class SiteController extends Controller
                 $model->adjunto = '';
                 $model->mensaje = '';
                 if($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en')
-                    Yii::$app->getSession()->setFlash('mensaje', 'Muchas gracias! Nuestros administradores se pondrán en contacto contigo a la brevedad.');
-                else
                     Yii::$app->getSession()->setFlash('mensaje', 'Thank You! We will get back to you as soon as possible.');
+                else
+                    Yii::$app->getSession()->setFlash('mensaje', 'Muchas gracias! Nuestros administradores se pondrán en contacto contigo a la brevedad.');
 
             }
         }
