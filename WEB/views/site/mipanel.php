@@ -6,7 +6,33 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 ?>
 
 <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<style type="text/css">
+@media print{
+	.menu-mis-rutas, footer,  .h3-movil, .info-mis-rutas h3, .mapas-mis-rutas, #social, #mapa-rutas, .gm-style, .gm-style div, .gmnoprint, .boton-imprimir-mapa, #w0 table thead tr th:last-child, #w0 table tbody tr td:last-child{
+		display: none!important;
+	}
 
+	.table{
+		width: 800px;
+		margin: 0 auto 0 auto;
+	}
+
+	#w0 table thead tr th{
+		background-color: #000!important;
+	}
+
+	#logotipo-top{
+		width: 150px;
+		margin: 0 auto 0 auto;
+		left: 43%!important;
+		top: 10%!important;
+	}
+
+	a:link:after, a:visited:after {
+	    content: "";
+	}
+}
+</style>
 <div class="contenedor-elbarrio">
 	<br>
 	<h3 class="h3-movil"><?= $idioma->abreviacion == 'en' || $idioma->abreviacion == 'EN' ? 'Welcome' : 'Bienvenido(a)' ?> <?php echo Yii::$app->funciones->nombreUser(Yii::$app->user->identity->nombre).' > '.($idioma->abreviacion == 'en' || $idioma->abreviacion == 'EN' ? 'Current Path' : 'Ruta Actual');?></h3>
@@ -27,7 +53,7 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 
 					<br /><br />
 					<br /><br />
-				<div class="tiendas-ruta-usuario" id="imprimir">
+				<div class="tiendas-ruta-usuario">
 				        <?= GridView::widget([
 				            'dataProvider' => $dataProvider,
 				            'summary' => ($idioma->abreviacion == 'en' || $idioma->abreviacion == 'EN' ? 'Showing' : 'Mostrando')." <b>{begin}</b>-<b>{end}</b> ".($idioma->abreviacion == 'en' || $idioma->abreviacion == 'EN' ? 'of' : 'de')." <b>{count}</b> ".($idioma->abreviacion == 'en' || $idioma->abreviacion == 'EN' ? 'Records' : 'Registros'),
@@ -77,7 +103,7 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 						<p><?= ($idioma->abreviacion == 'en' || $idioma->abreviacion == 'EN' ? "Sorry, You don't have current route" : 'Lo sentimos, No tienes rutas actuales.') ?></p>
 				<?php endif; ?>
 				<div class="boton-imprimir-mapa">
-						<?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-print.png', ['width'=>'100%', 'class'=>'tool', 'title'=>($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en') ? 'Print' : 'Imprmir mapa']), "javascript:imprSelec('imprimir')"); ?>
+						<?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-print.png', ['width'=>'100%', 'class'=>'tool', 'title'=>($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en') ? 'Print' : 'Imprmir mapa']), "javascript:window.print()"); ?>
 				</div>
 			</div>
 		</div>
@@ -90,10 +116,11 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 		var ficha = document.getElementById(imprimir);
 		var ventimp = window.open(' ','popimpr');
 		ventimp.document.write(ficha.innerHTML);
+		ventimp.document.write("<link rel='stylesheet' href='/css/jqcloud.css' type='text/css' media='print'/>");
 		ventimp.document.close();
 		ventimp.print();
 		ventimp.close();
-}
+	}
 </script>
 
 <?php if($tiendas != null): ?>
