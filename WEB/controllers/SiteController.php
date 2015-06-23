@@ -222,7 +222,15 @@ class SiteController extends Controller
     public function actionMapa($lan = 'es')
     {
         $idioma = Idioma::find()->where(["abreviacion"=>$lan])->one();
-        return $this->render('mapa', ['idioma' => $idioma]);
+        $circuitos = Circuito::find()->where(['idioma_fk' => $idioma->pk])->orderBy(["posicion"=>SORT_ASC])->all();
+        $locales = Local::find()->joinWith(['tiendas'])->all();
+        $patrimonios = Patrimonio::find()->all();
+        return $this->render('mapa', [
+            'idioma' => $idioma,
+            'circuitos'=>$circuitos,
+            'locales'=>$locales,
+            'patrimonios'=>$patrimonios,
+            ]);
     }
 
     public function actionVitrina($lan = 'es')
@@ -489,6 +497,7 @@ class SiteController extends Controller
 
             $model->ip = Yii::$app->funciones->getRealIP();
             $model->tipo = "1";
+            $tipo = $_POST['tipo'];
 
             $adjunto = $model->uploadAdjunto();
 
@@ -499,7 +508,7 @@ class SiteController extends Controller
                     $adjunto->saveAs($path);
                 }
 
-                $mensaje = 'Se ha enviado un mensaje desde la sección Trabaja con nosotros con la siguiente información <br /><br /> Nombre: '.$model->nombre.' <br /> Email: '.$model->email.' <br /> Teléfono: '.$model->telefono.' <br /><br /> Mensaje:'.$model->mensaje.'';
+                $mensaje = 'Se ha enviado un mensaje desde la sección Trabaja con nosotros con la siguiente información <br /><br /> Nombre: '.$model->nombre.' <br /> Email: '.$model->email.' <br /> Teléfono: '.$model->telefono.' <br /> Cargo: '.$tipo.' <br /><br /> Mensaje:'.$model->mensaje.'';
 
                 Yii::$app->mailer->compose()
                     ->setFrom('noreply@barrioitalia.cl')

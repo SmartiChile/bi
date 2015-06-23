@@ -109,7 +109,7 @@ class funciones extends Component
                             'icon' => 'book'
                         ],
                         [
-                            'url' => ['site/comollegar', 'lan'=>$lan],
+                            'url' => ['site/mapa', 'lan'=>$lan],
                             'label' => 'How to arrive',
                             'icon' => 'map-marker'
                         ],
@@ -140,7 +140,7 @@ class funciones extends Component
                             'icon' => 'book'
                         ],
                         [
-                            'url' => ['site/comollegar', 'lan'=>$lan],
+                            'url' => ['site/mapa', 'lan'=>$lan],
                             'label' => 'Como llegar',
                             'icon' => 'map-marker'
                         ],

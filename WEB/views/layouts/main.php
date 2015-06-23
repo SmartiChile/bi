@@ -135,16 +135,16 @@ $this->registerJs('
                 <?= Yii::$app->user->isGuest ? Html::a(($idioma == 'EN' || $idioma == 'en') ? 'Enter' : 'Ingresar', ['site/login', 'lan'=>$idioma]).' / '.Html::a(($idioma == 'EN' || $idioma == 'en') ? 'Register' : 'Regístrate', ['site/registro', 'lan'=>$idioma]) : ($idioma == 'EN' || $idioma == 'en' ? 'Hi, ' : 'Hola, ') .Yii::$app->funciones->nombreUser(Yii::$app->user->identity->nombre) ?></div>
                 <div class="redes-socials">
                     <div class="red-top">
-                         <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-pt.png', $options = ['width'=>'100%']), 'http://www.pinterest.com/', ['target'=>'_black']); ?>
+                         <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-pt.png', $options = ['width'=>'100%']), 'https://www.pinterest.com/pin/323062973242162992/', ['target'=>'_black']); ?>
                     </div>
                     <div class="red-top">
                          <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-tw.png', $options = ['width'=>'100%']), 'https://twitter.com/somositalia', ['target' =>'_black']); ?>
                     </div>
                     <div class="red-top">
-                         <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-insta.png', $options = ['width'=>'100%']), '#'); ?>
+                         <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-insta.png', $options = ['width'=>'100%']), '#', ['target' =>'_black']); ?>
                     </div>
                     <div class="red-top">
-                         <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-youtube.png', $options = ['width'=>'100%']), '#'); ?>
+                         <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-youtube.png', $options = ['width'=>'100%']), 'https://www.youtube.com/channel/UCJeQLd9ZsbrJpQ1mgzbNtnQ', ['target' =>'_black']); ?>
                     </div>
                     <div class="red-top">
                          <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-face.png', $options = ['width'=>'100%']), 'https://www.facebook.com/AsociacionBarrioItalia', ['target'=>'_black']); ?>
@@ -188,19 +188,22 @@ $this->registerJs('
 
         <div class="footer-movil">
             <div class="cada-red-movil">
-                 <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-face-movil.png', $options = ['width'=>'100%']), ['#']); ?>
+                 <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-face-movil.png', $options = ['width'=>'100%']), 'https://www.facebook.com/AsociacionBarrioItalia', ['target'=>'_black']); ?>
             </div>
             <div class="cada-red-movil">
-                <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-you-movil.png', $options = ['width'=>'100%']), ['#']); ?>
+                <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-you-movil.png', $options = ['width'=>'100%']), 'https://www.youtube.com/channel/UCJeQLd9ZsbrJpQ1mgzbNtnQ', ['target' =>'_black']); ?>
             </div>
             <div class="cada-red-movil">
-                <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-tw-movil.png', $options = ['width'=>'100%']), ['#']); ?>
+                <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-tw-movil.png', $options = ['width'=>'100%']), 'https://twitter.com/somositalia', ['target' =>'_black']); ?>
             </div>
             <div class="cada-red-movil">
                 <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-insta-movil.png', $options = ['width'=>'100%']), ['#']); ?>
             </div>
             <div class="cada-red-movil">
-                <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-pt-movil.png', $options = ['width'=>'100%']), ['#']); ?>
+                <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-pt-movil.png', $options = ['width'=>'100%']), 'https://www.pinterest.com/pin/323062973242162992/', ['target'=>'_black']); ?>
+            </div>
+            <div class="cada-red-movil">
+                <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-contacto-movil.png', $options = ['width'=>'100%']), ['site/contacto']); ?>
             </div>
         </div>
         
@@ -359,11 +362,11 @@ $this->registerJs('
         <div class="footer-dos">
                 <div class='contacto-footer'>
                     <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-contacto.png', $options = ['width'=>'100%', 'class'=>'ico-contacto-footer']), ['site/contacto', 'lan' => $idioma]); ?>
-                    <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-pt.png', $options = ['width'=>'100%', 'class'=>'ico-red-footer']), '#'); ?>                    
-                    <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-tw.png', $options = ['width'=>'100%', 'class'=>'ico-red-footer']), '#'); ?>
+                    <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-pt.png', $options = ['width'=>'100%', 'class'=>'ico-red-footer']), 'https://www.pinterest.com/pin/323062973242162992/', ['target'=>'_black']); ?>                    
+                    <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-tw.png', $options = ['width'=>'100%', 'class'=>'ico-red-footer']), 'https://twitter.com/somositalia', ['target' =>'_black']); ?>
                     <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-insta.png', $options = ['width'=>'100%', 'class'=>'ico-red-footer']), '#'); ?>
-                    <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-youtube.png', $options = ['width'=>'100%', 'class'=>'ico-red-footer']), '#'); ?>
-                    <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-face.png', $options = ['width'=>'100%', 'class'=>'ico-red-footer']), '#'); ?>
+                    <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-youtube.png', $options = ['width'=>'100%', 'class'=>'ico-red-footer']), 'https://www.youtube.com/channel/UCJeQLd9ZsbrJpQ1mgzbNtnQ', ['target' =>'_black']); ?>
+                    <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/ico-face.png', $options = ['width'=>'100%', 'class'=>'ico-red-footer']), 'https://www.facebook.com/AsociacionBarrioItalia', ['target'=>'_black']); ?>
         </div>
 
     </footer>

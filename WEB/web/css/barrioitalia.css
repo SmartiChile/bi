@@ -554,7 +554,7 @@
 }
 
 .cada-red-movil{
-	width: 20%;
+	width: 16.65%;
 	float: left;
 }
 
@@ -2221,8 +2221,16 @@ a .boton-comenzar-ruta2:hover{
 	border-radius: 0 !important;
 }
 
+.input-tipo{
+	width: 94% !important;
+	height: 200px;
+	margin: 15% 0 0 3% !important;
+	border-radius: 0 !important;
+	overflow: auto;
+}
+
 .textarea-trabaja{
-	margin: 0 0 0 0 !important;
+	margin: -15% 0 0 0 !important;
 	height: 123px !important;
 	border-radius: 0 !important;
 }
