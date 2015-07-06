@@ -112,7 +112,7 @@ class UsuarioController extends Controller
             }
             $model->rol = Yii::$app->funciones->rolesToDec($rol);
 
-            if($model->password == ""){
+            if(isset($model->password)){
                 $model->password = $old_pass;
             }
 
