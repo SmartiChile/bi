@@ -99,6 +99,7 @@ class UsuarioController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
+        $old_pass = $model->password;
         if ($model->load(Yii::$app->request->post())) {
             $rol = 0;
         
@@ -110,6 +111,10 @@ class UsuarioController extends Controller
                 $rol = $rol + 10;
             }
             $model->rol = Yii::$app->funciones->rolesToDec($rol);
+
+            if(isset($model->password)){
+                $model->password = $old_pass;
+            }
 
             if($model->save()){
                 return $this->redirect(['view', 'id' => $model->pk]);

@@ -73,8 +73,9 @@ class Usuario extends \yii\db\ActiveRecord
     }
 
     public function beforeSave($insert) {
-        if(isset($this->password)) 
-            $this->password = Yii::$app->security->generatePasswordHash($this->password);
+        if($this->isNewRecord)
+            if(isset($this->password)) 
+                $this->password = Yii::$app->security->generatePasswordHash($this->password);
         return parent::beforeSave($insert);
     }
 }
