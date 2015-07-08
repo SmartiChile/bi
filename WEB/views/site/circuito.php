@@ -36,7 +36,7 @@ $this->registerJs('
 	<h3 class="h3-movil"><?php echo $model->nombre; ?></h3>
 	<div class="puntos-separadores no-mostrar"></div>
 
-	<div class="contenedor-botones">
+	<div class="contenedor-botones" id="no-mostrar-botones">
         <?php
                 foreach ($circuitos as $circuito) {
                 $ruta = Url::toRoute(['site/circuito', 'id'=>$circuito->pk, 'lan'=>$idioma->abreviacion]);

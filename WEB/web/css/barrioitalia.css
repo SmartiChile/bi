@@ -1729,13 +1729,13 @@ a .boton-comenzar-ruta:hover{
 }
 
 .icono-ruta-tienda{
-	width: 25%;
+	width: 20%;
 	margin:1% 0 0 0;
 	float: right;
 }
 
 .rating-sm{
-	font-size: 2em !important;
+	font-size: 1.8em !important;
 }
 
 .rating-tienda{
@@ -1761,6 +1761,20 @@ a .boton-comenzar-ruta:hover{
 	margin-right: auto;
 	margin-left: auto;
 	display: inline-block;
+}
+
+.boton-ver-mi-ruta{
+	width: 20%;
+	padding: 1% 3%;
+	background-color: #898989;
+	float: left;
+	text-align: center;
+	color: #fff;
+}
+
+.boton-ver-mi-ruta h2{
+	font-size: 18px !important;
+	margin: 0 !important;
 }
 
 .buscador-tienda-tiendas{

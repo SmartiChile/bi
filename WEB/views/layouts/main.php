@@ -219,7 +219,7 @@ $this->registerJs('
                     </div>
                     <div class="lg-apri">
                         <p><?= $idioma == 'en' || $idioma == 'EN' ? 'Organized by:' : 'Organiza:' ?></p>
-                        <?php echo Html::img(Yii::$app->request->baseUrl.'/images/lg-apri.png', $options = ['width' => '100%']); ?>
+                        <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/lg-apri.png', $options = ['width' => '100%']), 'http://www.apri.cl', ['target'=>'_black']); ?>
                     </div>
                     <div class="lg-ag">
                         <p><?= $idioma == 'en' || $idioma == 'EN' ? 'Administered by:' : 'Administra:' ?></p>
@@ -227,7 +227,7 @@ $this->registerJs('
                     </div>
                     <div class="lg-nuevet">
                         <p><?= $idioma == 'en' || $idioma == 'EN' ? 'Powered by:' : 'Desarrollo Web:' ?></p>
-                        <?php echo Html::img(Yii::$app->request->baseUrl.'/images/lg-nuevet.png', $options = ['width' => '100%']); ?>
+                        <?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/lg-nuevet.png', $options = ['width' => '100%']),'http://www.nuevet.cl/', ['target'=>'_black']); ?>
                     </div>
                 </div>
             </div>

@@ -37,6 +37,10 @@ $this->registerJs('
 
 	<div class="contenido-prensa">
 		<div class="contenedor-buscador-tienda-tiendas">
+			<?php 
+				echo Yii::$app->funciones->isUser() ? Html::a('<div class="boton-ver-mi-ruta"><h2>'.($idioma == 'en' || $idioma == 'EN' ? 'SEE MY ROUTE' : 'VER MI RUTA').'</h2></div>', ['site/mipanel', 'lan'=>$idioma->abreviacion]) : '';
+			?>
+			
 			<div class="buscador-tienda-tiendas">
 				<div class="buscador">
 					<?php 

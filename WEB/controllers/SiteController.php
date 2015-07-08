@@ -20,7 +20,7 @@ use app\models\Vitrina;
 use app\models\Noticia;
 use app\models\Local;
 use app\models\Tienda;
-use app\models\TiendaXServicio;
+use app\models\Tiendaxservicio;
 use app\models\Oferta;
 use app\models\Ruta;
 use app\models\RutaSearch;
@@ -430,7 +430,7 @@ class SiteController extends Controller
         $idioma = Idioma::find()->where(['abreviacion' => $lan])->one();
         if(Yii::$app->user->isGuest){
             $ofertas = Oferta::find()->where(['tienda_fk' => $t])->all();
-            $servicios = TiendaXServicio::find()->where(['tienda_fk' => $t])->all();
+            $servicios = Tiendaxservicio::find()->where(['tienda_fk' => $t])->all();
             return $this->render('tienda', [
             'model' => Tienda::findOne($t),
             'ofertas'=> $ofertas,

@@ -43,7 +43,7 @@
 
 	#banner, #tagCloud, .no-mostrar, .bg-mapa, .contenedor-fotos-historia, .info-arriendo, .rating-tienda,
 	.footer-uno, .footer-dos, .eventos-info2, .logotipo-circuito-tienda, .boton-imprimir-mapa, .mapa-circuitos,
-	.banner-tienda, .ico-ruta{
+	.banner-tienda, .ico-ruta, #no-mostrar-botones{
 		display: none;
 	}
 
