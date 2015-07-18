@@ -72,7 +72,7 @@ $this->registerJs('
                       ['label' => ($idioma == 'en' || $idioma == 'EN') ? 'Circuits' : 'Circuitos', 'url' => ['site/circuitos', 'lan' => $idioma]],
                       ['label' => ($idioma == 'en' || $idioma == 'EN') ? 'Stores' : 'Tiendas', 'url' => ['site/tiendas', 'lan' => $idioma]],
                       ['label' => ($idioma == 'en' || $idioma == 'EN') ? 'Press' : 'Prensa', 'url' => ['site/prensa', 'lan' => $idioma]],
-                      ['label' => ($idioma == 'en' || $idioma == 'EN') ? 'News' : 'Noticias', 'url' => ['site/noticias', 'lan' => $idioma]],
+                      ['label' => ($idioma == 'en' || $idioma == 'EN') ? 'Events' : 'Eventos', 'url' => ['site/eventos', 'lan' => $idioma]],
                       ['label' => ($idioma == 'en' || $idioma == 'EN') ? 'Create your route' : 'Crea tu ruta', 'url' => ['site/creaturuta', 'lan' => $idioma]],
                       ['label' => ($idioma == 'en' || $idioma == 'EN') ? 'Contact' : 'Contacto', 'url' => ['site/contacto', 'lan' => $idioma]],
                       ['label' => '<hr class="hr-menu">'],

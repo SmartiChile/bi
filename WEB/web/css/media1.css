@@ -43,7 +43,7 @@
 
 	#banner, #tagCloud, .no-mostrar, .bg-mapa, .contenedor-fotos-historia, .info-arriendo, .rating-tienda,
 	.footer-uno, .footer-dos, .eventos-info2, .logotipo-circuito-tienda, .boton-imprimir-mapa, .mapa-circuitos,
-	.banner-tienda, .ico-ruta, #no-mostrar-botones{
+	.banner-tienda, .ico-ruta, #no-mostrar-botones, .imagen-marker-mapa, .informacion-tienda-tiendas{
 		display: none;
 	}
 
@@ -224,7 +224,7 @@
 		width: 100%;
 		height: 200px;
 		float: left;
-		margin: 0 1% 5% 0;
+		margin: 0 1% 20% 0;
 		position: relative;
 	}
 
@@ -303,6 +303,29 @@
 	.imagenes-tienda{
 		width: 100%;
 		padding: 0 0 0 0;
+	}
+
+	.contenido-marker-mapa{
+		width: 100%;
+	}
+
+	.contenido-marker-mapa h6{
+		margin:0 0 0% 5% !important;
+	}
+
+	.boton-ver-mi-ruta{
+		width: 100%;
+		padding: 3% 5%;
+		background-color: #898989;
+		float: left;
+		text-align: center;
+		color: #fff;
+		margin: 0 0 3% 0;
+	}
+
+	#mapa{
+		width: 80%;
+		margin: 0 auto !important;
 	}
 
 	.thumb2{

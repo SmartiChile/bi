@@ -124,8 +124,8 @@ class funciones extends Component
                             'icon' => 'briefcase'
                         ],
                         [
-                            'url' => ['site/eventos', 'lan'=>$lan],
-                            'label' => 'Events',
+                            'url' => ['site/noticias', 'lan'=>$lan],
+                            'label' => 'New',
                             'icon' => 'calendar'
                         ],
                     ],
@@ -155,8 +155,8 @@ class funciones extends Component
                             'icon' => 'briefcase'
                         ],
                         [
-                            'url' => ['site/eventos', 'lan'=>$lan],
-                            'label' => 'Eventos',
+                            'url' => ['site/noticias', 'lan'=>$lan],
+                            'label' => 'Noticias',
                             'icon' => 'calendar'
                         ],
                     ],
@@ -174,7 +174,7 @@ class funciones extends Component
                 [1=>"Circuits", 2=>'site/circuitos'],
                 [1=>"Stores", 2=>'site/tiendas'],
                 [1=>"Press", 2=>'site/prensa'],
-                [1=>"News", 2=>'site/noticias'],
+                [1=>"Events", 2=>'site/eventos'],
                 [1=>"Create your route", 2=>'site/creaturuta'],
             ];
         }else{
@@ -186,7 +186,7 @@ class funciones extends Component
                 [1=>"Circuitos", 2=>'site/circuitos'],
                 [1=>"Tiendas", 2=>'site/tiendas'],
                 [1=>"Prensa", 2=>'site/prensa'],
-                [1=>"Noticias", 2=>'site/noticias'],
+                [1=>"Eventos", 2=>'site/eventos'],
                 [1=>"Crea tu ruta", 2=>'site/creaturuta'],
             ];
         }

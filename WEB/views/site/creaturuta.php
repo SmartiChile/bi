@@ -10,7 +10,7 @@ $this->title = 'Barrio italia - '.($idioma->abreviacion == 'EN' || $idioma->abre
 	<div class="puntos-separadores no-mostrar"></div>
 
 	<div class="contenido-crea-tu-ruta">
-		<h3><?= $idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Here you will be able to find shops, restaurants, coffee shops, galleries and all the places and services you need to locate in Barrio Italia. In addition, you will find:' : 'Aquí podrás encontrar tiendas, restaurant, café, galerías y todo lo que necesites de Barrio Italia. A demás podrás:' ?></h3>
+		<h3><?= $idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Here you will be able to find shops, restaurants, coffee shops, galleries and all the places and services you need to locate in Barrio Italia. In addition, you will find:' : 'Aquí podrás encontrar tiendas, restaurant, café, galerías y todo lo que necesites de Barrio Italia. Además podrás:' ?></h3>
 
 		<?php echo Html::img(Yii::$app->request->baseUrl.'/images/ico-search.png', ['width'=>'100%', 'class'=>'ico-ruta', 'id'=>'ico-ruta'])?><h4><?= $idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Search for the place you want to visit.' : 'Buscar el lugar que quieres visitar.' ?></h4>
 		<?php echo Html::img(Yii::$app->request->baseUrl.'/images/ico-like.png', ['width'=>'100%', 'class'=>'ico-ruta'])?><h4><?= $idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Choose places and print your route.' : 'Seleccionar lugares e imprimir tu ruta.' ?></h4>

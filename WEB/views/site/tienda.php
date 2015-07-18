@@ -89,17 +89,14 @@ $this->title = 'Tienda - '.$model->nombre;
 
 	<div class="puntos-separadores no-mostrar"></div>
 
-	<div class="banner-tienda">
-		<div class="logotipo-tienda">
-			<?php echo Html::img(Yii::$app->request->baseUrl.'/images/tiendas/'.$model->logotipo, ['width'=>'100%']);?>
-		</div>
-		<?php echo Html::img(Yii::$app->request->baseUrl.'/images/tiendas/'.$model->banner, ['width'=>'100%']);?>
-	</div>
-
 	<div class="contenido-tienda">
 		<div class="display-tienda">
 			<div class="imagenes-tienda">
-				<div id="image"><?php echo Html::img(Yii::$app->request->baseUrl.'/images/tiendas/'.$model->imagen1, ['width' => '100%']); ?>
+				<div id="image">
+					<div class="logotipo-tienda">
+						<?= Html::img(Yii::$app->request->baseUrl.'/images/tiendas/'.$model->logotipo) ?>
+					</div>
+					<?php echo Html::img(Yii::$app->request->baseUrl.'/images/tiendas/'.$model->imagen1, ['width' => '100%']); ?>
 				</div>
 				<?php 
 				if ($model->imagen1 != NULL)

@@ -65,6 +65,10 @@
   bottom: 0;
 }
 
+#no-mostrar{
+	display: none;
+}
+
 .img_banner{
 	display: none;
 }
@@ -779,7 +783,7 @@
 }
 
 .img-arriendo{
-	width: 30%;
+	width: 25%;
 	height: 150px; 
 	float: left;
 }
@@ -790,7 +794,7 @@
 }
 
 .info-arriendo{
-	width: 70%;
+	width: 75%;
 	float: left;
 	display: inline-block;
 }
@@ -918,7 +922,7 @@
 
 .cada-circuito{
 	width: 32.4%;
-	padding: 3% 1%;
+	padding: 1.2% 1%;
 	float: left;
 	margin: 0 0.9% 3% 0;
 	text-align: center;
@@ -1525,7 +1529,7 @@ a {
 }
 
 #mapa{ 
-	height: 600px; 
+	height: 500px; 
 }
 
 #image{
@@ -1664,8 +1668,8 @@ a .boton-comenzar-ruta:hover{
 }
 
 .cada-tienda-tiendas{
-	width: 32%;
-	height: 250px;
+	width: 18%;
+	height: 150px;
 	float: left;
 	margin: 0 1% 2% 0;
 	position: relative;
@@ -1695,12 +1699,12 @@ a .boton-comenzar-ruta:hover{
 }
 
 .textos-tienda-tiendas{
-	width: 60%;
+	width: 50%;
 	float: left;
 }
 
 .iconos-tienda-tiendas{
-	width: 40%;
+	width: 50%;
 	float: left;
 }
 
@@ -1796,13 +1800,6 @@ a .boton-comenzar-ruta:hover{
 	position: relative;
 }
 
-.logotipo-tienda{
-	width: 10%;
-	position: absolute;
-	right: 2%;
-	bottom: 5%;
-}
-
 .contenido-tienda{
 	width: 97%;
 	margin-left: auto;
@@ -1819,6 +1816,20 @@ a .boton-comenzar-ruta:hover{
 	width: 50%;
 	padding: 0 2% 0 0;
 	float: left;
+	position: relative;
+}
+
+#image{
+	position: relative;
+}
+
+.logotipo-tienda{
+	width: 15%;
+	padding: 2%;
+	position: absolute;
+	background-color: rgba(0,0,0, 0.8);
+	bottom: 6px;
+	right: 6px;
 }
 
 .imagenes-tienda img{

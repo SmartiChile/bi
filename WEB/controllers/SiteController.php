@@ -409,7 +409,7 @@ class SiteController extends Controller
         $countQuery = clone $query;
         $pages = new Pagination([
             'totalCount' => $countQuery->count(),
-            'defaultPageSize' => 9,
+            'defaultPageSize' => 15,
             ]);
         
         $tiendas = $query->offset($pages->offset)

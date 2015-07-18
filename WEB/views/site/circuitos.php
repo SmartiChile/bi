@@ -17,7 +17,7 @@ $this->title = 'Barrio italia - '.($idioma->abreviacion == 'EN' || $idioma->abre
 		<?php
 
       foreach ($circuitos as $circuito){
-          $link = "<div class='cada-circuito' style='background-color: ".$circuito->color."'>".Html::img(Yii::$app->request->baseUrl.'/images/circuitos/'.$circuito->icono, [''])."<h3>".$circuito->nombre."</h3><p>".substr($circuito->descripcion, 0, 130)."...</p></div>";
+          $link = "<div class='cada-circuito' style='background-color: ".$circuito->color."'>".Html::img(Yii::$app->request->baseUrl.'/images/circuitos/'.$circuito->icono, [''])."<h3>".$circuito->nombre."</h3></div>";
           echo Html::a($link, ['site/circuito', 'lan' => $idioma->abreviacion, 'id' => $circuito->pk]); 
       }
     ?>

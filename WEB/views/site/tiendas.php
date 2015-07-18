@@ -64,6 +64,7 @@ $this->registerJs('
 		?>
 
 		<?php foreach($tiendas as $tienda): ?>
+			<h3 class="h3-movil" id="no-mostrar"><?= $tienda->nombre ?></h3>
 			<div class="cada-tienda-tiendas">
 				<?php 
 				    if (Yii::$app->funciones->enOferta($tienda->pk) == 1)
@@ -84,20 +85,7 @@ $this->registerJs('
 	                    <?= Yii::$app->user->isGuest ? " ": "<div class='icono-ruta-tienda'>".Html::img(Yii::$app->request->baseUrl.'/images/ico-ruta-no.png', ['class'=>'tool ruta-like idlike'.$tienda->pk, 'title'=>($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en') ? 'Add to my route' : 'Agregar a ruta', 'data-like' => $tienda->pk, 'id'=>'ruta'])."</div>"; ?>
 	                    <?php endif; ?>
 	                    <?php endif; ?>
-	                    <div class="rating-tienda">
-	                    	<?php
-								echo StarRating::widget([
-									'name' => 'rating_21',
-									'value' => $tienda->rating,
-									'pluginOptions' => [
-									'size' => 'sm',
-									'showClear' => false,
-									'showCaption' => false,
-									'readonly' => true,
-									],
-								]);
-							?>
-	                    </div>
+
                     </div>
 				</div>
 			</div>

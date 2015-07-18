@@ -15,7 +15,7 @@ $this->title = 'Comprobar ruta';
 		<div class="contenedor-botones-ruta2">
 		<?php 
 			$boton = "<div class='boton-comenzar-ruta2'><h5>".($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'USE THE SAME ROUTE' : 'SEGUIR LA MISMA RUTA')."</h5></div>";
-			echo Html::a($boton, ['site/tiendas', 'lan' => $idioma->abreviacion]);
+			echo Html::a($boton, ['site/mipanel', 'lan' => $idioma->abreviacion]);
 		?>
 		<?php 
 			$boton = "<div class='boton-comenzar-ruta2'><h5>".($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'START A NEW ROUTE' : 'COMENZAR UNA NUEVA RUTA')."</h5></div>";
