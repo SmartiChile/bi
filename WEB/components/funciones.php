@@ -14,6 +14,7 @@ use app\models\Tiendaxservicio;
 use app\models\Ruta;
 use app\models\RutaContenido;
 use app\models\Oferta;
+use app\models\Tienda;
 
 class funciones extends Component
 {
@@ -320,6 +321,11 @@ class funciones extends Component
             return 0;
         else
             return 1;
+    }
+
+    public function nTiendas($local){
+        $tiendas = Tienda::find()->where(['local_fk' => $local])->count();
+        return $tiendas;
     }
 
     public function InsertarTags($tags, $idioma){

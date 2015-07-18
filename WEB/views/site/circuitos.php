@@ -26,7 +26,6 @@ $this->title = 'Barrio italia - '.($idioma->abreviacion == 'EN' || $idioma->abre
 	<div class="mapa-circuitos">
 		<div id="mapa"></div>
 	</div>
-
 </div>
 
 <script type="text/javascript">
@@ -35,13 +34,16 @@ $this->title = 'Barrio italia - '.($idioma->abreviacion == 'EN' || $idioma->abre
             <?php 
               foreach($locales as $local)
               {
-                echo "[[";
-                foreach($local->tiendas as $tienda)
+                if(Yii::$app->funciones->nTiendas($local->pk) != 0)
                 {
-                  if($tienda->idioma_fk == $idioma->pk)
-                    echo "['".$tienda->pk."', '".$tienda->nombre."', '".Yii::$app->request->baseUrl.'/images/tiendas/'.$tienda->imagen1."', '".$tienda->rating."', '".$local->direccion."', '".$tienda->numeracion."', '".$tienda->horario."', '', '".$tienda->telefono."', '".$tienda->circuitoFk->color."',], ";
+                  echo "[[";
+                  foreach($local->tiendas as $tienda)
+                  {
+                    if($tienda->idioma_fk == $idioma->pk)
+                      echo "['".$tienda->pk."', '".$tienda->nombre."', '".Yii::$app->request->baseUrl.'/images/tiendas/'.$tienda->imagen1."', '".$tienda->rating."', '".$local->direccion."', '".$tienda->numeracion."', '".$tienda->horario."', '', '".$tienda->telefono."', '".$tienda->circuitoFk->color."',], ";
+                  }
+                  echo "],".Yii::$app->funciones->coordenadasOK($local->coordenadas)."],";
                 }
-                echo "],".Yii::$app->funciones->coordenadasOK($local->coordenadas)."],";
               }
               foreach($patrimonios as $patrimonio)
               {
