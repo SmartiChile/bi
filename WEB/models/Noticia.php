@@ -39,7 +39,7 @@ class Noticia extends \yii\db\ActiveRecord
     {
         return [
             [['titulo', 'descripcion', 'destacada', 'idioma_fk', 'prensa'], 'required'],
-            [['descripcion'], 'string'],
+            [['descripcion'], 'string', 'min'=>100, 'max'=>6000],
             [['fecha'], 'safe'],
             [['destacada', 'idioma_fk', 'prensa'], 'integer'],
             [['imagen'], 'default', 'value' => NULL],

@@ -36,7 +36,7 @@ class Evento extends \yii\db\ActiveRecord
     {
         return [
             [['titulo', 'descripcion', 'inicio', 'fin'], 'required'],
-            [['descripcion'], 'string'],
+            [['descripcion'], 'string', 'min'=>100, 'max'=>1500],
             [['inicio', 'fin'], 'safe'],
             [['idioma_fk'], 'integer'],
             [['imagen'], 'default', 'value' => NULL],

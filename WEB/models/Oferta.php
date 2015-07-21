@@ -37,7 +37,7 @@ class Oferta extends \yii\db\ActiveRecord
             [['tienda_fk', 'descuento', 'descripcion', 'idioma_fk', 'inicio', 'termino'], 'required'],
             [['tienda_fk', 'idioma_fk'], 'integer'],
             [['descuento'], 'number'],
-            [['descripcion'], 'string'],
+            [['descripcion'], 'string', 'min'=>100, 'max'=>1500],
             [['inicio', 'termino'], 'safe']
         ];
     }

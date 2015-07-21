@@ -37,9 +37,11 @@ class Contacto extends \yii\db\ActiveRecord
         return [
             [['nombre', 'telefono', 'email', 'mensaje', 'tipo'], 'required'],
             [['mensaje'], 'string'],
+            [['telefono'], 'string', 'max'=>8, 'min'=>7],
+            [['email'], 'email'],
             [['fechayhora'], 'safe'],
-            [['nombre', 'telefono', 'email', 'adjunto'], 'string', 'max' => 255],
-            [['ip'], 'string', 'max' => 15],
+            [['nombre', 'email', 'adjunto'], 'string', 'max' => 255],
+            [['ip'], 'string', 'max' => 15, 'min'=>7],
             [['tipo'], 'string', 'max' => 1],
             [['adjunto'], 'file', 'extensions'=>'pdf, doc, docx'],
         ];

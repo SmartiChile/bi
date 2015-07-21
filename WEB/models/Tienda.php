@@ -57,7 +57,8 @@ class Tienda extends \yii\db\ActiveRecord
     {
         return [
             [['nombre', 'descripcion', 'telefono'], 'required'],
-            [['descripcion'], 'string'],
+            [['descripcion'], 'string', 'min'=>100, 'max'=>3000],
+            [['telefono'], 'string', 'min'=>7, 'max'=>8],
             [['rating'], 'number'],
             [['local_fk', 'circuito_fk', 'idioma_fk'], 'integer'],
             [['imagen2', 'imagen3', 'imagen4', 'imagen5', 'horario'], 'default', 'value' => NULL],
