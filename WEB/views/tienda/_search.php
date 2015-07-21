@@ -27,8 +27,6 @@ use yii\widgets\ActiveForm;
 
     <?php // echo $form->field($model, 'tags') ?>
 
-    <?php // echo $form->field($model, 'banner') ?>
-
     <?php // echo $form->field($model, 'imagen1') ?>
 
     <?php // echo $form->field($model, 'imagen2') ?>

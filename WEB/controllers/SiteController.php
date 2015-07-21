@@ -125,6 +125,10 @@ class SiteController extends Controller
                 ]);
                 }
             }else{
+                if($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en')
+                    Yii::$app->getSession()->setFlash('error_login', 'Incorrect Username/Password.');
+                else
+                    Yii::$app->getSession()->setFlash('error_login', 'Usuario/Contraseña incorrectos.');
                 return $this->render('login', [
                     'model' => $model,
                     'idioma' => $idioma,

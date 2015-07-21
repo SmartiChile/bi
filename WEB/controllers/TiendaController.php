@@ -84,9 +84,11 @@ class TiendaController extends Controller
             $image4 = $model->uploadImagen4();
             $image5 = $model->uploadImagen5();
             $logotipo = $model->uploadLogotipo();
-            $banner = $model->uploadBanner();
 
             Yii::$app->funciones->InsertarTags($model->tags, $model->idioma_fk);
+
+            if($model->numeracion == "")
+                $model->numeracion = null;
 
             $model->sitio_web = str_replace("http://", "", $model->sitio_web);
             $model->sitio_web = str_replace("https://", "", $model->sitio_web);
@@ -147,11 +149,6 @@ class TiendaController extends Controller
                     $logotipo->saveAs($path6);
                 }
 
-                if ($banner !== false) {
-                    $path7 = $model->getBannerFile();
-                    $banner->saveAs($path7);
-                }
-
                 return $this->redirect(['view', 'id' => $model->pk]);    
             }
         } else {
@@ -172,14 +169,12 @@ class TiendaController extends Controller
     {
         $model = $this->findModel($id);
         $servicios = Servicio::find()->all();
-        $bannerViejo = $model->banner;
         $imagen1Vieja = $model->imagen1;
         $imagen2Vieja = $model->imagen2;
         $imagen3Vieja = $model->imagen3;
         $imagen4Vieja = $model->imagen4;
         $imagen5Vieja = $model->imagen5;
         $logotipoViejo = $model->logotipo;
-        $path_bannerViejo = $model->getBannerFile();
         $path_imagen1Vieja = $model->getImagen1File();
         $path_imagen2Vieja = $model->getImagen2File();
         $path_imagen3Vieja = $model->getImagen3File();
@@ -190,7 +185,6 @@ class TiendaController extends Controller
 
         if ($model->load(Yii::$app->request->post())) {
 
-            $banner = $model->uploadBanner();
             $image1 = $model->uploadImagen1();
             $image2 = $model->uploadImagen2();
             $image3 = $model->uploadImagen3();
@@ -198,9 +192,27 @@ class TiendaController extends Controller
             $image5 = $model->uploadImagen5();
             $logotipo = $model->uploadLogotipo();
 
-            if ($banner === false) {
-                $model->banner = $bannerViejo;
-            }
+            if($model->numeracion == "")
+                $model->numeracion = null;
+
+            $model->sitio_web = str_replace("http://", "", $model->sitio_web);
+            $model->sitio_web = str_replace("https://", "", $model->sitio_web);
+
+            $model->facebook = str_replace("http://", "", $model->facebook);
+            $model->facebook = str_replace("https://", "", $model->facebook);
+
+            $model->twitter = str_replace("http://", "", $model->twitter);
+            $model->twitter = str_replace("https://", "", $model->twitter);
+
+            $model->instagram = str_replace("http://", "", $model->instagram);
+            $model->instagram = str_replace("https://", "", $model->instagram);
+
+            $model->googleplus = str_replace("http://", "", $model->googleplus);
+            $model->googleplus = str_replace("https://", "", $model->googleplus);
+
+            $model->pinterest = str_replace("http://", "", $model->pinterest);
+            $model->pinterest = str_replace("https://", "", $model->pinterest);
+
 
             if ($image1 === false) {
                 $model->imagen1 = $imagen1Vieja;
@@ -284,13 +296,6 @@ class TiendaController extends Controller
                     $logotipo->saveAs($path6);
                 }
 
-                if ($banner !== false) {
-                    if($bannerViejo != null)
-                        unlink($path_bannerViejo);
-                    $path7 = $model->getBannerFile();
-                    $banner->saveAs($path7);
-                }
-
                 return $this->redirect(['view', 'id' => $model->pk]);
             }
         } else {
@@ -312,7 +317,7 @@ class TiendaController extends Controller
         $model = $this->findModel($id);
 
         if ($model->delete()) {
-            if (!$model->deleteImagen1() || !$model->deleteImagen2() || !$model->deleteImagen3() || !$model->deleteImagen4() || !$model->deleteImagen5() || !$model->deleteBanner() || !$model->deleteLogotipo()) {
+            if (!$model->deleteImagen1() || !$model->deleteImagen2() || !$model->deleteImagen3() || !$model->deleteImagen4() || !$model->deleteImagen5() || !$model->deleteLogotipo()) {
                 Yii::$app->session->setFlash('error', 'Error al eliminar las imagenes del item.');
             }
         }

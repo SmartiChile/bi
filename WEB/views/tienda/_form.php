@@ -100,10 +100,6 @@ $this->registerCssFile(Yii::$app->request->baseUrl.'/css/panel.css');
 
         <?= $form->field($model, 'tags')->textInput(['maxlength' => 255, 'class'=>'w50', 'placeholder' => 'Ej: cafe te capuccino (separados por espacio)']) ?>  
 
-        <div class='fileinput'>
-            <?= $form->field($model, 'banner')->widget(FileInput::classname(), ['options' => ['multiple' => false, 'accept' => 'image/*', 'required'=>$model->isNewRecord ? true : false],'pluginOptions' => ['previewFileType' => 'image', 'showUpload' => false, 'browseLabel' => '','removeLabel' => '','mainClass' => 'input-group-md', 'initialPreview' => (!$model->isNewRecord && $model->banner != null) ? [Html::img(Yii::$app->request->baseUrl.'/images/tiendas/'.$model->banner, ['class'=>'file-preview-image'])] : false]]); ?>
-        </div>
-
         <div>
             <?= $form->field($model, 'imagen1')->widget(FileInput::classname(), ['options' => ['multiple' => false, 'accept' => 'image/*', 'required'=>$model->isNewRecord ? true : false],'pluginOptions' => ['previewFileType' => 'image', 'showUpload' => false,'browseLabel' => '','removeLabel' => '','mainClass' => 'input-group-md', 'initialPreview' => (!$model->isNewRecord && $model->imagen1 != null) ? [Html::img(Yii::$app->request->baseUrl.'/images/tiendas/'.$model->imagen1, ['class'=>'file-preview-image'])] : false]]); ?>
         </div>

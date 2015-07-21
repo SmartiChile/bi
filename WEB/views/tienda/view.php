@@ -62,11 +62,6 @@ foreach ($servicios as $servicio_tienda) {
                     'rating',
                     'tags',
                     [
-                        'attribute'=>'banner',
-                        'value'=> isset($model->banner) ? Yii::$app->request->baseUrl.'/images/tiendas/'.$model->banner : '(no definido)',
-                        'format' =>  isset($model->banner) ? ['image',['width'=>'200']] : null,
-                    ],
-                    [
                         'attribute'=>'imagen1',
                         'value'=> isset($model->imagen1) ? Yii::$app->request->baseUrl.'/images/tiendas/'.$model->imagen1 : '(no definido)',
                         'format' =>  isset($model->imagen1) ? ['image',['width'=>'200']] : null,

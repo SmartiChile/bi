@@ -13,7 +13,6 @@ use yii\web\UploadedFile;
  * @property string $numeracion
  * @property double $rating
  * @property string $tags
- * @property string $banner
  * @property string $imagen1
  * @property string $imagen2
  * @property string $imagen3
@@ -57,12 +56,12 @@ class Tienda extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['nombre', 'descripcion', 'numeracion', 'telefono'], 'required'],
+            [['nombre', 'descripcion', 'telefono'], 'required'],
             [['descripcion'], 'string'],
             [['rating'], 'number'],
             [['local_fk', 'circuito_fk', 'idioma_fk'], 'integer'],
             [['imagen2', 'imagen3', 'imagen4', 'imagen5', 'horario'], 'default', 'value' => NULL],
-            [['nombre', 'horario','tags', 'banner', 'imagen1', 'imagen2', 'imagen3', 'imagen4', 'imagen5', 'logotipo', 'telefono', 'sitio_web', 'facebook', 'twitter', 'instagram', 'googleplus', 'pinterest', 'tripadvisor'], 'string', 'max' => 255],
+            [['nombre', 'horario','tags', 'imagen1', 'imagen2', 'imagen3', 'imagen4', 'imagen5', 'logotipo', 'telefono', 'sitio_web', 'facebook', 'twitter', 'instagram', 'googleplus', 'pinterest', 'tripadvisor'], 'string', 'max' => 255],
             [['numeracion'], 'string', 'max' => 10]
         ];
     }
@@ -79,7 +78,6 @@ class Tienda extends \yii\db\ActiveRecord
             'numeracion' => 'Numeración',
             'rating' => 'Rating',
             'tags' => 'Tags',
-            'banner' => 'Banner',
             'imagen1' => 'Imagen 1',
             'imagen2' => 'Imagen 2',
             'imagen3' => 'Imagen 3',
@@ -388,53 +386,6 @@ class Tienda extends \yii\db\ActiveRecord
         }
 
         $this->imagen5 = null;
- 
-        return true;
-    }
-
-    public function getBannerFile() 
-    {
-        return isset($this->banner) ? 'images/tiendas/' . $this->banner : null;
-    }
-
-    public function getBannerUrl() 
-    {
-        $bann = isset($this->banner) ? $this->banner : 'default_img.jpg';
-        return '/images/tiendas/' . $bann;
-    }
-
-    public function uploadBanner() {
-        $ban = UploadedFile::getInstance($this, 'banner');
- 
-        if (empty($ban)) {
-            return false;
-        }
- 
-        // store the source file name
-        $this->banner = $ban->name;
-        $ext = end((explode(".", $ban->name)));
- 
-        // generate a unique file name
-        $this->banner = Yii::$app->security->generateRandomString().".{$ext}";
- 
-        // the uploaded image instance
-        return $ban;
-    }
-
-    public function deleteBanner() {
-        $file = $this->getBannerFile();
- 
-        // check if file exists on server
-        if (empty($file) || !file_exists($file)) {
-            return false;
-        }
- 
-        // check if uploaded file can be deleted on server
-        if (!unlink($file)) {
-            return false;
-        }
-
-        $this->banner = null;
  
         return true;
     }

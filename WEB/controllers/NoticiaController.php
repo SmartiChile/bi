@@ -85,8 +85,12 @@ class NoticiaController extends Controller
 
             $image = $model->uploadImagen();
             $model->prensa = $id;
-            $model->referencia = str_replace("http://", "", $model->referencia);
-            $model->referencia = str_replace("https://", "", $model->referencia);
+            if($model->referencia == "")
+                $model->referencia = null;
+            else{
+                $model->referencia = str_replace("http://", "", $model->referencia);
+                $model->referencia = str_replace("https://", "", $model->referencia);
+            }
             
             if($model->save()){
 
@@ -123,8 +127,12 @@ class NoticiaController extends Controller
                 $model->imagen = $imagenVieja;
             }
 
-            $model->referencia = str_replace("http://", "", $model->referencia);
-            $model->referencia = str_replace("https://", "", $model->referencia);
+            if($model->referencia == "")
+                $model->referencia = null;
+            else{
+                $model->referencia = str_replace("http://", "", $model->referencia);
+                $model->referencia = str_replace("https://", "", $model->referencia);
+            }
 
             if($model->save()){
 

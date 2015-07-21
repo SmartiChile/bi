@@ -11,6 +11,13 @@ $this->registerJs('
 		  slideWidth: 60,
 		  slideMargin: 50
 		});
+    
+    $(document).ready(function () {
+        $("html, body").animate({
+            scrollTop: $("#ancla").offset().top
+        }, "slow");
+    });
+
 ');
 ?>
 
@@ -47,7 +54,7 @@ $this->registerJs('
         ?>
     </div>
     <div class="info-circuito" style="background-color:<?php echo $model->color; ?>">
-    	<div class="slides-tiendas-circuito">
+    	<div class="slides-tiendas-circuito" id="ancla">
 	    	<ul class="bxslider">
 			   <?php foreach ($tiendas as $tienda): ?>
                 <li><?php echo Html::a(Html::img(Yii::$app->request->baseUrl.'/images/tiendas/'.$tienda->logotipo), ['site/tienda', 'id'=>$tienda->pk, 'lan'=>$idioma->abreviacion], ['class'=>'tool', 'title'=>$tienda->nombre]); ?></li>

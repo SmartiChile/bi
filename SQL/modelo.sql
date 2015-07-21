@@ -1,13 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 3.5.1
+-- version 4.1.14
 -- http://www.phpmyadmin.net
 --
--- Servidor: localhost
--- Tiempo de generación: 29-04-2015 a las 20:33:58
--- Versión del servidor: 5.5.24-log
--- Versión de PHP: 5.4.3
+-- Servidor: 127.0.0.1
+-- Tiempo de generación: 21-07-2015 a las 19:22:58
+-- Versión del servidor: 5.6.17
+-- Versión de PHP: 5.5.12
 
-SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
 
 
@@ -184,7 +184,7 @@ CREATE TABLE IF NOT EXISTS `noticia` (
   `pk` int(11) NOT NULL AUTO_INCREMENT,
   `titulo` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
   `descripcion` text COLLATE utf8_spanish_ci NOT NULL,
-  `referencia` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
+  `referencia` varchar(255) COLLATE utf8_spanish_ci DEFAULT NULL,
   `imagen` varchar(255) COLLATE utf8_spanish_ci DEFAULT NULL,
   `fecha` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `destacada` tinyint(1) NOT NULL,
@@ -192,7 +192,7 @@ CREATE TABLE IF NOT EXISTS `noticia` (
   `prensa` tinyint(1) NOT NULL,
   PRIMARY KEY (`pk`),
   KEY `idioma_fk` (`idioma_fk`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=9 ;
 
 --
 -- Volcado de datos para la tabla `noticia`
@@ -256,7 +256,7 @@ CREATE TABLE IF NOT EXISTS `ruta` (
   `terminada` tinyint(1) NOT NULL,
   PRIMARY KEY (`pk`),
   KEY `usuario_fk` (`usuario_fk`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=16 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -271,7 +271,7 @@ CREATE TABLE IF NOT EXISTS `ruta_contenido` (
   PRIMARY KEY (`pk`),
   KEY `ruta_fk` (`ruta_fk`,`tienda_fk`),
   KEY `tienda_fk` (`tienda_fk`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=76 ;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
@@ -327,10 +327,9 @@ CREATE TABLE IF NOT EXISTS `tienda` (
   `pk` int(11) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(255) COLLATE utf8_spanish_ci NOT NULL,
   `descripcion` text COLLATE utf8_spanish_ci NOT NULL,
-  `numeracion` varchar(10) COLLATE utf8_spanish_ci NOT NULL,
+  `numeracion` varchar(10) COLLATE utf8_spanish_ci DEFAULT NULL,
   `rating` float(10,2) DEFAULT '0.00',
   `tags` varchar(255) COLLATE utf8_spanish_ci DEFAULT NULL,
-  `banner` varchar(255) COLLATE utf8_spanish_ci DEFAULT NULL,
   `imagen1` varchar(255) COLLATE utf8_spanish_ci DEFAULT NULL,
   `imagen2` varchar(255) COLLATE utf8_spanish_ci DEFAULT NULL,
   `imagen3` varchar(255) COLLATE utf8_spanish_ci DEFAULT NULL,
@@ -355,15 +354,15 @@ CREATE TABLE IF NOT EXISTS `tienda` (
   KEY `local_fk_2` (`local_fk`),
   KEY `idioma_fk` (`idioma_fk`),
   KEY `idioma_fk_2` (`idioma_fk`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=6 ;
 
 --
 -- Volcado de datos para la tabla `tienda`
 --
 
-INSERT INTO `tienda` (`pk`, `nombre`, `descripcion`, `numeracion`, `rating`, `tags`, `banner`, `imagen1`, `imagen2`, `imagen3`, `imagen4`, `imagen5`, `logotipo`, `telefono`, `horario`, `sitio_web`, `facebook`, `twitter`, `instagram`, `googleplus`, `pinterest`, `tripadvisor`, `local_fk`, `circuito_fk`, `idioma_fk`) VALUES
-(3, 'Tienda 1', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae commodo nibh, ac molestie nulla. Maecenas volutpat hendrerit libero, quis dapibus justo vulputate non. Ut vehicula lacus mi. Cras facilisis ligula elementum enim dapibus, a ultrices erat dapibus. Vivamus id commodo nisl. Vestibulum eu rhoncus nisl. Vivamus cursus tellus eu fermentum condimentum. Suspendisse faucibus ullamcorper neque, nec fermentum sapien sagittis eu. Pellentesque ultricies odio neque, id bibendum nisi commodo in. Vestibulum vel diam erat. Maecenas velit justo, tristique et lectus nec, fringilla suscipit massa. Quisque quis mauris ac velit sodales viverra. Aliquam malesuada ut risus a aliquet.</p><p>Quisque id sem quis ante ornare placerat nec luctus magna. Aliquam ut tempor velit. Curabitur sagittis neque ac orci pellentesque, at malesuada elit pellentesque. Donec luctus mattis ultricies. Aliquam iaculis, mi nec porttitor hendrerit, justo arcu vestibulum lectus, vel mollis velit quam ac ipsum. Nam eget blandit metus. Vestibulum viverra tempor pharetra. Vivamus sit amet dictum ligula. Pellentesque laoreet urna non augue molestie placerat. Donec in suscipit ex.</p>', '1', 0.00, 'palabra1 palabra2 palabra3 palabra4', '6VsjSTlzaoeMDsGZ6unjfqPtsKADYJ0U.jpg', '2Vlaf57AMGCthc0KCgLcEVwSBoAW22og.jpg', NULL, NULL, NULL, NULL, '6V0k5VO_j-RIj7pkMrACwcvnvBy7awq_.png', '11111', 'Lu a VI, de 8:00 a 12:00', 'www.tienda1.cl', 'www.facebook.com/tienda1', 'www.twiiter.com/tienda1', 'www.instagram.com/tienda1', 'www.googleplus.com/tienda1', 'www.pinterest.com/tienda1', 'www.tripadvisor.com/tienda1', 2, 2, 1),
-(4, 'Tienda 1 (Inglés)', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae commodo nibh, ac molestie nulla. Maecenas volutpat hendrerit libero, quis dapibus justo vulputate non. Ut vehicula lacus mi. Cras facilisis ligula elementum enim dapibus, a ultrices erat dapibus. Vivamus id commodo nisl. Vestibulum eu rhoncus nisl. Vivamus cursus tellus eu fermentum condimentum. Suspendisse faucibus ullamcorper neque, nec fermentum sapien sagittis eu. Pellentesque ultricies odio neque, id bibendum nisi commodo in. Vestibulum vel diam erat. Maecenas velit justo, tristique et lectus nec, fringilla suscipit massa. Quisque quis mauris ac velit sodales viverra. Aliquam malesuada ut risus a aliquet.</p><p>Quisque id sem quis ante ornare placerat nec luctus magna. Aliquam ut tempor velit. Curabitur sagittis neque ac orci pellentesque, at malesuada elit pellentesque. Donec luctus mattis ultricies. Aliquam iaculis, mi nec porttitor hendrerit, justo arcu vestibulum lectus, vel mollis velit quam ac ipsum. Nam eget blandit metus. Vestibulum viverra tempor pharetra. Vivamus sit amet dictum ligula. Pellentesque laoreet urna non augue molestie placerat. Donec in suscipit ex.</p>', '1', 0.00, 'palabra1 palabra2 palabra3 palabra4', '6VsjSTlzaoeMDsGZ6unjfqPtsKADYJ0U.jpg', '2Vlaf57AMGCthc0KCgLcEVwSBoAW22og.jpg', NULL, NULL, NULL, NULL, '6V0k5VO_j-RIj7pkMrACwcvnvBy7awq_.png', '11111', 'Lu a VI, de 8:00 a 12:00', 'www.tienda1.cl', 'www.facebook.com/tienda1', 'www.twiiter.com/tienda1', 'www.instagram.com/tienda1', 'www.googleplus.com/tienda1', 'www.pinterest.com/tienda1', 'www.tripadvisor.com/tienda1', 2, 3, 2);
+INSERT INTO `tienda` (`pk`, `nombre`, `descripcion`, `numeracion`, `rating`, `tags`, `imagen1`, `imagen2`, `imagen3`, `imagen4`, `imagen5`, `logotipo`, `telefono`, `horario`, `sitio_web`, `facebook`, `twitter`, `instagram`, `googleplus`, `pinterest`, `tripadvisor`, `local_fk`, `circuito_fk`, `idioma_fk`) VALUES
+(3, 'Tienda 1', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae commodo nibh, ac molestie nulla. Maecenas volutpat hendrerit libero, quis dapibus justo vulputate non. Ut vehicula lacus mi. Cras facilisis ligula elementum enim dapibus, a ultrices erat dapibus. Vivamus id commodo nisl. Vestibulum eu rhoncus nisl. Vivamus cursus tellus eu fermentum condimentum. Suspendisse faucibus ullamcorper neque, nec fermentum sapien sagittis eu. Pellentesque ultricies odio neque, id bibendum nisi commodo in. Vestibulum vel diam erat. Maecenas velit justo, tristique et lectus nec, fringilla suscipit massa. Quisque quis mauris ac velit sodales viverra. Aliquam malesuada ut risus a aliquet.</p><p>Quisque id sem quis ante ornare placerat nec luctus magna. Aliquam ut tempor velit. Curabitur sagittis neque ac orci pellentesque, at malesuada elit pellentesque. Donec luctus mattis ultricies. Aliquam iaculis, mi nec porttitor hendrerit, justo arcu vestibulum lectus, vel mollis velit quam ac ipsum. Nam eget blandit metus. Vestibulum viverra tempor pharetra. Vivamus sit amet dictum ligula. Pellentesque laoreet urna non augue molestie placerat. Donec in suscipit ex.</p>', '1', 0.00, 'palabra1 palabra2 palabra3 palabra4', '2Vlaf57AMGCthc0KCgLcEVwSBoAW22og.jpg', NULL, NULL, NULL, NULL, '6V0k5VO_j-RIj7pkMrACwcvnvBy7awq_.png', '11111', 'Lu a VI, de 8:00 a 12:00', 'www.tienda1.cl', 'www.facebook.com/tienda1', 'www.twiiter.com/tienda1', 'www.instagram.com/tienda1', 'www.googleplus.com/tienda1', 'www.pinterest.com/tienda1', 'www.tripadvisor.com/tienda1', 2, 2, 1),
+(4, 'Tienda 1 (Inglés)', '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque vitae commodo nibh, ac molestie nulla. Maecenas volutpat hendrerit libero, quis dapibus justo vulputate non. Ut vehicula lacus mi. Cras facilisis ligula elementum enim dapibus, a ultrices erat dapibus. Vivamus id commodo nisl. Vestibulum eu rhoncus nisl. Vivamus cursus tellus eu fermentum condimentum. Suspendisse faucibus ullamcorper neque, nec fermentum sapien sagittis eu. Pellentesque ultricies odio neque, id bibendum nisi commodo in. Vestibulum vel diam erat. Maecenas velit justo, tristique et lectus nec, fringilla suscipit massa. Quisque quis mauris ac velit sodales viverra. Aliquam malesuada ut risus a aliquet.</p><p>Quisque id sem quis ante ornare placerat nec luctus magna. Aliquam ut tempor velit. Curabitur sagittis neque ac orci pellentesque, at malesuada elit pellentesque. Donec luctus mattis ultricies. Aliquam iaculis, mi nec porttitor hendrerit, justo arcu vestibulum lectus, vel mollis velit quam ac ipsum. Nam eget blandit metus. Vestibulum viverra tempor pharetra. Vivamus sit amet dictum ligula. Pellentesque laoreet urna non augue molestie placerat. Donec in suscipit ex.</p>', '1', 0.00, 'palabra1 palabra2 palabra3 palabra4', '2Vlaf57AMGCthc0KCgLcEVwSBoAW22og.jpg', NULL, NULL, NULL, NULL, '6V0k5VO_j-RIj7pkMrACwcvnvBy7awq_.png', '11111', 'Lu a VI, de 8:00 a 12:00', 'www.tienda1.cl', 'www.facebook.com/tienda1', 'www.twiiter.com/tienda1', 'www.instagram.com/tienda1', 'www.googleplus.com/tienda1', 'www.pinterest.com/tienda1', 'www.tripadvisor.com/tienda1', 2, 3, 2);
 
 -- --------------------------------------------------------
 
@@ -396,18 +395,19 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `rol` int(2) NOT NULL,
   PRIMARY KEY (`pk`),
   UNIQUE KEY `username` (`username`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=40 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_spanish_ci AUTO_INCREMENT=42 ;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
 INSERT INTO `usuario` (`pk`, `username`, `password`, `nombre`, `token`, `rol`) VALUES
-(31, 'crack_seba@hotmail.com', '$2y$13$poDB4X52DqZcuoYCvXNjA.R.f5rEDuExnLaAxrZWCU/gO0d47bC4q', 'Sebastián', NULL, 3),
 (34, 'smenendez@icci.cl', '$2y$13$ebY9FH032lFohpLEEavzyuTw6.K9QuU0/ggs8qhdVgy0h37OWJYlu', 'Sebastián Menéndez', NULL, 3),
 (35, 'papelito8mil@gmail.com', '$2y$13$6vkgO57rEepsUU3VvXH27.RYsmHPr5E5LzxLr/81Aippt22D9NGOG', 'Carolina', NULL, 1),
 (38, 'a@a.cl', '$2y$13$Mrab.IqbgNTG/CaMbm088u8p.fDnPk5tEWPpQkRuhC8TiScYEp.fW', 'a', NULL, 2),
-(39, 'as@a.cl', '$2y$13$SO0VUDSLSaT7pUfysTBFHuQ9QJFKRdlWPtn2MtHnRFTQa528PQrCq', 'aaaa', NULL, 1);
+(39, 'as@a.cl', '$2y$13$SO0VUDSLSaT7pUfysTBFHuQ9QJFKRdlWPtn2MtHnRFTQa528PQrCq', 'aaaa', NULL, 1),
+(40, 'c@c.cl', '$2y$13$dgeF0z6qCOu7xaE2vV3p.uePhI3Ruxt/mf0tCegfzgbXktwJp/Buu', 'c', NULL, 1),
+(41, 'crack_seba@hotmail.com', '$2y$13$KemtnymnwvOVSfPqQmR9IOmhgFD5WWQhxY02CfR2E.GfoB3Gsiudu', 'Sebastián Enrique Menéndez Sáez', NULL, 3);
 
 -- --------------------------------------------------------
 

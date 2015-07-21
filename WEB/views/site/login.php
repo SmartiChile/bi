@@ -1,7 +1,7 @@
 <?php
 use yii\helpers\Html;
 use yii\bootstrap\ActiveForm;
- use yii\authclient\widgets\AuthChoice;
+use yii\authclient\widgets\AuthChoice;
 
 /* @var $this yii\web\View */
 /* @var $form yii\bootstrap\ActiveForm */
@@ -36,6 +36,11 @@ $this->title = 'Barrio Italia - '.($idioma->abreviacion == 'EN' || $idioma->abre
             <div class="alert alert-success ">
               <?php echo Yii::$app->session->getFlash('restaurar_exito') ?>
             </div>
+          <?php endif; ?>
+          <?php if (Yii::$app->session->hasFlash('error_login')): ?>
+              <div class="alert alert-danger ">
+                  <?php echo Yii::$app->session->getFlash('error_login') ?>
+              </div>
           <?php endif; ?>
 
             <?= $form->field($model, 'username')->textInput(['maxlength' => 255, 'class'=>'form-login-input', 'placeholder'=>($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Username (E-mail)' : 'Nombre de usuario (correo electrónico)')]) ?>

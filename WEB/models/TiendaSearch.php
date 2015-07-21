@@ -19,7 +19,7 @@ class TiendaSearch extends Tienda
     {
         return [
             [['pk', 'imagen2', 'imagen3', 'imagen4', 'imagen5', 'logotipo', 'local_fk', 'circuito_fk', 'idioma_fk'], 'integer'],
-            [['nombre', 'descripcion', 'numeracion', 'tags', 'banner', 'imagen1', 'telefono', 'horario', 'sitio_web', 'facebook', 'twitter', 'instagram', 'googleplus', 'pinterest', 'tripadvisor'], 'safe'],
+            [['nombre', 'descripcion', 'numeracion', 'tags', 'imagen1', 'telefono', 'horario', 'sitio_web', 'facebook', 'twitter', 'instagram', 'googleplus', 'pinterest', 'tripadvisor'], 'safe'],
             [['rating'], 'number'],
         ];
     }
@@ -73,7 +73,6 @@ class TiendaSearch extends Tienda
             ->andFilterWhere(['like', 'descripcion', $this->descripcion])
             ->andFilterWhere(['like', 'numeracion', $this->numeracion])
             ->andFilterWhere(['like', 'tags', $this->tags])
-            ->andFilterWhere(['like', 'banner', $this->banner])
             ->andFilterWhere(['like', 'imagen1', $this->imagen1])
             ->andFilterWhere(['like', 'telefono', $this->telefono])
             ->andFilterWhere(['like', 'horario', $this->horario])

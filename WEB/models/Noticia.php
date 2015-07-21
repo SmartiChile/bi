@@ -38,7 +38,7 @@ class Noticia extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['titulo', 'descripcion', 'referencia', 'destacada', 'idioma_fk', 'prensa'], 'required'],
+            [['titulo', 'descripcion', 'destacada', 'idioma_fk', 'prensa'], 'required'],
             [['descripcion'], 'string'],
             [['fecha'], 'safe'],
             [['destacada', 'idioma_fk', 'prensa'], 'integer'],
