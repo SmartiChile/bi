@@ -15,6 +15,7 @@ $this->registerCssFile(Yii::$app->request->baseUrl.'/css/panel.css');
 ?>
 
 <div id="contenedor_panel">
+    <?= $_SESSION["p"] ?>
     <div id="sidenav_panel">
         <?= Yii::$app->funciones->menu_panel(); ?>
     </div>
