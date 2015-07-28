@@ -620,7 +620,7 @@ class SiteController extends Controller
                 if($user->save()){
                     $mensaje = 'Hola '.$user->nombre.', <br /><br />Has ingresado una solicitud para la recuperación de tu contraseña del portal de Barrio Italia. Como medida de precaución y seguridad, se ha enviado este correo electrónico con el fin de restaurar tu contraseña.
                     <br /><br />Si no has ingresado ninguna solicitud para la restauración de tu contraseña ignora este mensaje.
-                    <br /><br />Para restaurar tu contraseña sigue el siguiente enlace: '.Yii::$app->params['domainName'].'/site/restaurar?token='.$token;
+                    <br /><br />Para restaurar tu contraseña sigue el siguiente enlace: '.Yii::$app->params['domainName'].'/site/restaurar?id='.$token;
 
                     Yii::$app->mailer->compose()
                          ->setFrom('noreply@barrioitalia.cl')
