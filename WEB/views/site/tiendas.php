@@ -45,7 +45,7 @@ $this->registerJs('
 				<div class="buscador">
 					<?php 
 		                    $form = ActiveForm::begin([
-		                        'id' => 'login-form-inline', 
+		                        'id' => 'login-form-inline',
 		                        'type' => ActiveForm::TYPE_INLINE,
 		                        'method' => 'get',
 		                    ]); 
@@ -57,11 +57,9 @@ $this->registerJs('
 			</div>
 		</div>
 
-		<?php
-			if($tiendas == null){
-				echo '<p>Lo sentimos, no se han encontrado coincidencias con los criterios de busqueda.</p>';
-			}
-		?>
+		<?php if($tiendas == null) : ?>
+				<?= $idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? '<p>Sorry, no matches were found with the search criteria.</p>' : '<p>Lo sentimos, no se han encontrado coincidencias con los criterios de búsqueda.</p>' ?>
+		<?php endif; ?>
 
 		<?php foreach($tiendas as $tienda): ?>
 			<h3 class="h3-movil" id="no-mostrar"><?= $tienda->nombre ?></h3>

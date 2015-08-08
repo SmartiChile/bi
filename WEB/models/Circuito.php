@@ -42,7 +42,7 @@ class Circuito extends \yii\db\ActiveRecord
     {
         return [
             [['nombre', 'color', 'descripcion', 'posicion', 'idioma_fk'], 'required'],
-            [['descripcion'], 'string', 'min'=>100, 'max'=>2500],
+            [['descripcion'], 'string', 'min'=>1200, 'max'=>1500],
             [['posicion', 'idioma_fk'], 'integer'],
             [['nombre', 'icono', 'imagen', 'color'], 'string', 'max' => 255],
             [['imagen', 'icono'], 'safe'],

@@ -38,7 +38,7 @@ class Patrimonio extends \yii\db\ActiveRecord
     {
         return [
             [['nombre', 'descripcion', 'direccion', 'coordenadas', 'idioma_fk'], 'required'],
-            [['descripcion'], 'string', 'min'=>100, 'max'=>3000],
+            [['descripcion'], 'string', 'min'=>1000],
             [['circuito_fk', 'idioma_fk'], 'integer'],
             [['imagen'], 'default', 'value' => NULL],
             [['nombre', 'direccion', 'imagen'], 'string', 'max' => 255]

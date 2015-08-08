@@ -11,11 +11,9 @@ $this->title = 'Barrio italia - '.($idioma->abreviacion == 'EN' || $idioma->abre
 
 	<div class="contenido-prensa">
 
-		<?php
-			if($prensa == null){
-				echo 'Lo sentimos, no se han publicado articulos de prensa aún.';
-			}
-		?>
+		<?php if($prensa == null) : ?>
+				<?= $idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? '<p>Sorry, there are no published news press yet.</p>' : '<p>Lo sentimos, no se han publicado articulos de prensa aún.</p>' ?>
+		<?php endif; ?>
 
 		<?php foreach ($prensa as $p): ?>
 			<div class="cada-prensa">

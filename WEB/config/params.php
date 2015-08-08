@@ -2,5 +2,5 @@
 
 return [
     'adminEmail' => 'admin@example.com',
-    'domainName' => 'http://www.barrioitalia.cl/',
+    'domainName' => 'http://www.barrioitalia.com/',
 ];

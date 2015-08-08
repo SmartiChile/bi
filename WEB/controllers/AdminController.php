@@ -31,6 +31,8 @@ class AdminController extends \yii\web\Controller
             $x[] = $tag->palabra;
             $y[] = $tag->frecuencia;
         }
+
+        if($x == NULL) $x[] = 'hola';
         return $this->render('inicio', [
             'x' => $x,
             'y' => $y

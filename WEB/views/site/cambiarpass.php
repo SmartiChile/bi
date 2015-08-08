@@ -21,7 +21,7 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 			<div class="contenedor-cambio-pass">
 
 				<?php if (Yii::$app->session->hasFlash('error')): ?>
-		            <div class="alert alert-danger ">
+		            <div>
 		              Se produjeron los siguientes errores al enviar el formulario:
 		              <ul>
 		                  <li><?php echo Yii::$app->session->getFlash('error') ?></li>
@@ -30,7 +30,7 @@ $this->title = 'Mi Panel: '.Yii::$app->funciones->nombreUser(Yii::$app->user->id
 	          	<?php endif; ?>
 
 	          	<?php if (Yii::$app->session->hasFlash('correcto')): ?>
-		            <div class="alert alert-success">
+		            <div>
 						<?php echo Yii::$app->session->getFlash('correcto') ?>
 					</div>
 	          	<?php endif; ?>

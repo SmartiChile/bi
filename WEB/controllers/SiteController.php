@@ -403,7 +403,7 @@ class SiteController extends Controller
         $idioma = Idioma::find()->where(['abreviacion' => $lan])->one();
         if(isset($_GET['b'])){
             $tag = $_GET['b'];
-            $query = Tienda::find()->where('idioma_fk = '.$idioma->pk.' AND (tags LIKE :substr OR nombre LIKE :substr)', [':substr' => '%'.$tag.'%'])->orderBy(["pk"=>SORT_DESC]);
+            $query = Tienda::find()->where('idioma_fk = '.$idioma->pk.' AND (tags LIKE :substr OR nombre LIKE :substr)', [':substr' => '%'.$tag.'%'])->orderBy(["nombre"=>SORT_ASC]);
             $model_tag = Tag::find()->where(['palabra'=>$tag])->one();
             if(isset($model_tag)){
                 $model_tag->frecuencia = $model_tag->frecuencia + 1;
@@ -411,7 +411,7 @@ class SiteController extends Controller
             }
         }else{
             $b = "";
-            $query = Tienda::find()->where(['idioma_fk' => $idioma->pk])->orderBy(["pk"=>SORT_DESC]);
+            $query = Tienda::find()->where(['idioma_fk' => $idioma->pk])->orderBy(["nombre"=>SORT_ASC]);
         }
 
         $countQuery = clone $query;

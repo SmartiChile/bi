@@ -13,11 +13,9 @@ $this->title = 'Barrio italia - '.($idioma->abreviacion == 'EN' || $idioma->abre
 
 	<div class="contenido-prensa">
 
-		<?php
-			if($eventos == null){
-				echo 'Lo sentimos, no se han publicado eventos aún.';
-			}
-		?>
+		<?php if($eventos == null) : ?>
+			<?= $idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? '<p>Sorry, there are no published events yet.</p>' : '<p>Lo sentimos, no se han publicado eventos aún.</p>' ?>
+		<?php endif; ?>
 
 		<?php foreach ($eventos as $evento): ?>
 			<div class="cada-noticia">

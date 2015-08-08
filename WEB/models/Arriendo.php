@@ -44,7 +44,7 @@ class Arriendo extends \yii\db\ActiveRecord
             [['titulo', 'descripcion', 'direccion', 'telefono', 'email', 'nombre_contacto', 'idioma_fk'], 'required'],
             [['telefono'], 'string', 'min'=>7, 'max'=>8],
             [['email'], 'email'],
-            [['descripcion'], 'string', 'min'=>100, 'max'=>1500],
+            [['descripcion'], 'string', 'min'=>1200],
             [['idioma_fk'], 'integer'],
             [['imagen1', 'imagen2', 'imagen3'], 'default', 'value' => NULL],
             [['titulo', 'direccion', 'telefono', 'email', 'nombre_contacto', 'imagen1', 'imagen2', 'imagen3'], 'string', 'max' => 255]

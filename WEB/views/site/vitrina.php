@@ -29,7 +29,7 @@ $this->title = 'Barrio italia - '.($idioma->abreviacion == 'EN' || $idioma->abre
 
 			<?php
 				if($vitrinas == null){
-					echo ($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Sorry, No images in the gallery' : 'Lo sentiemos, no se han publicado imagenes en la galería aún.');
+					echo ($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'Sorry, No images in the gallery' : 'Lo sentimos, no se han publicado imagenes en la galería aún.');
 				}
 			?>
 
