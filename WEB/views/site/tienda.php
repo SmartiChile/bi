@@ -85,7 +85,14 @@ $this->title = 'Tienda - '.$model->nombre;
 
 <div class="contenedor-n">
 	<br>
-	<h3 class="h3-movil margen-container"><?= $idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en' ? 'STORES' : 'TIENDAS' ?> - <?php echo $model->nombre;?></h3>
+	<h3 class="h3-movil margen-container">
+		<?php 
+			if($idioma->abreviacion == 'EN' || $idioma->abreviacion == 'en')
+				echo Html::a('STORES', ['site/tiendas', 'lan' => $idioma->abreviacion], ['class' => 'color-gris'])." - ".$model->nombre;
+			else
+				echo Html::a('TIENDAS', ['site/tiendas', 'lan' => $idioma->abreviacion], ['class' => 'color-gris'])." - ".$model->nombre;
+		?>
+	</h3>
 
 	<div class="puntos-separadores no-mostrar"></div>
 

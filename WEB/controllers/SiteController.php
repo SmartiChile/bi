@@ -478,8 +478,8 @@ class SiteController extends Controller
                 $mensaje = 'Se ha enviado un mensaje desde la sección Contacto con la siguiente información <br /><br /> Nombre: '.$model->nombre.' <br /> Email: '.$model->email.' <br /> Teléfono: '.$model->telefono.' <br /><br /> Mensaje:'.$model->mensaje.'';
 
                 Yii::$app->mailer->compose()
-                    ->setFrom('noreply@barrioitalia.cl')
-                    ->setTo('dreck01@gmail.com')
+                    ->setFrom('noreply@barrioitalia.com')
+                    ->setTo('info@barrioitalia.com')
                     ->setSubject('Mensaje desde Contacto Barrio Italia')
                     ->setHtmlBody($mensaje)
                     ->send();
@@ -519,8 +519,8 @@ class SiteController extends Controller
                 $mensaje = 'Se ha enviado un mensaje desde la sección Trabaja con nosotros con la siguiente información <br /><br /> Nombre: '.$model->nombre.' <br /> Email: '.$model->email.' <br /> Teléfono: '.$model->telefono.' <br /> Cargo: '.$tipo.' <br /><br /> Mensaje:'.$model->mensaje.'';
 
                 Yii::$app->mailer->compose()
-                    ->setFrom('noreply@barrioitalia.cl')
-                    ->setTo('dreck01@gmail.com')
+                    ->setFrom('noreply@barrioitalia.com')
+                    ->setTo('info@barrioitalia.com')
                     ->setSubject('Mensaje desde Trabaja con nosotros Barrio Italia')
                     ->attach('../web/images/adjunto/'.$model->adjunto)
                     ->setHtmlBody($mensaje)
@@ -623,7 +623,7 @@ class SiteController extends Controller
                     <br /><br />Para restaurar tu contraseña sigue el siguiente enlace: '.Yii::$app->params['domainName'].'/site/restaurar?id='.$token;
 
                     Yii::$app->mailer->compose()
-                         ->setFrom('noreply@barrioitalia.cl')
+                         ->setFrom('noreply@barrioitalia.com')
                          ->setTo($correo)
                          ->setSubject('Restauración de Contraseña')
                          ->setHtmlBody($mensaje)

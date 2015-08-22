@@ -49,8 +49,8 @@ $config = [
             'transport' => [
                 'class' => 'Swift_SmtpTransport',
                 'host' => 'mail.barrioitalia.com',
-                'username' => 'noreply@ barrioitalia.com',
-                'password' => 'Smarti.barrioitalia',
+                'username' => 'noreply@barrioitalia.com',
+                'password' => 'Smarti.barrioitalia123',
                 'port' => '25',
                 'encryption' => 'tls',
             ],

@@ -2382,3 +2382,7 @@ a .boton-comenzar-ruta2:hover{
 .usuario-menu li a{
 	display: block;
 }
+
+.color-gris{
+	color: #333 !important;
+}
